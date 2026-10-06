@@ -1,0 +1,29 @@
+{
+ "since": "2026-10-06",
+ "banked": {
+  "linux": 0,
+  "mac-apple-silicon": 0,
+  "mac-intel": 0,
+  "windows": 0
+ },
+ "publishes": [
+  {
+   "at": "2026-10-06T17:06Z",
+   "tag": "v0.9",
+   "builds": "mac-build-7, windows-build-3, linux-build-7",
+   "downloads_before": 0
+  }
+ ],
+ "daily": [
+  {
+   "date": "2026-10-06",
+   "counts": {
+    "linux": 0,
+    "mac-apple-silicon": 0,
+    "mac-intel": 0,
+    "windows": 0
+   }
+  }
+ ],
+ "updated": "2026-10-06T17:06Z"
+}
