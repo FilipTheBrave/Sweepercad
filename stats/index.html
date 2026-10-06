@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Stats - SweeperCAD</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #fafafa; color: #222;
+               font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        main { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+        .back { font-size: 14px; color: #666; text-decoration: none; }
+        .back:hover { color: #222; }
+        h1 { margin: 16px 0 4px; font-size: 42px; font-weight: 600; letter-spacing: -1px; }
+        h2 { margin: 48px 0 12px; }
+        p, .muted { color: #666; line-height: 1.6; }
+        .big { font-size: 64px; font-weight: 600; letter-spacing: -2px; margin: 24px 0 0; font-variant-numeric: tabular-nums; }
+        .rows { border-top: 1px solid #ddd; }
+        .row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0;
+               border-bottom: 1px solid #ddd; font-variant-numeric: tabular-nums; }
+        .row span:last-child { font-weight: 600; }
+        .bar { height: 6px; background: #222; border-radius: 3px; margin-top: 6px; }
+        svg { width: 100%; height: auto; display: block; }
+        .note { font-size: 14px; }
+        a { color: inherit; }
+    </style>
+</head>
+<body>
+<main>
+    <a class="back" href="/">&larr; SweeperCAD</a>
+    <h1>Stats</h1>
+    <p class="muted" id="since">Downloads of the app from this site.</p>
+
+    <div class="big" id="total">&hellip;</div>
+    <p class="muted">downloads in total</p>
+
+    <h2>Per platform</h2>
+    <div class="rows" id="platforms"><p class="muted">Loading&hellip;</p></div>
+
+    <h2>Over time</h2>
+    <div id="chart"><p class="muted">Loading&hellip;</p></div>
+
+    <h2>Current release</h2>
+    <div id="release"><p class="muted">Loading&hellip;</p></div>
+
+    <h2>Release history</h2>
+    <div class="rows" id="history"><p class="muted">Loading&hellip;</p></div>
+
+    <p class="note" style="margin-top:40px" id="updated"></p>
+</main>
+<script>
+const NAMES = {"mac-apple-silicon": "Mac (Apple Silicon)", "mac-intel": "Mac (Intel)",
+               "windows": "Windows", "linux": "Linux (beta)"};
+const platform = n => n.replace(/^SweeperCAD-[\d.]+-/, "").replace(/\.(dmg|zip|tar\.gz)$/, "");
+const fmtDate = s => new Date(s).toLocaleString(undefined, {day: "numeric", month: "short", year: "numeric",
+                                                           hour: "2-digit", minute: "2-digit"});
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+async function load() {
+    let saved = {banked: {}, daily: [], publishes: []};
+    try {
+        const r = await fetch("downloads.json?" + Date.now());
+        if (r.ok) saved = Object.assign(saved, await r.json());
+    } catch (e) {}
+    let releases = [];
+    try {
+        const r = await fetch("https://api.github.com/repos/FilipTheBrave/Sweepercad/releases");
+        if (r.ok) releases = await r.json();
+    } catch (e) {}
+
+    // live counts = what was banked at earlier publishes + the files' own counters now
+    const live = {};
+    releases.forEach(rel => (rel.assets || []).forEach(a => {
+        if (a.name.startsWith("SweeperCAD-")) live[platform(a.name)] = (live[platform(a.name)] || 0) + a.download_count;
+    }));
+    const keys = [...new Set([...Object.keys(saved.banked || {}), ...Object.keys(live)])];
+    const totals = {};
+    keys.forEach(k => totals[k] = (saved.banked[k] || 0) + (live[k] || 0));
+    const total = Object.values(totals).reduce((a, b) => a + b, 0);
+    document.getElementById("total").textContent = releases.length || saved.daily.length ? total.toLocaleString() : "?";
+    if (saved.since) document.getElementById("since").textContent =
+        "Downloads of the app from this site, counted since " +
+        new Date(saved.since).toLocaleDateString(undefined, {day: "numeric", month: "long", year: "numeric"}) + ".";
+
+    const max = Math.max(1, ...Object.values(totals));
+    const order = Object.keys(NAMES).filter(k => k in totals).concat(keys.filter(k => !(k in NAMES)));
+    document.getElementById("platforms").innerHTML = order.length ? order.map(k =>
+        `<div style="border-bottom:1px solid #ddd;padding:10px 0">
+           <div style="display:flex;justify-content:space-between"><span>${esc(NAMES[k] || k)}</span>
+           <b style="font-variant-numeric:tabular-nums">${totals[k].toLocaleString()}</b></div>
+           <div class="bar" style="width:${Math.max(0.5, 100 * totals[k] / max)}%"></div></div>`).join("")
+        : '<p class="muted">No downloads counted yet.</p>';
+
+    // the daily totals, with today's live total as the last point
+    const pts = (saved.daily || []).map(d => [d.date, Object.values(d.counts || {}).reduce((a, b) => a + b, 0)]);
+    const today = new Date().toISOString().slice(0, 10);
+    if (releases.length) {
+        if (pts.length && pts[pts.length - 1][0] === today) pts[pts.length - 1][1] = total;
+        else pts.push([today, total]);
+    }
+    const ch = document.getElementById("chart");
+    if (pts.length < 2) {
+        ch.innerHTML = '<p class="muted">The chart starts once there are two days of numbers - a snapshot is taken every evening.</p>';
+    } else {
+        const W = 680, H = 200, L = 40, B = 24, top = Math.max(1, ...pts.map(p => p[1]));
+        const x = i => L + (W - L - 10) * i / (pts.length - 1), y = v => H - B - (H - B - 10) * v / top;
+        const path = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(p[1]).toFixed(1)).join(" ");
+        const lab = i => new Date(pts[i][0]).toLocaleDateString(undefined, {day: "numeric", month: "short"});
+        ch.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Total downloads per day">
+            <line x1="${L}" y1="${H - B}" x2="${W - 10}" y2="${H - B}" stroke="#ddd"/>
+            <text x="${L - 6}" y="${y(top) + 4}" text-anchor="end" font-size="11" fill="#666">${top}</text>
+            <text x="${L - 6}" y="${H - B + 4}" text-anchor="end" font-size="11" fill="#666">0</text>
+            <path d="${path}" fill="none" stroke="#222" stroke-width="2"/>
+            ${pts.map((p, i) => `<circle cx="${x(i)}" cy="${y(p[1])}" r="3" fill="#222"><title>${esc(p[0])}: ${p[1]}</title></circle>`).join("")}
+            <text x="${L}" y="${H - 6}" font-size="11" fill="#666">${lab(0)}</text>
+            <text x="${W - 10}" y="${H - 6}" text-anchor="end" font-size="11" fill="#666">${lab(pts.length - 1)}</text>
+        </svg>`;
+    }
+
+    const rel = releases[0];
+    document.getElementById("release").innerHTML = rel ? `
+        <p><b>${esc(rel.name || rel.tag_name)}</b> &middot; files updated ${fmtDate(
+            (rel.assets || []).map(a => a.updated_at).sort().pop() || rel.published_at)}</p>
+        <div class="rows">${(rel.assets || []).filter(a => a.name.startsWith("SweeperCAD-")).map(a =>
+            `<div class="row"><span>${esc(NAMES[platform(a.name)] || a.name)}</span>
+             <span>${(a.size / 1048576).toFixed(0)} MB</span></div>`).join("")}</div>`
+        : '<p class="muted">Could not reach GitHub just now - try again in a minute.</p>';
+
+    const pubs = (saved.publishes || []).slice().reverse();
+    document.getElementById("history").innerHTML = pubs.length ? pubs.map(p =>
+        `<div class="row"><span>${fmtDate(p.at)}${p.builds ? ` <span class="muted" style="font-weight:400"> &middot; ${esc(p.builds)}</span>` : ""}</span>
+         <span>${esc(p.tag || "")}</span></div>`).join("")
+        : '<p class="muted">Each new publish will be listed here.</p>';
+
+    if (saved.updated) document.getElementById("updated").textContent =
+        "Totals are live from GitHub; the daily snapshot was last saved " + fmtDate(saved.updated) + ".";
+}
+load();
+</script>
+</body>
+</html>
