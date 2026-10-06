@@ -9,19 +9,25 @@
         * { box-sizing: border-box; }
         body { margin: 0; background: #fafafa; color: #222;
                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        main { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+        main { max-width: 760px; margin: 0 auto; padding: 80px 24px; }
         .back { font-size: 14px; color: #666; text-decoration: none; }
         .back:hover { color: #222; }
         h1 { margin: 16px 0 4px; font-size: 42px; font-weight: 600; letter-spacing: -1px; }
-        h2 { margin: 48px 0 12px; }
+        h2 { margin: 56px 0 4px; }
+        h3 { margin: 28px 0 8px; font-size: 15px; }
         p, .muted { color: #666; line-height: 1.6; }
-        .big { font-size: 64px; font-weight: 600; letter-spacing: -2px; margin: 24px 0 0; font-variant-numeric: tabular-nums; }
-        .rows { border-top: 1px solid #ddd; }
-        .row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0;
-               border-bottom: 1px solid #ddd; font-variant-numeric: tabular-nums; }
-        .row span:last-child { font-weight: 600; }
-        .bar { height: 6px; background: #222; border-radius: 3px; margin-top: 6px; }
-        svg { width: 100%; height: auto; display: block; }
+        .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 20px; }
+        .tile { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 14px 16px; }
+        .tile b { display: block; font-size: 30px; font-weight: 600; letter-spacing: -1px; font-variant-numeric: tabular-nums; }
+        .tile span { font-size: 13px; color: #666; }
+        .card { background: white; border: 1px solid #ddd; border-radius: 6px; padding: 16px; margin-top: 12px; }
+        .row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0;
+               border-bottom: 1px solid #eee; font-variant-numeric: tabular-nums; }
+        .row:last-child { border-bottom: 0; }
+        .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: #444; margin-top: 8px; }
+        .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+        svg { width: 100%; height: auto; display: block; overflow: visible; }
+        .ok { color: #2f855a; } .bad { color: #c53030; }
         .note { font-size: 14px; }
         a { color: inherit; }
     </style>
@@ -30,111 +36,161 @@
 <main>
     <a class="back" href="/">&larr; SweeperCAD</a>
     <h1>Stats</h1>
-    <p class="muted" id="since">Downloads of the app from this site.</p>
+    <p class="muted" id="since">Everything we can count about SweeperCAD.</p>
 
-    <div class="big" id="total">&hellip;</div>
-    <p class="muted">downloads in total</p>
+    <div class="tiles">
+        <div class="tile"><b id="t-dl">&hellip;</b><span>downloads</span></div>
+        <div class="tile"><b id="t-views">&hellip;</b><span>GitHub visits, 14 days</span></div>
+        <div class="tile"><b id="t-week">&hellip;</b><span>changes this week</span></div>
+        <div class="tile"><b id="t-stars">&hellip;</b><span>GitHub stars</span></div>
+    </div>
 
-    <h2>Per platform</h2>
-    <div class="rows" id="platforms"><p class="muted">Loading&hellip;</p></div>
+    <h2>Downloads</h2>
+    <p class="muted">Every download of the app, from the buttons on this site.</p>
+    <div class="card"><h3 style="margin-top:0">Per platform</h3><div id="platforms"></div></div>
+    <div class="card"><h3 style="margin-top:0">Over time</h3><div id="dl-chart"></div><div class="legend" id="dl-legend"></div></div>
 
-    <h2>Over time</h2>
-    <div id="chart"><p class="muted">Loading&hellip;</p></div>
+    <h2>Visitors</h2>
+    <div class="card">
+        <h3 style="margin-top:0">Website (sweepercad.com)</h3>
+        <p class="muted" style="margin:0">Not counted yet. Visits, countries and where people come from need a
+            free <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> account (no cookies, no banner).</p>
+    </div>
+    <div class="card"><h3 style="margin-top:0">GitHub page, per day</h3><div id="views-chart"></div>
+        <div class="legend"><span><i style="background:#222"></i>visits</span><span><i style="background:#9aa5b1"></i>unique visitors</span></div></div>
+    <div class="card"><h3 style="margin-top:0">Where GitHub visitors came from (14 days)</h3><div id="referrers"></div></div>
 
-    <h2>Current release</h2>
-    <div id="release"><p class="muted">Loading&hellip;</p></div>
+    <h2>Development</h2>
+    <div class="card"><h3 style="margin-top:0">Changes per day, last 30 days</h3><div id="changes-chart"></div></div>
+    <div class="card"><h3 style="margin-top:0">Latest builds</h3><div id="builds"></div></div>
 
-    <h2>Release history</h2>
-    <div class="rows" id="history"><p class="muted">Loading&hellip;</p></div>
+    <h2>Releases</h2>
+    <div class="card"><h3 style="margin-top:0" id="rel-title">Current release</h3><div id="release"></div></div>
+    <div class="card"><h3 style="margin-top:0">Publish history</h3><div id="history"></div></div>
 
     <p class="note" style="margin-top:40px" id="updated"></p>
 </main>
 <script>
-const NAMES = {"mac-apple-silicon": "Mac (Apple Silicon)", "mac-intel": "Mac (Intel)",
-               "windows": "Windows", "linux": "Linux (beta)"};
+const NAMES = {"mac-apple-silicon": "Mac (Apple Silicon)", "mac-intel": "Mac (Intel)", "windows": "Windows", "linux": "Linux (beta)"};
+const COLORS = {"mac-apple-silicon": "#2b6cb0", "mac-intel": "#6b46c1", "windows": "#c05621", "linux": "#2f855a"};
 const platform = n => n.replace(/^SweeperCAD-[\d.]+-/, "").replace(/\.(dmg|zip|tar\.gz)$/, "");
-const fmtDate = s => new Date(s).toLocaleString(undefined, {day: "numeric", month: "short", year: "numeric",
-                                                           hour: "2-digit", minute: "2-digit"});
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const when = s => new Date(s).toLocaleString(undefined, {day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit"});
+const day = s => new Date(s + "T12:00:00").toLocaleDateString(undefined, {day: "numeric", month: "short"});
+const sum = o => Object.values(o || {}).reduce((a, b) => a + b, 0);
+const empty = t => `<p class="muted" style="margin:0">${t}</p>`;
+
+// LINES: series [{name, color, values}] over labels; BARS: groups of values per label
+function chart(labels, series, kind) {
+    const W = 700, H = 210, L = 34, B = 26, T = 8;
+    const top = Math.max(1, ...series.flatMap(s => s.values));
+    const nice = top <= 5 ? top : Math.ceil(top / 5) * 5;
+    const n = labels.length, x0 = L, x1 = W - 6;
+    const y = v => H - B - (H - B - T) * v / nice;
+    let g = "";
+    for (const v of [0, nice / 2, nice]) {
+        g += `<line x1="${x0}" x2="${x1}" y1="${y(v)}" y2="${y(v)}" stroke="#eee"/>`;
+        g += `<text x="${x0 - 6}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="#666">${Number.isInteger(v) ? v : v.toFixed(1)}</text>`;
+    }
+    const step = Math.max(1, Math.ceil(n / 6));
+    if (kind === "bars") {
+        const bw = (x1 - x0) / n, inner = bw * 0.75 / series.length;
+        series.forEach((s, k) => s.values.forEach((v, i) => {
+            const bx = x0 + i * bw + bw * 0.125 + k * inner;
+            g += `<rect x="${bx.toFixed(1)}" y="${y(v).toFixed(1)}" width="${Math.max(1, inner - 1).toFixed(1)}" height="${(H - B - y(v)).toFixed(1)}" fill="${s.color}" rx="1.5"><title>${esc(day(labels[i]))}: ${v} ${esc(s.name)}</title></rect>`;
+        }));
+        labels.forEach((l, i) => { if (i % step === 0 || i === n - 1)
+            g += `<text x="${(x0 + i * bw + bw / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle" font-size="11" fill="#666">${esc(day(l))}</text>`; });
+    } else {
+        const x = i => n === 1 ? (x0 + x1) / 2 : x0 + (x1 - x0) * i / (n - 1);
+        series.forEach(s => {
+            g += `<path d="${s.values.map((v, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(v).toFixed(1)).join(" ")}" fill="none" stroke="${s.color}" stroke-width="${s.width || 2}"/>`;
+            s.values.forEach((v, i) => g += `<circle cx="${x(i).toFixed(1)}" cy="${y(v).toFixed(1)}" r="${s.width ? 3.5 : 2.5}" fill="${s.color}"><title>${esc(day(labels[i]))}: ${v} ${esc(s.name)}</title></circle>`);
+        });
+        labels.forEach((l, i) => { if (i % step === 0 || i === n - 1)
+            g += `<text x="${x(i).toFixed(1)}" y="${H - 8}" text-anchor="${n === 1 ? "middle" : i === 0 ? "start" : i === n - 1 ? "end" : "middle"}" font-size="11" fill="#666">${esc(day(l))}</text>`; });
+    }
+    return `<svg viewBox="0 0 ${W} ${H}" role="img">${g}</svg>`;
+}
 
 async function load() {
-    let saved = {banked: {}, daily: [], publishes: []};
-    try {
-        const r = await fetch("downloads.json?" + Date.now());
-        if (r.ok) saved = Object.assign(saved, await r.json());
-    } catch (e) {}
+    let S = {banked: {}, daily: [], publishes: [], extra: {}};
+    try { const r = await fetch("downloads.json?" + Date.now()); if (r.ok) S = Object.assign(S, await r.json()); } catch (e) {}
     let releases = [];
-    try {
-        const r = await fetch("https://api.github.com/repos/FilipTheBrave/Sweepercad/releases");
-        if (r.ok) releases = await r.json();
-    } catch (e) {}
+    try { const r = await fetch("https://api.github.com/repos/FilipTheBrave/Sweepercad/releases"); if (r.ok) releases = await r.json(); } catch (e) {}
+    const ex = S.extra || {};
 
-    // live counts = what was banked at earlier publishes + the files' own counters now
+    // downloads: banked at earlier publishes + the files' own counters right now
     const live = {};
     releases.forEach(rel => (rel.assets || []).forEach(a => {
-        if (a.name.startsWith("SweeperCAD-")) live[platform(a.name)] = (live[platform(a.name)] || 0) + a.download_count;
-    }));
-    const keys = [...new Set([...Object.keys(saved.banked || {}), ...Object.keys(live)])];
-    const totals = {};
-    keys.forEach(k => totals[k] = (saved.banked[k] || 0) + (live[k] || 0));
-    const total = Object.values(totals).reduce((a, b) => a + b, 0);
-    document.getElementById("total").textContent = releases.length || saved.daily.length ? total.toLocaleString() : "?";
-    if (saved.since) document.getElementById("since").textContent =
-        "Downloads of the app from this site, counted since " +
-        new Date(saved.since).toLocaleDateString(undefined, {day: "numeric", month: "long", year: "numeric"}) + ".";
-
+        if (a.name.startsWith("SweeperCAD-")) live[platform(a.name)] = (live[platform(a.name)] || 0) + a.download_count; }));
+    const keys = [...new Set([...Object.keys(NAMES), ...Object.keys(S.banked || {}), ...Object.keys(live)])];
+    const totals = {}; keys.forEach(k => totals[k] = (S.banked[k] || 0) + (live[k] || 0));
+    const total = sum(totals);
+    document.getElementById("t-dl").textContent = total.toLocaleString();
+    if (S.since) document.getElementById("since").textContent = "Everything we can count about SweeperCAD. Downloads counted since " +
+        new Date(S.since + "T12:00:00").toLocaleDateString(undefined, {day: "numeric", month: "long", year: "numeric"}) + ".";
     const max = Math.max(1, ...Object.values(totals));
-    const order = Object.keys(NAMES).filter(k => k in totals).concat(keys.filter(k => !(k in NAMES)));
-    document.getElementById("platforms").innerHTML = order.length ? order.map(k =>
-        `<div style="border-bottom:1px solid #ddd;padding:10px 0">
-           <div style="display:flex;justify-content:space-between"><span>${esc(NAMES[k] || k)}</span>
-           <b style="font-variant-numeric:tabular-nums">${totals[k].toLocaleString()}</b></div>
-           <div class="bar" style="width:${Math.max(0.5, 100 * totals[k] / max)}%"></div></div>`).join("")
-        : '<p class="muted">No downloads counted yet.</p>';
+    document.getElementById("platforms").innerHTML = keys.map(k => `
+        <div style="padding:8px 0">
+          <div style="display:flex;justify-content:space-between"><span>${esc(NAMES[k] || k)}</span><b style="font-variant-numeric:tabular-nums">${totals[k].toLocaleString()}</b></div>
+          <div style="height:8px;background:#eee;border-radius:4px;margin-top:6px"><div style="height:8px;width:${100 * totals[k] / max}%;background:${COLORS[k] || "#222"};border-radius:4px"></div></div>
+        </div>`).join("");
 
-    // the daily totals, with today's live total as the last point
-    const pts = (saved.daily || []).map(d => [d.date, Object.values(d.counts || {}).reduce((a, b) => a + b, 0)]);
+    // downloads over time: the daily snapshots, today's live numbers last
+    const daily = (S.daily || []).map(d => ({date: d.date, counts: Object.assign({}, d.counts)}));
     const today = new Date().toISOString().slice(0, 10);
     if (releases.length) {
-        if (pts.length && pts[pts.length - 1][0] === today) pts[pts.length - 1][1] = total;
-        else pts.push([today, total]);
+        if (daily.length && daily[daily.length - 1].date === today) daily[daily.length - 1].counts = totals;
+        else daily.push({date: today, counts: totals});
     }
-    const ch = document.getElementById("chart");
-    if (pts.length < 2) {
-        ch.innerHTML = '<p class="muted">The chart starts once there are two days of numbers - a snapshot is taken every evening.</p>';
-    } else {
-        const W = 680, H = 200, L = 40, B = 24, top = Math.max(1, ...pts.map(p => p[1]));
-        const x = i => L + (W - L - 10) * i / (pts.length - 1), y = v => H - B - (H - B - 10) * v / top;
-        const path = pts.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(p[1]).toFixed(1)).join(" ");
-        const lab = i => new Date(pts[i][0]).toLocaleDateString(undefined, {day: "numeric", month: "short"});
-        ch.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Total downloads per day">
-            <line x1="${L}" y1="${H - B}" x2="${W - 10}" y2="${H - B}" stroke="#ddd"/>
-            <text x="${L - 6}" y="${y(top) + 4}" text-anchor="end" font-size="11" fill="#666">${top}</text>
-            <text x="${L - 6}" y="${H - B + 4}" text-anchor="end" font-size="11" fill="#666">0</text>
-            <path d="${path}" fill="none" stroke="#222" stroke-width="2"/>
-            ${pts.map((p, i) => `<circle cx="${x(i)}" cy="${y(p[1])}" r="3" fill="#222"><title>${esc(p[0])}: ${p[1]}</title></circle>`).join("")}
-            <text x="${L}" y="${H - 6}" font-size="11" fill="#666">${lab(0)}</text>
-            <text x="${W - 10}" y="${H - 6}" text-anchor="end" font-size="11" fill="#666">${lab(pts.length - 1)}</text>
-        </svg>`;
+    const dlab = daily.map(d => d.date);
+    if (!daily.length) document.getElementById("dl-chart").innerHTML = empty("No numbers yet.");
+    else {
+        const series = [{name: "total", color: "#222", width: 3, values: daily.map(d => sum(d.counts))}]
+            .concat(keys.map(k => ({name: NAMES[k] || k, color: COLORS[k] || "#999", values: daily.map(d => d.counts[k] || 0)})));
+        document.getElementById("dl-chart").innerHTML = chart(dlab, series, "lines") +
+            (daily.length < 2 ? empty("One day so far - a snapshot is added every evening.") : "");
+        document.getElementById("dl-legend").innerHTML = series.map(s => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join("");
     }
 
+    // GitHub page visits (GitHub keeps 14 days; the daily job keeps them all)
+    const views = ex.views || [];
+    const last14 = views.slice(-14);
+    document.getElementById("t-views").textContent = views.length ? sum(Object.fromEntries(last14.map(v => [v.date, v.count]))) : "-";
+    document.getElementById("views-chart").innerHTML = views.length ? chart(views.slice(-30).map(v => v.date),
+        [{name: "visits", color: "#222", values: views.slice(-30).map(v => v.count)},
+         {name: "unique visitors", color: "#9aa5b1", values: views.slice(-30).map(v => v.uniques)}], "bars") : empty("No numbers yet.");
+    const refs = ex.referrers || [];
+    document.getElementById("referrers").innerHTML = refs.length ? refs.map(r =>
+        `<div class="row"><span>${esc(r.site)}</span><span>${r.count} ${r.count === 1 ? "visit" : "visits"} &middot; ${r.uniques} ${r.uniques === 1 ? "person" : "people"}</span></div>`).join("")
+        : empty("Nobody arrived from another site yet.");
+    document.getElementById("t-stars").textContent = ex.github ? ex.github.stars : "-";
+
+    // development
+    const ch = ex.changes || {};
+    document.getElementById("t-week").textContent = ch.week != null ? ch.week : "-";
+    document.getElementById("changes-chart").innerHTML = (ch.daily || []).length ?
+        chart(ch.daily.map(d => d.date), [{name: "changes", color: "#2b6cb0", values: ch.daily.map(d => d.count)}], "bars") +
+        `<p class="muted" style="margin:8px 0 0">${ch.week} this week &middot; ${ch.month} in 30 days</p>` : empty("No numbers yet.");
+    const b = ex.builds || {};
+    document.getElementById("builds").innerHTML = Object.keys(b).length ? Object.entries(b).map(([k, v]) =>
+        `<div class="row"><span>${esc(k)}</span><span>${when(v.at)} &nbsp;<b class="${v.ok ? "ok" : "bad"}">${v.ok ? "&#10003; passed" : "&#10007; failed"}</b></span></div>`).join("")
+        : empty("No numbers yet.");
+
+    // releases
     const rel = releases[0];
-    document.getElementById("release").innerHTML = rel ? `
-        <p><b>${esc(rel.name || rel.tag_name)}</b> &middot; files updated ${fmtDate(
-            (rel.assets || []).map(a => a.updated_at).sort().pop() || rel.published_at)}</p>
-        <div class="rows">${(rel.assets || []).filter(a => a.name.startsWith("SweeperCAD-")).map(a =>
-            `<div class="row"><span>${esc(NAMES[platform(a.name)] || a.name)}</span>
-             <span>${(a.size / 1048576).toFixed(0)} MB</span></div>`).join("")}</div>`
-        : '<p class="muted">Could not reach GitHub just now - try again in a minute.</p>';
-
-    const pubs = (saved.publishes || []).slice().reverse();
+    if (rel) document.getElementById("rel-title").textContent = "Current release: " + (rel.name || rel.tag_name);
+    document.getElementById("release").innerHTML = rel ? (rel.assets || []).filter(a => a.name.startsWith("SweeperCAD-")).map(a =>
+        `<div class="row"><span>${esc(NAMES[platform(a.name)] || a.name)}</span><span class="muted">${(a.size / 1048576).toFixed(0)} MB &middot; ${when(a.updated_at)}</span></div>`).join("")
+        : empty("Could not reach GitHub just now - try again in a minute.");
+    const pubs = (S.publishes || []).slice().reverse();
     document.getElementById("history").innerHTML = pubs.length ? pubs.map(p =>
-        `<div class="row"><span>${fmtDate(p.at)}${p.builds ? ` <span class="muted" style="font-weight:400"> &middot; ${esc(p.builds)}</span>` : ""}</span>
-         <span>${esc(p.tag || "")}</span></div>`).join("")
-        : '<p class="muted">Each new publish will be listed here.</p>';
+        `<div class="row"><span>${when(p.at)} <span class="muted">&middot; ${esc(p.tag || "")}</span></span><span class="muted">${esc(p.builds || "")}</span></div>`).join("")
+        : empty("Each new publish will be listed here.");
 
-    if (saved.updated) document.getElementById("updated").textContent =
-        "Totals are live from GitHub; the daily snapshot was last saved " + fmtDate(saved.updated) + ".";
+    if (S.updated) document.getElementById("updated").textContent =
+        "Downloads and releases are live from GitHub. Everything else is saved every evening; last saved " + when(S.updated) + ".";
 }
 load();
 </script>
