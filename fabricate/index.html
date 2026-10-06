@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabricate - SweeperCAD</title>
+    <meta name="description" content="From a SweeperCAD model to a real object: printing, machining and casting services and tools.">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; background: #fafafa; color: #222;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        main { max-width: 720px; margin: 0 auto; padding: 80px 24px; }
+        .back { font-size: 14px; color: #666; text-decoration: none; }
+        .back:hover { color: #222; }
+        h1 { margin: 16px 0 12px; font-size: 42px; font-weight: 600; letter-spacing: -1px; }
+        h2 { margin: 48px 0 4px; }
+        p { color: #666; line-height: 1.6; }
+        .description { font-size: 18px; margin-bottom: 8px; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin-top: 14px; }
+        .card {
+            display: block; padding: 16px; border: 1px solid #ddd; border-radius: 6px;
+            background: white; text-decoration: none; color: #222;
+        }
+        .card:hover { border-color: #222; }
+        .card b { display: block; margin-bottom: 4px; }
+        .card span { font-size: 14px; color: #666; line-height: 1.5; }
+        .slot { border-style: dashed; background: transparent; }
+        .slot b { color: #666; }
+        .advertise {
+            margin-top: 60px; padding-top: 24px; border-top: 1px solid #ddd;
+        }
+        .button {
+            display: inline-block; padding: 12px 20px; background: #222; color: white;
+            text-decoration: none; border-radius: 6px; font-weight: 500;
+        }
+        .button:hover { background: #444; }
+        .note { font-size: 14px; }
+        a { color: inherit; }
+    </style>
+</head>
+<body>
+<main>
+
+    <a class="back" href="/">&larr; SweeperCAD</a>
+
+    <h1>Fabricate</h1>
+    <p class="description">From a model on screen to an object in your hand.</p>
+    <p>SweeperCAD exports STL, 3MF, OBJ and STEP. These are the services and tools we
+        suggest for turning your designs into real things.</p>
+
+    <!--
+        HOW TO ADD A LINK: copy one <a class="card"> block into the right
+        section and fill in the address, the name and one line about it.
+        A section with no links shows its "Your link here" slot.
+    -->
+
+    <section>
+        <h2>3D printing</h2>
+        <p>Printers, filament and resin, or a service that prints and ships it to you.</p>
+        <div class="cards"></div>
+    </section>
+
+    <section>
+        <h2>Machining</h2>
+        <p>CNC services, small machines and tooling for aluminium and other metals.</p>
+        <div class="cards"></div>
+    </section>
+
+    <section>
+        <h2>Casting</h2>
+        <p>From a printed pattern to bronze, aluminium or resin: casting services and supplies.</p>
+        <div class="cards"></div>
+    </section>
+
+    <section>
+        <h2>Workshop</h2>
+        <p>Measuring tools, finishing and everything else on the bench.</p>
+        <div class="cards"></div>
+    </section>
+
+    <section class="advertise" id="advertise">
+        <h2 style="margin-top:0">Your link here?</h2>
+        <p>Do you make, sell or fabricate things that SweeperCAD users need?
+            Put your link in front of people who design for printing, machining and casting.</p>
+        <a class="button" href="https://tally.so/r/b5A58E" target="_blank" rel="noopener">Get in touch</a>
+    </section>
+
+    <p class="note" style="margin-top:40px">
+        Some links on this page are affiliate links: if you buy through them, SweeperCAD may earn
+        a small commission at no extra cost to you. It helps keep SweeperCAD free.
+    </p>
+
+</main>
+<script>
+    // an empty section shows an ad slot instead of a gap
+    document.querySelectorAll(".cards").forEach(function (box) {
+        if (box.querySelector(".card")) return;
+        var a = document.createElement("a");
+        a.className = "card slot"; a.href = "#advertise";
+        a.innerHTML = "<b>Your link here</b><span>Reach makers who design for this. Get in touch below.</span>";
+        box.appendChild(a);
+    });
+</script>
+</body>
+</html>
