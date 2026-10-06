@@ -48,37 +48,22 @@
     <h1>Fabricate</h1>
     <p class="description">From a model on screen to an object in your hand.</p>
     <p>SweeperCAD exports STL, 3MF, OBJ and STEP. These are the services and tools we
-        suggest for turning your designs into real things.</p>
+        suggest for turning your designs into real things: printing, machining, casting and more.</p>
 
     <!--
-        HOW TO ADD A LINK: copy one <a class="card"> block into the right
-        section and fill in the address, the name and one line about it.
-        A section with no links shows its "Your link here" slot.
+        HOW TO ADD A LINK: copy this block inside <div class="cards">,
+        above the "Your link here" card, and fill in the address, the name
+        and one line about it:
+
+        <a class="card" href="https://..." target="_blank" rel="sponsored noopener">
+            <b>Company name</b><span>What they do, in one line.</span>
+        </a>
     -->
-
-    <section>
-        <h2>3D printing</h2>
-        <p>Printers, filament and resin, or a service that prints and ships it to you.</p>
-        <div class="cards"></div>
-    </section>
-
-    <section>
-        <h2>Machining</h2>
-        <p>CNC services, small machines and tooling for aluminium and other metals.</p>
-        <div class="cards"></div>
-    </section>
-
-    <section>
-        <h2>Casting</h2>
-        <p>From a printed pattern to bronze, aluminium or resin: casting services and supplies.</p>
-        <div class="cards"></div>
-    </section>
-
-    <section>
-        <h2>Workshop</h2>
-        <p>Measuring tools, finishing and everything else on the bench.</p>
-        <div class="cards"></div>
-    </section>
+    <div class="cards" style="margin-top:32px">
+        <a class="card slot" href="#advertise">
+            <b>Your link here</b><span>Reach makers who design for printing, machining and casting.</span>
+        </a>
+    </div>
 
     <section class="advertise" id="advertise">
         <h2 style="margin-top:0">Your link here?</h2>
@@ -93,15 +78,5 @@
     </p>
 
 </main>
-<script>
-    // an empty section shows an ad slot instead of a gap
-    document.querySelectorAll(".cards").forEach(function (box) {
-        if (box.querySelector(".card")) return;
-        var a = document.createElement("a");
-        a.className = "card slot"; a.href = "#advertise";
-        a.innerHTML = "<b>Your link here</b><span>Reach makers who design for this. Get in touch below.</span>";
-        box.appendChild(a);
-    });
-</script>
 </body>
 </html>
