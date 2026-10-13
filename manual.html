@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SweeperCAD user manual</title>
+<meta name="description" content="The SweeperCAD user manual: drawing, sweeping, combining, fillets, checks, casting, machining, unfold and export.">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #fafafa; color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+a { color: inherit; }
+.top { position: sticky; top: 0; z-index: 5; background: #fafafa; border-bottom: 1px solid #e4e4e4;
+  display: flex; align-items: center; gap: 14px; padding: 12px 24px; }
+.top .brand { font-weight: 600; font-size: 18px; text-decoration: none; }
+.top .grow { flex: 1; }
+.top input { width: 260px; max-width: 40vw; padding: 7px 10px; border: 1px solid #ccc; border-radius: 6px; font: inherit; font-size: 14px; background: #fff; }
+.pdf { display: inline-block; padding: 8px 14px; background: #222; color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.pdf:hover { background: #444; }
+.wrap { display: flex; max-width: 1200px; margin: 0 auto; }
+nav { width: 290px; flex: none; position: sticky; top: 58px; align-self: flex-start; max-height: calc(100vh - 58px);
+  overflow: auto; padding: 24px 12px 40px 24px; font-size: 14px; }
+nav ul { list-style: none; margin: 0; padding: 0; }
+nav li.ch { margin: 0 0 12px; }
+nav li.ch > a { font-weight: 600; text-decoration: none; }
+nav li.ch ul { margin: 4px 0 0 10px; }
+nav li.ch ul li { margin: 3px 0; }
+nav li.ch ul a { color: #666; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+main { flex: 1; min-width: 0; max-width: 820px; padding: 32px 24px 120px; }
+h1 { margin: 8px 0 6px; font-size: 40px; font-weight: 600; letter-spacing: -1px; }
+.lead { color: #666; font-size: 17px; line-height: 1.6; margin: 0 0 8px; }
+h2 { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; margin: 64px 0 8px; padding-top: 12px; border-top: 1px solid #ddd; }
+h3 { font-size: 21px; font-weight: 600; margin: 40px 0 8px; }
+h4 { font-size: 16px; margin: 24px 0 6px; }
+p, li { color: #444; line-height: 1.65; }
+main li { margin: 4px 0; }
+code { background: #eee; padding: 1px 5px; border-radius: 4px; font-size: 90%; }
+pre { background: #1f2630; color: #e8ecf1; padding: 14px 16px; border-radius: 6px; overflow: auto; font-size: 13px; line-height: 1.5; }
+pre code { background: none; padding: 0; color: inherit; }
+table { border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+td, th { border: 1px solid #ddd; padding: 6px 10px; text-align: left; vertical-align: top; }
+figure { margin: 20px 0 24px; }
+figure img { width: 100%; height: auto; border-radius: 6px; border: 1px solid #ddd; display: block; }
+figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; }
+.hit { background: #fff1b8; }
+.none { color: #999; display: none; }
+.cover, .ptoc { display: none; }
+.foot { margin-top: 80px; padding-top: 18px; border-top: 1px solid #ddd; font-size: 14px; color: #888; }
+@media (max-width: 860px) {
+  nav { display: none; }
+  .top input { width: 150px; }
+}
+@media print {
+  @page { size: A4; margin: 18mm 16mm; }
+  .top, nav, .foot, .onscreen { display: none !important; }
+  body { background: #fff; }
+  .wrap { display: block; }
+  main { max-width: none; padding: 0; }
+  .cover { display: flex; flex-direction: column; justify-content: center; height: 245mm; page-break-after: always; }
+  .cover h1 { font-size: 54px; }
+  .cover .sub { font-size: 22px; color: #666; }
+  .cover .ver { margin-top: 40px; font-size: 14px; color: #888; }
+  .ptoc { display: block; page-break-after: always; }
+  .ptoc ul { list-style: none; padding: 0; }
+  .ptoc li.ch { margin: 10px 0 2px; font-weight: 600; }
+  .ptoc li.ch ul { font-weight: 400; margin-left: 14px; font-size: 12px; columns: 2; }
+  .ptoc a { text-decoration: none; }
+  h2 { page-break-before: always; border-top: none; margin-top: 0; }
+  h3, h4 { page-break-after: avoid; }
+  figure { page-break-inside: avoid; }
+  figure img { max-height: 120mm; width: auto; max-width: 100%; }
+  p, li { color: #222; font-size: 10.5pt; orphans: 3; widows: 3; }
+  a { text-decoration: none; }
+  pre { white-space: pre-wrap; background: #f4f4f4; color: #222; border: 1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="index.html">SweeperCAD</a>
+  <span style="color:#999">user manual</span>
+  <span class="grow"></span>
+  <input id="q" type="search" placeholder="search the manual…" aria-label="search the manual">
+  <a class="pdf" href="sweepercad-manual.pdf" download>Download PDF</a>
+</div>
+<div class="wrap">
+<nav id="toc"><ul>
+<li class="ch"><a href="#welcome">Welcome</a><ul><li><a href="#the-window">The window</a></li></ul></li>
+<li class="ch"><a href="#ch1">1. Getting started</a><ul><li><a href="#the-first-run-screen">The first-run screen</a></li><li><a href="#the-splash-screen">The splash screen</a></li><li><a href="#the-terms-updates-and-what-this-is-for">The terms, updates, and what this is for</a></li></ul></li>
+<li class="ch"><a href="#ch2">2. Drawing and shaping</a><ul><li><a href="#the-four-graphs">The four graphs</a></li><li><a href="#drawing">Drawing</a></li><li><a href="#drawing-a-spine-or-a-profile">Drawing a spine or a profile</a></li><li><a href="#circular-arcs">Circular arcs</a></li><li><a href="#the-profile-s-radius">The profile&#x27;s radius</a></li><li><a href="#offset-and-mirror-a-drawing-how-to-hollow-something">Offset and mirror a drawing — how to hollow something</a></li><li><a href="#guides-measuring-to-another-object">Guides — measuring to another object</a></li><li><a href="#placing-a-section-as-a-profile">Placing a section as a profile</a></li><li><a href="#where-the-scale-scales-from">Where the scale scales from</a></li><li><a href="#twist-and-roll">Twist and roll</a></li><li><a href="#asymmetric-scale">Asymmetric scale</a></li></ul></li>
+<li class="ch"><a href="#ch3">3. The 3D view</a><ul><li><a href="#the-3d-view-s-own-controls">The 3D view&#x27;s own controls</a></li><li><a href="#editing-in-the-3d-view">Editing in the 3D view</a></li><li><a href="#editing-points-in-the-3d-view">Editing points in the 3D view</a></li><li><a href="#what-a-click-selects">What a click selects</a></li><li><a href="#moving-the-gizmo-for-a-moment">Moving the gizmo for a moment</a></li><li><a href="#how-the-model-is-drawn">How the model is drawn</a></li><li><a href="#the-bottom-left-row-and-the-right-click-menu">The bottom-left row and the right-click menu</a></li><li><a href="#right-click">Right-click</a></li><li><a href="#draft-mode-when-the-scene-gets-heavy">Draft mode — when the scene gets heavy</a></li></ul></li>
+<li class="ch"><a href="#ch4">4. Building parts</a><ul><li><a href="#placing-objects-exactly">Placing objects exactly</a></li><li><a href="#nodes">Nodes</a></li><li><a href="#keep-only-what-s-inside">Keep only what&#x27;s inside (∩)</a></li><li><a href="#mirroring-an-object">Mirroring an object</a></li><li><a href="#a-stack-of-objects">A stack of objects</a></li><li><a href="#a-stack-of-sweeps-from-cuts">A stack of sweeps from cuts</a></li><li><a href="#arrays-along-a-curve-or-on-a-surface">Arrays - along a curve or on a surface</a></li><li><a href="#hollow">Hollow</a></li><li><a href="#the-lattice-node">The lattice node</a></li><li><a href="#parameters">Parameters</a></li></ul></li>
+<li class="ch"><a href="#ch5">5. Fillets and chamfers</a><ul><li><a href="#rounding-and-chamfering-a-corner">Rounding and chamfering a corner</a></li><li><a href="#a-fillet-that-changes-along-the-seam">A fillet that changes along the seam</a></li><li><a href="#smooth-curvature-continuous-fillets">Smooth (curvature-continuous) fillets</a></li><li><a href="#an-uneven-chamfer">An uneven chamfer</a></li><li><a href="#when-a-fillet-will-not-take">When a fillet will not take</a></li></ul></li>
+<li class="ch"><a href="#ch6">6. Surfaces, routes and more</a><ul><li><a href="#drawing-on-the-surface">Drawing on the surface</a></li><li><a href="#extracting-a-line-from-a-surface">Extracting a line from a surface</a></li><li><a href="#building-it-from-struts">Building it from struts</a></li><li><a href="#routes">Routes</a></li><li><a href="#drop-onto-the-floor">Drop onto the floor</a></li><li><a href="#importing-cad-parts-and-meshes">Importing CAD parts and meshes</a></li><li><a href="#assets">Assets</a></li></ul></li>
+<li class="ch"><a href="#ch7">7. Checking and making</a><ul><li><a href="#stats-and-checks">Stats and checks</a></li><li><a href="#what-the-selected-object-measures">What the selected object measures</a></li><li><a href="#machining-g-code-for-a-cnc">Machining (G-code for a CNC)</a></li><li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Unfold — lay it out flat to print and cut</a></li><li><a href="#exporting">Exporting</a></li><li><a href="#what-gets-exported">What gets exported</a></li></ul></li>
+<li class="ch"><a href="#ch8">8. Scripts and AI</a><ul><li><a href="#made-to-be-driven-by-a-program-not-only-by-a-person">Made to be driven by a program, not only by a person</a></li><li><a href="#scripting">Scripting</a></li><li><a href="#make-it-with-ai">Make it with AI</a></li></ul></li>
+<li class="ch"><a href="#ch9">9. When something goes wrong</a><ul><li><a href="#what-the-app-notices-while-you-draw">What the app notices while you draw</a></li><li><a href="#when-a-feature-says-a-package-is-missing">When a feature says a package is missing</a></li><li><a href="#when-something-is-taking-too-long">When something is taking too long</a></li><li><a href="#when-something-will-not-build">When something will not build</a></li></ul></li>
+</ul></nav>
+<main>
+<div class="cover">
+  <h1>SweeperCAD</h1>
+  <div class="sub">User manual</div>
+  <div class="ver">version 0.9.7 &middot; sweepercad.com</div>
+</div>
+<div class="onscreen">
+  <h1>User manual</h1>
+  <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
+  with pictures. For version 0.9.7. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  <p class="none" id="none">Nothing in the manual matches that.</p>
+</div>
+<div class="ptoc cover-toc"></div>
+<section class="chapter" id="welcome"><h2>Welcome</h2><p>Everything here is a <strong>sweep</strong>: a cross-section pushed along a path.
+You draw the parts in 2D graphs and the 3D shape follows.</p>
+<hr />
+<p>The floating panels - placement settings, section, measure - can be
+<strong>dragged by their title</strong>, and <strong>double-clicking the title folds</strong>
+them to a single line. They remember where you put them.</p>
+<hr />
+<p>An imported reference <strong>reloads when its file changes on disk</strong>.
+Export over the same file from Blender, ZBrush, a scanner, anything -
+and it updates here within a couple of seconds, with your section
+planes and fits still where you left them.</p>
+<hr />
+<p>When a scene goes over its budget a small <strong>detail reduced</strong> note
+appears in the 3D view; click it to change the budget. It is not
+there at full quality.</p>
+<p>The <strong>rebuild delay</strong> in Settings defaults to 250 ms and goes as low as
+20 - lower means the model follows your edits more closely, at the
+cost of rebuilding more often.</p>
+<hr />
+<p><strong>Display detail</strong> in Settings sets how many triangles the VIEW may
+use for the whole scene. As a scene fills up everything is drawn a
+little coarser to stay near that number, and gets its detail back
+when the scene empties. Raise it on a fast machine.</p>
+<p>It is the view only: <strong>exported files are always built at full
+quality</strong>, whatever this is set to.</p>
+<hr />
+<p>The <strong>rebuild delay</strong> (250 ms by default) - how long the app waits after an edit before
+rebuilding - lives in Settings. <strong>Pause</strong> stays in the 3D view, where
+you can reach it while a rebuild is running.</p>
+<hr />
+<p>Exported STL and STEP files carry a line in their header saying they
+were made with SweeperCAD, and where to find it. Header only -
+nothing reads it as data, slicers ignore it, the geometry is
+untouched.</p>
+<hr /><h3 id="the-window">The window</h3><figure><a href="manual/window.jpg"><img src="manual/window.jpg" alt="The SweeperCAD window"></a><figcaption><b>1</b> the panel: the selected object's settings &middot; <b>2</b> the 3D view &middot; <b>3</b> the node editor: how objects combine &middot; <b>4</b> the graphs: spine, profile, end profile, scale</figcaption></figure></section>
+<section class="chapter" id="ch1"><h2>1. Getting started</h2><section class="sec" id="the-first-run-screen"><h3>The first-run screen</h3><p>The first time the app opens it shows its terms — what you may do, that
+it is early software, no warranty, no liability, and that nothing is
+sent anywhere. The full text is in the app; there is nothing to read
+elsewhere. Continuing means you accept it. If a problem does occur, it
+is written to <code>~/.sweepercad/crash.log</code>.</p></section><section class="sec" id="the-splash-screen"><h3>The splash screen</h3><p>Point at it to keep it on screen — move the pointer away and it carries
+on. The support and sponsorship links on it are clickable.</p>
+<hr /></section><section class="sec" id="the-terms-updates-and-what-this-is-for"><h3>The terms, updates, and what this is for</h3><p>The first time it opens, SweeperCAD shows its terms; <strong>Help ▸ Terms</strong>
+brings them back any time. They are in the app rather than on a website
+on purpose — you can read them on a machine with no network.</p>
+<p>Three things in them worth knowing without reading the whole page:</p>
+<ul>
+<li><strong>Not for medical use.</strong> Nothing designed here should become an
+  implant, surgical guide, prosthesis, orthosis or instrument. Medical
+  devices need validated software and documented processes; this has
+  neither.</li>
+<li><strong>Please don't pass the app on</strong> — send people to sweepercad.com.
+  A copy handed over never learns there is a newer one, and this is
+  young software that is still being fixed.</li>
+<li><strong>Nothing is sent anywhere.</strong> There is no analytics, no licence check
+  and no update check, which is why <strong>Help ▸ Check for a newer
+  version…</strong> simply opens the website: the visit is yours to make.</li>
+</ul>
+<p>It is also not trying to replace the CAD you already use. It does one
+thing — sweeping a profile along a spine — and is meant to sit
+alongside the rest of your tools.</p>
+<p>Two more things the terms say, because they matter to anyone deciding
+whether to rely on this:</p>
+<ul>
+<li><strong>It was made by one person with a lot of help from AI</strong>, said
+  plainly rather than left to be discovered, and part of any support it
+  receives is intended to go towards environmental work to offset some
+  of what that help costs.</li>
+<li><strong>If the author stops, the app is not meant to go dark.</strong> That may
+  mean opening the source, or handing it on — no promise about which
+  yet. What is certain is that your projects are saved as plain,
+  readable JSON, so nothing you make here is locked inside one
+  program.</li>
+</ul>
+<hr /></section></section>
+<section class="chapter" id="ch2"><h2>2. Drawing and shaping</h2><section class="sec" id="the-four-graphs"><h3>The four graphs</h3><p>Tabs under the 3D view. Each is a drawing you can edit at any time.</p><figure><a href="manual/graph_scale.jpg"><img src="manual/graph_scale.jpg" alt="The Scale graph: how wide the profile is along the spine (here a vase: 0.8, 1.4, 0.7)." loading="lazy"></a><figcaption>The Scale graph: how wide the profile is along the spine (here a vase: 0.8, 1.4, 0.7).</figcaption></figure><figure><a href="manual/graph_spine.jpg"><img src="manual/graph_spine.jpg" alt="The Spine graph: the path the profile follows." loading="lazy"></a><figcaption>The Spine graph: the path the profile follows.</figcaption></figure>
+<table>
+<thead>
+<tr>
+<th>graph</th>
+<th>what it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Spine</strong></td>
+<td>the path the shape follows</td>
+</tr>
+<tr>
+<td><strong>Profile</strong></td>
+<td>the closed cross-section that rides the spine</td>
+</tr>
+<tr>
+<td><strong>End profile</strong></td>
+<td>optional — the section morphs into this one along the way</td>
+</tr>
+<tr>
+<td><strong>Scale</strong></td>
+<td>how big the section is at each point (x = along the spine, y = size)</td>
+</tr>
+</tbody>
+</table>
+<p>The scale graph is drawn <strong>in proportion</strong>: its x axis is ticked in the
+spine's real length, and there is a dashed <em>end of spine</em> line. So the
+graph reads as the shape's silhouette rather than an abstract curve.</p>
+<p><strong>All the graphs at once (⊞).</strong> The ⊞ beside the graphs' ❐ shows every
+graph in use side by side, up to four - for an ordinary object the spine,
+the profile, the end profile when it is on, and the scale. The tabs stay
+above as the list of graphs: the lit one, also lit in the grid, is the one
+<em>preset</em>, <em>import SVG</em> and the rest act on, and <strong>a click inside any graph
+makes it that one</strong>. Drag the lines between them to share out the room.
+Click ⊞ again for the tabs. It is remembered, and works in the graphs' own
+window too (❐) - on a second monitor all four get a good size.</p>
+<p><strong>On a narrow graph</strong> the words along the top shorten, then the controls
+wrap to a second row. Under about 360 px the <strong>ghost list folds to a tab</strong> (<em>‹ ghosts</em>,
+with how many are shown); click it to open the list, and the <strong>›</strong> at the
+top of the list folds it again at any width.</p>
+<hr /></section><section class="sec" id="drawing"><h3>Drawing</h3><p><strong>Spine presets.</strong> The spine graph's <strong>preset</strong> menu offers a straight
+<strong>line</strong>, a <strong>circle</strong> (sweeps a ring) and an <strong>n-gon</strong> (a frame with mitred
+corners). Each starts at the origin, so the object stays where it is.</p>
+<p><strong>Profile presets.</strong> The profile graph's <strong>preset</strong> menu has a circle, an
+n-gon, a star, a splined ring, an involute gear (and a meshing pair), text,
+and the shapes that become something when swept: an <strong>ellipse</strong>, a
+<strong>rounded rectangle</strong>, a <strong>slot</strong>, a <strong>D shaft</strong> and a <strong>keyway shaft</strong>; a
+<strong>fluted</strong> circle (a column - give it twist and it is a barley twist), a
+<strong>lobed</strong> ring (twisted, a rope - one turn per lay length), an <strong>auger
+blade</strong> (a thin radial blade on the axis; twisted, a screw flight - add a
+shaft as a second + object), a curve of <strong>constant width</strong>; a <strong>rack</strong> that
+runs on the gears (same module and pressure angle; its pitch line is y = 0,
+so a gear's centre sits module x teeth / 2 above it) - and a <strong>thread</strong>. A thread is the shank seen in cross section: the
+outline sits on the major diameter along the crest, runs down a flank,
+sits on the minor diameter along the root and climbs back - one turn per
+pitch, so the four arcs share the circle the way crest, flank, root and
+flank share the pitch (an ISO V-thread: 1/8, 5/16, 1/4, 5/16, depth 0.54 x
+pitch). Give it the major diameter, the pitch and the number of starts;
+with a straight spine it also sets the <strong>twist</strong> that makes it a thread,
+360° per pitch of length (divided by the starts). A bent spine leaves the
+twist to you. Threads are long twists, so the object is marked <em>allow
+slow</em>; a long bolt is a heavy build - model the threaded length only.</p>
+<p><strong>The same gestures on every graph.</strong> Click a point to select it (and drag
+it). <strong>Double-click</strong> on the curve to insert a point there, or in empty
+space on an open curve to add one at the end - a new point matches the one
+before it, smooth after smooth, a corner after a corner. Alt-click, and
+arc mode, still insert in a single click.</p>
+<ul>
+<li><strong>Double-click</strong> on empty space to add a point; on the curve to insert one</li>
+<li><strong>Drag</strong> a point to move it. Near-misses will not create a point</li>
+<li><strong>Lining up</strong>: dragged within a few pixels of another point's height
+  or position across, a point (or a corner, or a handle) lands exactly in
+  line with it and a dashed guide shows which. A handle also lines up with
+  its own point, which makes a level or upright tangent. Holding <strong>Ctrl</strong>
+  (the grid) or <strong>Shift</strong> (the angle) takes over from it</li>
+<li><strong>Double-click a point</strong> to switch it between a sharp corner and a smooth one</li>
+<li><strong>Select a point, type a number, press Enter</strong> — the segment reaching
+  that point takes that length. Escape cancels</li>
+</ul>
+<p><strong>Any number field takes arithmetic.</strong> Type <code>360/7</code> for a seventh of a
+turn, <code>12+3</code>, <code>2.5*4</code> or <code>(10+2)/3</code> — the relationship stays visible
+while you are typing it instead of being rounded away in a calculator.</p>
+<p>When you type a length, <strong>which end moves</strong> is yours: the darker point,
+the lighter one, or <strong>both</strong> — both grows or shrinks the segment about
+its middle, so it stays centred where it was. You can also set how many
+points travel together.</p>
+<p><strong>Rounding a corner:</strong> every sharp corner shows an <code>R</code> label.
+<strong>Drag the label</strong> to set the radius and watch the shape change, or
+<strong>double-click it</strong> to type an exact value. A point with handles is a
+curve point, not a corner, so it has no radius — remove its handles first.</p>
+<hr /></section><section class="sec" id="drawing-a-spine-or-a-profile"><h3>Drawing a spine or a profile</h3><p><strong>+</strong> and <strong>−</strong> do two things. <strong>Click</strong> in the 3D view and a ready-made
+object is placed, as always. <strong>Drag</strong> and you are <strong>drawing</strong> - on the face
+you started on (its plane), or on the floor in empty space.</p><figure><a href="manual/graph_profile.jpg"><img src="manual/graph_profile.jpg" alt="The Profile graph: the cross-section, with its radius and angles shown." loading="lazy"></a><figcaption>The Profile graph: the cross-section, with its radius and angles shown.</figcaption></figure>
+<ul>
+<li><strong>Drag</strong> draws freehand; it is smoothed into a few curve points, and
+  where your stroke turns sharply the point stays a <strong>corner</strong>.</li>
+<li><strong>Click</strong> adds a point. <strong>Drag from the last point</strong> pulls out its
+  handles (like a pen tool).</li>
+<li><strong>Backspace</strong> (or Delete) takes the last point back.</li>
+<li><strong>Right-click</strong> (or double-click, or Enter) finishes. <strong>Escape</strong> cancels.</li>
+</ul>
+<p><strong>Open is a spine, closed is a profile</strong> - the shape decides:</p>
+<ul>
+<li>An <strong>open</strong> drawing becomes a new object swept along it, with the profile,
+  size and scale preset from the placement settings. A <strong>+</strong> one lies on
+  the face or floor it was drawn on; a <strong>−</strong> one is centred on it, so it
+  cuts a groove half its profile deep.</li>
+<li>A <strong>closed</strong> drawing - a stroke that comes back to where it started, or a
+  click on the first point - is finished at once and becomes a new object
+  with that profile, pushed out of the face by the placement settings'
+  spine length. Drawn with <strong>−</strong> on a face, it cuts a pocket of that shape.</li>
+</ul>
+<p>The switches at the top left while drawing: <strong>fine / normal / smooth</strong> - how
+closely the curve follows your hand (fewer points the smoother) - and, when
+an object is selected, <strong>closed: its profile</strong>: a closed shape then
+replaces the <strong>selected object's profile</strong> instead of making a new object.
+The object being drawn shows as a wireframe as you go, and afterwards its
+points are edited in the graphs and in 3D like any other.</p></section><section class="sec" id="circular-arcs"><h3>Circular arcs</h3><p>A bezier can only approximate a circle, and drifts the moment a handle
+is dragged. So an arc here is kept AS an arc — a radius and a side —
+and its handles are worked out from that. They are read-only, and they
+are rebuilt whenever you move a point. Arc segments are drawn in amber
+with their radius beside them.</p>
+<p>Click the <strong>arc</strong> icon (below the others on the graph) to turn arc mode
+on. The segment under the cursor lights up, so you can see which one
+you are about to change. Then:</p>
+<ul>
+<li><strong>Drag a segment</strong> to bend it into the arc that passes through your
+  cursor. Radius, which side it bulges to, and whether it goes the long
+  way round are all read off where you drag, so there is nothing to
+  choose. Near the arc that would leave its neighbour with no corner it
+  <strong>snaps to tangent</strong> (the readout says so).</li>
+<li><strong>Click a segment</strong> (no drag) for the <strong>tangent arc</strong>: the one arc
+  that carries on smoothly from the segment before it (on the first
+  segment, the one that runs smoothly into the next). It needs no
+  radius, and it <strong>stays tangent</strong> when you move points — the radius
+  re-solves itself. Its label shows <strong>T</strong>.</li>
+<li><strong>Click an arc</strong> to make it straight again.</li>
+<li><strong>Click the amber R label</strong> to type an exact radius. The side and the
+  long-way-round choice stay as you bent them, so bend it roughly, then
+  type the number. It has to be at least half the distance between the
+  two points. A typed radius is yours: the arc is no longer kept tangent.</li>
+</ul>
+<p>Points still drag as usual while arc mode is on. Click the icon again,
+or press <strong>Esc</strong>, to leave it. Holding <strong>Alt</strong> while you drag a segment
+does the same as arc mode, without the icon.</p>
+<p>Turning a hand-drawn curve into an arc replaces its handles; undo brings
+them back. For a whole circle, the <em>circle</em> profile preset is four true
+arcs.</p>
+<hr /></section><section class="sec" id="the-profile-s-radius"><h3>The profile&#x27;s radius</h3><p>Every closed profile shows its radius on its graph (the <strong>R</strong> label): the
+distance from its centre to its farthest point - a circle's radius, an
+n-gon's corner radius. Click it and type a value: the whole shape scales
+about its centre to that radius, corners, roundings and arcs together, so
+it keeps its form.</p></section><section class="sec" id="offset-and-mirror-a-drawing-how-to-hollow-something"><h3>Offset and mirror a drawing — how to hollow something</h3><p>(For mirroring an OBJECT in 3D, see <em>Mirroring an object</em> further down.
+This is about mirroring one drawing on its own graph.)</p>
+<p>In the object panel: <strong>offset / mirror</strong>, with a dropdown for which
+drawing it applies to.</p>
+<ul>
+<li><strong>Negative offset</strong> goes inward, positive outward</li>
+<li>Your drawing stays exactly as you drew it and remains editable</li>
+<li>The <strong>amber</strong> curve on the graph is what actually gets swept</li>
+</ul>
+<p><strong>To hollow a shape into a tube:</strong></p>
+<ol>
+<li>Duplicate the object (toolbar, or right-click → Duplicate)</li>
+<li>On the copy: <code>ghosts…</code> → <em>LINK a curve here (live)</em> → the original → <code>profile</code></li>
+<li>Set the copy's <strong>offset</strong> to minus your wall thickness</li>
+<li>Set the copy's <strong>sign</strong> to negative</li>
+<li>Combine the two</li>
+</ol>
+<p>The wall thickness stays a number you can change, and editing the
+original drives the wall with it.</p>
+<p>If an offset is impossible — too far inward, so the shape would collapse
+or split in two — it says so instead of building something wrong.</p>
+<hr /></section><section class="sec" id="guides-measuring-to-another-object"><h3>Guides — measuring to another object</h3><p>This is the dimension tool: pick two things, type the distance you want,
+and your geometry moves to match.</p><figure><a href="manual/measure.jpg"><img src="manual/measure.jpg" alt="The measure window between two parts: keep the distance, link rotation and scale." loading="lazy"></a><figcaption>The measure window between two parts: keep the distance, link rotation and scale.</figcaption></figure>
+<p>Click the <strong>guide tool</strong> on the left of a graph, then:</p>
+<ol>
+<li>Click <strong>your</strong> point — or <strong>your edge</strong>, by clicking along it rather
+   than near a corner</li>
+<li>Click a point or edge on a <strong>ghost</strong> to measure <em>to</em></li>
+</ol>
+<p>Ghosts are other objects' curves, shown dashed. Arming the tool shows
+the ghosts it can measure to, so there is nothing to set up first. While
+it is armed every point you can aim at is drawn as a dot, and whatever
+is under the cursor highlights before you click it.</p>
+<p><strong>Edge to edge gives the shortest gap</strong> between the two edges — not a
+point-to-line distance, and not a crossing somewhere off the ends.</p>
+<p><strong>Then type the number.</strong> The guide shows its value; type a new one and
+your side moves (the ghost never moves — it belongs to another object,
+which is what makes the number unambiguous). As with segment lengths you
+choose <strong>how many points</strong> move and <strong>which way</strong>, so a whole run can
+travel together.</p>
+<p><strong>Locking a guide makes it hold.</strong> A locked distance is kept by a live
+solver, whatever moves the curve:</p>
+<ul>
+<li><strong>Dragging.</strong> The point you drag stays under the cursor as far as its
+  locks allow. With one lock it <strong>slides</strong> along that distance; with two
+  (say, so far from this edge and so far from that one) it is
+  <strong>pinned</strong>.</li>
+<li><strong>Other edits</strong> — typed lengths, moving the whole shape, undo — are
+  followed by the same solve.</li>
+<li><strong>A live reference that moves</strong> takes the locked point with it, on
+  any object, selected or not. A <strong>frozen</strong> guide keeps its target
+  where it was, so nothing follows.</li>
+</ul>
+<p>Only points that carry a lock are moved; the rest of the curve stays
+where it is.</p>
+<p><strong>No hinging.</strong> A distance alone lets your point swing round a target
+point, or slide along a target edge, at that distance. Tick <strong>lock the
+angle too</strong> in the guide's window and the direction is kept as well. The
+point then stays exactly where it is relative to the target, or at its
+spot along the edge. Such guides show <strong>∠</strong> beside the lock.</p>
+<p><strong>The arrow says which drives which.</strong> Every guide has an arrowhead
+pointing at <em>your</em> point. The ghost drives; your curve follows.</p>
+<p><strong>The overconstraint check.</strong> Locks that cannot all be true at once turn
+<strong>red</strong> and read <em>conflict</em>. The solver then moves <strong>nothing</strong> in that
+group: it never quietly picks a winner, so you decide which lock to
+change. A lock that only repeats what the others already force turns
+<strong>amber</strong> and reads <em>redundant</em>; it does no harm. When you lock a
+guide, the status bar says whether its point is now fully placed, can
+still slide, or conflicts, and with which guide.</p>
+<p><strong>Constraints on your own edges.</strong> The button beside the guide tool
+(an L with a small square) constrains edges of the curve itself. Click one of
+your straight edges and choose:</p>
+<ul>
+<li><strong>Horizontal</strong> or <strong>Vertical</strong></li>
+<li><strong>Parallel to…</strong>, <strong>Perpendicular (90°) to…</strong> or <strong>Equal length to…</strong>,
+  then click the second edge</li>
+<li><strong>Tangent to a circle or arc…</strong>, then click a ghost's circle or a
+  round stretch of another object's curve. The edge slides across until
+  its line just touches it, and it follows when that object moves. A
+  stretch that isn't round is refused.</li>
+</ul>
+<p>The edge turns to the direction straight away, and the same live solver
+holds it from then on. Drag one end of a horizontal edge up and the
+other end comes with it. Each constraint is marked on its edge with a small
+symbol (H, V, ∥, ⊥, =, T, numbered when it pairs two edges; a tangent
+also shows the circle it touches, dotted). <strong>Click the
+symbol to remove it.</strong> Esc or the button again stops the tool.</p>
+<p>Constraints and locked guides are checked together: ones that cannot all
+hold turn <strong>red</strong> and nothing in that group moves; one that repeats what
+the others already force turns <strong>amber</strong>. An edge cannot be horizontal
+and vertical at once (only a zero-length edge is both), so that pair is
+refused.</p>
+<p><strong>Which ghosts you see:</strong> <code>ghosts…</code> → tick objects individually, and pick
+which of <em>their</em> curves to show (spine, profile, and so on) per object.</p>
+<hr /></section><section class="sec" id="placing-a-section-as-a-profile"><h3>Placing a section as a profile</h3><p>In the section panel, <strong>use as profile</strong> makes the chosen loop the
+selected object's profile - and with <strong>move the object there</strong> ticked
+(the default) it also moves and turns the object, so its spine starts
+exactly at the cut and heads out along the cut plane's normal. Undo
+takes the whole step back. (If the object is scaled unevenly, the section
+still sits exactly on the cut, but the sweep leans: an uneven stretch
+shears an object's sections against its path.)</p></section><section class="sec" id="where-the-scale-scales-from"><h3>Where the scale scales from</h3><p>The scale graph means <strong>distance from the spine</strong>. So a profile drawn
+away from its origin — 30mm out, say — moves <em>in</em> as it shrinks: at half
+scale it sits 15mm out. That is what you want for a taper.</p>
+<p>When the offset is a feature's <strong>position</strong> rather than part of its
+size, pick <strong>scale about: centre</strong> on the scale graph (in the row along its
+top), or tick <strong>scale about the profile, not the spine</strong> on the
+object - the same setting.
+The profile then shrinks where it stands: 30mm out at full size, still
+30mm out at half. It makes no difference to a profile drawn around its
+own origin.</p>
+<hr /></section><section class="sec" id="twist-and-roll"><h3>Twist and roll</h3><p><strong>Twist</strong> turns the profile progressively along the spine: 90° means the
+far end is a quarter turn round from the near end.</p><figure><a href="manual/twist_3d.jpg"><img src="manual/twist_3d.jpg" alt="A square profile, twisted 120° and tapered along the spine." loading="lazy"></a><figcaption>A square profile, twisted 120° and tapered along the spine.</figcaption></figure>
+<p><strong>Roll</strong> turns the whole sweep by one fixed amount — the profile starts
+rotated and stays that way. Use twist for a spiral, roll to sit a square
+on its corner.</p>
+<p>Both are in the object's panel, and both in the small dialog the
+node's parameter chip opens, so you can set them from the node tree too.</p>
+<p><strong>Spin</strong> turns the whole object about the start of its spine - the spine
+swings round, while the first section stays exactly where it was (roll
+takes the opposite turn to hold it). Spin is an <strong>action</strong>, not a stored
+number: type an angle in "spin: turn by" (panel or node dialog) and it is
+applied once, into the object's rotation; the field goes back to 0. That is
+how flat 2D spines make 3D shapes: spin one piece against the next.
+An <strong>attached</strong> piece turns about its joint by roll alone.</p>
+<p>Roll is always one turn (-180 to 180). Twist is not wrapped - 500° really
+is more than 140°.</p>
+<h4>The dials</h4>
+<p>Three small rings, drawn on the selected object's own sections:</p>
+<ul>
+<li><strong>spin</strong> (amber) round the <strong>first</strong> section,</li>
+<li><strong>roll</strong> (teal) round the <strong>middle</strong> of the spine,</li>
+<li><strong>twist</strong> (violet) round the <strong>last</strong> section.</li>
+</ul>
+<p>Grab a dial by one of its <strong>four dots</strong> - only the dots take a click, so
+the rest of the ring never steals one from what lies under it. Tick marks
+every 15° (longer every 90°) turn with it. While you drag, nine light
+<strong>ghost sections</strong> show where the shape is going; the model rebuilds when
+you let go. Dials work <strong>relative</strong>: a twist of 500° is tweaked from 500,
+not reset.</p>
+<p>Switch all three off with the dials icon (bottom left), or each one in
+Settings. The manipulator's <strong>off</strong> setting hides the gizmo only - the
+dials and curves keep their own switches.</p>
+<p><strong>Curve points beat the gizmo.</strong> Near a visible spine or profile point, a
+press grabs the point (and turns curve editing on) instead of turning the
+object.</p>
+<p><strong>Camera moves glide.</strong> Clicking a plane square or a face of the view cube
+turns the camera smoothly rather than jumping, so you keep your bearings;
+any click stops it where it is.</p>
+<hr /></section><section class="sec" id="asymmetric-scale"><h3>Asymmetric scale</h3><p>Along the top of the scale graph, pick <strong>↕ two</strong> or <strong>↔ two</strong> (instead
+of <strong>one curve</strong>). You then get two scale curves —
+one above the axis, one below — and the profile's two halves are scaled
+independently. The <strong>▲/▼</strong> button switches which one you are editing;
+the other is shown as a ghost. Each half follows its own curve in both
+directions - it grows or shrinks in width as well as in height - and the
+two blend smoothly across the split line, so where they meet the profile
+stays smooth.</p>
+<p>Both curves can close to a point at an end (a tip, a teardrop) and the
+surface stays smooth. If only one of them reaches 0 there while the other
+does not, the object is built with straight facets along its length.</p>
+<p><strong>Which way it splits</strong> is that same choice: <strong>↕ two</strong> splits top /
+bottom, <strong>↔ two</strong> left / right. The
+graphs look the same either way; what changes is which axis of the
+object the second curve drives. Since a spine only curves in one plane,
+this is what lets you put the asymmetry across the bend or along it.
+(The same switch is on the left panel, under <strong>asymmetry</strong>.)</p>
+<p><strong>The scale graph starts as a flat line</strong> at 1 - the profile as drawn, all
+the way along. Choose <strong>box</strong> in the placement settings - (0,0) (0,1)
+(1,1) (1,0) - for a graph whose corners you can round: it sweeps exactly
+like the flat line until you do, and rounding them is how you give a sweep
+a rounded start or end.</p>
+<p><strong>The scale graph in 3D.</strong> With <em>curves in 3D</em> on, the selected object
+carries its scale graph as a blue line on its surface, running along it
+like a seam. A symmetric graph runs on the side of the profile that lies
+in the spine's plane, so clicking the spine's square shows it beside the
+spine, flat, the way the graph draws it. An asymmetric one is two lines,
+the second dashed: top and bottom, or right and left when it splits left /
+right. Its points are there too: drag one along the object to move it
+along the spine, or in and out to change the scale there. Press anywhere on
+the line and pull to make a point there and drag it in one go;
+double-click the line to add a point without moving it, double-click a
+point to make it sharp or smooth, and right-click a point to delete it. The graph follows as you go; one undo
+puts it back. The first and last points stay at the ends, and the points
+at scale 0 (where an end cap closes) are shown small and are not grabbed.
+When a bend was eased, the profiles and this line sit on the eased spine -
+the one that was built - which is drawn dashed in red. The line always runs
+from the start of the spine to its end, however wide the graph is drawn
+(the graph is read on its own width). A smooth point shows its two handles
+on the object too - drag one and its partner mirrors. Where the graph is
+drawn from rounded or chamfered corners, you move the corner itself, and
+its radius goes with it. All of this works with point editing on as well.</p>
+<p><strong>Reality check.</strong> The stats panel's last section checks a part you made
+against the design. Import a scan (OBJ or STL, in millimetres), select the
+object and press <em>compare with the selected object</em>: the scan is lined up
+with the design wherever it was scanned from, every point is measured to
+the design's surface, and the scan is coloured - green within your
+tolerance, red where it stands out, blue where it falls in - while the
+design turns into a ghost around it. You get the match (the share within
+the tolerance), the average, the RMS, the worst either way and how much of
+the design the scan covers. Tick <em>allow a uniform scale</em> to fit the size
+too: a casting's shrinkage, or a print's compensation, is then reported as
+a percentage instead of counted as error. <em>Which object is it?</em> tries every
+part in the scene and ranks them by match. <em>Put the scan back, uncoloured</em>
+returns it to where it was imported.</p>
+<p><em>Match photos of the print</em> does the same with photos instead of a scan.
+Pick one or more photos and click on the part in each; the part's outline
+is cut out of the photo (a plain background behind it helps), and for each
+photo the camera is found - where it looked from, its roll and its field
+of view (taken from the photo's lens data when it has it, otherwise fitted
+roughly). You get each photo's outline match (how much the two outlines
+overlap) and how far apart they lie, in mm; the result window shows the
+design's outline over every photo, green where they agree and red where
+they part, and can turn the 3D view to that photo's camera. <em>Photos check</em>
+chooses whether they are compared with the selected object or with every
+object in the scene, ranked. A photo shows the outline only, and a
+symmetric part can fit from more than one side: more photos from other
+sides check more.</p>
+<p><strong>Layer jumps.</strong> Under the cross-section graph: the height to measure
+over and the change (in % of the section's area) that is too much. The
+graph gets a strip from cool to red, and the stretches past the threshold
+are drawn red; <em>show the jumps on the part</em> colours the part the same way.</p>
+<p>Closing the stats window clears everything it drew in the 3D view.</p>
+<hr /></section></section>
+<section class="chapter" id="ch3"><h2>3. The 3D view</h2><section class="sec" id="the-3d-view-s-own-controls"><h3>The 3D view&#x27;s own controls</h3><p><strong>Top left - making things:</strong> add a positive (+), negative (−) or
+keep-inside (∩) object, combine (=), auto-combine (A=), array (✕), <strong>import</strong> a CAD part or a mesh
+(⤓), a <strong>lattice</strong> (◈), a <strong>route</strong> (⤳), and <strong>copy</strong> (⧉) and <strong>mirror</strong>
+(⇋), which act on the selected object.</p><figure><a href="manual/view3d.jpg"><img src="manual/view3d.jpg" alt="The 3D view: tools along the top, view and alignment rows along the bottom, the view cube top centre." loading="lazy"></a><figcaption>The 3D view: tools along the top, view and alignment rows along the bottom, the view cube top centre.</figcaption></figure>
+<p><strong>Grouped icons.</strong> A few icons hold more than one tool, to keep the rows
+short. A small <strong>◢ in the corner</strong> shows it: click the corner (or
+right-click the icon) and a row with the others opens; pick one and the
+row shuts. The icon then shows the tool you used last.
+- <strong>=</strong> holds <strong>A=</strong> (auto-combine). The = stays the icon, and a green
+  <strong>A</strong> on it says auto-combine is on.
+- <strong>◈ lattice</strong> holds <strong>✎ drawing on the surface</strong> - both make implicit
+  shapes.
+- <strong>🖼 references</strong> (bottom right) holds the <strong>section</strong> (extract a
+  plane) and the <strong>line</strong> extractor - helpers that never become the part.
+- <strong>✥ the manipulator</strong> (bottom left) holds the <strong>pivot</strong> and <strong>world /
+  local</strong>; an <strong>L</strong> on ✥ says local, a dot says a temporary pivot is set.
+- <strong>⟺ measure</strong> holds <strong>dimensions</strong>.
+- <strong>◐ what is shown</strong> (bottom right) holds the <strong>axes</strong>, the <strong>grid</strong>,
+  <strong>ortho / perspective</strong> and <strong>light / dark</strong>.</p>
+<p>The switch groups (=, ✥, ⟺, ◐) keep their own icon; a state you could
+not see otherwise is marked on it.</p>
+<p><strong>Top right - the document:</strong> undo, redo, <strong>open</strong> (📂 - open, open recent,
+new), save, save as, export, a <strong>picture</strong> of the model (📷), the <strong>stats</strong> (Σ), the
+script editor (⌨), <strong>own windows</strong> (❐), <strong>help</strong> (? - how to use, the scripting
+reference, terms, a newer version, supporting development, about) and the
+<strong>gear</strong> (⚙).</p>
+<p><strong>Own windows - for a second monitor (❐).</strong> Put the <strong>3D view</strong>, the
+<strong>nodes</strong>, the <strong>graphs</strong> or the <strong>panel</strong> in a window of its own and drag
+it to any screen; it is the same app, so everything stays in step - one
+model, one undo, the same selection, and the shortcuts work in every
+window. The first time, a window opens big on your other monitor (if you
+have one); after that it opens where and as large as you left it. <strong>Close
+the window</strong> to put the pane back exactly where it was. The graphs have
+their own ❐ at the right of their tabs, the nodes theirs in their top right
+corner, and the View menu has all four. Panes that were in their own windows when you quit come back out
+the next time you start.</p>
+<p><strong>The gear holds the Settings</strong>; everything else has its own icon, and an
+imported part's right-click reloads it from its file - so the menu bar is
+not needed. On Windows and Linux the gear's last entry,
+<strong>Hide the menu bar</strong>, puts the menu bar away (remembered, and every keyboard shortcut keeps
+working); tick it again to bring it back. On a Mac the menu bar belongs to
+the system and stays.</p>
+<p><strong>Icon size</strong> (Settings &gt; Icon size, also under the gear): <em>Normal</em>,
+<em>Large</em> or <em>Extra large</em> makes the 3D view's icon rows and the node
+editor's 1.25 or 1.5 times bigger, glyphs included - handy on a large or
+high-resolution screen. Remembered. When a row no longer fits beside
+another one it moves to a line of its own instead of overlapping.</p>
+<p><strong>Bottom left - handling the model:</strong> the manipulator chooser (move and
+turn together, move, turn, scale, or <strong>off</strong> - no gizmo at all, clicks just
+select and orbit), the <strong>dials</strong> switch (◎ - the spin, roll and twist dials)
+and the <strong>overlays</strong> switch (⌗ - the plane squares and the curves in 3D),
+then what a click selects, reposition, the temporary pivot, measure, and
+world/local.</p>
+<p><strong>Bottom middle:</strong> align and distribute, for two or more selected objects.</p>
+<p><strong>Bottom right - how it is shown:</strong> reference images and meshes, with the
+<strong>section</strong> tool and the <strong>line</strong> extractor in the same icon, the world axes, the <strong>grid</strong>,
+perspective or ortho, the <strong>view</strong> button (see <em>How the model is drawn</em>),
+what is displayed (result, components or both), and the <strong>sun</strong> (☀): light
+or dark for the WHOLE interface - the 3D view and its background, the node
+editor, the curve editor and the panels switch together. Dark is the
+default; your choice is remembered. Your objects' own colours stay as they
+are.</p>
+<p>Hidden dials, squares and curves cannot be grabbed either - that is the
+point: switch them off and nothing gets in the way of the model.</p>
+<p>The lights ride the camera in every mode, so there is never a dark side
+turned away from you. The colour view lights warm against cool, which
+makes curvature read as a shift in colour as well as in brightness; the
+clay view lights it neutrally and softly, leaving the form alone.</p>
+<hr /></section><section class="sec" id="editing-in-the-3d-view"><h3>Editing in the 3D view</h3><p>Select an object and two small squares appear, one lying in each
+graph's plane. <strong>Click a square</strong> and the camera turns to face that
+plane - from the side you are already looking from, so it never swings
+round the back - and its points become editable. That is the whole way in — there
+is nothing to double-click and nothing to remember. The curves' points
+are already drawn before that, small, beside the radius squares; grabbing
+one opens editing too, and then the handles and their tethers appear.
+Everything that can be dragged lands exactly under the cursor:</p>
+<ul>
+<li><strong>spine points</strong> and <strong>profile points</strong></li>
+<li><strong>bezier handles</strong>, so a curve can be shaped and not merely moved</li>
+<li><strong>rounded corners</strong> — the corner a radius was cut from, which the
+  curve itself does not pass through</li>
+<li><strong>an array's own curve</strong></li>
+</ul>
+<p>A curve is flat, so its points can only move within its plane. Seen
+edge-on, that plane offers a single direction and a drag cannot mean
+anything — so it is refused, with a note saying so.</p>
+<p>Each square wears its own graph's colour — red for the spine, green for
+the profile, purple for an array — so the square and the curve it
+belongs to always match. The camera is yours again immediately after a click — the
+square moves it once, it does not hold it. A square also <em>shows</em> its
+plane: a sliver means you are edge-on to it, and edge-on is the one
+angle from which a drag is refused.</p>
+<p><strong>Points are squares in their graph's colour; handles are small grey
+discs on a line back to the point they belong to</strong> — the same as on the
+graphs, so the same thing looks the same in both places.</p>
+<p>On a <strong>scale</strong> graph, a handle stays between its own point and the next
+one. A curve running backwards there would no longer give one scale per
+position along the spine — it would double back, which the sweep then
+has to walk in several passes, and that is easy to cause by accident
+and slow when it happens. Doubling back on PURPOSE is still available:
+place the points themselves out of order.</p>
+<p>Where a corner has a <strong>radius</strong>, the point you drag is the corner
+itself, not the two points where the arc meets the edges (nor their
+handles — none of them are offered). Those are
+consequences of the radius, so they are not offered — exactly as on the
+graphs — and moving the corner keeps the radius.</p>
+<p>Drawing new curves in 3D is deliberately not offered: the graphs are
+where drawing belongs.</p>
+<hr /></section><section class="sec" id="editing-points-in-the-3d-view"><h3>Editing points in the 3D view</h3><p>With an object selected and its curves shown (⌗), its spine and profile
+can be edited in the 3D view much as in the graphs:
+- <strong>drag a point</strong> to move it (in the curve's own plane);
+- <strong>double-click the curve</strong> to add a point there - only while you look
+  straight at that curve's plane (click its square first), so a point is
+  never added by accident while turning around the model;
+- <strong>double-click a point</strong> to switch it between <strong>sharp</strong> and <strong>smooth</strong>
+  (bezier handles, which you can then drag);
+- <strong>right-click a point</strong> for its menu (sharp / smooth, delete), or point
+  at it and press <strong>Delete</strong>;
+- every <strong>corner</strong> has a small square on a stem along its bisector:
+  <strong>drag it into the corner</strong> to round it, <strong>back past the corner</strong> to
+  chamfer it (a diamond), onto the corner to make it sharp again - the
+  same control as in the graphs and on the fillet rings. Click the square
+  to type the radius.</p></section><section class="sec" id="what-a-click-selects"><h3>What a click selects</h3><p>The first button of the bottom-left row chooses what clicking in
+the 3D view selects: the <strong>part</strong> you click (◧), or the <strong>whole assembly</strong>
+it ends up in (⛁) - the combine at the top of its tree, however deep the
+part sits. The node editor still selects anything directly.</p></section><section class="sec" id="moving-the-gizmo-for-a-moment"><h3>Moving the gizmo for a moment</h3><p>The <strong>⌖</strong> button (bottom left, right after the manipulator chooser) snaps the gizmo
+somewhere else: click a point on the model and turning and scaling then
+happen about <strong>that</strong> point rather than the object's origin. It <strong>snaps</strong>
+to what you probably meant - one of the curve's own points, a corner, the
+middle of an edge, or the centre of a round edge (the axis of a hole or a
+boss) - and the status line says which it took. The gizmo's <strong>axes turn
+to match</strong>: along the edge it landed on, square to the face it was
+clicked on, so dragging and turning follow the part rather than the
+world. Press <strong>Escape</strong> to put both the pivot and the axes back; the
+world/local button also returns the axes. Nothing moves
+when you set it, a ring-and-cross marker shows where it is, and pressing
+the button again puts it back.</p>
+<p>It is temporary on purpose: it is never saved, and an autosave or an undo
+taken while it is on records the object exactly as it is. For a permanent
+version, use <strong>origin</strong> in the object's panel: that makes the object turn
+about another object's origin and follows it if that object moves.</p></section><section class="sec" id="how-the-model-is-drawn"><h3>How the model is drawn</h3><p>The <strong>view</strong> button (bottom right) cycles through eight ways of drawing the
+model:</p>
+<ul>
+<li><strong>colour</strong> - shaded and glossy, lit warm against cool;</li>
+<li><strong>grey</strong> - matte and soft, like fired clay;</li>
+<li><strong>wireframe</strong> - every mesh triangle;</li>
+<li><strong>edges</strong> - the solid's real face outlines and nothing else: a line along
+  the sweep for every corner of the profile, a ring only where one loft
+  piece meets the next, the caps, fillet edges and combine seams. The
+  selected object also shows, thinly, the rings it is lofted through;</li>
+<li><strong>glass</strong> - shaded in colour but see-through, so a hole, a hidden part or
+  the spine shows through;</li>
+<li><strong>zebra</strong> - black and white light bars in reflection, for checking how
+  smoothly surfaces meet: the stripes <strong>jump</strong> where surfaces meet at an
+  edge (G0), <strong>kink</strong> where they meet smoothly but the curvature changes
+  (G1), and <strong>flow on unbroken</strong> where the curvature carries on too (G2). Judge a fillet,
+  a chain of sweeps or a smooth imported surface by eye;</li>
+<li><strong>chrome</strong> - polished metal in a lit studio, <strong>in the object's own
+  colour</strong> (a red part is red metal, a gold one gold), with the colour
+  view's warm and cool lights. A plain grey part reads warm and cool as it
+  does in colour.</li>
+</ul></section><section class="sec" id="the-bottom-left-row-and-the-right-click-menu"><h3>The bottom-left row and the right-click menu</h3><p>The row, left to right: what a click selects (part or whole combine), the
+manipulator, its pivot, the curves and plane squares, the dials, the
+placement pin, the ruler and the kept dimensions, stats, and world / local
+axes. <strong>Right-click in the 3D view</strong> and the menu lists the same things in
+the same order (up to the dimensions), then the creation icons of the top
+row: <strong>+</strong> positive, <strong>−</strong> negative, <strong>∩</strong> keep inside, <strong>=</strong> combine, <strong>A=</strong> auto-combine,
+<strong>×</strong> array, then <strong>copy</strong> and <strong>mirror</strong> of the selection. +, − and ∩
+start placing a new object - click where it goes.</p></section><section class="sec" id="right-click"><h3>Right-click</h3><p><strong>In the 3D view</strong>, a right-click (without dragging) opens the <strong>quick
+menu</strong> - as a <strong>pie</strong> round the cursor or an ordinary <strong>list</strong>, chosen in
+Settings &gt; Right-click menu. Whatever is under the cursor is selected
+first. It offers, in this order:
+- <strong>manipulator</strong> (move / turn / scale / off), <strong>dials</strong>, <strong>curves &amp;
+  planes</strong>, <strong>dimensions</strong>, <strong>view</strong> (every view mode, direction and
+  curvature included), <strong>grid &amp; axes</strong> (grid, axes, local axes, fit and
+  reset the view),
+- <strong>the selected part</strong>: duplicate, mirror, delete, measure, reposition,
+  pivot, draw on it, route from here,
+- <strong>stats</strong>.</p>
+<p>In the pie, move toward a slice and click, or press its number; a slice
+with ▸ opens its own ring; the middle (or Esc) goes back or closes.</p>
+<p><strong>While a tool is running</strong>, a right-click means <strong>done</strong>: it ends a
+click-point curve on the surface (or stops drawing), finishes a route with
+the points picked so far, and ends placing.</p>
+<p><strong>On the app's small windows</strong> (a value to type, a choice to make), a
+right-click presses <strong>OK</strong> - but not inside a text field, where it is
+still copy and paste, and never on a question (a delete stays a
+deliberate click).</p></section><section class="sec" id="draft-mode-when-the-scene-gets-heavy"><h3>Draft mode — when the scene gets heavy</h3><p>Once a full build takes more than a few seconds, the scene switches to
+<strong>draft mode</strong>, and the app tells you so. From then on every edit shows
+a <strong>draft</strong>: the most expensive parts are simplified (fewer sections,
+a simpler outline) or left unjoined (their booleans skipped, the cutters
+shown as the usual ghosts), until the draft takes about a second. Edits
+stay instant, however heavy the scene.</p>
+<p>Be in no doubt about what you are looking at:</p>
+<ul>
+<li>an orange <strong>DRAFT</strong> banner sits across the top of the view while a
+  draft is on screen — <em>not what would export</em>;</li>
+<li>every node the draft simplified or skipped wears a <strong>DRAFT</strong> tag on
+  its card;</li>
+<li>the status bar says <em>DRAFT</em> and how long the last full build took.</li>
+</ul>
+<p>Press <strong>FULL</strong> (next to PAUSE, or the F key) to build the real model,
+with every boolean and blend, exactly as it would export. It runs in
+the background with the view usable, and CANCEL stops it. After it
+lands you are looking at the real thing until your next edit.</p>
+<p><strong>The lens - full in one spot.</strong> When FULL is too much and you only want
+to check one blend or one cut, press <strong>LENS</strong> (left of FULL, or L) and
+drag a frame over that part of the view. Every object the frame touches
+is built in full from then on - cutters and blends included - while the
+rest stays the draft; the frame stays on screen, labelled, and the status
+line says <em>full in the lens frame, draft elsewhere</em>. Edits inside the frame
+keep it full. The frame is a choice of objects, not of pixels: orbiting the
+view does not re-pick. Press LENS again (or Esc) to take it off. A frame
+whose objects alone take over a minute comes off by itself and says so.</p>
+<p><strong>Exports, pictures and STEP/STL always come from the full model.</strong>
+If you export while a draft is on screen, the full build runs first and
+the export follows when it lands — you can never export a draft by
+accident.</p>
+<p>A heavy file opens in draft mode straight away, using the build times it
+was saved with, so the first thing you see is a quick draft rather than
+a long wait. A scene that becomes light again (fewer parts, simpler
+outlines) leaves draft mode by itself. The threshold is four seconds;
+the <code>draft_seconds</code> preference changes it.</p>
+<hr /></section></section>
+<section class="chapter" id="ch4"><h2>4. Building parts</h2><section class="sec" id="placing-objects-exactly"><h3>Placing objects exactly</h3><p>Click <strong>+</strong> and the next click in the 3D view places a new object on
+whatever it lands on — a face, or the view plane in empty space. The
+placed object faces <em>out</em> of the surface it was put on.</p><figure><a href="manual/panel_left.jpg"><img src="manual/panel_left.jpg" alt="The panel on the left: name, sign, transform and the sweep&#x27;s own settings." loading="lazy"></a><figcaption>The panel on the left: name, sign, transform and the sweep&#x27;s own settings.</figcaption></figure>
+<p>While you aim, the new object's <strong>wireframe</strong> follows the cursor, posed
+exactly as it will land (green for +, red for −), with the stick showing
+which way it faces. Tick <strong>"line it up with the nearest edge"</strong> in the
+placement settings and it also turns so its sides run along the edge of
+the face you point at - the edge the distances are measured from - by the
+smallest turn that does it. <strong>"show the object while placing"</strong> switches
+the wireframe off if you'd rather see only the stick.</p>
+<p><strong>Turn it with the wheel.</strong> While placing, the mouse wheel turns the
+object about the face it sits on, 15° a notch (the angle shows under the
+dot); the view does not zoom until it is placed. With the edge line-up on,
+the turn counts from the edge - two notches is square across it. Assets
+show their wireframe too, and turn the same way.</p>
+<p><strong>The placement settings window</strong> (the small icon beside +) holds what a
+new object starts as and how it lands:</p>
+<ul>
+<li><strong>depth</strong> — on the surface, or sunk in by an amount</li>
+<li><strong>new profile</strong> — an n-gon by default (a square), or a circle</li>
+<li><strong>spine length</strong> — how far it is swept (default 10)</li>
+<li><strong>profile radius</strong> — how big it starts (default 7.07: the square's
+  corners, so a new object is a 10 mm cube)</li>
+<li><strong>scale</strong> — which scale graph it starts with (the default flat line,
+  the <em>box</em>, or a preset such as <em>to zero</em>)</li>
+<li><strong>keep</strong> — a distance from the nearest edge, and a second, different
+  distance from the edge the cross arm meets (see below)</li>
+<li><strong>snap</strong> — how close the pointer has to be before a guide takes hold,
+  in pixels; 0 turns snapping off</li>
+<li><strong>also snap to the middle</strong> — offers the midpoint of each guide</li>
+</ul>
+<p>The profile and spine-length fields grey out when you are repositioning
+or placing an asset, because they only apply to a <em>new</em> object.</p>
+<p><strong>Guides.</strong> While you hover a face, a dashed line runs from its nearest
+edge through the pointer. Set a <em>keep</em> distance and one point on that
+line is exactly that far from the edge; a second arm runs across the
+face at 90° so the far end of a narrow face is reachable too. The dot
+appears only when your click will land on it — no dot, no snap. Where
+the two arms cross is a point the set distance from <em>both</em> edges.</p>
+<p><strong>Two different distances.</strong> Fill in both <em>keep</em> fields — say 5 and 10 —
+and the point is 5 from one edge and 10 from the other. Each distance is
+measured square to <em>its own</em> edge, so it stays exact on a face that is
+not rectangular. Which two edges? The nearest one, and the one the cross
+arm runs into — so the pair follows your pointer as you move around the
+face. With both fields set, that point is the only thing the tool snaps
+to.</p>
+<p><strong>Both midlines at once.</strong> With <em>also snap to the middle</em> on, moving near
+where the two midlines cross snaps to the middle both ways rather than
+to one of them.</p>
+<p><strong>Readout.</strong> Beside the pointer, four distances — left, right, front,
+back — from the pointer to the edges of the face under it, along the
+face, in screen directions. It is a readout, not an input.</p>
+<p><strong>Repositioning</strong> (the pin icon) and <strong>placing an asset</strong> (double-click
+it in the shelf, or its <em>place</em> button) use the same hover, guides and
+snapping.</p>
+<p><strong>Carrying a spine on.</strong> While placing, repositioning or dropping an
+asset, point at the end (or the start) of any object's spine: a cyan ring
+shows there. Click it and a small menu asks — <em>Continue "…" from its
+end</em> attaches the object so its spine starts right there and carries on
+the same way, matching that spine's twist and scale at the joint (it sinks
+a hair into it, as any placement does, so the joint can be rounded); <em>Just
+place it here</em> places it normally. <em>Continue "…", profile linked</em> also
+links the new object's profile to the face it continues from - that
+object's end profile, or its profile while it has none - so a row of
+lofts stays joined: give a segment an end profile and the next one starts
+with it. Continued pieces are combined into one solid. Runs and stacks have
+the same choice: <em>link each segment's profile to the one before</em>. Moving the first object later takes
+the attached one with it (the same attachment the node editor's attach
+port makes). Choose <em>Don't offer this again</em> to switch it off; the
+placement settings window has the switch (<em>offer to continue a spine
+when clicking its end</em>) to turn it back on.</p>
+<p><strong>The camera keeps working while you place.</strong> Zoom and pan (middle-drag,
+or shift-drag) move the view mid-placement; orbit does not, because the
+left button is placing.</p>
+<hr />
+<p><strong>Twist and roll.</strong> <em>Twist</em> turns the profile progressively along the
+spine — 90° means the far end is a quarter turn from the near one.
+<em>Roll</em> turns the whole sweep at once, about the spine, including its
+first section. Use roll to orient a square or an n-gon; use twist to
+make it spiral.</p>
+<hr /></section><section class="sec" id="nodes"><h3>Nodes</h3><p><strong>Each card is the colour of what it is:</strong> green a positive object, red
+a negative, yellow a keep-inside one, blue a combine, purple an array,
+cyan an imported part (a mesh with a dashed border), magenta a lattice (a colour you give a node
+yourself wins). <strong>Any node takes +, − or ∩:</strong> the badge at its top left
+goes + → − → ∩ (+) → ∩ (−). A combine or an array normally takes its
+sign from what goes in; set from its badge it keeps its own - a combine
+of two parts set to − cuts as one piece - until the badge comes back
+round to the sign its inputs give it.</p><figure><a href="manual/nodes.jpg"><img src="manual/nodes.jpg" alt="The node editor: two objects combined, then a negative one (the hole) taken out." loading="lazy"></a><figcaption>The node editor: two objects combined, then a negative one (the hole) taken out.</figcaption></figure><figure><a href="manual/combine_3d.jpg"><img src="manual/combine_3d.jpg" alt="The result: each part keeps its own colour when the combine has none." loading="lazy"></a><figcaption>The result: each part keeps its own colour when the combine has none.</figcaption></figure>
+<ul>
+<li><strong>+ / − / ∩</strong> add a positive, negative or keep-inside object</li>
+<li><strong>=</strong> combine two selected objects</li>
+<li><strong>✕</strong> array</li>
+<li><strong>⤓</strong> import a CAD part or a mesh</li>
+<li><strong>◈</strong> lattice</li>
+<li><strong>⧉ / ⚇</strong> duplicate the selected node, or duplicate it <em>with everything
+  feeding it</em></li>
+</ul>
+<p><strong>On a node:</strong> double-click the name to rename, click the colour chip to
+recolour. The chips along the bottom right are lock, visibility, blend
+mode (on combines), <strong>curve or surface</strong> (on arrays), colour, and the
+node's key number - twist on an object, the radius on a combine, the copies
+on an array. Clicking that number opens the node's own dialog: twist, roll
+and spin for an object; everything about the array for an array.</p>
+<p><strong>Imported parts look different on purpose</strong>, since they have no graphs:
+a CAD part is a cyan card with "CAD part"; a polygon part is cyan too,
+with a <strong>dashed</strong> border and "polygon · no CAD" - a reminder
+that it is a mesh. A lattice node has one input and no output: it is an
+end point.</p>
+<p>The boolean is never chosen — it follows the signs.
+<code>(+)(+)</code> fuses, <code>(+)(−)</code> cuts.</p>
+<hr /></section><section class="sec" id="keep-only-what-s-inside"><h3>Keep only what&#x27;s inside (∩)</h3><p>The third sign, next to + (adds) and − (takes away): a <strong>∩</strong> object
+<strong>keeps only what lies inside it</strong> of whatever it is combined with. It is
+drawn <strong>yellow and see-through</strong>, like a negative is red.</p>
+<ul>
+<li><strong>Placed or drawn on a face</strong>, a ∩ reaches from just below everything
+  under that face to just above it - a cookie cutter: draw an outline on
+  the top of a part and the part is cut to that outline, all the way
+  through. With nothing selected it joins the object it was put on.</li>
+<li><strong>What is left counts as + or −.</strong> Its badge on the node (and the sign
+  box in the panel: <em>keep inside, adds</em> or <em>keep inside, cuts</em>) decides:
+  kept as −, the trimmed piece then cuts whatever it is combined with
+  next - a lens-shaped hole from two arcs, say. Clicking the badge goes</li>
+<li>→ − → ∩ (+) → ∩ (−) → +.</li>
+<li><strong>Two ∩ together</strong> make one smaller keep-inside shape (inside both).</li>
+<li><strong>The trim blends</strong> like a join: fillets, chamfers and smooth (G2)
+  blends round the edge where the cut runs.</li>
+<li>A ∩ trims only inside its own combine - put the parts you want trimmed
+  and the ∩ in a combine of their own, the same way you scope a negative.</li>
+<li>Nothing inside the ∩? The combine says so instead of leaving you
+  guessing.</li>
+</ul>
+<p>While a ∩'s combine - or anything in it - is selected, the parts it trims
+show <strong>faint grey</strong> at their full size, so you see what was cut away.</p>
+<p>Uses: cutting a part to an envelope; keeping the overlap of two sweeps
+(two silhouettes, side and top); clipping a lattice or an array to an
+outline.</p></section><section class="sec" id="mirroring-an-object"><h3>Mirroring an object</h3><p><strong>Mirror…</strong> sits in a node's right-click menu and on the ⇋ button, both in
+the node editor's toolbar and in the 3D view. The ⧉ beside it duplicates: for a combine it asks whether to copy
+just that node or everything feeding it, as the node menu does. The pop-up asks:</p>
+<ul>
+<li><strong>across which plane</strong> - the object's own left/right, front/back or
+  top/bottom plane (mirrored in place, so the image sits where the object
+  is), or a world plane, YZ, XZ or XY;</li>
+<li><strong>through</strong> the world origin, the object's own origin, or the centre of
+  what is mirrored (world planes only);</li>
+<li><strong>keep the original</strong>, which makes a mirrored copy rather than flipping
+  the object itself;</li>
+<li><strong>include everything feeding it</strong>, so a combine is mirrored with all its
+  parts.</li>
+</ul>
+<p>Only the placement changes: the graphs stay exactly as drawn, and a combine
+mirrors with everything inside it. A mirrored copy is an independent copy -
+it does not follow the original afterwards. Mirrored objects carry a ⇋ badge
+on the node, and their graphs say "mirrored in 3D", because dragging a point
+to the right there moves the mirrored shape to the left.</p></section><section class="sec" id="a-stack-of-objects"><h3>A stack of objects</h3><p>The placement settings carry a <strong>segments</strong> field: 1 places a single
+object, more drops a run whose spines join end to end, with a
+<strong>combine</strong> tick to union them into one solid. It greys out when the
+click will not create - repositioning, or placing an asset.</p>
+<p><strong>Add a stack…</strong> in the node editor's right-click menu asks how many, then makes a
+run of objects whose spines join end to end. Each one after the
+first is attached to the one before it, so they stay joined when you
+move the first.</p>
+<p>By default the stack is <strong>placed with a click</strong> in the 3D view, the
+same as placing a single object - it stands out of the surface under
+the cursor, and the whole run comes with it.</p>
+<p>By default the segments are <strong>combined into one solid</strong>, so the stack
+is a single body - ready to fillet at the joins and to export as one
+part. Untick that and they stay separate objects that touch, which
+is lighter while you are still shaping them.</p>
+<p>They are ordinary objects afterwards: edit any of them, fit any of
+them to a scan, delete one and the rest keep their chain. Their
+profiles are independent - changing one does not change its
+neighbours.</p>
+<hr /></section><section class="sec" id="a-stack-of-sweeps-from-cuts"><h3>A stack of sweeps from cuts</h3><p>In the section panel, <strong>stack from cuts…</strong> rebuilds what the plane is
+cutting - a mesh reference, or your own parts - as a chain of sweeps in one
+go. Say how many cuts: they are taken evenly along the plane's direction,
+from just inside one end to just inside the other, and each pair becomes
+a piece - the lower cut its profile, placed at the cut with the spine
+heading up to the next, the upper cut its end profile. Every piece's start
+is <strong>linked</strong> to the end of the one below, so editing one cut moves both
+pieces that share it and the chain stays continuous. More cuts follow a
+curved body more closely; six is a good start. Undo takes the whole stack
+back. (Point the plane along the part's length first - the cuts follow the
+plane's direction, whatever it is.)</p>
+<p><strong>A bent body.</strong> Select an object whose spine follows the part's curve - a
+thin helper drawn along a hose, a horn, a handle - and <em>stack from cuts</em>
+asks whether the cuts should <strong>follow that spine</strong>: planes square to it at
+equal steps, and each piece carries its own stretch of the curve. Piece two
+is placed exactly on the end of piece one, and so on, so the chain is
+continuous by construction; the helper can be hidden or deleted afterwards.</p></section><section class="sec" id="arrays-along-a-curve-or-on-a-surface"><h3>Arrays - along a curve or on a surface</h3><p>An array repeats whatever is wired into it. It <strong>takes that object's sign</strong>:
+an array of a negative is negative (drawn red and see-through), so an array
+of holes cuts.</p>
+<p>Where the copies go is chosen on the node itself - the <strong>curve / surface
+chip</strong> (a wave, or copies on a line) and the copies chip both open the
+array's dialog - and in the panel, "place on":</p>
+<ul>
+<li><strong>along the curve</strong> - the Array graph, as always: count, one per point,
+  follow the curve, spin and scale per copy.</li>
+<li><strong>on the surface of an object</strong> - pick the object; the copies stand on
+  it, each turned to face out of it (a negative one faces in, so a hole
+  reaches into the part). <strong>Scatter</strong> spreads them evenly over anything
+  (with a minimum spacing and a random seed); <strong>grid</strong> puts rows along the
+  spine and columns round the profile of a plain sweep.
+  <strong>Depth</strong> sinks each copy into the surface (negative lifts it off);
+  <strong>random twist</strong> turns each about its own axis.</li>
+</ul>
+<p>Each copy is placed by <strong>its own origin</strong> - the point the object was drawn
+around - not by the world's origin, so it does not matter where the object
+sits before you array it. The copies follow when the surface changes.
+Untick a copy in "copies shown" to leave it out.</p>
+<p><strong>Where the curve sits.</strong> An <strong>open</strong> curve starts at the object's origin:
+the first copy is where the object was. A <strong>closed</strong> curve goes <strong>round</strong>
+the object: its middle (the middle of its extent) is on the object's
+origin, and the Array graph marks that point. Untick <strong>"closed curve: round
+the object"</strong> to place a closed curve exactly as drawn instead. Copies
+round a closed curve are spaced evenly all the way round - six copies,
+six equal gaps - and each turns about its own origin to follow the curve.
+While you drag a point the middle stays where it was; it settles when you
+let go.</p>
+<p><strong>Editing the curve in the 3D view.</strong> The array's purple curve is drawn
+where the copies are - it moves and turns with the array - and is edited
+there like a spine: drag a point, <strong>double-click a point</strong> to switch it
+between sharp and smooth, drag a smooth point's <strong>handles</strong> (the other side
+follows), <strong>double-click the curve</strong> to add a point, and right-click a point
+(or point at it and press Delete) to remove it.</p>
+<p><strong>The object being repeated</strong> shows as a see-through <strong>purple ghost</strong>
+where it was modelled - the array graph's colour - whenever no copy sits
+there (round a closed curve, say). It is not part of the result: placing,
+snapping, measuring and exports pass it by. Click it to select it and edit
+it like any object; the copies follow.</p>
+<p><strong>The original as well.</strong> The copies replace the object. Tick <strong>"keep the
+original too"</strong> to keep one more exactly where the object is - a hub inside
+a ring of copies. It is not added twice when a copy already sits there.</p>
+<hr /></section><section class="sec" id="hollow"><h3>Hollow</h3><p>Every object and combine has a <strong>hollow</strong> field (under "result"; 0 =
+solid). It makes the part a closed shell of that wall thickness, as <strong>exact
+CAD</strong>. On a combine the cavity is built from the parts, so the wall is never
+thinner than asked (thicker where a union joins). On some <strong>filleted</strong>
+combines the CAD kernel cannot do it; the app refuses rather than return a
+wrong part, and points to the lattice node's hollow instead.</p>
+<p>The same setting sits <strong>on the node</strong> as a small chip: a solid dot when
+the part is solid, a lit ring when it is hollow. Click it to type the wall
+thickness (0 = solid).</p>
+<hr /></section><section class="sec" id="the-lattice-node"><h3>The lattice node</h3><p><strong>◈</strong> makes a lattice. With an object selected it <strong>fills that object</strong>;
+with nothing selected it fills a box. It has one input and no output - it
+is always the last step - and it is drawn and exported as a mesh.</p>
+<p><strong>Types</strong>, grouped: surfaces (gyroid, Schwarz-P, diamond, Neovius, IWP,
+lidinoid, split-P), 3D struts (cubic, BCC, BCC+cubic, FCC, octet, diamond,
+star), 2D fills extruded along an axis (square, diamond, triangle, kagome,
+honeycomb), foams (Kelvin, rhombic, random Voronoi), and <strong>your own</strong>: a
+custom cell typed as struts, or <strong>any object of yours</strong> as the cell,
+repeated every cell size.</p>
+<p><strong>Surface cages</strong> - hollow wireframes on the object's surface, nothing
+inside: a <strong>Voronoi cage</strong> (the borders between cells spread evenly over
+the surface) or a <strong>strut cage</strong> (points spread evenly over the surface,
+neighbours joined by straight round struts - an even, mostly triangular
+net). <strong>Cell size</strong> is the spacing, <strong>wall / strut</strong> the strut's
+thickness, <strong>seed</strong> another random spread. A <strong>tile cage</strong> lays <strong>your own
+2D cell</strong> (edit custom cell) into every quad of an even net over the
+surface - each quad turned the same way, so a tile with a direction keeps
+it; with no 2D cell yet it is a plain quad cage. On sharp edges the net
+comes out bevelled at about the cell size. A <strong>rind</strong> is a shell just
+inside the surface, <strong>depth</strong> thick, with a smooth round hole in every
+cell - the carved-gourd look; <strong>wall / strut</strong> is the rim left between two
+neighbouring holes, and the rims are rounded where hole meets shell.
+"Pattern in" and skin do not apply to cages (nor depth, except for the
+rind).</p>
+<p><strong>Form</strong>: sheet (a wall either side of the surface) or strut (the solid
+network). <strong>Cell size</strong> and <strong>wall / strut</strong> thickness in mm; a <strong>skin</strong>
+closes the outside with a solid wall.</p>
+<p><strong>Pattern in</strong> decides where the pattern goes: the whole volume, a plain
+<strong>hollow</strong> wall, a <strong>patterned shell</strong>, a <strong>perforated shell</strong>, <strong>emboss</strong>
+(standing out of the surface) or <strong>engrave</strong> (cut into it), with a
+<strong>depth</strong>. "Follow the sweep's surface" wraps 2D fills round a sweep, bends
+and all, with no seam.</p>
+<p><strong>Decal</strong>: text (any font), an image or an SVG, projected onto one side of
+the part and embossed or engraved there.</p>
+<p><strong>Place</strong> - a repeating pattern (gyroid, honeycomb, struts, foams, grid,
+Voronoi) can be slid <strong>across / up / along</strong> the object and <strong>turned</strong>, as
+numbers in the panel or by hand: with the lattice selected an amber handle
+with three spokes sits on the part - drag it to slide the pattern, Shift-drag
+to turn it; the numbers follow and the model rebuilds when you let go.</p>
+<p><strong>Grading</strong> - "vary" thickness or cell size <strong>by</strong> a direction, radially,
+by a <strong>grayscale image</strong>, or by <strong>your own graph</strong> (the Grade tab, x along
+the part, y in mm). <strong>Attractors</strong>: other objects that thicken (or thin)
+the pattern near them, fading over a distance you set.</p>
+<p><strong>Cut: holes</strong> - other objects cut right through wall, pattern and skin:
+drain holes for a hollow part, or bolt holes.</p>
+<p>The view shows a lighter <strong>preview</strong>; tick "full detail in the view" to see
+exactly what will be exported. Exports are always full detail.</p>
+<hr /></section><section class="sec" id="parameters"><h3>Parameters</h3><p>Any number field takes a <strong>name</strong> instead of a number, with arithmetic:
+<code>tube.diameter + 2</code>, <code>wall / 3</code>, <code>tube.length</code>. Every object offers its own
+numbers under its node name - <code>diameter</code> and <code>radius</code> (a circle profile),
+<code>width</code>, <code>height</code>, <code>length</code> (the spine), <code>twist</code>, <code>roll</code>, <code>x</code>, <code>y</code>, <code>z</code>, the
+rotation <code>rx</code>, <code>ry</code>, <code>rz</code> (degrees), the scale <code>sx</code>, <code>sy</code>, <code>sz</code> and <code>scale</code>
+(the uniform size), and a lattice's <code>thickness</code> and <code>cell</code> - and the name
+completes as you type (Tab
+takes it). A field that holds one shows <strong>ƒ</strong> before the value; hover it for
+the expression; type a plain number to let go. When what it refers to
+changes - typed, dragged on a graph, dragged in 3D - the field follows and
+the model rebuilds, down a chain (a cap that follows a sleeve that follows
+a tube). It works in twist, roll, position, rotation, scale, a lattice's
+wall and cell, the circle-radius chip on the profile graph, and the length
+of a straight spine (click its label). <strong>Edit → Parameters…</strong> is the table
+of your own names (<code>wall = 3</code>), each with who uses it. A typo keeps the last
+value and says what is wrong; a deleted object does the same.</p><figure><a href="manual/params.jpg"><img src="manual/params.jpg" alt="Edit → Parameters…: your own names and who uses them; the cap follows the tube." loading="lazy"></a><figcaption>Edit → Parameters…: your own names and who uses them; the cap follows the tube.</figcaption></figure>
+<p><strong>Pick instead of typing.</strong> While a number field has your cursor, click a
+part in the 3D view or its node in the graph: the part's number for that
+field (<code>tube.rz</code> in a rotation field, <code>tube.x</code> in a position field) drops
+into the field and the field keeps the focus - the part is not selected.
+Type the rest (<code>+ 90</code>) and press Enter. Clicking the selected object's own
+node is an ordinary click.</p>
+<p><strong>The ƒ chip.</strong> A node with a linked field shows a small <strong>ƒ</strong> among its
+chips. Hover it to see the links and dotted wires to the objects it
+follows (they show only while you hover, so they never tangle with the
+curve links); click it to select the node, with the links in the status
+bar.</p>
+<p><strong>Turn and size from the measure tool.</strong> Position is the kept dimension
+above (relative); rotation and scale have their own row in the measure
+window. Select one object, measure from it to a point on the other, and
+tick <strong>link</strong> on the <strong>rotation</strong> row and/or the <strong>scale</strong> row - the two
+are linked from then on, both ways: turn or scale either one with the
+gizmo or a field and the other does the same (a <strong>ƒ</strong> in the transform
+fields). With <strong>keep offset</strong> ticked when you link, both keep what they
+have now and move together from there: 5° more on one is 5° more on the
+other, half its size stays half its size. Without it the values are
+shared - the selected object takes the other's rotation or scale now,
+and they stay equal. Untick <strong>link</strong> to free them again (a plain number
+typed into one field frees that axis only). Each object turns and scales
+about its own origin (or pivot), and the kept offset is a real composed
+turn in the other object's frame, so it holds whichever way that object
+is tipped - not three angles added up, which would only be right about
+a single axis. This is separate from a kept dimension's <strong>lock the angle
+too</strong>, which fixes the measured bar's direction. A linked pair shows a
+dotted line between the two origins in the 3D view with what is linked
+at its middle (↻ rotation, ⤢ scale, ↔ a linked position); click the
+badge to unlink one or all of them. When a kept dimension already joins
+the two objects, the badge sits on that bar instead and no second line is
+drawn. It comes and goes with the kept dimensions (the ⊢ switch).</p>
+<p><code>rotx(obj, ox, oy, oz)</code>, <code>roty(...)</code>, <code>rotz(...)</code> can be typed into any
+rotation field yourself: the object's rotation composed with a turn of
+(ox, oy, oz) degrees in its frame, one axis of the result per field.</p></section></section>
+<section class="chapter" id="ch5"><h2>5. Fillets and chamfers</h2><section class="sec" id="rounding-and-chamfering-a-corner"><h3>Rounding and chamfering a corner</h3><p>Drag the radius on a corner and it rounds. <strong>Drag back through zero and
+it chamfers</strong> - the same control, the other direction. The corner is
+trimmed identically either way; a round joins the two trim points with
+an arc, a chamfer with a straight cut.</p>
+<p>Zero has a small landing place in the drag, so you can put a corner
+back to sharp without sliding past it - about two per cent of the
+corner's own edge, so it feels the same however far you are zoomed out.</p>
+<p>Double-click the radius to type it and the dialog asks which you want,
+since a typed number cannot say it the way the drag does. Zero is still
+a sharp corner and comes back exactly - the corner point is never
+moved.</p>
+<hr /></section><section class="sec" id="a-fillet-that-changes-along-the-seam"><h3>A fillet that changes along the seam</h3><p><strong>Select a combine</strong> and every <strong>ring</strong> where its parts meet shows in the
+3D view (with the curves switch ⌗ on - the same switch that shows the
+curves in 3D), with <strong>one point</strong> carrying the ring's radius: <strong>0</strong> when
+the seam is still sharp. Each point has a <strong>stem</strong> with a small square on
+its end - the longer the stem, the bigger the radius. Everything is done
+with the mouse alone:
+- <strong>drag the square out</strong> of the ring: a <strong>fillet</strong>, wider the further
+  out; <strong>drag it in</strong>, past the ring: a <strong>chamfer</strong> (the square becomes a
+  diamond) - the same control, the other direction, as a corner in the
+  graphs; back on the ring it is <strong>sharp</strong> again. With one point the
+  ring is the same all round;
+- <strong>click a +</strong> between two points to add a point there, then set its
+  square: the blend now changes from one point to the next, smoothly, all
+  the way round (a ring has no start or end). Chamfers are constant: a
+  ring's points are all fillets or all chamfers;
+- <strong>drag a point</strong> to slide it along the ring;
+- <strong>pull a point clear off the ring</strong> (it turns red with a ✕) and let go
+  to remove it; the ring always keeps at least one point;
+- <strong>click a point</strong> to type its radius exactly (a negative number is a
+  chamfer).</p>
+<p>The combine's <strong>mode</strong> follows the rings: none while every ring is sharp,
+fillet otherwise. A negative radius in the seam table is a chamfer.</p>
+<p>Where two round parts meet, the ring is made of several seams end to end
+(one per face). The points belong to the whole ring, not to one seam.
+Every change rebuilds the blend and is one undo step.</p>
+<p><strong>Quick shapes</strong>: under the seam table choose a <strong>shape</strong> (the same all
+along, one swell, thin in the middle, two swells...) between the <strong>thin</strong>
+and <strong>full</strong> radius, and press <strong>apply</strong> - for the rings of the seams
+selected in the table, or every ring when none is. A ring with a shape
+shows "ring 0.3–3 (drag in 3D)" in the table. For one seam on its own
+you can still type points as <code>t,r; t,r</code> (t from 0 to 1 along the seam).</p>
+<p>An ordinary fillet is round (G1): the surfaces meet with the same
+direction but the bend jumps - from flat straight to the fillet's radius -
+and the zebra view shows a kink in the stripes where the blend starts. On
+polished metal that kink is a break in every reflection.</p></section><section class="sec" id="smooth-curvature-continuous-fillets"><h3>Smooth (curvature-continuous) fillets</h3><p>Tick <strong>smooth (curvature-continuous)</strong> in the combine's blend box. Each
+fillet is then rebuilt so it matches not only the direction of the faces
+it joins but also how they bend (G2): the stripes in the zebra view flow
+round the corner without a kink, and so do reflections on the cast part.</p>
+<ul>
+<li><strong>fullness</strong> (0.5 - 2, default 1): how far the blend reaches into the
+  corner. More fills it out, less pulls it in toward the corner. The
+  blend starts and ends where the ordinary fillet of the same radius
+  would.</li>
+<li>Radius, variable radius and rings work as before - the smooth blend is
+  built on top of the ordinary fillet, between the same two lines.</li>
+<li>A seam with corners - a square peg, a rib, a boss - is smoothed as one
+  loop: round each corner the blend turns on the peg's edge the way a
+  ball rolling over it would - the peg's edge stays sharp down into the
+  blend, as it does on a real filleted boss - where the ordinary fillet
+  runs each side on past the corner and cuts them against each other
+  with a hard crease. A very narrow tip (a star's point with a blend
+  nearly as wide as the face) may keep the ordinary fillet.</li>
+<li>A seam that runs into a flat end cap (a sweep's end) is smoothed too.
+  Where it cannot be done safely - a seam ending somewhere else, a
+  chamfer - that seam keeps the ordinary fillet, and the status line says
+  how many were smoothed and how many kept.</li>
+<li><strong>Which is which</strong>: with the smooth switch on, the seam table's status
+  reads <strong>✓ 2 · G2</strong> for a seam that came out curvature-continuous and
+  <strong>✓ 2 · G1</strong> for one that kept the ordinary fillet (hover it for why),
+  and the ring's label in 3D says <strong>G2</strong> or <strong>G1</strong> after the radius.</li>
+</ul>
+<p><strong>Fullness that changes along the seam.</strong> With the smooth switch on,
+each point on a fillet ring gets a second, <strong>hollow square</strong> a little
+beyond the stem's square. Drag it <strong>out</strong> for a fuller blend there,
+<strong>in</strong> for a flatter one (0.5 - 2; the label reads <code>r 2 · f 1.4</code>); with
+two or more points the fullness eases from one point to the next, like
+the radius. Click the hollow square for a menu to type it or go back to
+the default.</p></section><section class="sec" id="an-uneven-chamfer"><h3>An uneven chamfer</h3><p>A chamfer's point has a <strong>hollow diamond</strong> beyond its stem's diamond: the
+chamfer's <strong>second distance</strong>. Untouched, both distances are equal. Drag
+the diamond out or in and the chamfer becomes uneven - <code>c 3/1.5</code> cuts 3
+mm into the seam's first object and 1.5 mm into the other. <strong>flip the
+chamfer's sides</strong> in the diamond's menu swaps them. With several points
+the two distances each ease round the ring.</p>
+<hr /></section><section class="sec" id="when-a-fillet-will-not-take"><h3>When a fillet will not take</h3><p>A seam that refuses to blend is asking for a radius that does not fit.
+Which way to move depends on the shape: on a finely traced or sliced
+outline the radius is usually too LARGE for the room between facets - a
+16-sided profile blends at 0.5 mm where it fails at 1 mm - while on
+smooth surfaces meeting at a shallow angle it can be too SMALL — measured on a box
+and cylinder union, 0.25 to 1.0 all failed and 1.5 blended every seam.
+When one fails the app tries a few larger radii on that seam and tells
+you the first that works, so the message names a number you can use
+rather than a dead end.</p>
+<p><strong>What the app does first.</strong> A seam around a boss or a hole is one
+LOOP, even though it is made of several edges. If the full radius does
+not fit, each loop is blended at the largest radius IT can take, the
+same all the way round — so a loop comes out even, never half round and
+half sharp, and one tight spot does not shrink the other loops.</p>
+<p><strong>Each spot as big as it fits.</strong> Even is not always what you want: a
+boss standing close to one edge of a plate gets the small radius its
+cramped side allows all the way round. Tick <strong>each spot as big as it
+fits (uneven)</strong> in the combine's blend box and every stretch of the loop
+gets as much of the radius as there is room for there — measured from
+the seam to the nearest edge of the faces beside it — easing smoothly
+between, so it is large where there is room and small where it is
+cramped, never a step. The status line says how far it eased down, and
+where.</p>
+<p><strong>When a rounding crashes the geometry kernel.</strong> Rare, but it happens on
+awkward shapes. The app then looks for the combine at fault and tries it
+at half and at a quarter of its radius, and only if those crash too
+shows that one combine without its rounding — every other rounding stays.
+The status line names the combine and what was done; your own radius is
+not changed.</p>
+<p><strong>Where it happened.</strong> In the 3D view, a loop that got a smaller radius
+than you asked for is marked in <strong>yellow</strong> while its combine is
+selected, and a seam that was left sharp is marked in <strong>red</strong> all the
+time — so an edge you did not mean to leave sharp is noticed without
+opening anything. The combine panel lists the same seams, with the
+reason for each.</p>
+<p>The <strong>section switch</strong>, next to the reference switch, cuts a loaded
+reference mesh. Click a surface and the plane is taken from it, the
+same way placing works; the sections found are drawn over the model,
+and clicking one makes it the selected object's profile and keeps a
+copy in your curve library so you can use it again. Cut across a
+cylinder and you get its circle; cut down the side and you get the
+rectangle through the middle — the click decides which.</p>
+<p><strong>fit to mesh</strong>, beside the SVG buttons, samples whatever else is
+there — a loaded reference mesh, or another object in the scene — at
+this object's own ends. When there is more than one thing it could
+sample it asks which: everything, the imported mesh, everything you
+modelled, or one object by name — combines included, since a combine is what you actually see.
+Picking "everything" skips the parts that feed a combine, so a tube is
+counted once rather than three times. The section panel offers the same choice, in the same words and uses what it finds as the profile.
+It asks which: the start, the end, or both — fitting one leaves the
+other exactly as you drew it. Fitting an end profile turns on "morph to
+an end profile" for you; you do not have to tick it first. Both ends get the same number of points so the morph
+between them does not twist, and the result is a normal editable curve.
+The object's ends have to be inside the mesh.</p>
+<p>The panel chooses how a section is sampled:</p>
+<ul>
+<li><strong>mixed</strong> fits curves along the smooth runs and keeps creases sharp.
+  Best for scans and most real parts, and it passes exactly through
+  the corners.</li>
+<li><strong>smooth</strong> fits one curve all the way round - fewest anchors on
+  anything round (a 48-sided section goes from 145 points to 3) - but
+  it rounds corners off.</li>
+<li><strong>cornered</strong> keeps straight segments and sharp anchors.</li>
+</ul>
+<p>Fewer anchors matter: they are what every later fillet and boolean
+pays for.</p>
+<p>A section can be a <strong>spine</strong> as well as a profile: "use as spine"
+sweeps the selected object ALONG the line you cut instead of across
+it - trace a rim or a seal on a scan and follow it. A closed section
+gives a closed sweep.</p>
+<p>The <strong>section switch</strong>, beside the reference button, cuts a loaded
+reference mesh. Switch it on and a plane appears in the middle of the
+model, already cutting; move and turn it with the ordinary gizmo and
+the curves follow it. The panel also takes a height and a tilt as
+numbers, if you know the cut you want. The curves it
+finds are drawn in place - the chosen one bright, the others dim. <strong>Tab</strong>
+picks between them, <strong>Enter</strong> makes the chosen one the selected object's
+profile, and <strong>S</strong> saves it to your curve library, where it is offered
+like any other saved curve.</p>
+<p>The measure panel offers a <strong>lock</strong>: the straight line between the two
+points, or only the distance along X, Y or Z, or the distance ignoring
+one axis ("ignore Z" is the horizontal distance between two things at
+different heights). The line on screen always shows what the number
+counts.</p>
+<p>Typing a distance moves the object along whatever the measurement
+counts, so the number you type is the number you then read. The window
+names the object that will move, and says so plainly when nothing is
+selected — measuring still works, but there is nothing for a typed
+number to act on. Switching the tool off closes the window with it.</p>
+<p><strong>Keep a measurement as a dimension.</strong> Select the object that should
+hold the distance, measure, and press <strong>keep</strong>. The measurement becomes
+a lasting dimension, drawn in the view with its value and a lock. It
+keeps the measurement's lock too: along X only stays along X only.</p>
+<ul>
+<li><strong>Relative</strong> (the default) measures to a point on the other object.
+  When that object moves, yours follows.</li>
+<li><strong>Absolute</strong> measures to that spot in the world, which never moves,
+  for example "6 above the floor". If the far end isn't on another
+  object, the dimension is absolute anyway, and the status bar says so.</li>
+</ul>
+<p>The solver moves <strong>positions only</strong>, never rotation or size. While you
+drag with the gizmo, the object slides only where its dimensions leave
+it free: one along X stops it moving in X, and three pin it. Dimensions
+that cannot all hold turn <strong>red</strong> and nothing in their group moves;
+redundant ones turn <strong>amber</strong>; one whose object was deleted turns
+<strong>purple</strong> and keeps its last position. Click a dimension's label to
+retype it, make it absolute or remove it. An attached piece cannot keep
+a dimension, because its attachment already places it.</p>
+<p><strong>Placing can keep its distance too.</strong> In the placement settings
+(right-click the + or − icon), <strong>keep distance</strong> can be off, relative or
+absolute. With it on, an object placed by snapping to "N from an edge"
+keeps that distance as a dimension. It is measured square to the edge,
+across the face, and turns with the object it was placed on when
+relative. With two distances (from two edges), it keeps both.</p>
+<p>The <strong>⊢</strong> icon (bottom left, beside the measuring ruler ⟺) shows or hides the kept
+dimensions. It turns itself on when you measure or place, and it is
+remembered between sessions. Hidden dimensions still hold.</p>
+<p><strong>No hinging in 3D either.</strong> Tick <strong>lock the angle too</strong> before you
+keep a measurement, or in a dimension's window later. The bar then
+keeps its direction as well as its length: the object cannot swing round
+the other end, and when the dimension is relative it turns <em>with</em> the
+other object. These dimensions show <strong>∠</strong>.</p>
+<p><strong>Which drives which.</strong> A kept dimension's arrow points at the object
+that moves. In its window, <strong>swap</strong> hands the moving over to the other
+object. The measure line also shows an arrow at the end a typed number
+would move.</p>
+<p>The <strong>what-is-shown</strong> button carries its state: a filled circle for the
+result, a hollow one for the components, a ringed dot for both.</p>
+<p>Each of these tools refuses to switch on when it has nothing to work
+on, and says which thing is missing: the <strong>pin</strong> needs an object
+selected to reposition, the <strong>section</strong> switch needs something to cut -
+an object or a reference mesh
+to cut, and <strong>measure</strong> needs something in the scene to click.</p>
+<p>The <strong>measure switch</strong> lets you click two points and see the distance
+between them. The points snap to edges and features the same way
+placing does, and a third click starts a new measurement.</p>
+<p>The <strong>✛ switch</strong> at the bottom right draws the world axes through the
+origin — red for X, blue for Y, green for Z, the same colours the gizmo
+uses. The grid gives you a floor; the axes give you a direction on it.
+Switch them off on a dense model, where three long lines through the
+middle are clutter.</p>
+<p>While the <strong>pin</strong> is carrying something it is drawn faint, so you can
+see the surface you are aiming at through it. Nothing has moved yet:
+cancel and it is exactly where it was.</p>
+<p>When you move something with the <strong>pin</strong>, it ignores the object
+being moved, so a click lands on whatever is behind it rather than
+on the thing in your hand.</p>
+<p>A click on <strong>empty space puts the object on the ground</strong>, where the
+grid is - not floating at whatever depth the camera implied. Click a
+surface instead and it goes there, as before.</p>
+<p>An object placed ON a surface sinks a hair into it — one per cent of
+its own size — so the two genuinely overlap and there is a seam to
+fillet. Without that they would touch and share no volume, which looks
+identical on screen and blends nothing.</p>
+<p>If the app says <strong>nothing to blend</strong>, the two objects are not actually
+overlapping — they may look as though they touch while sharing no
+volume at all. Move one into the other a little.</p>
+<p>Other things that stop a fillet:
+- <strong>stacking blends</strong> — a radius that reaches an existing fillet
+  surface
+- <strong>objects that barely touch</strong> — move them into each other a little
+- <strong>forcing it</strong> — the 'force' tick makes it try anyway, which can fail
+  loudly instead of leaving the edge sharp</p>
+<hr /></section></section>
+<section class="chapter" id="ch6"><h2>6. Surfaces, routes and more</h2><section class="sec" id="drawing-on-the-surface"><h3>Drawing on the surface</h3><p><strong>✎</strong> in the 3D view draws on a part like a pencil, and the strokes
+become <strong>wires</strong>. Select the part, click ✎, and:
+- <strong>drag</strong> across it: a freehand stroke that sticks to the surface (the
+  stroke is evened out and the hand's jitter smoothed away);
+- <strong>click points</strong>: a smooth curve through them, hugging the surface;
+  <strong>Enter</strong> (or a double-click) ends it, Esc drops it;
+- <strong>Shift-drag</strong> erases the strokes it touches; <strong>Ctrl+Z</strong> undoes;
+- a press <strong>off</strong> the part still turns the view, so you can turn round it
+  and draw on the other side; <strong>Esc</strong> (or ✎ again) stops.</p><figure><a href="manual/surface_3d.jpg"><img src="manual/surface_3d.jpg" alt="A closed loop drawn on the surface, filled with a honeycomb that follows the curve." loading="lazy"></a><figcaption>A closed loop drawn on the surface, filled with a honeycomb that follows the curve.</figcaption></figure>
+<p>With a drawing tablet, <strong>pen pressure</strong> sets the thickness as you draw
+(firm is thick, light is thin). The strokes are 3D, on the surface.</p>
+<p>The drawing is a <strong>lattice node</strong> of type "drawn", with the part as its
+input: a light, closed <strong>mesh</strong>, made from the strokes' distance field -
+no CAD booleans. The part stays on screen, see-through, to draw on. The
+<strong>drawing</strong> panel:
+- <strong>result</strong>: <strong>wires only</strong> (the part is just the guide - a cage for
+  casting), <strong>wires, the part cut out</strong> (their inner side follows the
+  part exactly: a <strong>tight fit</strong>, with a <strong>gap</strong> for a sliding fit or
+  shrinkage), <strong>raised on the part</strong>, or <strong>cut into the part</strong>;
+- <strong>fillet</strong>: a rounded blend where strokes meet - good for the metal's
+  flow;
+- <strong>tapered stroke ends</strong>, <strong>pen pressure</strong>, and <strong>fill closed loops</strong>: a
+  loop drawn back to its start becomes a sheet on the surface inside it
+  (for patches, not for loops that wrap all the way round a part).</p>
+<p>The wire thickness is the lattice's <strong>wall / strut</strong>. Select the drawing
+and click ✎ (or <strong>draw</strong> in its panel) to add to it later.</p></section><section class="sec" id="extracting-a-line-from-a-surface"><h3>Extracting a line from a surface</h3><p>The <strong>line</strong> button (bottom right, grouped with the references and the section) takes a curve off any
+surface - a reference scan or one of your own objects. Click two points
+on the surface: the curve between them is previewed in the 3D view, and
+a small panel sets:</p>
+<ul>
+<li><strong>plane</strong> - the curve lies in one plane through your two points, and
+  this picks which: <strong>along the view</strong> (the stretch that looks straight
+  from here - aim it with the camera), <strong>upright on the surface</strong>, or
+  <strong>shortest</strong> (of all the planes through both points, the one giving the
+  shortest curve).</li>
+<li><strong>points</strong> - how many, ends included.</li>
+<li><strong>curve</strong> - straight between the points, or smooth.</li>
+</ul>
+<p><strong>Save to library</strong> keeps it as an SVG with your other curves; <strong>Use as
+spine</strong> makes it the selected object's spine - and, with <strong>move the
+object there</strong> ticked (the default), moves and turns the object so its new
+spine lies exactly where the line was taken, whatever its scale and
+wherever it sits in a combine.</p>
+<p><strong>Use as scale</strong> makes the line the selected object's <strong>scale graph</strong>
+instead. Take it down the side of a scan - a vase, a handle - with the
+object's spine already in place: each point's distance from the spine,
+over the profile's own size in that direction, becomes the scale there,
+so the sweep takes on the scan's changing thickness. If the line stops
+short of an end, the scale is held level to it; points past the spine's
+ends are left out. (The line is cut by a plane: on a straight-sided cone,
+use <em>upright on the surface</em> - the view plane can just touch the surface
+there instead of cutting it.)</p>
+<p>On an <strong>asymmetric</strong> object (two scale curves, one per half), each point
+goes to the curve of the half it lies on - and one cut fills both: the
+line you picked runs down one side, and the other way round the cut runs
+down the far side, so with the plane <em>upright on the surface</em> a single
+extraction gives both halves. The cut should run along the object's split
+axis (left/right or top/bottom); if it is well off, the status line warns,
+and if it is nearly square to it nothing is changed. A spine gets a loft piece
+per point, so a handful of points is usually plenty. A third click
+starts again.</p>
+<hr /></section><section class="sec" id="building-it-from-struts"><h3>Building it from struts</h3><p><strong>File &gt; Build as struts…</strong> turns the model into a net of struts and
+connectors you can build for real - straws, tubes, sticks - with a
+connector that joins many struts at a point. Say how many struts; the app
+lays a net of near-equilateral triangles over the model, pulls every strut
+towards one length while the net stays close to the surface, and shows it
+over the model: nodes numbered from the bottom up, struts as lines (tick
+<em>label every strut</em> to see A-B on each). The panel says how equal the struts
+came out (a closed curved shape cannot be tiled with exactly equal
+triangles - the number of struts meeting at a node, 5, 6 or 7, carries the
+curvature; expect a few percent), the object's size, the tube to buy and
+the connectors by how many struts meet. <strong>Real strut length</strong> scales the
+whole plan so every strut is the length you actually have. <strong>Two or three
+lengths</strong> snaps the struts to classes instead, for a connector with no play.
+<strong>Save the plan</strong> writes three files: the plan as text (nodes with
+positions and how many struts meet, struts as pairs of node numbers with
+lengths, and for every node the struts that land on it), the same as CSV,
+and the net as an OBJ of lines.</p><figure><a href="manual/struts_3d.jpg"><img src="manual/struts_3d.jpg" alt="A dome as a near-equal strut net, its nodes numbered." loading="lazy"></a><figcaption>A dome as a near-equal strut net, its nodes numbered.</figcaption></figure></section><section class="sec" id="routes"><h3>Routes</h3><p>A <strong>route</strong> is a tube found between two points, around the parts. Click
+<strong>⤳</strong> (in the 3D view, or right-click in the node editor), click the <strong>start</strong> and then
+the <strong>end</strong>. Either can sit on a part or in free space, for example down
+to the floor. <strong>Shift-click</strong> points in between to make it pass
+through them. Esc cancels.</p>
+<p><strong>Editing its points.</strong> Select the route and its points show in the 3D
+view: the <strong>start</strong> green, the points it passes through blue, the <strong>end</strong>
+orange, and a small <strong>+</strong> halfway between each two.
+- <strong>Drag</strong> a point to move it. It stays in the route's plane, and a point
+  that sat on a part stays with that part. Hold <strong>Ctrl</strong> while dragging
+  to drop it onto the surface under the cursor instead.
+- <strong>Click a +</strong> to add a point there, then drag it where you want it.
+- <strong>Click a point</strong> for more: type its position, remove it (points in
+  between only), let go of its part, or pick all the points again.</p>
+<p>It stays in <strong>one plane</strong>, so its spine is an ordinary spine you can edit
+in the spine graph. By default the plane is vertical, through both ends;
+it can be horizontal instead, or <strong>best</strong>: a few tilts about the line
+between the ends are tried and the shortest wins - that can look into a
+hole or round a tall wall from the side.</p>
+<p><strong>A plane per leg (a chain).</strong> Pick the route with points in between, then
+choose <strong>a plane per leg</strong> under plane: the route splits into one leg per
+stretch, each in its own plane (vertical through its ends, or horizontal),
+joined into one piece in a combine. At every corner both legs run along
+the line their planes share, so the tube carries on round the corner
+smoothly - no kink, no ball. With vertical legs that line is vertical, so
+the tube turns while rising or falling. Drag a corner's dot to move it
+(both legs follow); a setting changed on one leg goes to them all. To add
+or remove a corner, pick the points again.</p>
+<p>In the <strong>route</strong> panel:
+- <strong>live</strong>: it is found again whenever its ends or the parts around it
+  change. Its ends remember the part they were clicked on and follow it.
+  Off, it is an ordinary object you edit by hand, and <strong>re-route</strong> finds
+  it again once.
+- <strong>tube radius</strong>: the profile circle.
+- <strong>style</strong>: <strong>smooth</strong> takes any angle; <strong>square</strong> keeps to straight runs
+  along the plane's two axes with as few turns as it can, like pipework.
+- <strong>wander</strong>: meanders instead of taking the tightest way, still around
+  the parts and under the rules. <strong>another</strong> gives a different meander.
+- <strong>keep away</strong>: how far to stay from other geometry <em>where possible</em>. It
+  squeezes closer where it has to; <strong>0 creeps</strong> along the surface.
+- <strong>never closer</strong>: a hard limit. The ends are exempt, since that is where
+  it touches.
+- <strong>min bend radius</strong>: straight runs are fine, but every bend is at least
+  this round.
+- <strong>direction</strong> with its rules:
+  - <strong>one way</strong>: never go back against the direction.
+  - <strong>max lean</strong>: never lean more than this from the direction.
+  - <strong>min slope</strong>: e.g. a drain that is never flat.
+- <strong>ends</strong>: <strong>at the point</strong> you clicked, or only on the plane it sits on:
+  <strong>anywhere on its surface's plane</strong>, or <strong>anywhere at its height</strong>. The
+  route then arrives wherever on that plane is easiest.
+- <strong>cling</strong>: within this distance of a surface the route may break the
+  direction rules, creeping along it like a vine - under a lip, along
+  the floor, into a crevasse. In free air the rules hold.
+- <strong>inside the part - a channel</strong>: runs <em>through</em> the parts instead of
+  around them and is cut out of them: the route turns negative and joins
+  the part it starts on. <strong>keep away</strong> is then the wall it leaves to the
+  outside. Both ends run on a little past the surface so the channel
+  opens cleanly. (Holes already cut into the part are not avoided yet.)
+- <strong>leaves</strong> / <strong>arrives</strong>: free, square to the surface, vertical,
+  horizontal, or along or against the direction.
+- <strong>stay above the floor</strong>.</p>
+<p>If no route exists under the rules, it says so and keeps the last one;
+relax a rule or add a point to pass through.</p></section><section class="sec" id="drop-onto-the-floor"><h3>Drop onto the floor</h3><p><strong>↧</strong> at the end of the align row, after distribute (or right-click &gt; the
+part &gt; drop onto the floor…): each selected object falls from where it is,
+as it is held, onto the floor or the objects below it. When it touches, it
+tips over that point or edge the way its weight takes it, and keeps going
+until it stands - on a face, or leaning on another object. You see it fall.
+It doesn't bounce, and it doesn't slide (it grips where it touches). Set
+<strong>turn</strong> to <em>never</em> and it falls straight down without turning. An object
+that starts too low - in the floor, or inside another object - comes
+straight up out of it first, and the panel says how many did. <strong>What you
+didn't select stays put</strong>, and the falling objects land on it; hidden
+objects are ignored. <strong>Gap</strong> keeps them that far apart.</p>
+<hr /></section><section class="sec" id="importing-cad-parts-and-meshes"><h3>Importing CAD parts and meshes</h3><p><strong>⤓</strong> (or File &gt; Import CAD or mesh) brings in another program's work as a
+part of your model - not just something to look at.</p>
+<ul>
+<li><strong>STEP, IGES, BREP</strong> become exact <strong>CAD parts</strong>. A file with several
+  solids asks: one object, or one per part.</li>
+<li>A <strong>closed STL or OBJ</strong> becomes a <strong>polygon part</strong>: an exact solid made
+  of its flat triangles, so it booleans like anything else. Open meshes,
+  overlapping pieces or more than 100,000 triangles are refused with the
+  reason - import those as a reference instead.</li>
+<li>An <strong>OBJ or STL</strong> also offers <strong>Smooth CAD surface</strong>: it is read as a
+  subdivision cage (as in SubD modellers) and turned into the smooth
+  surface it stands for, as real CAD patches - it then goes into STEP like
+  any CAD part. Add edge loops in the cage to keep an edge sharp.
+  Any other mesh is <strong>prepared</strong> first: corners that coincide are welded
+  (most exports store each face with its own corners), doubled faces
+  dropped, holes closed, and a dense mesh (a scan, a sculpt, most STLs)
+  is rebuilt as a light cage whose smooth surface is fitted back onto it.
+  The status bar says what was done. Sharp edges come out rounded - it is
+  a smooth surface.</li>
+</ul>
+<p>An imported part has a transform and a sign and nothing else: move it,
+turn it, scale it, add it or cut with it. <strong>File &gt; Reload imported part
+from source</strong> re-reads the file and keeps where you put it.</p>
+<hr /></section><section class="sec" id="assets"><h3>Assets</h3><p><strong>A starter shelf</strong> comes with the app: a ball, cone, cube, cylinder,
+pyramid, spring, torus and tube, each made of a profile, a spine and a
+scale graph you can open and change. They are copied into your library
+the first time the app starts; after that they are yours - rename,
+change or delete them and they stay that way.</p>
+<p><strong>Save selected</strong> in the shelf saves the selected node with everything
+feeding it, with a thumbnail of <em>that</em> asset. The name you give it is
+the name the shelf shows AND the name the node gets when you place it
+— a second copy is numbered. Place one with a
+double-click or the <em>place</em> button; it lands with the same guides and
+snapping as a new object.</p>
+<p>Assets are ordinary files. <strong>folder…</strong> opens the folder they live in, or
+points the shelf at a different one — a synced folder, a stick, or one
+beside a project. They live in <code>~/.sweepercad/assets/</code> unless you say
+otherwise, and a folder that has gone away falls back to that.</p>
+<p><strong>How smooth a blend came out</strong> shows on the combine's card as a small
+badge at its top right after each build: <strong>G0</strong> when the seams are sharp
+(or chamfered) as asked, <strong>G1</strong> when they carry ordinary tangent fillets,
+<strong>G2</strong> when every blended seam was rebuilt curvature-continuous - and an
+orange <strong>G0</strong> when a blend was asked for but a seam had to be left sharp
+or reduced; the seam table says which.</p>
+<p><strong>Adding a whole file to the scene.</strong> <em>File → Add file to scene…</em>
+(Ctrl+Shift+O), or drop a <code>.sweeper</code> file from your desktop onto the 3D
+view: its objects join what is open, alongside, as they were saved - the
+file you are working in stays the current file. A name already taken
+gets a number. Its reference images come along; so do the saved build
+times, so a heavy addition can put the scene in draft mode.</p>
+<p><strong>Putting an asset back in place.</strong> <em>In place</em> (beside <em>place</em> on the
+asset shelf) inserts the selected asset exactly where it stood when it was
+saved - turned and moved as it was, the combine it sat in included, so a
+nested part comes back to its spot. Assets saved before this remember no
+spot and are inserted as saved.</p></section></section>
+<section class="chapter" id="ch7"><h2>7. Checking and making</h2><section class="sec" id="stats-and-checks"><h3>Stats and checks</h3><p>The <strong>Σ</strong> icon in the 3D view opens the <strong>stats</strong> panel. It scrolls, and
+each section folds away by the tick in its title (and stays folded):
+- <strong>selected</strong>: the selected part's extent, volume, surface, weight and
+  material cost (material and price per kg are chosen here).
+- <strong>direction</strong>: the direction the checks below go along.</p><figure><a href="manual/stats.jpg"><img src="manual/stats.jpg" alt="The stats panel (Σ): size, volume, area, weight, and the checks." loading="lazy"></a><figcaption>The stats panel (Σ): size, volume, area, weight, and the checks.</figcaption></figure><figure><a href="manual/cast.jpg"><img src="manual/cast.jpg" alt="The casting check: where the part sets last - the heavy head needs a riser." loading="lazy"></a><figcaption>The casting check: where the part sets last - the heavy head needs a riser.</figcaption></figure>
+<ul>
+<li><strong>between parts</strong>: separate parts closer than the distance you set are
+  flagged <strong>yellow</strong>, parts that <strong>touch</strong> <strong>orange</strong>, and parts that cut
+  into each other <strong>red</strong> (with how deep). The spots are ringed in the 3D
+  view. It checks again after every rebuild while the panel is open, or
+  on <strong>check now</strong>. The pieces inside one combine belong together and are
+  not checked against each other. Parts that are <strong>interlocked</strong> - that cannot be
+  slid apart in any straight direction (linked rings, one caught in the
+  other's hollow) - are flagged <strong>purple</strong>. A part that only comes out
+  with a twist counts as locked.</li>
+<li><strong>along the direction</strong>: <strong>Cross-section graph</strong>: the section's
+  area over height; hover to read it, click to cut the view there (along
+  Z). <strong>Curvature view</strong>: the surface coloured by how it bends - bulging
+  (convex) warm, hollow (concave) cool, flat grey, full colour at the
+  radius you set or tighter.</li>
+<li><strong>strength</strong>: quick checks of the selected part (or everything) in the
+  material chosen at the top, along the direction view's axis - where it
+  would be pulled apart (and at what force), how far it moves when pushed
+  sideways at the top while standing on its far end (and the push that
+  bends it for good), and the load on top that buckles it. The graph
+  shows the bending stiffness along the height; the weak spot is ringed.
+  Beam estimates: rough for stubby parts, good for slender ones. Each
+  material has a typical Young's modulus and strength (a supplier's sheet
+  is better).</li>
+<li><strong>simulate</strong>: click <strong>held here…</strong> and click the spots on the model
+  where it is held, then <strong>pushed here…</strong> and the spots where it is
+  pushed (right-click or Esc ends picking); set the <strong>force</strong> in newtons
+  (10 N is about 1 kg), its <strong>direction</strong> (into the surface, or along an
+  axis) and the <strong>detail</strong>, then <strong>simulate</strong>. The part is cut into small
+  bricks and solved: how far it moves, the peak stress, and the <strong>safety
+  factor</strong> - the material's strength over that peak (2 or more: room to
+  spare; 1-2: not by much; under 1: it would give way). <strong>Stress in the
+  view</strong> colours it blue (relaxed), green, yellow, red (giving way); the
+  peak is ringed. A first look, not a certificate: thin walls need a
+  finer detail, and sharp inside corners read high.</li>
+<li><strong>casting</strong> (its own window - the crucible icon in the group with Σ at
+  the top right; the corner of the icon opens the row): where a cast or
+  moulded part sets last, and
+  whether every thick spot can still be topped up from the gate while it
+  shrinks. Click <strong>gate here…</strong> and click where the metal or plastic
+  comes in (a sprue, a gate, a feeder; pick several if the mould has
+  them), then <strong>check</strong>. <strong>Cut-off spots</strong> - thick spots behind a thinner
+  neck, which freeze off from the gate - are ringed red with their
+  thickness and the neck's: shrink holes in a casting, sink marks on a
+  moulding. Thicken the way to them or feed them from a gate of their
+  own - or press <strong>risers on the thick spots</strong>: a riser stands on each
+  (on the thickest spot when none freezes off), its diameter 1.3 times
+  the thickness there, 1.5 diameters tall, with a narrower neck, as an
+  ordinary + object you can move or resize; combine it with the part.
+  <strong>Vents where it fills last</strong> puts a thin pin on each fill-last spot.
+  A runner is a route from the gate (the route tool). The places that
+  <strong>fill last</strong> are ringed yellow: where the air
+  goes (vents) and where flows meet. With no gate picked, the thickest
+  spot is ringed as a place for one, and every spot that would still
+  need feeding of its own is shown. <strong>Show</strong> picks the view: <strong>sets
+  last</strong> (thick spots red), <strong>cut off</strong> (red where it is cut off) or
+  <strong>fills last</strong> (blue near the gate, red last). The thickest section is
+  compared with the typical wall: a moulding sinks over spots about
+  twice the typical wall or more. It works from the shape alone - no
+  gravity, material or temperatures - so it is a first look.</li>
+<li><strong>walls and cavities</strong>: set the <strong>thinnest wall</strong> and press <strong>check</strong>.
+  Thin spots are dotted red on the part; <strong>closed cavities</strong> (sealed voids
+  inside, which cannot drain or be cleaned out) are ringed with their
+  volume. Check <strong>each part, as built</strong> (a combine counts as one), <strong>each
+  piece, before combining</strong> (a piece thin on its own shows up even if it
+  is thick once joined), or <strong>the selected one</strong>. It works on a voxel copy
+  of the part, good to about a fifth of the wall asked for.</li>
+</ul></section><section class="sec" id="what-the-selected-object-measures"><h3>What the selected object measures</h3><p>The <strong>stats</strong> panel (Σ in the 3D view) shows the selected part's <strong>size</strong>, <strong>volume</strong> and <strong>surface area</strong>.
+These come from the mesh on screen, so flat-sided shapes are exact
+and curved ones read very slightly low - about 0.3% on a 30 mm
+cylinder, 0.8% on a 10 mm one. They never read high.</p>
+<p><strong>Weight and material cost</strong> (now also bronze, sterling silver, 18k gold,
+cast iron, tough resin, beech, marble, concrete, and the plastics PC, POM,
+PP, HDPE, acrylic, rigid PVC, PS, PEEK, PEI, glass- and carbon-filled
+nylon, and casting wax). Pick a <strong>material</strong> (PLA, PETG, resin,
+aluminium, steel, wood and more) and the panel adds the part's <strong>weight</strong>
+and what its material costs, from the <strong>price</strong> per kg beside it. The
+prices are typical starting values; type what you pay and it is remembered
+for that material. Both are for a <strong>solid</strong> part: a 3D print with infill
+weighs and costs less, and the price is the material only - no machine
+time, and not what a print or CNC service would charge.</p>
+<hr /></section><section class="sec" id="machining-g-code-for-a-cnc"><h3>Machining (G-code for a CNC)</h3><p><strong>The machining icon</strong> (the hammer-and-pick, in the group with Σ at the
+top right - its corner opens the row) turns what is selected (or,
+with nothing selected, everything shown) into toolpaths for a 3-axis
+machine cutting from the top - a router or a mill on GRBL, LinuxCNC or a
+generic controller.</p><figure><a href="manual/cam.jpg"><img src="manual/cam.jpg" alt="Machining: operations, tools and feeds, the toolpaths simulated on the stock." loading="lazy"></a><figcaption>Machining: operations, tools and feeds, the toolpaths simulated on the stock.</figcaption></figure>
+<ul>
+<li><strong>machine</strong>: the controller, the spindle's top speed (on GRBL the S
+  value is scaled to $30 - set them alike), the rapid rate (for the time),
+  the travel (the program is checked against it) and coolant.</li>
+<li><strong>material and stock</strong>: the material sets the suggested cutting data;
+  the stock is the part's box plus what you give around, above and under
+  it. <strong>Zero (X0 Y0 Z0)</strong> is where you zero the machine: the stock's top
+  front-left corner, its top centre, or its bottom (the bed).</li>
+<li><strong>operations</strong>, in this order, each with its own tool:
+  <strong>face</strong> (the stock top down to the part), <strong>clear</strong> (level by level,
+  everything that is not the part - <em>around the part</em>, or <em>pockets only</em>
+  inside its outline - leaving a skin on the walls), <strong>walls</strong> (the walls
+  to size), <strong>finish ≡</strong> (3D: passes that follow the surface - along X,
+  along Y, or both), <strong>finish ◎</strong> (3D: contours at constant heights, for
+  steep walls; the two together cover a curved part), <strong>drill</strong> (round
+  vertical holes the drill fits, pecked; holes of another size are
+  cleared instead) and <strong>cut out</strong> (the outline through the stock, with
+  <strong>tabs</strong> that hold the part - last, so the part is held for everything
+  before it). The finishes take a <strong>ball end</strong> (or a flat one); for a
+  ball the stepover is suggested for ridges of 0.01 mm between passes. Each row suggests
+  the spindle speed, feed, plunge, depth per pass and stepover from the
+  material and the tool; change any of them. <strong>Climb</strong> milling is the
+  default; untick it for conventional. Cutters ramp into material along
+  their path (a helix on a small loop) and only plunge into air.</li>
+<li><strong>3D detail</strong> (under the stock): how finely the surface is read for
+  the finishes - <em>normal</em> (0.1 mm) or <em>fine</em> (0.05 mm, a few times
+  slower). The finishing passes never cut into the part; they leave about
+  that much more on curved and steep areas, so <em>fine</em> gets closer.</li>
+<li><strong>plan and simulate</strong> draws the paths on the part (a colour per
+  operation, rapids dashed) and the stock as they leave it; <strong>play</strong> or
+  drag the slider to watch it cut. It is <strong>checked</strong>: a move that would
+  cut into the part, or a rapid through stock that is still there, is
+  drawn red and reported, as is a program that needs more travel than the
+  machine has or a cut deeper than the tool's flutes.</li>
+<li><strong>save G-code…</strong> writes the program. For <strong>GRBL</strong> that is one file per
+  tool (GRBL has no tool changer; zero Z again after each change), with
+  only what GRBL understands - no canned cycles. Other controllers get one
+  program with tool changes.</li>
+</ul>
+<p>A wrong program can break a tool or the machine: watch the simulation,
+check the zero, and run a new program in the air first. The cutting data
+is a conservative starting point for a hobby machine, not a promise.</p></section><section class="sec" id="unfold-lay-it-out-flat-to-print-and-cut"><h3>Unfold — lay it out flat to print and cut</h3><p>The ✂ icon in the make-it row (Σ · casting · machining · unfold) opens the
+<strong>Unfold</strong> window: the selected part laid out flat at <strong>true size</strong>, in
+pieces, on pages to print — or as one full-size SVG for a cutting plotter or
+a laser. Pick the <strong>material</strong> first; it decides how the part is flattened
+and what is drawn around the pieces.</p><figure><a href="manual/unfold.jpg"><img src="manual/unfold.jpg" alt="Unfold, paper: a lamp shade as one net with glue tabs and numbered seams." loading="lazy"></a><figcaption>Unfold, paper: a lamp shade as one net with glue tabs and numbered seams.</figcaption></figure><figure><a href="manual/unfold_fabric.jpg"><img src="manual/unfold_fabric.jpg" alt="Unfold, fabric: a vase in panels with seam allowance, notches and grain lines; the list shows every seam." loading="lazy"></a><figcaption>Unfold, fabric: a vase in panels with seam allowance, notches and grain lines; the list shows every seam.</figcaption></figure>
+<p>It works on the same <strong>quad mesh</strong> as the quad export: every four-sided face
+of the part is a regular grid — on a sweep the rows follow the spine and the
+columns go round the profile — so seams, darts and the automatic splits run
+along grid lines, never across a quad.</p>
+<p><strong>Exact</strong> (paper, card, sheet metal, foam): every face keeps its true
+shape, nothing stretches. The faces are unfolded hinge by hinge, and where
+a piece would overlap itself it is cut instead. Curved faces come out as
+strips: <strong>max bend per facet</strong> decides how many — a 90° fillet at 30° per
+facet is three strips (three small chamfers). A straight fillet smaller
+than <strong>one fold under R</strong> is drawn as a single fold along its middle; its
+strip still gives the material its true length.</p>
+<p><strong>Stretch</strong> (fabric, leather, felt): each region between sharp edges is
+flattened as one piece, with a little stretch where the surface curves both
+ways. Tick <strong>stretch map</strong> to see it on the part: blue is true, red is the
+<strong>max stretch</strong> you allow. A piece that would stretch more is split in two —
+first along the part's own faces (on a sweep those run along the spine, so
+a vase comes out as panels), then along the face's own grid lines — until
+it fits. Set max stretch to 0 to keep pieces whole and place your own:</p>
+<ul>
+<li><strong>+ seam</strong>: click points on the part, as many as you like. The button turns
+  green and reads <strong>✓ end seam</strong> — press it to finish (a right-click or Esc
+  does the same). Each click snaps to the nearest grid point (a cross marks it) and
+  the white dashed line shows the path the seam will take, along the grid lines,
+  before you finish — two points on the same row or column give a straight
+  seam along it. Seams work in exact mode too —
+  that is how you choose where a paper net is cut.</li>
+<li><strong>+ dart</strong>: click where the dart opens (on an edge), then where its tip
+  goes. The slit runs between them and opens into a wedge when the piece
+  lies flat, taking up the fullness. Click only the tip and press <strong>✓ end dart</strong>
+  for a dart from the nearest edge. The dart button stays on for the next
+  dart until you press ✓ end dart.</li>
+<li><strong>Auto dart</strong> tries a dart tip at three depths from the worst
+  spot and keeps the one that lowers the stretch most — or says that no dart
+  helps there (then a seam, or max stretch, will).</li>
+<li><strong>The list</strong> under the buttons holds your seams and darts: select one to
+  see it white on the part, untick it to leave it out without losing it,
+  <strong>delete</strong> to remove it, <strong>clear all</strong> for all of them.</li>
+</ul>
+<p><strong>The seam list</strong> shows every seam: yours (seams, darts, splits you kept
+joined) and, in cyan, the splits the unfolder made itself — numbered as on the
+paper. Select one or more (ctrl / shift) to see them white on the part; untick
+one of yours to leave it out; <strong>delete</strong> removes the selected ones. Deleting an
+automatic split <strong>keeps it joined</strong> (it shows up as <em>kept joined</em>; delete that to
+let the unfolder cut there again). Paper and metal still have to cut a closed
+part somewhere to open it — keep a box edge joined and the cut moves to another
+edge; if it can't (it would overlap), the status line says so.</p>
+<p><strong>Only my seams</strong> (fabric / stretch): no automatic splits at sharp edges or
+past the max stretch — the pieces are exactly what your seams close off, and
+the stretch map shows what that costs. A closed piece still gets the one cut
+it needs to open.</p>
+<p>Seams, darts and joins are saved with the project file.</p>
+<p>In 3D, cyan lines show where the pieces split, magenta your own seams and
+darts (the one selected in the list white), and a white dashed line the path
+of a seam while you place it. Closing the unfold window clears all of it —
+the lines, the stretch map and the pages; your seams and darts stay with the
+part and come back when you open it again. Deleting the part clears it too.</p>
+<p><strong>What each material draws:</strong></p>
+<ul>
+<li><strong>paper / card</strong>: cut lines; folds red dash-dot (mountain — folds away
+  from you, the printed side out) and blue dashed (valley); a glue tab on
+  one side of every seam, and the same number on both sides.</li>
+<li><strong>sheet metal</strong>: no tabs; bend lines with their angle and direction (down
+  or up). The model is read as the <strong>outside</strong> of the part: set the
+  <strong>thickness</strong>, the <strong>inside bend radius</strong> of a sharp fold and the
+  <strong>K-factor</strong> (where the neutral line sits, 0.33–0.45 typical). Each bend
+  takes off its bend deduction, so the flat is cut to the neutral line and
+  the bent part comes out at the size you drew. A fillet you modelled counts
+  as the bend, its radius as the outside radius.</li>
+<li><strong>fabric / leather</strong>: the cut line is the piece plus the <strong>seam
+  allowance</strong>; the dashed line is where to stitch. Notches and numbers on
+  matching seams, and a grain line along each piece.</li>
+<li><strong>foam / felt / laser</strong>: clean cut lines, with an optional <strong>kerf</strong> (the
+  cut line moves out by half the cut width).</li>
+</ul>
+<p><strong>The page.</strong> Pieces are laid out at true size on A4, A3 or Letter, on a
+<strong>custom size</strong> you type (width × height in mm — a cutting mat, a plotter's
+roll), or with <strong>fit the page to the design</strong>: one page just big enough for
+all the pieces, the right thing for an SVG for a laser or a single sheet from
+a print shop. On the
+page: the <strong>wheel zooms</strong> about the cursor, a <strong>drag</strong> moves it, a
+<strong>double-click</strong> shows the whole page again. The toolbar above it — and a
+right-click on the page — has <strong>fit</strong>, <strong>print…</strong> (through your printer's
+dialog, always at 100 %), <strong>PDF…</strong>, <strong>SVG…</strong> (one full-size sheet, for a
+cutting plotter or laser) and <strong>clear</strong>, which empties the pages and the lines
+on the part but keeps your seams and darts (<strong>clear seams</strong> removes those).
+After printing, measure the 50 mm bar on the page to check the printer did not
+scale it. A
+piece bigger than the page gets a page to itself and a note — use a larger
+page or the SVG.</p></section><section class="sec" id="exporting"><h3>Exporting</h3><ul>
+<li><strong>STEP</strong> — exact surfaces, no meshing. Use this for other CAD. Flat
+  faces are written as true planes, so they can be mated to and sketched
+  on at the other end.</li>
+<li><strong>IGES</strong> — exact too, for older CAD that will not take STEP.</li>
+<li><strong>BREP</strong> — exact, OCCT's own format: FreeCAD, CadQuery and anything
+  else built on the same kernel read it with no translation.</li>
+<li><strong>STL</strong> — triangles, for printing, milling, and most fabrication.</li>
+<li><strong>3MF</strong> — the newer printing format: it states millimetres, keeps the
+  mesh indexed (so a slicer can check it is watertight) and carries
+  <strong>colour</strong>.</li>
+<li><strong>OBJ</strong> — triangles, with a material per object colour - <strong>or quad
+  patches</strong>: every CAD face becomes its own grid of quads on the true
+  surface, watertight, like MoI's output. Chosen in the export dialog,
+  with an <strong>aspect ratio limit</strong> and <strong>avoid smaller than</strong>.</li>
+<li><strong>PLY</strong> — triangles with a colour on every vertex (MeshLab, Blender).</li>
+<li><strong>GLB</strong> — glTF for the web, Blender and the system viewers, with vertex
+  colours. It is converted to metres and Y-up, as that format requires.</li>
+</ul>
+<p><strong>UVs, at real size.</strong> OBJ and GLB carry texture coordinates where one
+UV unit is 100 mm everywhere, so a tileable material is the same size on
+every part - good for renders. Quad patches get UVs along the surface
+(around the profile, along the spine); triangles are box-mapped.</p>
+<p><strong>Polygon parts and CAD files.</strong> STEP, IGES and BREP are exact surfaces, so
+an imported <strong>mesh</strong> has no place in them. With polygon parts in the model
+the export asks: <strong>Leave them out</strong> (a cut made by a mesh is left out too,
+and the status line says how many parts were skipped) or <strong>Include as
+faceted solids</strong> (every triangle becomes a flat CAD face).</p>
+<p><strong>Lattices</strong> are always exported at <strong>full detail</strong>, whatever the view
+shows. They go into STL, OBJ, 3MF, PLY and GLB as meshes.</p>
+<p><strong>A picture of the model.</strong> The camera icon (📷, top right) saves a PNG
+of the model as it is shown - any view mode, chrome included - at 1× to
+4× the view's size, with a <strong>transparent</strong>, the view's own or a white
+background, and trimmed to the model if you like. Only the model: no grid,
+gizmo, dials or selection. Made for sharing.</p>
+<p><strong>With reference objects.</strong> When a reference (a scan, an imported mesh)
+is loaded, the export menu offers <strong>+ with reference objects</strong>. Ticked,
+every visible reference is written as its own STL next to the exported
+file - <code>part - ref scan.stl</code> - in the same coordinates, so any other
+program loads them in the right place relative to each other, as
+separate bodies ready for a boolean.</p>
+<p><strong>Mesh settings, and a look first.</strong> Exporting anything that has to be
+meshed — STL, OBJ, 3MF, PLY, GLB — opens a small panel: a slider from
+draft to very fine, triangles or quad patches where the format takes them,
+welding, and roughly how many triangles and megabytes that will be.
+<strong>Preview in the 3D view</strong> draws the actual mesh at those settings, so you
+see the faceting before you commit; closing the panel puts the model back.
+STEP, IGES and BREP carry the exact surfaces and need none of this.</p>
+<p><strong>A curve on paper.</strong> The small sheet icon in a graph's bottom-right
+corner - and <strong>Export curve as PDF…</strong> in the File and export menus - draws
+that graph: the curve at a stated scale (1:1 where it fits, otherwise a
+proper drawing scale), its overall width and height, every rounded corner
+and every arc labelled with its radius, the points marked, the origin
+shown, and a title block with the object, the graph, the scale and the
+date. Vector, so it stays sharp at any zoom - for the workshop, for
+checking, or to keep with a project.</p>
+<p><strong>When a sweep would fold.</strong> The spine turns <strong>red</strong> and says the bend is
+too sharp for the profile; the profile turns <strong>amber</strong> and says what it was
+built at. Both clear as soon as the profile fits the bend.</p>
+<p><strong>When a sweep would fold.</strong> A profile that reaches further than the
+spine's bend is sharp would pass through itself on the inside of the
+curve. The app scales the profile down until it clears - keeping its
+shape, only smaller - and says so in the status line. To keep your
+intended size, widen the bend, slim the profile, or use the scale graph
+to pull it in only through the curve.</p>
+<p><strong>Separate bodies.</strong> After an export the status line says when the file
+holds more than one body: a <strong>note</strong> when you exported several objects
+together, a <strong>warning</strong> when one object or combine is itself in pieces -
+parts that do not quite touch, or a union that did not fuse - which a
+slicer would print as loose parts. A hollow part (a closed cavity inside)
+is one body and is not flagged.</p>
+<p><strong>Colour in exports.</strong> Every face takes the colour of the object it came
+from — end caps included, and also after a fillet or a chamfer. The
+fillet or chamfer surface itself belongs to neither object, so it is
+neutral grey. A combine given its own colour is that colour throughout.</p>
+<hr />
+<p>After an export, the status line offers <strong>Get this made</strong>: a link to
+sweepercad.com for having the part fabricated — printed, cut, milled or
+otherwise. Opening it is a choice; the app itself never connects to
+anything.</p>
+<hr /></section><section class="sec" id="what-gets-exported"><h3>What gets exported</h3><p><strong>Every top-level result</strong>, not only a final combined one. Three objects
+you never combined export as three solids in one file — they are all
+part of what you made.</p>
+<ul>
+<li><strong>Hidden</strong> objects are <strong>left out</strong>. Hiding is how you say "not part of
+  this", so it applies to export too.</li>
+<li><strong>Locked</strong> objects <strong>are</strong> included. Locking only stops you selecting
+  or dragging something; it does not mean it is not there.</li>
+<li>Objects consumed by a combine or an array are not exported separately —
+  they are already inside their result.</li>
+</ul>
+<hr /></section></section>
+<section class="chapter" id="ch8"><h2>8. Scripts and AI</h2><section class="sec" id="made-to-be-driven-by-a-program-not-only-by-a-person"><h3>Made to be driven by a program, not only by a person</h3><p>SweeperCAD saves plain readable JSON, keeps geometry as named curves
+rather than baked triangles, and its kernel runs with no window at all:</p>
+<pre><code>python cli.py build part.swcad --json      build and report
+python cli.py build part.swcad --stl o.stl
+python cli.py selftest                     proves no GUI is needed
+</code></pre>
+<p>The build reports faces, volume, surface area, bounding box, centre of
+mass, and the error text if it failed - so a script, or an AI, can
+write a part, build it, read what came out and correct itself without
+anyone in the loop.</p>
+<p>AI_GUIDE.md documents the format, with a minimal example the check
+suite builds every run, so it cannot quietly stop being true.</p>
+<hr /></section><section class="sec" id="scripting"><h3>Scripting</h3><p><strong>Script → Script editor…</strong> (Ctrl+R). The document is available as
+<code>model</code>, and <code>math</code> and <code>numpy</code> are already imported.</p>
+<pre><code class="language-python">a = model.add(&quot;+&quot;, &quot;body&quot;)
+model.profile(a, model.ngon(6, 20))
+model.twist(a, 90)
+
+for i in range(8):                    # a bolt circle
+    h = model.add(&quot;-&quot;)
+    model.profile(h, model.circle(3))
+    ang = i * 2 * math.pi / 8
+    model.move(h, x=30*math.cos(ang), y=30*math.sin(ang))
+</code></pre>
+<p>Useful calls: <code>add</code>, <code>combine</code>, <code>duplicate</code>, <code>delete</code>, <code>find</code>, <code>link</code>,
+<code>unlink</code>,
+<code>objects</code>, <code>move</code>, <code>rotate</code>, <code>scale</code>, <code>profile</code>, <code>spine</code>, <code>scale_graph</code>,
+<code>twist</code>, <code>offset</code>, <code>mirror</code>, <code>volume</code>, and curve helpers <code>line</code>,
+<code>circle</code>, <code>polyline</code>, <code>ngon</code>, <code>star</code>, <code>curve_from</code>.</p>
+<p>Everything goes through the same calls the buttons use, so a scripted
+model is identical to a drawn one.</p>
+<p><code>model.link(b, "profile", a)</code> makes b's profile follow a's. <strong>Loops are
+refused</strong> — if a cycle existed, each rebuild would overwrite one drawing
+with the other and the original would be gone with nothing to undo it
+back from.</p>
+<p><strong>A script runs with full Python access.</strong> That is stated plainly rather
+than pretended otherwise — a restricted namespace is not a security
+boundary, and one that looks like a sandbox invites misplaced trust.
+Only run scripts you would be willing to run in a terminal.</p>
+<hr /></section><section class="sec" id="make-it-with-ai"><h3>Make it with AI</h3><p>Any AI you already use - Claude, ChatGPT, a local one - can build things
+in SweeperCAD for you. Open <strong>Script → Make it with AI…</strong> (or the ⌨ icon)
+and follow the steps at the top:</p>
+<ol>
+<li><strong>Describe it</strong> - "a vase, 120 mm tall, wavy rim, 3 mm wall" - and
+   press <strong>Copy for AI</strong>.</li>
+<li><strong>Paste it into your AI</strong> and copy the answer it gives you.</li>
+<li>Press <strong>Paste the answer &amp; run</strong>. The object appears in the 3D view.</li>
+</ol>
+<p>Didn't work? Press <strong>Didn't work? Copy the problem for AI</strong>, paste that
+into the same AI, copy its new answer and do step 3 again. That also goes
+for a script that runs but builds something wrong (a cut the geometry
+kernel couldn't make, an offset too big for the shape): once the 3D view
+has built it, the problem is listed under the script and the button
+lights up.</p>
+<p><strong>Want it different?</strong> Step 4 lights up once something is made. Type the
+change - "make the rim wavier and add a foot" - and press <strong>Copy for AI</strong>.
+That copies the script as it is, everything you asked so far and the
+change. Press <strong>Copy picture</strong> too and paste the picture into the same
+chat after the text, so the AI sees what it made. Then copy its answer and
+do step 3: the new version <em>replaces</em> the last one, it does not pile up
+next to it. Repeat as often as you like; Ctrl+Z brings back the previous
+version.</p>
+<p>What is copied in step 1 tells the AI everything it needs: how SweeperCAD
+builds shapes (profile, spine, scale), which way is up, the calls it may
+use, a worked example, and what is already in your document - so "add a
+handle to the selected cup" works too. Nothing is sent anywhere by the
+app; you choose what to paste where. Like any script, only run an answer
+you are happy to run.</p></section></section>
+<section class="chapter" id="ch9"><h2>9. When something goes wrong</h2><section class="sec" id="what-the-app-notices-while-you-draw"><h3>What the app notices while you draw</h3><p>Let go of the mouse after editing a curve and it is checked — in a few
+milliseconds, before anything is built. If something is worth knowing,
+the status bar says so:</p>
+<ul>
+<li><strong>crossings</strong> — the curve passes through itself</li>
+<li><strong>tight bends</strong> — a radius small enough to pinch the sweep</li>
+<li><strong>very short segments</strong> — they cost sections and add no shape</li>
+</ul>
+<p>It also says when the three curves together are asking for something
+expensive — <em>"this shape wants 226 sections (~904 faces) — a cut with
+it takes about 5s"</em>. That is the same sectioning analysis the build
+runs, without building: about 20 milliseconds to find out, against
+seconds to discover the hard way.</p>
+<p>The same applies to <strong>cuts between finished shapes</strong>, which no curve
+can predict: before each rebuild the app counts the faces of the pieces
+it is about to cut and holds if that will take seconds. Working it out
+costs a fraction of a millisecond, because those pieces are already
+built.</p>
+<p><strong>Past about three seconds it does not start the rebuild at all.</strong> The
+app pauses itself and says what it found: <em>"held — this shape wants 226
+sections (~904 faces) — a cut with it takes about 5s. RESUME to build
+it, or undo to step back"</em>. Telling you a build takes five seconds
+while the five seconds are already running is no help; asking first is.</p>
+<p>Both of these live under <strong>Settings ▸ Guardrails</strong> and can be switched
+off independently — the warnings, the hold, or both. They are on by
+default, because somebody who has not yet met a five-second rebuild
+should not have to; and they are switchable, because they are
+judgements about what is worth interrupting for, and you may not agree.</p>
+<p>It never refuses anything. A crossing profile is usually a mistake and
+occasionally exactly what you meant, and the app cannot tell the
+difference — so it says what it sees and leaves the decision to you.
+Ordinary shapes say nothing at all: a circle, a square, a star and a
+cog are all quiet.</p>
+<hr /></section><section class="sec" id="when-a-feature-says-a-package-is-missing"><h3>When a feature says a package is missing</h3><p>Running from source, the app uses a few libraries besides Qt: one for
+offsets, two for the heavier maths (lattices, strength and casting checks
+and more) and one for images. If your Python lacks one,
+the app says so when it starts - which package, what needs it, and the
+exact line to type in a terminal (it uses the same Python that runs the
+app, so the package lands in the right place). Everything else keeps
+working. <code>pip install -r requirements.txt</code> in the SweeperCAD folder
+installs the lot.</p></section><section class="sec" id="when-something-is-taking-too-long"><h3>When something is taking too long</h3><p>Past a second and a half, the status bar counts: <em>working… 12s</em>. A red
+<strong>CANCEL</strong> button appears next to PAUSE and disappears when the work
+finishes.</p>
+<ul>
+<li><strong>Cancel</strong> stops what is running and leaves everything else alone.
+  The last good result stays on screen.</li>
+<li><strong>Pause</strong> is different: it stops rebuilding altogether until you
+  resume, which is what you want while making a series of heavy edits.</li>
+</ul>
+<p>A cancel lands at the next object rather than instantly — one object's
+build cannot be interrupted once the geometry kernel has started it.</p></section><section class="sec" id="when-something-will-not-build"><h3>When something will not build</h3><p>The status bar explains rather than just failing. A sweep is refused if
+the profile crosses itself, and an offset is refused if it would collapse
+the curve — in both cases the message says which and why.</p>
+<p>Warnings that begin <em>"auto-fixed"</em> mean the shape was built but something
+had to give: the bend was too tight for the profile, so the sweep would
+have folded through itself. New objects <strong>ease the bend</strong>: the part keeps
+its size and the spine is widened only where it is too tight (below).
+What easing cannot reach - a profile wider than the bend has room for -
+is then shrunk, and the warning says so. The other choices (object panel,
+<strong>fix by</strong>): <em>shrink all sections</em> - the same amount everywhere, the shape
+keeps its proportions and comes out slimmer; <em>squash along bend</em> - only
+the sections that bind are narrowed; <em>ease + shrink</em> - a little easing,
+then a little shrinking.</p>
+<p><em>Ease the bend</em> widens the spine only where it is too tight for the
+profile (a sharp break between two handles counts as the tightest bend):
+- A <strong>rounded corner</strong> gets a bigger radius and stays an exact arc.
+- Any other tight stretch is replaced by the arc a ball of the needed size
+  would roll through.</p>
+<p>The rest of the spine stays exactly as drawn. When no arc fits where it
+is needed (a U-turn whose legs are too close, the tightest bend right at
+an end, a profile wider than the spine is long), the <strong>whole spine is
+relaxed</strong> instead: its two ends stay where they are and every bend that is
+too tight opens up, as far as it takes. <em>Ease the bend</em> never shrinks the
+profile - but a big profile on a short, curly spine can come out nearly
+straight. <em>Ease + shrink</em> splits the work: the bend is widened only
+part of the way and the profile is shrunk for the rest - the spine stays
+closer to your drawing, the part comes out a little slimmer. So on the same
+tight bend <em>ease the bend</em> keeps the most of the part, <em>shrink all sections</em>
+the least, and <em>ease + shrink</em> lands between them.</p>
+<p>Easing is never allowed to make things worse: an eased spine that is not
+clearly wider than the drawing is not used, and the warning says <strong>bend
+not eased</strong> (the shrink then does it, as a safety net).</p>
+<p>Easing happens on the <strong>built</strong> spine; your drawing is untouched. The spine
+graph shows the eased spine <strong>dashed</strong>. <strong>Bake the eased bend into the
+spine</strong> (object panel) writes it into your drawing so you can edit it: a
+grown corner keeps being a corner, and a smoothed stretch replaces those
+points. Guides and constraints on the spine are removed then, because they
+counted the old points.</p>
+<p><strong>Before a slow build starts, it says so.</strong> A scale graph that doubles
+back many times, or a combine between shapes with a great many faces,
+is predicted rather than attempted: over a few seconds you get a
+warning naming the cause; past a minute it is refused and the model is
+left exactly as it was. Fewer points on a profile is the quickest way
+down. Tick <strong>allow slow builds</strong> on the object or combine to run it
+anyway.</p>
+<p><strong>If a combine leaves nothing</strong> — a negative that covers the positive
+exactly — the object vanishes for a correct reason, and the status line
+says so.</p>
+<p><strong>Pause stops a rebuild that is running</strong>, not just the next one. If the
+app is busy on something you did not mean, pause it.</p>
+<p><strong>Loft mode</strong> is <em>ruled</em> by default. It is the fastest by a wide margin
+and exact wherever the surface really is ruled, which is most sweeps.</p>
+<p><strong>Auto, hybrid and mitre loft in pieces.</strong> Wherever the spine or the
+scale graph changes character — a straight stretch meeting a curve, a
+corner — the object is split at its own points. Straight stretches get
+one section per point and are exact; curved stretches are lofted smooth
+on evenly spaced sections; a corner is mitred, and next to a curve the
+sections turn into the mitre gradually so the surface never runs back on
+itself. The status line says so: <em>"lofted in 3 pieces (2 straight,
+1 smooth), 1 mitred corner"</em>. An end profile, a twist and an asymmetric
+scale all go through the same pieces, and so does a closed spine — a
+ring or a frame has no end caps, it simply meets itself.</p>
+<p><strong>Straight and circular sweeps are built exact.</strong> A straight spine at a
+constant size is an extrusion of the exact profile: a circle or an arc in
+the profile gives a true cylinder, a straight side a true plane. A spine
+that is a circle or one circular arc - a ring, an elbow - is turned about
+its centre: tori, cones, planes. The status line says <em>"built exact"</em>.
+This is what makes fillets take: the kernel's fillet is far steadier on
+true cylinders and planes than on approximations of them, and a fillet
+that will not take on the exact solid is tried again on a NURBS copy of
+it automatically. (A "circle" drawn with the preset is four curves 0.03 %
+outside a true circle; built exact it IS the circle, so its volume reads
+0.03 % less than before. That is the drawing becoming what it says.)</p>
+<p><strong>A smooth closed spine is one seamless ring.</strong> When the spine has no
+corner anywhere (the point where it closes included), each side of the
+profile becomes ONE surface all the way round - no joins, nothing to see
+in reflections. The status line says <em>"lofted as one seamless ring"</em>.
+(A rounded frame - straight runs into arcs - stays in pieces: its bend
+starts abruptly at each joint in the drawing itself, and the pieces meet
+exactly there.) A twist works too when turning the profile by it lands the profile on
+itself: a square twisted 90 degrees, a hexagon 60 or 120, any whole turn,
+and a round profile at any twist. A frame with corners, a scale that is
+different where the ring meets itself, or a twist the profile does not
+repeat under still goes through the pieces as before.</p>
+<hr /></section></section>
+<p class="foot">SweeperCAD &middot; <a href="index.html">sweepercad.com</a> &middot; this manual is the app's own help, so it always matches the version you download.</p>
+</main>
+</div>
+<script>
+(function () {
+  // the printed table of contents: a copy of the side one
+  var pt = document.querySelector('.ptoc');
+  var t = document.querySelector('#toc ul');
+  if (pt && t) { pt.innerHTML = '<h2 style="page-break-before:avoid">Contents</h2>' + t.outerHTML; }
+  var q = document.getElementById('q'), none = document.getElementById('none');
+  var secs = Array.prototype.slice.call(document.querySelectorAll('main section.sec, main section.chapter#welcome'));
+  var chapters = Array.prototype.slice.call(document.querySelectorAll('main section.chapter'));
+  var links = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#toc a'), function (a) { links[a.getAttribute('href').slice(1)] = a.parentNode; });
+  var timer = null;
+  q.addEventListener('input', function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      var s = q.value.trim().toLowerCase(), any = false;
+      secs.forEach(function (el) {
+        var on = !s || el.textContent.toLowerCase().indexOf(s) >= 0;
+        el.style.display = on ? '' : 'none';
+        if (links[el.id]) links[el.id].style.display = on ? '' : 'none';
+        if (on) any = true;
+      });
+      chapters.forEach(function (ch) {
+        if (ch.id === 'welcome') return;
+        var vis = Array.prototype.some.call(ch.querySelectorAll('section.sec'), function (x) { return x.style.display !== 'none'; });
+        ch.style.display = vis ? '' : 'none';
+        if (links[ch.id]) links[ch.id].style.display = vis ? '' : 'none';
+      });
+      none.style.display = any ? 'none' : 'block';
+    }, 150);
+  });
+})();
+</script>
+</body>
+</html>
