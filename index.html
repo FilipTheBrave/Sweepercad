@@ -147,22 +147,22 @@
     </p>
 
     <div class="downloads">
-        <a class="download" href="https://github.com/FilipTheBrave/Sweepercad/releases/latest/download/SweeperCAD-0.9.7-mac-apple-silicon.dmg">
+        <a class="download" data-goatcounter-click="download-mac-apple-silicon" href="https://github.com/FilipTheBrave/Sweepercad/releases/latest/download/SweeperCAD-0.9.7-mac-apple-silicon.dmg">
             Download for Mac (Apple Silicon)
         </a>
-        <a class="download" href="https://github.com/FilipTheBrave/Sweepercad/releases/latest/download/SweeperCAD-0.9.7-mac-intel.dmg">
+        <a class="download" data-goatcounter-click="download-mac-intel" href="https://github.com/FilipTheBrave/Sweepercad/releases/latest/download/SweeperCAD-0.9.7-mac-intel.dmg">
             Mac (Intel)
         </a>
-        <a class="download" href="https://github.com/FilipTheBrave/Sweepercad/releases/latest/download/SweeperCAD-0.9.7-windows.zip">
+        <a class="download" data-goatcounter-click="download-windows" href="https://github.com/FilipTheBrave/Sweepercad/releases/latest/download/SweeperCAD-0.9.7-windows.zip">
             Windows
         </a>
-        <a class="download" href="https://github.com/FilipTheBrave/Sweepercad/releases/latest/download/SweeperCAD-0.9.7-linux.tar.gz">
+        <a class="download" data-goatcounter-click="download-linux" href="https://github.com/FilipTheBrave/Sweepercad/releases/latest/download/SweeperCAD-0.9.7-linux.tar.gz">
             Linux (beta)
         </a>
     </div>
 
     <p class="support">
-        <a class="kofi" href="https://ko-fi.com/filipceunen" target="_blank" rel="noopener">
+        <a class="kofi" href="https://ko-fi.com/filipceunen" data-goatcounter-click="kofi" target="_blank" rel="noopener">
             &#9749; Support SweeperCAD on Ko-fi
         </a>
         <span>Built with AI assistance &middot; part of every donation goes to environmental work.</span>
@@ -271,8 +271,8 @@
         </video>
         <p class="note">Part 10, a personal message: why SweeperCAD exists, what I promise, and how you can help.</p>
 
-        <p style="margin-top:36px"><a class="kofi" href="manual.html">Read the user manual</a>
-            &nbsp; <a href="sweepercad-manual.pdf" download style="color:#666;font-size:14px">or download it as a PDF</a></p>
+        <p style="margin-top:36px"><a class="kofi" data-goatcounter-click="manual-button" href="manual.html">Read the user manual</a>
+            &nbsp; <a href="sweepercad-manual.pdf" download data-goatcounter-click="manual-pdf" style="color:#666;font-size:14px">or download it as a PDF</a></p>
 
     </section>
 
@@ -299,5 +299,15 @@
 </main>
 
 <script data-goatcounter="https://sweepercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+document.querySelectorAll("video").forEach(function (v) {
+  var src = (v.querySelector("source") || v).getAttribute("src") || "video";
+  var name = "play-" + src.replace(/^.*\//, "").replace(/\.mp4$/, "");
+  v.addEventListener("play", function once() {
+    v.removeEventListener("play", once);
+    if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({path: name, title: name, event: true});
+  });
+});
+</script>
 </body>
 </html>
