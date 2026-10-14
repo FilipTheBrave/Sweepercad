@@ -85,7 +85,7 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
   <span style="color:#999">user manual</span>
   <span class="grow"></span>
   <input id="q" type="search" placeholder="search the manual…" aria-label="search the manual">
-  <a class="pdf" href="sweepercad-manual.pdf" download data-goatcounter-click="manual-pdf">Download PDF</a>
+  <a class="pdf" href="sweepercad-manual.pdf" download>Download PDF</a>
 </div>
 <div class="wrap">
 <nav id="toc"><ul>
@@ -104,12 +104,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.9.7 &middot; sweepercad.com</div>
+  <div class="ver">version 0.9.8 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.9.7. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.9.8. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1436,7 +1436,7 @@ axis (left/right or top/bottom); if it is well off, the status line warns,
 and if it is nearly square to it nothing is changed. A spine gets a loft piece
 per point, so a handful of points is usually plenty. A third click
 starts again.</p>
-<hr /></section><section class="sec" id="building-it-from-struts"><h3>Building it from struts</h3><p><strong>File &gt; Build as struts…</strong> turns the model into a net of struts and
+<hr /></section><section class="sec" id="building-it-from-struts"><h3>Building it from struts</h3><p><strong>✳ build as struts</strong> (in the make-it group at the top right, with Σ, casting, machining and unfold - or <strong>File &gt; Build as struts…</strong>) turns the model into a net of struts and
 connectors you can build for real - straws, tubes, sticks - with a
 connector that joins many struts at a point. Say how many struts; the app
 lays a net of near-equilateral triangles over the model, pulls every strut
@@ -1553,7 +1553,7 @@ from source</strong> re-reads the file and keeps where you put it.</p>
 pyramid, spring, torus and tube, each made of a profile, a spine and a
 scale graph you can open and change. They are copied into your library
 the first time the app starts; after that they are yours - rename,
-change or delete them and they stay that way.</p>
+change or delete them and they stay that way.</p><figure><a href="manual/asset_shelf.jpg"><img src="manual/asset_shelf.jpg" style="max-width:460px" alt="The asset shelf: the starter parts, and a Spring just downloaded from the online library." loading="lazy"></a><figcaption>The asset shelf: the starter parts, and a Spring just downloaded from the online library.</figcaption></figure><figure><a href="manual/asset_add.jpg"><img src="manual/asset_add.jpg" style="max-width:440px" alt="Opening a part downloaded from the library: add it to the shelf, or add and place it." loading="lazy"></a><figcaption>Opening a part downloaded from the library: add it to the shelf, or add and place it.</figcaption></figure><figure><a href="manual/library_site.jpg"><img src="manual/library_site.jpg" alt="The online library at sweepercad.com/library: free parts, each checked and drawn by the robot." loading="lazy"></a><figcaption>The online library at sweepercad.com/library: free parts, each checked and drawn by the robot.</figcaption></figure>
 <p><strong>Save selected</strong> in the shelf saves the selected node with everything
 feeding it, with a thumbnail of <em>that</em> asset. The name you give it is
 the name the shelf shows AND the name the node gets when you place it
@@ -1564,6 +1564,24 @@ snapping as a new object.</p>
 points the shelf at a different one — a synced folder, a stick, or one
 beside a project. They live in <code>~/.sweepercad/assets/</code> unless you say
 otherwise, and a folder that has gone away falls back to that.</p>
+<p><strong>The online library.</strong> Parts other people made, free to download, live at
+<a href="https://sweepercad.com/library/">sweepercad.com/library</a>. <em>library…</em> on the
+shelf (or <em>Assets → Online library…</em>) opens it in your browser. Click
+<strong>Get</strong> on a part and open the downloaded <code>.sweeperasset</code> file: double-click
+it, drop it on the 3D view, or use <em>Assets → Add an asset file to the
+shelf…</em>. SweeperCAD shows its picture and asks: <strong>Add to shelf</strong>, or <strong>Add
+and place</strong> to drop it straight into the scene. A file that holds anything
+other than shapes is refused.</p>
+<p><strong>Sharing a part.</strong> Select it and click <em>share online…</em> on the shelf (or
+<em>Assets → Share selection online…</em>). SweeperCAD saves it as an asset in your
+Downloads folder, shows it to you, and opens the library's share page in your
+browser: pick the file there, give it a name and a line about it, and send.
+A checking robot opens it, builds it and draws its own picture before it
+goes up - nothing you did not mean to share travels along. Anyone can
+report a part; one reported several times is taken down until it is looked at.</p>
+<p><strong>SweeperCAD itself never goes online.</strong> The library is a web page: your
+browser does the downloading and the uploading, the app only reads and
+writes files on your computer.</p>
 <p><strong>How smooth a blend came out</strong> shows on the combine's card as a small
 badge at its top right after each build: <strong>G0</strong> when the seams are sharp
 (or chamfered) as asked, <strong>G1</strong> when they carry ordinary tangent fillets,
