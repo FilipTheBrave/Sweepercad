@@ -164,6 +164,14 @@
         .ai { margin-top: 48px; }
         .ai ol { padding-left: 22px; color: #444; line-height: 1.6; }
         .ai li { margin: 6px 0; }
+        .libsec { margin-top: 48px; }
+        .libgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 16px 0; }
+        .libgrid a { display: block; background: #fff; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;
+            text-decoration: none; color: #222; }
+        .libgrid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #10151e; }
+        .libgrid span { display: block; padding: 8px 10px; font-size: 14px; font-weight: 500; }
+        .libgrid small { display: block; padding: 0 10px 8px; color: #999; font-size: 12px; margin-top: -4px; }
+        .libacts { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     </style>
 </head>
 
@@ -192,6 +200,8 @@
             Linux
         </a>
     </div>
+
+    <p style="margin-top:14px"><a class="kofi" href="library/" data-goatcounter-click="library-button">&#128230; Free parts in the library</a></p>
 
     <p class="note" style="margin-top:12px">First time? Your computer will warn you &mdash;
         <a href="#first-open">here&rsquo;s how to open it</a> (once, takes 30 seconds).</p>
@@ -244,6 +254,15 @@
         <p class="small">Needs macOS 12.3 or later, Windows 10 or later, or Ubuntu 22.04 or similar.
             Which Mac do you have? Apple menu &rarr; <b>About This Mac</b>: &ldquo;Apple M&hellip;&rdquo; is Apple Silicon, &ldquo;Intel&rdquo; is Intel.</p>
     </div>
+
+    <section class="libsec" id="library">
+        <h2>From the library</h2>
+        <p>Parts and projects people made in SweeperCAD &mdash; free to download, open and change.
+            Made something? Share it, no account needed.</p>
+        <div class="libgrid" id="libgrid"></div>
+        <p class="libacts"><a class="download" href="library/">See the whole library</a>
+            <a class="kofi" href="library/share.html">Share yours</a></p>
+    </section>
 
     <section class="ai" id="ai">
         <h2>Make it with AI</h2>
@@ -377,6 +396,30 @@ document.querySelectorAll("video").forEach(function (v) {
     if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({path: name, title: name, event: true});
   });
 });
+</script>
+<script>
+// THE LIBRARY ON THE HOMEPAGE: the most downloaded parts (Get clicks counted
+// by GoatCounter), newest first while nothing has been downloaded yet
+(function () {
+  var GC = "https://sweepercad.goatcounter.com/counter/";
+  var esc = function (s) { return String(s || "").replace(/[&<>"]/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
+  fetch("library/index.json?" + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    var items = (d.items || []).filter(function (x) { return !x.hidden; });
+    return Promise.all(items.map(function (it, i) {
+      return fetch(GC + "get-" + it.id + ".json").then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (j) { it._n = j ? parseInt(String(j.count).replace(/[^0-9]/g, ""), 10) || 0 : 0; it._i = i; return it; })
+        .catch(function () { it._n = 0; it._i = i; return it; });
+    }));
+  }).then(function (items) {
+    items.sort(function (a, b) { return (b._n - a._n) || (a._i - b._i); });
+    var g = document.getElementById("libgrid");
+    if (!g) return;
+    g.innerHTML = items.slice(0, 8).map(function (it) {
+      return '<a href="library/#' + esc(it.id) + '"><img src="library/items/' + esc(it.id) + '/thumb.png" alt="' + esc(it.name) +
+        '" loading="lazy"><span>' + esc(it.name) + '</span><small>' + (it._n ? it._n + " downloads" : (it.maker ? "by " + esc(it.maker) : "")) + '</small></a>';
+    }).join("");
+  }).catch(function () {});
+})();
 </script>
 </body>
 </html>

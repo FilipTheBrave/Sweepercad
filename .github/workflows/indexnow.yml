@@ -8,7 +8,7 @@ name: IndexNow
 on:
   push:
     branches: [main]
-    paths: ["index.html", "manual.html", "fabricate/**", "sitemap.xml"]
+    paths: ["index.html", "manual.html", "fabricate/**", "sitemap.xml", "library/index.json"]
   workflow_dispatch:
 
 permissions:
@@ -27,5 +27,5 @@ jobs:
             -d '{"host": "sweepercad.com", "key": "7d15f63e2e36759fb0724f912b3628c1",
                  "keyLocation": "https://sweepercad.com/7d15f63e2e36759fb0724f912b3628c1.txt",
                  "urlList": ["https://sweepercad.com/", "https://sweepercad.com/manual.html",
-                             "https://sweepercad.com/fabricate/", "https://sweepercad.com/sitemap.xml"]}' \
+                             "https://sweepercad.com/fabricate/", "https://sweepercad.com/library/", "https://sweepercad.com/sitemap.xml"]}' \
             -w "\nIndexNow answered HTTP %{http_code}\n"

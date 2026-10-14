@@ -46,7 +46,7 @@ function draw() {
         <p>${esc(it.desc)}</p>
         <div class="meta">${sz ? sz + " mm · " : ""}${esc(it.licence_text || "")}</div>
         <div class="acts">
-          <a class="btn" href="${base}${esc(it.file)}" download="${esc(fname(it))}">Get</a>
+          <a class="btn" href="${base}${esc(it.file)}" download="${esc(fname(it))}" data-goatcounter-click="get-${esc(it.id)}">Get</a>
           <button class="rep" data-id="${esc(it.id)}">report</button>
         </div>
       </div></div>`;
@@ -65,7 +65,9 @@ document.getElementById("grid").addEventListener("click", async e => {
     b.textContent = "reported - thank you"; b.disabled = true;
   } catch (err) { alert("The report could not be sent - please try again later."); }
 });
-fetch("index.json?" + Date.now()).then(r => r.json()).then(d => { ITEMS = d.items || []; draw(); })
+fetch("index.json?" + Date.now()).then(r => r.json()).then(d => { ITEMS = d.items || []; draw();
+    const h = location.hash.slice(1); const el = h && document.getElementById(h);
+    if (el) { el.scrollIntoView({block: "center"}); el.style.outline = "3px solid #ff9640"; } })
   .catch(() => { document.getElementById("grid").innerHTML = '<p class="muted">The library could not be loaded.</p>'; });
 </script>
 <script data-goatcounter="https://sweepercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
