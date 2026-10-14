@@ -1,0 +1,58 @@
+# END-TO-END CHECK OF THE ONLINE LIBRARY: uploads a part to the helper exactly
+# as the share page does, follows it until the robot accepts or refuses it,
+# then takes the test part out of the library again. Run by hand.
+name: Library selftest
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  roundtrip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: library/items
+          persist-credentials: false
+      - name: Upload, then follow
+        id: run
+        run: |
+          H=https://sweepercad-library.ceunenfilip.workers.dev
+          F=$(ls library/items/*/part.sweeperasset | head -1)
+          R=$(curl -sS -H "Origin: https://sweepercad.com" -F "file=@$F" \
+               -F "name=Selftest part" -F "desc=an automatic test - removed again" \
+               -F "maker=selftest" -F "licence=cc0" -F "consent=yes" "$H/upload")
+          echo "upload: $R"
+          ID=$(echo "$R" | python3 -c "import json,sys; print(json.load(sys.stdin).get('id',''))")
+          [ -n "$ID" ] || { echo "::error title=selftest::upload refused: $R"; exit 1; }
+          echo "id=$ID" >> "$GITHUB_OUTPUT"
+          for i in $(seq 1 60); do
+            sleep 10
+            S=$(curl -sS "$H/status/$ID"); echo "$S"
+            case "$S" in
+              *accepted*) echo "::notice title=selftest::accepted as $ID"; exit 0;;
+              *refused*) echo "::error title=selftest::refused: $S"; exit 1;;
+            esac
+          done
+          echo "::error title=selftest::no answer after 10 minutes"; exit 1
+      - name: Take the test part out again
+        if: steps.run.outputs.id != ''
+        env:
+          ID: ${{ steps.run.outputs.id }}
+          T: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+        run: |
+          sleep 20
+          git clone -q --depth 1 "https://x-access-token:${T}@github.com/FilipTheBrave/Sweepercad.git" site && cd site
+          [ -d "library/items/$ID" ] || { echo "nothing published to remove"; exit 0; }
+          git rm -rq "library/items/$ID"
+          python3 - <<'PY'
+          import json, os
+          p = "library/index.json"; idx = json.load(open(p))
+          idx["items"] = [x for x in idx["items"] if x.get("id") != os.environ["ID"]]
+          json.dump(idx, open(p, "w"), indent=1)
+          PY
+          git -c user.name="SweeperCAD library" -c user.email="ceunenfilip@hotmail.com" commit -qam "Library: selftest part removed again"
+          for i in 1 2 3; do git push -q && break; git pull -q --rebase; done

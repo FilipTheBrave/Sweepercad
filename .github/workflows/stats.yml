@@ -1,0 +1,31 @@
+# DAILY DOWNLOAD SNAPSHOT for sweepercad.com/stats: records the day's download
+# totals in stats/downloads.json. Runs here, on the public repo, so it costs
+# no Actions minutes; the script itself lives in the private app repo.
+# Secrets: LIBRARY_ROBOT_TOKEN (see library.yml), GOATCOUNTER_TOKEN (optional:
+# the visitor detail cards).
+name: Download stats
+
+on:
+  schedule:
+    - cron: "50 21 * * *"          # every evening, 23:50 in Brussels (summer time)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: FilipTheBrave/SweepercadApp
+          token: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+      - name: Record today's totals
+        env:
+          GH_TOKEN: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+          APP_TOKEN: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+        run: python3 .github/scripts/download_stats.py snapshot

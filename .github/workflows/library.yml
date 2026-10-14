@@ -1,0 +1,160 @@
+# THE ONLINE LIBRARY. The upload helper on Cloudflare (library-helper/ in the
+# private app repo) receives a shared part and sends a dispatch HERE; this job
+# fetches it, runs the robot (library_check.py from the app repo: format,
+# clean-up, a real build, its own thumbnail) and, when it passes, publishes it
+# to sweepercad.com/library. Reports and hiding come through here too.
+# It runs here, on the public repo, because Actions minutes are free here.
+#
+# Secret: LIBRARY_ROBOT_TOKEN - a fine-grained GitHub token on Sweepercad and
+# SweepercadApp (Contents read/write, Issues read/write, Actions read,
+# Administration read). The robot key is derived from it; the helper holds
+# the same token (see library-helper.yml).
+#
+# Safety: the step that opens the uploaded file has NO token in reach - the
+# app is checked out without stored credentials, and the file is only ever
+# parsed, never run.
+name: Library
+
+on:
+  repository_dispatch:
+    types: [library-upload, library-hide, library-report]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: library            # one change to the library index at a time
+  cancel-in-progress: false
+
+env:
+  HELPER: https://sweepercad-library.ceunenfilip.workers.dev
+
+jobs:
+  upload:
+    if: github.event.action == 'library-upload'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Get the app's engine (private repo, read only)
+        uses: actions/checkout@v4
+        with:
+          repository: FilipTheBrave/SweepercadApp
+          token: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+          path: app
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: app/SweeperCAD/requirements.txt
+      - name: Install the app's engine
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq libgl1 libegl1 libxkbcommon0 libfontconfig1 libdbus-1-3 > /dev/null
+          pip install -q -r app/SweeperCAD/requirements.txt
+      - name: Fetch the upload
+        env:
+          ID: ${{ github.event.client_payload.id }}
+          T: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+        run: |
+          case "$ID" in (*[!a-z0-9]*|"") echo "::error::bad id"; exit 1;; esac
+          KEY=$(printf '%s' "$T:robot" | sha256sum | cut -d' ' -f1)
+          curl -sS --fail -H "Authorization: Bearer $KEY" "$HELPER/robot/pending/$ID" -o upload.json
+          python3 - <<'PY'
+          import json, base64
+          u = json.load(open("upload.json"))
+          ext = ".sweeperasset" if u.get("ext") == "asset" else ".sweeper"
+          open("in" + ext, "wb").write(base64.b64decode(u["file"]))
+          open("meta.json", "w").write(json.dumps(u.get("meta", {})))
+          PY
+          rm upload.json
+      - name: Check, clean, build, picture
+        id: check
+        env:
+          QT_QPA_PLATFORM: offscreen
+          SWEEPERCAD_DIR: app/SweeperCAD
+        run: |
+          IN=$(ls in.sweeper* | head -1)
+          python3 - <<'PY' > args.txt
+          import json, shlex
+          m = json.load(open("meta.json"))
+          print(" ".join(shlex.quote(x) for x in ["--name", m.get("name", ""), "--desc", m.get("desc", ""),
+                         "--maker", m.get("maker", ""), "--licence", m.get("licence", "cc-by")]))
+          PY
+          set +e
+          eval python3 app/.github/scripts/library_check.py "$IN" out $(cat args.txt) > result.json
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+          cat result.json
+      - name: Publish to the library
+        if: steps.check.outputs.code == '0'
+        env:
+          ID: ${{ github.event.client_payload.id }}
+          T: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+        run: |
+          git clone -q --depth 1 "https://x-access-token:${T}@github.com/FilipTheBrave/Sweepercad.git" site
+          mkdir -p "site/library/items/$ID" && cp out/* "site/library/items/$ID/"
+          python3 - <<'PY'
+          import json, os, datetime
+          p = "site/library/index.json"
+          idx = json.load(open(p)) if os.path.exists(p) else {"items": []}
+          e = json.load(open("out/entry.json"))
+          e.update({"id": os.environ["ID"], "added": datetime.datetime.utcnow().strftime("%Y-%m-%d")})
+          idx["items"] = [x for x in idx["items"] if x.get("id") != e["id"]]
+          idx["items"].insert(0, e)
+          json.dump(idx, open(p, "w"), indent=1)
+          PY
+          cd site
+          NAME=$(python3 -c "import json;print(json.load(open('../out/entry.json'))['name'])")
+          git -c user.name="SweeperCAD library" -c user.email="ceunenfilip@hotmail.com" add library
+          git -c user.name="SweeperCAD library" -c user.email="ceunenfilip@hotmail.com" commit -q -m "Library: $NAME"
+          for i in 1 2 3; do git push -q && break; git pull -q --rebase; done
+      - name: Tell the helper how it went
+        if: always()
+        env:
+          ID: ${{ github.event.client_payload.id }}
+          T: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+        run: |
+          KEY=$(printf '%s' "$T:robot" | sha256sum | cut -d' ' -f1)
+          [ -s result.json ] || echo '{"ok": false, "reason": "the check could not run - please try again later"}' > result.json
+          curl -sS -X POST -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
+            --data @result.json "$HELPER/robot/result/$ID" || true
+
+  hide:
+    if: github.event.action == 'library-hide'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hide a reported part until it is looked at
+        env:
+          ID: ${{ github.event.client_payload.id }}
+          T: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+        run: |
+          case "$ID" in (*[!a-z0-9]*|"") echo "::error::bad id"; exit 1;; esac
+          git clone -q --depth 1 "https://x-access-token:${T}@github.com/FilipTheBrave/Sweepercad.git" site
+          cd site
+          python3 - <<'PY'
+          import json, os
+          p = "library/index.json"; idx = json.load(open(p))
+          for x in idx["items"]:
+              if x.get("id") == os.environ["ID"]:
+                  x["hidden"] = True
+          json.dump(idx, open(p, "w"), indent=1)
+          PY
+          git -c user.name="SweeperCAD library" -c user.email="ceunenfilip@hotmail.com" commit -qam "Library: hide $ID (reported)" || exit 0
+          for i in 1 2 3; do git push -q && break; git pull -q --rebase; done
+
+  notify:
+    if: github.event.action == 'library-report' || github.event.action == 'library-hide'
+    runs-on: ubuntu-latest
+    steps:
+      - name: An issue on the PRIVATE app repo, so GitHub emails you (reports stay private)
+        env:
+          GH_TOKEN: ${{ secrets.LIBRARY_ROBOT_TOKEN }}
+          ID: ${{ github.event.client_payload.id }}
+          WHY: ${{ github.event.client_payload.reason }}
+          ACT: ${{ github.event.action }}
+        run: |
+          T="Library report: $ID"; [ "$ACT" = "library-hide" ] && T="Library: $ID hidden after reports"
+          gh issue create -R FilipTheBrave/SweepercadApp --title "$T" \
+            --body "Part: https://sweepercad.com/library/#$ID
+          Reason given: ${WHY:-none}
+
+          To remove it for good, delete library/items/$ID and its entry in library/index.json on the site repo - or ask Claude." || true
