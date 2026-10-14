@@ -1,2 +1,2 @@
-// where the upload helper lives (Cloudflare Workers); empty until it is deployed
-window.LIBRARY_HELPER = "";
+// where the upload helper lives (Cloudflare Workers)
+window.LIBRARY_HELPER = "https://sweepercad-library.ceunenfilip.workers.dev";
