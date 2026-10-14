@@ -128,9 +128,18 @@
     "mac-intel": 7,
     "windows": 26
    }
+  },
+  {
+   "date": "2026-10-14",
+   "counts": {
+    "linux": 2,
+    "mac-apple-silicon": 53,
+    "mac-intel": 9,
+    "windows": 32
+   }
   }
  ],
- "updated": "2026-10-13T17:40Z",
+ "updated": "2026-10-14T00:38Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -152,13 +161,9 @@
    }
   },
   "changes": {
-   "week": 102,
-   "month": 132,
+   "week": 83,
+   "month": 134,
    "daily": [
-    {
-     "date": "2026-09-14",
-     "count": 0
-    },
     {
      "date": "2026-09-15",
      "count": 0
@@ -273,7 +278,11 @@
     },
     {
      "date": "2026-10-13",
-     "count": 20
+     "count": 22
+    },
+    {
+     "date": "2026-10-14",
+     "count": 0
     }
    ]
   }
