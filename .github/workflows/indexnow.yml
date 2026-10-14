@@ -1,0 +1,31 @@
+# INDEXNOW: when the site's pages change, tell the search engines that take
+# part (Bing - and through it DuckDuckGo, Ecosia, Yahoo - Yandex, Seznam,
+# Naver) to come and look. No account needed: the key file at the site's
+# root proves the site is ours. Google does not take part; it finds the
+# site through links and the sitemap in robots.txt.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths: ["index.html", "manual.html", "fabricate/**", "sitemap.xml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for the site to update
+        run: sleep 90
+      - name: Tell IndexNow
+        run: |
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{"host": "sweepercad.com", "key": "7d15f63e2e36759fb0724f912b3628c1",
+                 "keyLocation": "https://sweepercad.com/7d15f63e2e36759fb0724f912b3628c1.txt",
+                 "urlList": ["https://sweepercad.com/", "https://sweepercad.com/manual.html",
+                             "https://sweepercad.com/fabricate/", "https://sweepercad.com/sitemap.xml"]}' \
+            -w "\nIndexNow answered HTTP %{http_code}\n"
