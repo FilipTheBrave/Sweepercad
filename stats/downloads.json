@@ -139,7 +139,7 @@
    }
   }
  ],
- "updated": "2026-10-14T13:46Z",
+ "updated": "2026-10-14T13:48Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -161,8 +161,8 @@
    }
   },
   "changes": {
-   "week": 86,
-   "month": 137,
+   "week": 87,
+   "month": 138,
    "daily": [
     {
      "date": "2026-09-15",
@@ -282,23 +282,27 @@
     },
     {
      "date": "2026-10-14",
-     "count": 3
+     "count": 4
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-14T13:46Z",
+   "updated": "2026-10-14T13:48Z",
    "referrers": [
     {
      "name": "www.cheetah3d.com",
      "count": 22
     },
     {
-     "name": "(unknown)",
+     "name": "direct (typed or bookmarked)",
      "count": 21
     }
    ],
    "countries": [
+    {
+     "name": "Belgium",
+     "count": 15
+    },
     {
      "name": "Germany",
      "count": 15
@@ -306,10 +310,6 @@
     {
      "name": "France",
      "count": 15
-    },
-    {
-     "name": "Belgium",
-     "count": 13
     },
     {
      "name": "Austria",
@@ -323,7 +323,7 @@
    "browsers": [
     {
      "name": "Safari",
-     "count": 54
+     "count": 56
     },
     {
      "name": "Firefox",
@@ -337,13 +337,13 @@
     },
     {
      "name": "iOS",
-     "count": 13
+     "count": 15
     }
    ],
    "screens": [
     {
      "name": "phone",
-     "count": 13
+     "count": 15
     },
     {
      "name": "desktop",
@@ -354,7 +354,7 @@
      "count": 11
     }
    ],
-   "total": 57,
+   "total": 59,
    "daily": [
     {
      "date": "2026-10-13",
@@ -362,7 +362,7 @@
     },
     {
      "date": "2026-10-14",
-     "count": 57
+     "count": 59
     },
     {
      "date": "2026-10-15",
