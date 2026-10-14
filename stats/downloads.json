@@ -133,13 +133,13 @@
    "date": "2026-10-14",
    "counts": {
     "linux": 2,
-    "mac-apple-silicon": 54,
+    "mac-apple-silicon": 55,
     "mac-intel": 10,
     "windows": 32
    }
   }
  ],
- "updated": "2026-10-14T08:57Z",
+ "updated": "2026-10-14T12:27Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -285,6 +285,9 @@
      "count": 1
     }
    ]
+  },
+  "goat": {
+   "updated": "2026-10-14T12:27Z"
   }
  }
 }
