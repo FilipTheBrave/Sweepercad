@@ -138,14 +138,14 @@
   {
    "date": "2026-10-14",
    "counts": {
-    "linux": 2,
-    "mac-apple-silicon": 56,
-    "mac-intel": 11,
-    "windows": 32
+    "linux": 3,
+    "mac-apple-silicon": 68,
+    "mac-intel": 15,
+    "windows": 38
    }
   }
  ],
- "updated": "2026-10-14T21:42Z",
+ "updated": "2026-10-14T23:34Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -167,8 +167,8 @@
    }
   },
   "changes": {
-   "week": 95,
-   "month": 146,
+   "week": 96,
+   "month": 147,
    "daily": [
     {
      "date": "2026-09-15",
@@ -288,7 +288,7 @@
     },
     {
      "date": "2026-10-14",
-     "count": 12
+     "count": 13
     }
    ]
   },
@@ -375,6 +375,90 @@
      "count": 0
     }
    ]
-  }
+  },
+  "views": [
+   {
+    "date": "2026-09-30",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-01",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-02",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-03",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-04",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-05",
+    "count": 3,
+    "uniques": 1
+   },
+   {
+    "date": "2026-10-06",
+    "count": 1,
+    "uniques": 1
+   },
+   {
+    "date": "2026-10-07",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-08",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-09",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-10",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-11",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-12",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-13",
+    "count": 0,
+    "uniques": 0
+   }
+  ],
+  "referrers": [
+   {
+    "site": "github.com",
+    "count": 1,
+    "uniques": 1
+   },
+   {
+    "site": "sweepercad.com",
+    "count": 1,
+    "uniques": 1
+   }
+  ]
  }
 }
