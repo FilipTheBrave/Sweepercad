@@ -22,7 +22,7 @@ jobs:
         run: sleep 90
       - name: Tell IndexNow
         run: |
-          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+          curl -sS --fail-with-body -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
             -d '{"host": "sweepercad.com", "key": "7d15f63e2e36759fb0724f912b3628c1",
                  "keyLocation": "https://sweepercad.com/7d15f63e2e36759fb0724f912b3628c1.txt",
