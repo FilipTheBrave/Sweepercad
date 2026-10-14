@@ -132,6 +132,13 @@
             font-size: 14px;
             color: #888;
         }
+        .firstopen { margin-top: 28px; padding: 18px 22px; background: #fff; border: 1px solid #ddd; border-radius: 8px; }
+        .firstopen h3 { margin: 0 0 6px; font-size: 19px; }
+        .firstopen h4 { margin: 18px 0 4px; font-size: 16px; }
+        .firstopen ol { margin: 4px 0 0; padding-left: 22px; color: #444; line-height: 1.6; }
+        .firstopen li { margin: 4px 0; }
+        .firstopen .why { margin: 0; font-size: 15px; }
+        .firstopen .small { font-size: 14px; margin: 10px 0 0; }
     </style>
 </head>
 
@@ -161,6 +168,9 @@
         </a>
     </div>
 
+    <p class="note" style="margin-top:12px">First time? Your computer will warn you &mdash;
+        <a href="#first-open">here&rsquo;s how to open it</a> (once, takes 30 seconds).</p>
+
     <p class="support">
         <a class="kofi" href="https://ko-fi.com/filipceunen" data-goatcounter-click="kofi" target="_blank" rel="noopener">
             &#9749; Support SweeperCAD on Ko-fi
@@ -178,16 +188,37 @@
         Ready to make it real? <a href="/fabricate/">Printing, machining and casting &rarr;</a>
     </p>
 
-    <p class="note">
-        Free to use. Mac: macOS 12.3 or later; Linux: Ubuntu 22.04 or similar and newer. The first time you open it:
-        on a Mac, right-click the app and choose <b>Open</b>
-        (on macOS 15 and later: System Settings &rarr; Privacy &amp; Security &rarr; <b>Open Anyway</b>);
-        on Windows, unzip it, run SweeperCAD.exe and choose
-        <b>More info &rarr; Run anyway</b>;
-        on Linux, unpack it and run <b>./SweeperCAD</b> (the README inside lists any system libraries it needs).
-        Not sure which Mac you have? Apple menu &rarr; About This Mac:
-        "Apple M&hellip;" is Apple Silicon, "Intel" is Intel.
-    </p>
+    <div class="firstopen" id="first-open">
+        <h3>Opening it the first time</h3>
+        <p class="why">Your computer will warn you the first time, because SweeperCAD is made by one person and not
+            registered with Apple or Microsoft. That is normal. You only do this once.</p>
+
+        <h4>Mac</h4>
+        <ol>
+            <li>Open the downloaded <b>.dmg</b> and drag <b>SweeperCAD</b> into <b>Applications</b>.</li>
+            <li>Double-click SweeperCAD in Applications. macOS says it can&rsquo;t check it &mdash; click <b>Done</b> (or <b>OK</b>).</li>
+            <li>Open <b>System Settings &rarr; Privacy &amp; Security</b> and scroll down to <b>Security</b>.
+                Next to &ldquo;SweeperCAD was blocked&rdquo;, click <b>Open Anyway</b>.</li>
+            <li>Confirm with your password (or Touch ID), then click <b>Open Anyway</b> once more. Done.</li>
+        </ol>
+        <p class="small">On macOS 14 or older it is quicker: <b>right-click</b> (or Control-click) SweeperCAD in Applications,
+            choose <b>Open</b>, then <b>Open</b> again.</p>
+
+        <h4>Windows</h4>
+        <ol>
+            <li>Right-click the downloaded <b>.zip</b> &rarr; <b>Extract All&hellip;</b> (don&rsquo;t run it from inside the zip).</li>
+            <li>Double-click <b>SweeperCAD.exe</b>. If a blue &ldquo;Windows protected your PC&rdquo; box appears,
+                click <b>More info</b>, then <b>Run anyway</b>.</li>
+        </ol>
+
+        <h4>Linux (beta)</h4>
+        <ol>
+            <li>Unpack the <b>.tar.gz</b> and run <b>./SweeperCAD</b> inside it. The README lists any system libraries it needs.</li>
+        </ol>
+
+        <p class="small">Needs macOS 12.3 or later, Windows 10 or later, or Ubuntu 22.04 or similar.
+            Which Mac do you have? Apple menu &rarr; <b>About This Mac</b>: &ldquo;Apple M&hellip;&rdquo; is Apple Silicon, &ldquo;Intel&rdquo; is Intel.</p>
+    </div>
 
     <section class="videos">
 
