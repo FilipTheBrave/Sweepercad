@@ -61,13 +61,6 @@
     <div class="card"><h3 style="margin-top:0">Download buttons clicked</h3><div id="gc-dl"></div></div>
     <div class="card"><h3 style="margin-top:0">Videos started</h3><div id="gc-vid"></div></div>
     <div class="card"><h3 style="margin-top:0">Manual and support</h3><div id="gc-misc"></div></div>
-    <div class="card" style="padding:0;overflow:hidden">
-        <iframe src="https://sweepercad.goatcounter.com/" title="visitor dashboard" loading="lazy"
-                style="width:100%;height:900px;border:0;display:block"></iframe>
-    </div>
-    <div class="card"><h3 style="margin-top:0">GitHub page, per day</h3><div id="views-chart"></div>
-        <div class="legend"><span><i style="background:#222"></i>visits</span><span><i style="background:#9aa5b1"></i>unique visitors</span></div></div>
-    <div class="card"><h3 style="margin-top:0">Where GitHub visitors came from (14 days)</h3><div id="referrers"></div></div>
 
     <h2>Development</h2>
     <div class="card"><h3 style="margin-top:0">Changes per day, last 30 days</h3><div id="changes-chart"></div></div>
@@ -167,11 +160,11 @@ async function load() {
     const views = ex.views || [];
     const last14 = views.slice(-14);
     var _tv = document.getElementById("t-views"); if (_tv) _tv.textContent = views.length ? sum(Object.fromEntries(last14.map(v => [v.date, v.count]))) : "-";
-    document.getElementById("views-chart").innerHTML = views.length ? chart(views.slice(-30).map(v => v.date),
+    var _vc = document.getElementById("views-chart"); if (_vc) _vc.innerHTML = views.length ? chart(views.slice(-30).map(v => v.date),
         [{name: "visits", color: "#222", values: views.slice(-30).map(v => v.count)},
          {name: "unique visitors", color: "#9aa5b1", values: views.slice(-30).map(v => v.uniques)}], "bars") : empty("No numbers yet.");
     const refs = ex.referrers || [];
-    document.getElementById("referrers").innerHTML = refs.length ? refs.map(r =>
+    var _rf = document.getElementById("referrers"); if (_rf) _rf.innerHTML = refs.length ? refs.map(r =>
         `<div class="row"><span>${esc(r.site)}</span><span>${r.count} ${r.count === 1 ? "visit" : "visits"} &middot; ${r.uniques} ${r.uniques === 1 ? "person" : "people"}</span></div>`).join("")
         : empty("Nobody arrived from another site yet.");
     var _ts = document.getElementById("t-stars"); if (_ts) _ts.textContent = ex.github ? ex.github.stars : "-";
