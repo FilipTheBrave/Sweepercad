@@ -1,0 +1,19 @@
+{
+ "name": "Tube",
+ "desc": "A hollow tube with an offset wall",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "asset",
+ "file": "part.sweeperasset",
+ "volume_mm3": 503.5,
+ "area_mm2": 603.2,
+ "triangles": 420,
+ "size_mm": [
+  10.0,
+  10.0,
+  10.0
+ ],
+ "objects": 1,
+ "build_s": 0.2
+}

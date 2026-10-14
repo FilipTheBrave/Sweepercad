@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share a part — SweeperCAD library</title>
+<meta name="description" content="Share a part or project you made in SweeperCAD with everyone. Checked automatically, free, no account.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <a class="back" href="./">&larr; the library</a>
+  <h1>Share a part</h1>
+  <p class="lead">Made something in SweeperCAD others could use? Share it here &mdash; no account needed.
+    A robot checks it and draws its picture, and a minute or so later it is in the library.</p>
+
+  <form id="f">
+    <div class="drop" id="drop">Drop a <b>.sweeperasset</b> or <b>.sweeper</b> file here, or tap to choose one
+      <div class="muted" id="picked" style="margin-top:6px"></div></div>
+    <input type="file" id="file" accept=".sweeperasset,.sweeper,application/json" hidden>
+    <p class="note" style="margin:8px 0 0">In SweeperCAD: select the part and choose <b>Share online&hellip;</b>
+      &mdash; or use any asset from your shelf folder, or a saved project.</p>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" maxlength="60" placeholder="e.g. Hinge, 40 mm" required>
+
+    <label for="desc">What is it? <span class="muted">(optional, one or two sentences)</span></label>
+    <textarea id="desc" maxlength="280" placeholder="e.g. A print-in-place hinge; change the width in its graphs."></textarea>
+
+    <label for="maker">Your name or nickname <span class="muted">(optional, shown on the part)</span></label>
+    <input type="text" id="maker" maxlength="60">
+
+    <label for="licence">Others may use it&hellip;</label>
+    <select id="licence">
+      <option value="cc-by">freely, crediting you (CC BY)</option>
+      <option value="cc0">freely, no credit needed (CC0)</option>
+      <option value="cc-by-nc">for non-commercial use only, crediting you (CC BY-NC)</option>
+    </select>
+
+    <label class="check"><input type="checkbox" id="consent">
+      <span>I made this (or may share it), it may be published under the licence above, and it isn't a weapon,
+        weapon part or anything illegal.</span></label>
+
+    <p style="margin-top:18px"><button class="btn" type="submit" id="go">Share it</button></p>
+    <div class="msg" id="msg"></div>
+  </form>
+
+  <p class="note" style="margin-top:28px">What gets checked: it must be a real SweeperCAD file containing only shapes
+    (nothing that runs, no pictures, no imported meshes yet), it must build into a solid, and the name and text must be
+    decent. Anything you didn't type &mdash; file paths, reference images, notes &mdash; is removed before it is
+    published. Nothing about you is stored.</p>
+</main>
+<script src="config.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+let FILE = null;
+function pick(f) {
+  if (!f) return;
+  if (!/\.(sweeperasset|sweeper)$/i.test(f.name)) { say("bad", "That isn't a SweeperCAD file (.sweeperasset or .sweeper)."); return; }
+  if (f.size > 2000000) { say("bad", "That file is too big (at most 2 MB)."); return; }
+  FILE = f; $("picked").textContent = f.name;
+  if (!$("name").value) $("name").value = f.name.replace(/\.(sweeperasset|sweeper)$/i, "").replace(/[-_]+/g, " ").slice(0, 60);
+  say("", "");
+}
+function say(kind, text) { const m = $("msg"); m.className = "msg" + (kind ? " " + kind : ""); m.innerHTML = text; }
+const drop = $("drop");
+drop.addEventListener("click", () => $("file").click());
+$("file").addEventListener("change", e => pick(e.target.files[0]));
+["dragenter", "dragover"].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.add("on"); }));
+["dragleave", "drop"].forEach(t => drop.addEventListener(t, e => { e.preventDefault(); drop.classList.remove("on"); }));
+drop.addEventListener("drop", e => pick(e.dataTransfer.files[0]));
+async function follow(id) {
+  for (let i = 0; i < 60; i++) {
+    await new Promise(r => setTimeout(r, 5000));
+    try {
+      const s = await (await fetch(window.LIBRARY_HELPER + "/status/" + id)).json();
+      if (s.state === "accepted") { say("ok", `It's in! <a href="./#${id}">See it in the library</a> (give the page a minute to update).`); return; }
+      if (s.state === "refused") { say("bad", "The robot didn't accept it: " + (s.reason || "unknown reason").replace(/[<>]/g, "")); $("go").disabled = false; return; }
+    } catch (e) {}
+  }
+  say("wait", "Still checking - it can take a few minutes when it's busy. Look in the library a little later.");
+}
+$("f").addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!window.LIBRARY_HELPER) { say("bad", "Sharing opens very soon - the library is just being set up."); return; }
+  if (!FILE) { say("bad", "Choose a file first."); return; }
+  if (!$("name").value.trim()) { say("bad", "Give it a name."); return; }
+  if (!$("consent").checked) { say("bad", "Please tick the box to confirm."); return; }
+  const fd = new FormData();
+  fd.append("file", FILE); fd.append("name", $("name").value); fd.append("desc", $("desc").value);
+  fd.append("maker", $("maker").value); fd.append("licence", $("licence").value); fd.append("consent", "yes");
+  $("go").disabled = true; say("wait", "Sending&hellip;");
+  try {
+    const r = await (await fetch(window.LIBRARY_HELPER + "/upload", {method: "POST", body: fd})).json();
+    if (!r.ok) { say("bad", (r.reason || "It could not be sent.").replace(/[<>]/g, "")); $("go").disabled = false; return; }
+    say("wait", "Received - the robot is checking it, building it and drawing its picture&hellip;");
+    follow(r.id);
+  } catch (err) { say("bad", "It could not be sent - please try again later."); $("go").disabled = false; }
+});
+</script>
+<script data-goatcounter="https://sweepercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

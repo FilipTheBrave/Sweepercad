@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SweeperCAD library — free parts and projects to download</title>
+<meta name="description" content="Free SweeperCAD parts and projects made by the community: download them into SweeperCAD, change them, use them.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <a class="back" href="../">&larr; SweeperCAD</a>
+  <h1>Library</h1>
+  <p class="lead">Parts and projects people made in SweeperCAD. Download one, open it with SweeperCAD and it lands on your
+    asset shelf, ready to change. Made something yourself? <a href="share.html">Share it</a>.</p>
+  <div class="bar">
+    <input id="q" type="search" placeholder="search the library&hellip;" aria-label="search">
+    <select id="kind" aria-label="kind"><option value="">parts and projects</option><option value="asset">parts</option><option value="project">projects</option></select>
+    <a class="btn line" href="share.html">Share yours</a>
+  </div>
+  <div class="grid" id="grid"><p class="muted">loading&hellip;</p></div>
+  <p class="note" style="margin-top:36px">Every file here was checked by a robot before it went up: it must be a real
+    SweeperCAD file with nothing but shapes in it, it must build, and the picture is drawn by the robot itself. See something
+    that doesn't belong? Press <b>report</b> on it.</p>
+</main>
+<script src="config.js"></script>
+<script>
+const esc = s => String(s || "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let ITEMS = [];
+function fname(it) { return (it.name || "part").replace(/[^A-Za-z0-9 _-]/g, "").trim().replace(/ +/g, "-") + (it.kind === "project" ? ".sweeper" : ".sweeperasset"); }
+function draw() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const k = document.getElementById("kind").value;
+  const list = ITEMS.filter(it => !it.hidden && (!k || it.kind === k) &&
+      (!q || (it.name + " " + it.desc + " " + it.maker).toLowerCase().includes(q)));
+  const g = document.getElementById("grid");
+  if (!list.length) { g.innerHTML = '<p class="muted">Nothing here yet' + (q ? " for that search" : "") + '.</p>'; return; }
+  g.innerHTML = list.map(it => {
+    const base = "items/" + it.id + "/";
+    const sz = (it.size_mm || []).map(x => Math.round(x)).join(" × ");
+    return `<div class="card" id="${esc(it.id)}">
+      <img src="${base}thumb.png" alt="${esc(it.name)}" loading="lazy">
+      <div class="body">
+        <h3>${esc(it.name)}</h3>
+        <div class="by">${it.maker ? "by " + esc(it.maker) + " · " : ""}${it.kind === "project" ? "project" : "part"}</div>
+        <p>${esc(it.desc)}</p>
+        <div class="meta">${sz ? sz + " mm · " : ""}${esc(it.licence_text || "")}</div>
+        <div class="acts">
+          <a class="btn" href="${base}${esc(it.file)}" download="${esc(fname(it))}">Get</a>
+          <button class="rep" data-id="${esc(it.id)}">report</button>
+        </div>
+      </div></div>`;
+  }).join("");
+}
+document.getElementById("q").addEventListener("input", draw);
+document.getElementById("kind").addEventListener("change", draw);
+document.getElementById("grid").addEventListener("click", async e => {
+  const b = e.target.closest(".rep"); if (!b) return;
+  const why = prompt("What's wrong with this part? (optional)");
+  if (why === null) return;
+  if (!window.LIBRARY_HELPER) { alert("Thanks - reporting opens soon. For now, use the contact form on sweepercad.com."); return; }
+  try {
+    await fetch(window.LIBRARY_HELPER + "/report", {method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({id: b.dataset.id, reason: why})});
+    b.textContent = "reported - thank you"; b.disabled = true;
+  } catch (err) { alert("The report could not be sent - please try again later."); }
+});
+fetch("index.json?" + Date.now()).then(r => r.json()).then(d => { ITEMS = d.items || []; draw(); })
+  .catch(() => { document.getElementById("grid").innerHTML = '<p class="muted">The library could not be loaded.</p>'; });
+</script>
+<script data-goatcounter="https://sweepercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

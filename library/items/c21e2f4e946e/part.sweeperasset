@@ -1,0 +1,320 @@
+{
+ "format": 1,
+ "kind": "sweepercad-asset",
+ "name": "Cone",
+ "graph": {
+  "format": "sweeper-project",
+  "version": 3,
+  "roots": [
+   6
+  ],
+  "nodes": [
+   {
+    "id": 6,
+    "name": "0",
+    "ui_pos": [
+     40.0,
+     30.0
+    ],
+    "visible": true,
+    "locked": false,
+    "origin_from": null,
+    "color": null,
+    "transform": {
+     "position": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "rotation": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "type": "base",
+    "sign": "+",
+    "attach": null,
+    "attach_offset": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "spine": {
+     "closed": false,
+     "seg_kinds": [],
+     "anchors": [
+      {
+       "pos": [
+        0,
+        0
+       ],
+       "in": null,
+       "out": null
+      },
+      {
+       "pos": [
+        0,
+        10
+       ],
+       "in": null,
+       "out": null
+      }
+     ]
+    },
+    "profile": {
+     "closed": true,
+     "seg_kinds": [],
+     "anchors": [
+      {
+       "pos": [
+        5.009424835238682,
+        0.016616831427984678
+       ],
+       "in": [
+        5.009424835238682,
+        -2.7448069175720153
+       ],
+       "out": [
+        5.009424835238682,
+        2.7780405804279846
+       ]
+      },
+      {
+       "pos": [
+        0.009424835238682297,
+        5.016616831427985
+       ],
+       "in": [
+        2.7708485842386823,
+        5.016616831427985
+       ],
+       "out": [
+        -2.7519989137613177,
+        5.016616831427985
+       ]
+      },
+      {
+       "pos": [
+        -4.990575164761318,
+        0.016616831427984678
+       ],
+       "in": [
+        -4.990575164761318,
+        2.7780405804279846
+       ],
+       "out": [
+        -4.990575164761318,
+        -2.7448069175720153
+       ]
+      },
+      {
+       "pos": [
+        0.009424835238682297,
+        -4.983383168572015
+       ],
+       "in": [
+        -2.7519989137613177,
+        -4.983383168572015
+       ],
+       "out": [
+        2.7708485842386823,
+        -4.983383168572015
+       ]
+      }
+     ]
+    },
+    "outlines": {
+     "spine": {
+      "pts": [
+       [
+        0.0,
+        0.0
+       ],
+       [
+        0.0,
+        10.0
+       ]
+      ],
+      "radii": [
+       0.0,
+       0.0
+      ],
+      "closed": false,
+      "handles": [
+       [
+        null,
+        null
+       ],
+       [
+        null,
+        null
+       ]
+      ]
+     },
+     "scale": {
+      "pts": [
+       [
+        0.0,
+        1.0
+       ],
+       [
+        1.0,
+        0.02
+       ]
+      ],
+      "radii": [
+       0.0,
+       0.0
+      ],
+      "closed": false,
+      "handles": [
+       [
+        null,
+        null
+       ],
+       [
+        null,
+        null
+       ]
+      ]
+     },
+     "profile": {
+      "pts": [
+       [
+        5.009424835238682,
+        0.016616831427984678
+       ],
+       [
+        0.009424835238682297,
+        5.016616831427985
+       ],
+       [
+        -4.990575164761318,
+        0.016616831427984678
+       ],
+       [
+        0.009424835238682297,
+        -4.983383168572015
+       ]
+      ],
+      "radii": [
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "closed": true,
+      "handles": [
+       [
+        [
+         5.009424835238682,
+         -2.7448069175720153
+        ],
+        [
+         5.009424835238682,
+         2.7780405804279846
+        ]
+       ],
+       [
+        [
+         2.7708485842386823,
+         5.016616831427985
+        ],
+        [
+         -2.7519989137613177,
+         5.016616831427985
+        ]
+       ],
+       [
+        [
+         -4.990575164761318,
+         2.7780405804279846
+        ],
+        [
+         -4.990575164761318,
+         -2.7448069175720153
+        ]
+       ],
+       [
+        [
+         -2.7519989137613177,
+         -4.983383168572015
+        ],
+        [
+         2.7708485842386823,
+         -4.983383168572015
+        ]
+       ]
+      ]
+     }
+    },
+    "guides": {},
+    "scale_graph": {
+     "closed": false,
+     "seg_kinds": [],
+     "anchors": [
+      {
+       "pos": [
+        0.0,
+        1.0
+       ],
+       "in": null,
+       "out": null
+      },
+      {
+       "pos": [
+        1.0,
+        0.02
+       ],
+       "in": null,
+       "out": null
+      }
+     ]
+    },
+    "asym_axis": "y",
+    "scale_graph_neg": null,
+    "twist_deg": 0.0,
+    "sections": 33.0,
+    "auto_sections": true,
+    "allow_slow": false,
+    "section_tolerance_deg": 5.0,
+    "spacing": "curvature",
+    "fold_fix": "directional",
+    "check_fold": true,
+    "auto_fix_fold": true,
+    "end_profile": null,
+    "blend_bias": 0.5,
+    "blend_ease": "smooth",
+    "blend_align": 0.0,
+    "blend_auto_align": true,
+    "loft_mode": "auto",
+    "heading": "transport",
+    "roll_deg": 0.0,
+    "up_vector": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "fold_safety": 0.95,
+    "link_spine": null,
+    "link_profile": null,
+    "link_end": null,
+    "link_scale": null,
+    "offset_spine": 0.0,
+    "offset_profile": 0.0,
+    "offset_end": 0.0,
+    "offset_scale": 0.0,
+    "mirror_spine": null,
+    "mirror_profile": null,
+    "mirror_end": null,
+    "mirror_scale": null
+   }
+  ]
+ }
+}
