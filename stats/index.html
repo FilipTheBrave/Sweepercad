@@ -61,6 +61,11 @@
     <div class="card"><h3 style="margin-top:0">Download buttons clicked</h3><div id="gc-dl"></div></div>
     <div class="card"><h3 style="margin-top:0">Videos started</h3><div id="gc-vid"></div></div>
     <div class="card"><h3 style="margin-top:0">Manual and support</h3><div id="gc-misc"></div></div>
+    <div class="card"><h3 style="margin-top:0">Website visits per day</h3><div id="gv-daily"></div></div>
+    <div class="card"><h3 style="margin-top:0">Where visitors come from</h3><div id="gv-refs"></div></div>
+    <div class="card"><h3 style="margin-top:0">Countries</h3><div id="gv-countries"></div></div>
+    <div class="card"><h3 style="margin-top:0">Systems and browsers</h3><div id="gv-systems"></div><div id="gv-browsers" style="margin-top:10px"></div></div>
+    <div class="card"><h3 style="margin-top:0">Screens</h3><div id="gv-screens"></div></div>
 
     <h2>Development</h2>
     <div class="card"><h3 style="margin-top:0">Changes per day, last 30 days</h3><div id="changes-chart"></div></div>
@@ -121,6 +126,20 @@ async function load() {
     let releases = [];
     try { const r = await fetch("https://api.github.com/repos/FilipTheBrave/Sweepercad/releases"); if (r.ok) releases = await r.json(); } catch (e) {}
     const ex = S.extra || {};
+
+    // website visitors, from GoatCounter via the daily job (w865)
+    const G = ex.goat || {};
+    const wait = empty("Filled in by the nightly stats job once GoatCounter is connected.");
+    const list = (xs, unit) => (xs && xs.length) ? xs.map(x =>
+        `<div class="row"><span>${esc(x.name)}</span><span>${x.count} ${x.count === 1 ? unit : unit + "s"}</span></div>`).join("") : null;
+    const put = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+    put("gv-refs", list(G.referrers, "visit") || (G.updated ? empty("Nobody arrived from another site yet.") : wait));
+    put("gv-countries", list(G.countries, "visit") || wait);
+    put("gv-systems", list(G.systems, "visit") || wait);
+    put("gv-browsers", list(G.browsers, "visit") || "");
+    put("gv-screens", list(G.screens, "visit") || wait);
+    const gd = (G.daily || []).slice(-30);
+    put("gv-daily", gd.length ? chart(gd.map(d => d.date), [{name: "visits", color: "#222", values: gd.map(d => d.count)}], "bars") : wait);
 
     // downloads: banked at earlier publishes + the files' own counters right now
     const live = {};
