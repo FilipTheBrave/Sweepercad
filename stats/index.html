@@ -40,9 +40,9 @@
 
     <div class="tiles">
         <div class="tile"><b id="t-dl">&hellip;</b><span>downloads</span></div>
-        <div class="tile"><b id="t-views">&hellip;</b><span>GitHub visits, 14 days</span></div>
+        <div class="tile"><b id="t-site">&hellip;</b><span>website visits</span></div>
         <div class="tile"><b id="t-week">&hellip;</b><span>changes this week</span></div>
-        <div class="tile"><b id="t-stars">&hellip;</b><span>GitHub stars</span></div>
+        <div class="tile"><b id="t-plays">&hellip;</b><span>videos started</span></div>
     </div>
 
     <h2>Downloads</h2>
@@ -166,7 +166,7 @@ async function load() {
     // GitHub page visits (GitHub keeps 14 days; the daily job keeps them all)
     const views = ex.views || [];
     const last14 = views.slice(-14);
-    document.getElementById("t-views").textContent = views.length ? sum(Object.fromEntries(last14.map(v => [v.date, v.count]))) : "-";
+    var _tv = document.getElementById("t-views"); if (_tv) _tv.textContent = views.length ? sum(Object.fromEntries(last14.map(v => [v.date, v.count]))) : "-";
     document.getElementById("views-chart").innerHTML = views.length ? chart(views.slice(-30).map(v => v.date),
         [{name: "visits", color: "#222", values: views.slice(-30).map(v => v.count)},
          {name: "unique visitors", color: "#9aa5b1", values: views.slice(-30).map(v => v.uniques)}], "bars") : empty("No numbers yet.");
@@ -174,7 +174,7 @@ async function load() {
     document.getElementById("referrers").innerHTML = refs.length ? refs.map(r =>
         `<div class="row"><span>${esc(r.site)}</span><span>${r.count} ${r.count === 1 ? "visit" : "visits"} &middot; ${r.uniques} ${r.uniques === 1 ? "person" : "people"}</span></div>`).join("")
         : empty("Nobody arrived from another site yet.");
-    document.getElementById("t-stars").textContent = ex.github ? ex.github.stars : "-";
+    var _ts = document.getElementById("t-stars"); if (_ts) _ts.textContent = ex.github ? ex.github.stars : "-";
 
     // development
     const ch = ex.changes || {};
@@ -220,6 +220,15 @@ load();
       document.getElementById(el).innerHTML = h + '</table>';
     });
   }
+  get("TOTAL").then(function (c) { document.getElementById("t-site").textContent = c; });
+  (function () {
+    var names = ["play-sweepercad-intro", "play-sweepercad-part0"];
+    for (var i = 2; i <= 10; i++) names.push("play-sweepercad-part" + i);
+    Promise.all(names.map(get)).then(function (cs) {
+      var n = cs.reduce(function (a, c) { return a + (parseInt(String(c).replace(/[^0-9]/g, ""), 10) || 0); }, 0);
+      document.getElementById("t-plays").textContent = n;
+    });
+  })();
   rows("gc-pages", [["TOTAL", "all visits"], ["/", "home page"], ["/manual.html", "user manual"], ["/stats/", "this page"]]);
   rows("gc-dl", [["download-mac-apple-silicon", "Mac (Apple Silicon)"], ["download-mac-intel", "Mac (Intel)"],
                  ["download-windows", "Windows"], ["download-linux", "Linux (beta)"]]);
