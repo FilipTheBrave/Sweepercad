@@ -1,6 +1,27 @@
 {
  "items": [
   {
+   "name": "Selftest part",
+   "desc": "an automatic test - removed again",
+   "maker": "selftest",
+   "licence": "cc0",
+   "licence_text": "free to use, no credit needed (CC0)",
+   "kind": "asset",
+   "file": "part.sweeperasset",
+   "volume_mm3": 542.2,
+   "area_mm2": 321.8,
+   "triangles": 624,
+   "size_mm": [
+    10.0,
+    10.0,
+    10.0
+   ],
+   "objects": 1,
+   "build_s": 0.4,
+   "id": "5284e4ef754c",
+   "added": "2026-10-14"
+  },
+  {
    "name": "Spring",
    "desc": "A coil spring - change the turns and the wire in its graphs",
    "maker": "Filip",
