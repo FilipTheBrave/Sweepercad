@@ -139,7 +139,7 @@
    }
   }
  ],
- "updated": "2026-10-14T12:27Z",
+ "updated": "2026-10-14T13:44Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -161,8 +161,8 @@
    }
   },
   "changes": {
-   "week": 84,
-   "month": 135,
+   "week": 85,
+   "month": 136,
    "daily": [
     {
      "date": "2026-09-15",
@@ -282,12 +282,76 @@
     },
     {
      "date": "2026-10-14",
-     "count": 1
+     "count": 2
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-14T12:27Z"
+   "updated": "2026-10-14T13:44Z",
+   "countries": [
+    {
+     "name": "Germany",
+     "count": 15
+    },
+    {
+     "name": "France",
+     "count": 15
+    },
+    {
+     "name": "Belgium",
+     "count": 13
+    },
+    {
+     "name": "Austria",
+     "count": 7
+    },
+    {
+     "name": "United States",
+     "count": 7
+    }
+   ],
+   "browsers": [
+    {
+     "name": "Safari",
+     "count": 54
+    },
+    {
+     "name": "Firefox",
+     "count": 3
+    }
+   ],
+   "systems": [
+    {
+     "name": "macOS",
+     "count": 44
+    },
+    {
+     "name": "iOS",
+     "count": 13
+    }
+   ],
+   "screens": [
+    {
+     "name": "phone",
+     "count": 13
+    },
+    {
+     "name": "tablet",
+     "count": 0
+    },
+    {
+     "name": "desktop",
+     "count": 33
+    },
+    {
+     "name": "desktophd",
+     "count": 11
+    },
+    {
+     "name": "unknown",
+     "count": 0
+    }
+   ]
   }
  }
 }
