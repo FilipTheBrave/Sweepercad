@@ -138,7 +138,8 @@ async function load() {
     put("gv-systems", list(G.systems, "visit") || wait);
     put("gv-browsers", list(G.browsers, "visit") || "");
     put("gv-screens", list(G.screens, "visit") || wait);
-    const gd = (G.daily || []).slice(-30);
+    const _today = new Date().toISOString().slice(0, 10);
+    const gd = (G.daily || []).filter(d => d.date <= _today).slice(-30);
     put("gv-daily", gd.length ? chart(gd.map(d => d.date), [{name: "visits", color: "#222", values: gd.map(d => d.count)}], "bars") : wait);
 
     // downloads: banked at earlier publishes + the files' own counters right now
