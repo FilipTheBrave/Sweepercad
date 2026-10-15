@@ -96,7 +96,7 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <li class="ch"><a href="#ch4">4. Building parts</a><ul><li><a href="#placing-objects-exactly">Placing objects exactly</a></li><li><a href="#nodes">Nodes</a></li><li><a href="#keep-only-what-s-inside">Keep only what&#x27;s inside (∩)</a></li><li><a href="#mirroring-an-object">Mirroring an object</a></li><li><a href="#a-stack-of-objects">A stack of objects</a></li><li><a href="#a-stack-of-sweeps-from-cuts">A stack of sweeps from cuts</a></li><li><a href="#arrays-along-a-curve-or-on-a-surface">Arrays - along a curve or on a surface</a></li><li><a href="#hollow">Hollow</a></li><li><a href="#the-lattice-node">The lattice node</a></li><li><a href="#parameters">Parameters</a></li></ul></li>
 <li class="ch"><a href="#ch5">5. Fillets and chamfers</a><ul><li><a href="#rounding-and-chamfering-a-corner">Rounding and chamfering a corner</a></li><li><a href="#a-fillet-that-changes-along-the-seam">A fillet that changes along the seam</a></li><li><a href="#smooth-curvature-continuous-fillets">Smooth (curvature-continuous) fillets</a></li><li><a href="#an-uneven-chamfer">An uneven chamfer</a></li><li><a href="#when-a-fillet-will-not-take">When a fillet will not take</a></li></ul></li>
 <li class="ch"><a href="#ch6">6. Surfaces, routes and more</a><ul><li><a href="#drawing-on-the-surface">Drawing on the surface</a></li><li><a href="#extracting-a-line-from-a-surface">Extracting a line from a surface</a></li><li><a href="#building-it-from-struts">Building it from struts</a></li><li><a href="#routes">Routes</a></li><li><a href="#drop-onto-the-floor">Drop onto the floor</a></li><li><a href="#importing-cad-parts-and-meshes">Importing CAD parts and meshes</a></li><li><a href="#assets">Assets</a></li></ul></li>
-<li class="ch"><a href="#ch7">7. Checking and making</a><ul><li><a href="#stats-and-checks">Stats and checks</a></li><li><a href="#what-the-selected-object-measures">What the selected object measures</a></li><li><a href="#machining-g-code-for-a-cnc">Machining (G-code for a CNC)</a></li><li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Unfold — lay it out flat to print and cut</a></li><li><a href="#exporting">Exporting</a></li><li><a href="#what-gets-exported">What gets exported</a></li></ul></li>
+<li class="ch"><a href="#ch7">7. Checking and making</a><ul><li><a href="#stats-and-checks">Stats and checks</a></li><li><a href="#what-the-selected-object-measures">What the selected object measures</a></li><li><a href="#machining-g-code-for-a-cnc">Machining (G-code for a CNC)</a></li><li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Unfold — lay it out flat to print and cut</a></li><li><a href="#stacked-sheets">Stacked sheets</a></li><li><a href="#lathe">Lathe</a></li><li><a href="#bending">Bending</a></li><li><a href="#the-eggshell-mould">The eggshell mould</a></li><li><a href="#lenses-for-glasses-a-study-tool">Lenses for glasses (a study tool)</a></li><li><a href="#exporting">Exporting</a></li><li><a href="#what-gets-exported">What gets exported</a></li></ul></li>
 <li class="ch"><a href="#ch8">8. Scripts and AI</a><ul><li><a href="#made-to-be-driven-by-a-program-not-only-by-a-person">Made to be driven by a program, not only by a person</a></li><li><a href="#scripting">Scripting</a></li><li><a href="#make-it-with-ai">Make it with AI</a></li></ul></li>
 <li class="ch"><a href="#ch9">9. When something goes wrong</a><ul><li><a href="#what-the-app-notices-while-you-draw">What the app notices while you draw</a></li><li><a href="#when-a-feature-says-a-package-is-missing">When a feature says a package is missing</a></li><li><a href="#when-something-is-taking-too-long">When something is taking too long</a></li><li><a href="#when-something-will-not-build">When something will not build</a></li></ul></li>
 </ul></nav>
@@ -104,12 +104,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.9.8 &middot; sweepercad.com</div>
+  <div class="ver">version 0.9.9 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.9.8. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.9.9. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1496,6 +1496,19 @@ or remove a corner, pick the points again.</p>
   it touches.
 - <strong>min bend radius</strong>: straight runs are fine, but every bend is at least
   this round.
+- <strong>straight between bends</strong>: to bend the route from real tube or bar, set
+  the bend radius to the bending die's and this to the straight the
+  bender's clamp needs: runs too short to hold both bends and the clamp
+  are flagged under the route.
+- <strong>Lay it on the surface…</strong>: the route's points joined OVER the part they
+  sit on - the shortest way across its surface, a tube's radius off it
+  (plus the "never closer" gap) - made of straights and bends at the bend
+  radius, a gentle curve as several small bends. It is built as STACKED
+  SPINES: one ordinary sweep per plane, joined in a combine, so every piece
+  stays editable, and the pieces meet in the middle of a straight. The route
+  itself is hidden. A tube can only approximate a surface curved two ways;
+  the bending tool (⌒) reads the pieces as one tube and tells you how far
+  it strays.
 - <strong>direction</strong> with its rules:
   - <strong>one way</strong>: never go back against the direction.
   - <strong>max lean</strong>: never lean more than this from the direction.
@@ -1564,6 +1577,12 @@ snapping as a new object.</p>
 points the shelf at a different one — a synced folder, a stick, or one
 beside a project. They live in <code>~/.sweepercad/assets/</code> unless you say
 otherwise, and a folder that has gone away falls back to that.</p>
+<p><strong>A shared shelf stays up to date.</strong> The shelf watches its folder: when a
+part is added, changed or removed there - by you, or by someone else through
+Dropbox, iCloud or a network drive - the shelf redraws by itself. A file that
+is still syncing appears once it is complete. Only the shelf follows the
+folder: parts you already placed in a scene are your own copies and never
+change under you.</p>
 <p><strong>The online library.</strong> Parts other people made, free to download, live at
 <a href="https://sweepercad.com/library/">sweepercad.com/library</a>. <em>library…</em> on the
 shelf (or <em>Assets → Online library…</em>) opens it in your browser. Click
@@ -1821,10 +1840,35 @@ right-click on the page — has <strong>fit</strong>, <strong>print…</strong> 
 dialog, always at 100 %), <strong>PDF…</strong>, <strong>SVG…</strong> (one full-size sheet, for a
 cutting plotter or laser) and <strong>clear</strong>, which empties the pages and the lines
 on the part but keeps your seams and darts (<strong>clear seams</strong> removes those).
+The SVG opens straight in the cutter's or laser's own program (Cricut Design
+Space, Silhouette Studio, ScanNCut, LightBurn, Inkscape): one colour per job -
+<strong>black</strong> cut, <strong>red</strong> mountain and <strong>blue</strong> valley folds (set those to score
+or perforate), <strong>green</strong> the numbers (draw them with a pen, or hide that
+colour). The lines are solid hairlines, the numbers outlines, and there is no
+page frame or tab outline to cut by mistake.
 After printing, measure the 50 mm bar on the page to check the printer did not
 scale it. A
 piece bigger than the page gets a page to itself and a note — use a larger
-page or the SVG.</p></section><section class="sec" id="exporting"><h3>Exporting</h3><ul>
+page or the SVG.</p></section><section class="sec" id="stacked-sheets"><h3>Stacked sheets</h3><p>The part as layers of cardboard, plywood or acrylic, cut and stacked. Select the part and click the ☰ icon in the make-it group.</p><figure><a href="manual/stack_box.jpg"><img src="manual/stack_box.jpg" alt="Box mode: a hexagon box - floor, lid and six walls with finger joints sized to the corners." loading="lazy"></a><figcaption>Box mode: a hexagon box - floor, lid and six walls with finger joints sized to the corners.</figcaption></figure><figure><a href="manual/stack_hinge.jpg"><img src="manual/stack_hinge.jpg" alt="A rounded box: the wall unrolled with a living hinge where it curves." loading="lazy"></a><figcaption>A rounded box: the wall unrolled with a living hinge where it curves.</figcaption></figure>
+<p>Set the <strong>thickness</strong> of your sheet and the direction to stack in. <strong>Each layer</strong> is cut through its middle, or never smaller than the part (<em>outside</em> - sand down to the shape) or never bigger (<em>inside</em>). <strong>Kerf</strong> grows the outlines by half your laser's or knife's cut width. Holes in a layer are kept; a layer that falls apart into islands gets each piece numbered (12a, 12b).</p>
+<p><strong>Lining the layers up</strong>, any combination: <strong>key slots and key strips</strong> - a slot one sheet thick in every layer, and flat strips cut from the same sheet that slide through them and lock the stack; <strong>dowel holes</strong> for a dowel or skewer; and <strong>the next layer's outline</strong> drawn on each layer, as a gluing guide. Keys and dowels sit deep in the material; where the part changes too much for one to pass every layer, they run in overlapping sections that link up.</p>
+<p><strong>Waffle</strong> (<em>how it is built</em>): instead of stacked layers, upright slices across X and across Y, every so many mm, that slot together into an open lattice of the part - no glue. Where two slices cross, one gets a slot from the top and the other from the bottom, each half as deep as their shared height; every slot is labelled with the slice that goes into it.</p>
+<p><strong>Box</strong> (<em>how it is built</em>): for a part that goes straight up - any outline, the same from bottom to top (a prism). You get a <strong>floor</strong> (and optionally a <strong>lid</strong>) with tabs that go through slots in the wall, set in from the edge by the amount you choose, and the <strong>wall unrolled</strong> along its centre line, so it has the right length once bent. Where the outline has a sharp corner the wall is split into panels with <strong>finger joints</strong> (an odd number up each corner), sized to the corner's angle so the outside faces meet - a laser cuts square, so off a right angle there is a hairline wedge inside the corner, or a sliver to sand flush. Corners sharper than about 70 degrees or flatter than about 150 (a triangle, a very shallow bend) are not jointed but <strong>bent</strong>: the corner is rounded a little and the wall bends round it on a hinge. Tick <strong>bend round every corner</strong> to do that everywhere - one piece of wall, no finger joints. Where the outline curves, the wall gets a <strong>living hinge</strong> - rows of slits, offset like brickwork, so the sheet bends. With no corner at all (a round or rounded box) the wall closes on itself with dovetails in its straightest place. Set the slit length, the bridge between slits and their spacing for your material - closer slits bend tighter; plywood likes a spacing of about half its thickness. You are warned when the outline curves tighter than the <strong>tightest bend</strong>, when the walls are not straight, and when there is no straight stretch for tabs (then glue the floor in). A wall too wide for the page is turned a quarter to fit. The hinge slits are cut lines (red) like the outlines.</p>
+<p>The preview shows the stepped stack over the part, with the number of layers, pages and the sheet area. <strong>Save PDF</strong> gives pages at true size to print and cut by hand (with the 50 mm bar); <strong>Save SVG</strong> one file for a laser cutter or cutting plotter - red to cut, blue to engrave (the numbers), green the guides. It opens straight in the laser's own program (LightBurn, LaserGRBL, xTool Creative Space, the Glowforge app, or Inkscape printing to an Epilog or Trotec): true size in mm, hairline cut lines, the numbers as outlines so no font is needed, and no page frame. Give each colour its own power and speed there.</p></section><section class="sec" id="lathe"><h3>Lathe</h3><p>A part that is round about a straight axis - a round profile on a straight spine shaped by its scale graph, a revolve, an imported turned part - can be turned. Select it and click the ⌀ icon in the make-it group. The axis is found by itself (the part is sliced along it and every slice must be a circle); a part that is not round says so.</p><figure><a href="manual/lathe_panel.jpg"><img src="manual/lathe_panel.jpg" style="max-width:380px" alt="The lathe panel: the work, the tools and the output." loading="lazy"></a><figcaption>The lathe panel: the work, the tools and the output.</figcaption></figure>
+<p>Lathe coordinates: <strong>Z</strong> along the axis, 0 at the free end (the tailstock side), minus toward the chuck; <strong>X</strong> the diameter. Tick <strong>chuck at the other end</strong> to hold it the other way round. Set the <strong>material</strong>, the <strong>stock diameter</strong> (automatic: the part's largest diameter plus 2 mm), and how much to <strong>face off</strong> the end.</p>
+<p><strong>The tools.</strong> The turning tool's <strong>nose radius</strong> (the program gives the usual imaginary tip, touched off on the diameter and on the face, so tapers and curves come out true without nose compensation). <strong>Follows slopes down to</strong>: where the part narrows toward the chuck behind a bulge, the back of the tool hits the work - it can follow a slope only down to about its back clearance (a 35° insert: about 30°). What it cannot reach shows red and is reported, to finish with a neutral or left-hand tool. The <strong>depth of cut</strong> per roughing pass (or from the material), what is <strong>left for the finish</strong>, the <strong>top spindle speed</strong>, and <strong>part off</strong> with the blade width.</p>
+<p>The program: face the end, rough in straight passes (entering a pocket gently), one semi-finish pass that follows the profile, the finish pass, then part off. Plain G0 and G1 only, so every controller reads it: <strong>LinuxCNC</strong> and <strong>grblHAL</strong> in diameter mode, a <strong>generic / Fanuc-style</strong> version, and plain <strong>GRBL</strong> with X as the radius. Speeds and feeds come from the material and are conservative; watch the first run in the air.</p>
+<p><strong>Save G-code…</strong> for a CNC lathe. <strong>Save sheet PDF…</strong> for a manual lathe: the diameters every few mm from the free end (and at every shoulder), and the profile <strong>template</strong> at 1:1 with the 50 mm check bar. <strong>Save template SVG…</strong> gives the same template for a laser cutter or plotter - hold it against the work as you turn.</p></section><section class="sec" id="bending"><h3>Bending</h3><p>A tube or a wire is straights and bends. Select a swept tube - or several spines that continue each other (stacked spines, a route) - and click the ⌒ icon in the make-it group. The centre line is read from the spines, the <strong>diameter</strong> measured from the part (or typed), and you set the <strong>wall</strong> (0 for solid wire or bar), the <strong>material</strong> (it gives the <strong>springback</strong>: how much a bend opens up afterwards - one test bend tells the true number) and the bender: the <strong>die radius</strong> (its centre-line radius, CLR; the pin radius on a wire bender), the <strong>shortest straight</strong> the clamp can hold, and the <strong>tolerance</strong>.</p><figure><a href="manual/bend_sheet.jpg"><img src="manual/bend_sheet.jpg" alt="A bend sheet: the cut length, where each bend starts, how far to turn and to bend." loading="lazy"></a><figcaption>A bend sheet: the cut length, where each bend starts, how far to turn and to bend.</figcaption></figure>
+<p>How it is worked out: a corner drawn sharp means "bend here" - the die rounds it. A curve as tight as the die is one bend; a gentler curve becomes several small bends close together, as many as the tolerance needs. Where the straights would meet are the bend points (yellow); the tube that comes out - those points rounded at the die radius - is drawn green over the design, and how far it strays is reported. Straights too short for the clamp show red, and you are warned when bends overlap, when a curve is drawn tighter than the die, and when the die is tight for a thin wall (wrinkles - use a mandrel).</p>
+<p>For a <strong>flat bar</strong> choose that section: the part is read slice by slice - its width and thickness, and how it lies along the spine - and every change of direction is one of three steps: a <strong>flat bend</strong> (across the thin side, the easy way), an <strong>edgewise bend</strong> (across the wide side, the hard way - roll it; tight ones are flagged because they buckle) or a <strong>twist</strong> about its length. With <strong>holes along the bar</strong> (pitch, first hole, diameter) every bend or twist that reaches into a hole is listed - bend on the bridges between holes, or the holes go oval. The sheet shows the bar straight with its zones and holes, then the steps in order: where to start, what to do, over how long.</p>
+<p>For a <strong>square bar</strong> choose the section: it bends over its faces only, so between bends it may only turn in quarter turns - bends that would need it twisted are listed.</p>
+<p>Every bender is told the same three numbers per bend: <strong>Y</strong> feed (the straight before the bend), <strong>B</strong> rotate (from the last bend's plane), <strong>C</strong> bend (the angle to bend to, springback included). <strong>Save table CSV…</strong> gives them, with the design angles, the arc lengths and the XYZ of the bend points - what bender software imports. <strong>Save bend sheet PDF…</strong> is for a manual bender: the <strong>cut length</strong>, the tube drawn straight with a mark where every bend starts, and per bend where to mark, how far to turn the tube (draw a line along it first) and the angle to bend to. <strong>Save wire bender G-code…</strong> drives a DIY three-motor wire bender: X feeds, Y turns the wire, Z swings the bend pin and back - set its units per mm and degrees per unit.</p></section><section class="sec" id="the-eggshell-mould"><h3>The eggshell mould</h3><p>A thin breakaway shell around a part: print it, cast into it, and crack it away like an egg. Select the part and click the ⬯ icon in the make-it group (or add a lattice and choose <em>eggshell (breakaway mould)</em>).</p>
+<p><strong>thickness</strong> is the wall, <strong>count</strong> the number of shards, <strong>depth</strong> how deep the crack grooves go from the outside, <strong>crack width</strong> how wide they are (automatic is a third of the wall), <strong>seed</strong> another crack pattern. The inside of the shell is the part's own surface turned inside out, so <strong>the cavity is exactly the part</strong>; the grooves always stop short of it. Add a pour funnel or flanges as ordinary objects, and export the shell as STL.</p></section><section class="sec" id="lenses-for-glasses-a-study-tool"><h3>Lenses for glasses (a study tool)</h3><p><strong>Not medically approved.</strong> These are lens <em>shapes</em> for designing a frame around - never make lenses from them to look through. Real spectacle lenses need optical material and are medical devices: an optician orders them from a lens lab.</p>
+<p>The ⚭ icon in the make-it group opens the lens panel. Type the prescription per eye - sphere, cylinder, axis, PD (from the nose line to the pupil), prism and its base, the height of the optical centre - and the lens and fit: material (polycarbonate and Trivex do not shatter), front curve, minimum thickness, eye-to-lens distance (and the distance at the eye test, so the power is corrected), tilt and face wrap.</p>
+<p>Every change redraws both lenses in the 3D view a moment later, with the pupils marked. <strong>The face check</strong> turns each lens green when it fits and red when it does not, with the numbers: too close to the face, or the temple corner sticking out. It measures against a face curve, or against your own face scan (select it and click <em>use the selected object as the face</em>).</p>
+<p><strong>The lens shape</strong> is how the optician cuts the lens: round, oval, rounded rectangle, cat-eye, or your own outline (draw it as an object's profile at real size, the temple side to the right, select it and click <em>take the outline</em>). Width A, height B and the bridge DBL, and the edge: a V-bevel for a full rim, a groove for a half rim, flat for rimless.</p>
+<p><strong>Add to scene</strong> makes the cut lenses as parts, with their 3D edge. Options add: <em>cutters for the frame</em> (the lenses grown by a clearance, already negative - put them in a combine with your frame and they cut the opening and the groove), <em>the frame surface</em> (a curved sheet through the front of both lenses at your wrap - a base for the frame front) and <em>markers at the pupils</em>.</p>
+<p><strong>Save data sheet</strong> writes an A4 PDF with the prescription, the lens and fit, the thicknesses, the frame numbers and both shapes at true size (with a 50 mm bar to check the print), and beside it an OMA shape file - the format optician edging machines read. Check it with your optician's software before relying on it.</p></section><section class="sec" id="exporting"><h3>Exporting</h3><ul>
 <li><strong>STEP</strong> — exact surfaces, no meshing. Use this for other CAD. Flat
   faces are written as true planes, so they can be mated to and sketched
   on at the other end.</li>
@@ -1972,9 +2016,26 @@ has built it, the problem is listed under the script and the button
 lights up.</p>
 <p><strong>Want it different?</strong> Step 4 lights up once something is made. Type the
 change - "make the rim wavier and add a foot" - and press <strong>Copy for AI</strong>.
-That copies the script as it is, everything you asked so far and the
-change. Press <strong>Copy picture</strong> too and paste the picture into the same
-chat after the text, so the AI sees what it made. Then copy its answer and
+That copies the script as it is, everything you asked so far, the change -
+and what the last script actually MADE, measured: every result's size,
+where it sits, its volume, whether it is one solid or pieces that do not
+touch, and anything the build reported. Press <strong>Copy pictures</strong> too and
+paste them into the same chat after the text: the result from the front,
+the side, the top and at an angle, in one picture. So the AI checks its own
+work against what you asked - the loop closes without you having to
+describe what went wrong.</p>
+<p><strong>Let it run by itself (only if you want).</strong> SweeperCAD makes no network
+calls. In <strong>AI settings…</strong> you can switch on talking to an AI directly:
+Claude or ChatGPT with your own account and API key (kept on this computer
+only), or an AI running on this computer (Ollama, LM Studio) - then nothing
+leaves your machine at all. Before anything is sent off the computer you
+are told exactly what goes (what you describe, the script, the
+measurements, the pictures - nothing else) and asked to agree. While it is
+on, the status bar says <strong>● AI on</strong>. Then <strong>▶ Do it for me</strong> does the
+steps for you: it asks, runs the script, measures and pictures the result,
+sends that back and lets the AI improve it, up to the number of rounds you
+set - every round is built in front of you, <strong>Stop</strong> stops it, and Ctrl+Z
+goes back a round. With a change typed in step 4, it changes what is there. Then copy its answer and
 do step 3: the new version <em>replaces</em> the last one, it does not pile up
 next to it. Repeat as often as you like; Ctrl+Z brings back the previous
 version.</p>
