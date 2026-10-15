@@ -154,7 +154,7 @@
    }
   }
  ],
- "updated": "2026-10-15T00:44Z",
+ "updated": "2026-10-15T00:46Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -176,8 +176,8 @@
    }
   },
   "changes": {
-   "week": 96,
-   "month": 147,
+   "week": 97,
+   "month": 148,
    "daily": [
     {
      "date": "2026-09-16",
@@ -297,16 +297,30 @@
     },
     {
      "date": "2026-10-15",
-     "count": 0
+     "count": 1
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-15T00:44Z",
+   "updated": "2026-10-15T00:45Z",
+   "referrers": [
+    {
+     "name": "direct (typed or bookmarked)",
+     "count": 43
+    },
+    {
+     "name": "www.cheetah3d.com",
+     "count": 25
+    },
+    {
+     "name": "Google",
+     "count": 1
+    }
+   ],
    "browsers": [
     {
      "name": "Safari",
-     "count": 103
+     "count": 106
     },
     {
      "name": "Firefox",
@@ -317,7 +331,35 @@
      "count": 2
     }
    ],
-   "total": 108,
+   "systems": [
+    {
+     "name": "iOS",
+     "count": 57
+    },
+    {
+     "name": "macOS",
+     "count": 52
+    },
+    {
+     "name": "Linux",
+     "count": 2
+    }
+   ],
+   "screens": [
+    {
+     "name": "phone",
+     "count": 57
+    },
+    {
+     "name": "desktop",
+     "count": 40
+    },
+    {
+     "name": "large desktop",
+     "count": 14
+    }
+   ],
+   "total": 111,
    "daily": [
     {
      "date": "2026-10-13",
@@ -329,7 +371,7 @@
     },
     {
      "date": "2026-10-15",
-     "count": 11
+     "count": 14
     },
     {
      "date": "2026-10-16",
