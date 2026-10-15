@@ -2035,7 +2035,32 @@ on, the status bar says <strong>● AI on</strong>. Then <strong>▶ Do it for m
 steps for you: it asks, runs the script, measures and pictures the result,
 sends that back and lets the AI improve it, up to the number of rounds you
 set - every round is built in front of you, <strong>Stop</strong> stops it, and Ctrl+Z
-goes back a round. With a change typed in step 4, it changes what is there. Then copy its answer and
+goes back a round. With a change typed in step 4, it changes what is there.</p>
+<p><strong>Setting up the AI, step by step.</strong> Open the script editor, press <strong>AI
+settings…</strong>, tick <strong>Let SweeperCAD talk to an AI</strong>, then one of these:</p>
+<p><em>Claude (Anthropic).</em> The API is paid per use and billed apart from a
+Claude chat subscription. Sign in at <strong>platform.claude.com</strong>, add some
+credit under billing, then go to <strong>Settings → API keys</strong> and press
+<strong>Create key</strong>. Copy the key (it starts with <code>sk-ant-</code> and is shown only
+once) and paste it into <strong>API key</strong>. Leave <strong>model</strong> empty for the
+default, or type another Claude model name. Tip: set a monthly spending
+limit in that account.</p>
+<p><em>ChatGPT (OpenAI).</em> Also paid per use and billed apart from a ChatGPT
+subscription. Sign in at <strong>platform.openai.com</strong>, add credit, open <strong>API
+keys</strong>, create one and paste it into <strong>API key</strong>. Type the <strong>model</strong> name
+from your account - one that reads images, if you want it to see the
+pictures.</p>
+<p><em>An AI on this computer - nothing leaves it.</em> Install <strong>Ollama</strong> (from
+ollama.com), then in a terminal fetch a model that can read images, for
+example <code>ollama pull llama3.2-vision</code>, and leave Ollama running. In AI
+settings choose <strong>an AI on this computer</strong>, type that model name exactly,
+and leave the key and address empty. With <strong>LM Studio</strong> instead, start its
+local server and set the address to
+<code>http://localhost:1234/v1/chat/completions</code>. A model on your own computer
+is free and private, but smaller ones write weaker scripts - let it run
+more rounds.</p>
+<p>The key is kept in SweeperCAD's settings on this computer only, never in
+your project files. To stop, untick the box (or clear the key). Then copy its answer and
 do step 3: the new version <em>replaces</em> the last one, it does not pile up
 next to it. Repeat as often as you like; Ctrl+Z brings back the previous
 version.</p>
