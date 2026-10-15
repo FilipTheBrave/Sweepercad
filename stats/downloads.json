@@ -143,9 +143,18 @@
     "mac-intel": 15,
     "windows": 38
    }
+  },
+  {
+   "date": "2026-10-15",
+   "counts": {
+    "linux": 3,
+    "mac-apple-silicon": 68,
+    "mac-intel": 15,
+    "windows": 38
+   }
   }
  ],
- "updated": "2026-10-14T23:34Z",
+ "updated": "2026-10-15T00:44Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -170,10 +179,6 @@
    "week": 96,
    "month": 147,
    "daily": [
-    {
-     "date": "2026-09-15",
-     "count": 0
-    },
     {
      "date": "2026-09-16",
      "count": 0
@@ -289,78 +294,30 @@
     {
      "date": "2026-10-14",
      "count": 13
+    },
+    {
+     "date": "2026-10-15",
+     "count": 0
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-14T13:48Z",
-   "referrers": [
-    {
-     "name": "www.cheetah3d.com",
-     "count": 22
-    },
-    {
-     "name": "direct (typed or bookmarked)",
-     "count": 21
-    }
-   ],
-   "countries": [
-    {
-     "name": "Belgium",
-     "count": 15
-    },
-    {
-     "name": "Germany",
-     "count": 15
-    },
-    {
-     "name": "France",
-     "count": 15
-    },
-    {
-     "name": "Austria",
-     "count": 7
-    },
-    {
-     "name": "United States",
-     "count": 7
-    }
-   ],
+   "updated": "2026-10-15T00:44Z",
    "browsers": [
     {
      "name": "Safari",
-     "count": 56
+     "count": 103
     },
     {
      "name": "Firefox",
      "count": 3
-    }
-   ],
-   "systems": [
-    {
-     "name": "macOS",
-     "count": 44
     },
     {
-     "name": "iOS",
-     "count": 15
+     "name": "Chrome",
+     "count": 2
     }
    ],
-   "screens": [
-    {
-     "name": "phone",
-     "count": 15
-    },
-    {
-     "name": "desktop",
-     "count": 33
-    },
-    {
-     "name": "large desktop",
-     "count": 11
-    }
-   ],
-   "total": 59,
+   "total": 108,
    "daily": [
     {
      "date": "2026-10-13",
@@ -368,10 +325,14 @@
     },
     {
      "date": "2026-10-14",
-     "count": 59
+     "count": 97
     },
     {
      "date": "2026-10-15",
+     "count": 11
+    },
+    {
+     "date": "2026-10-16",
      "count": 0
     }
    ]
