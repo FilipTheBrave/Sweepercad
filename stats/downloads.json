@@ -153,14 +153,14 @@
   {
    "date": "2026-10-15",
    "counts": {
-    "linux": 3,
-    "mac-apple-silicon": 69,
-    "mac-intel": 15,
-    "windows": 38
+    "linux": 4,
+    "mac-apple-silicon": 82,
+    "mac-intel": 19,
+    "windows": 44
    }
   }
  ],
- "updated": "2026-10-15T21:54Z",
+ "updated": "2026-10-15T23:54Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -182,8 +182,8 @@
    }
   },
   "changes": {
-   "week": 124,
-   "month": 175,
+   "week": 127,
+   "month": 178,
    "daily": [
     {
      "date": "2026-09-16",
@@ -303,12 +303,119 @@
     },
     {
      "date": "2026-10-15",
-     "count": 28
+     "count": 31
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-15T00:45Z",
+   "updated": "2026-10-15T23:54Z",
+   "countries": [
+    {
+     "name": "Belgium",
+     "count": 101
+    },
+    {
+     "name": "France",
+     "count": 17
+    },
+    {
+     "name": "Germany",
+     "count": 16
+    },
+    {
+     "name": "United States",
+     "count": 14
+    },
+    {
+     "name": "Austria",
+     "count": 10
+    },
+    {
+     "name": "Italy",
+     "count": 4
+    },
+    {
+     "name": "United Kingdom",
+     "count": 1
+    },
+    {
+     "name": "Kazakhstan",
+     "count": 1
+    },
+    {
+     "name": "Turkey",
+     "count": 1
+    }
+   ],
+   "browsers": [
+    {
+     "name": "Safari",
+     "count": 156
+    },
+    {
+     "name": "Chrome",
+     "count": 5
+    },
+    {
+     "name": "Firefox",
+     "count": 4
+    }
+   ],
+   "systems": [
+    {
+     "name": "iOS",
+     "count": 104
+    },
+    {
+     "name": "macOS",
+     "count": 56
+    },
+    {
+     "name": "Linux",
+     "count": 3
+    },
+    {
+     "name": "Android",
+     "count": 1
+    },
+    {
+     "name": "Windows",
+     "count": 1
+    }
+   ],
+   "screens": [
+    {
+     "name": "phone",
+     "count": 105
+    },
+    {
+     "name": "desktop",
+     "count": 42
+    },
+    {
+     "name": "large desktop",
+     "count": 18
+    }
+   ],
+   "total": 165,
+   "daily": [
+    {
+     "date": "2026-10-13",
+     "count": 0
+    },
+    {
+     "date": "2026-10-14",
+     "count": 97
+    },
+    {
+     "date": "2026-10-15",
+     "count": 49
+    },
+    {
+     "date": "2026-10-16",
+     "count": 19
+    }
+   ],
    "referrers": [
     {
      "name": "direct (typed or bookmarked)",
@@ -321,89 +428,6 @@
     {
      "name": "Google",
      "count": 1
-    }
-   ],
-   "browsers": [
-    {
-     "name": "Safari",
-     "count": 106
-    },
-    {
-     "name": "Firefox",
-     "count": 3
-    },
-    {
-     "name": "Chrome",
-     "count": 2
-    }
-   ],
-   "systems": [
-    {
-     "name": "iOS",
-     "count": 57
-    },
-    {
-     "name": "macOS",
-     "count": 52
-    },
-    {
-     "name": "Linux",
-     "count": 2
-    }
-   ],
-   "screens": [
-    {
-     "name": "phone",
-     "count": 57
-    },
-    {
-     "name": "desktop",
-     "count": 40
-    },
-    {
-     "name": "large desktop",
-     "count": 14
-    }
-   ],
-   "total": 111,
-   "daily": [
-    {
-     "date": "2026-10-13",
-     "count": 0
-    },
-    {
-     "date": "2026-10-14",
-     "count": 97
-    },
-    {
-     "date": "2026-10-15",
-     "count": 14
-    },
-    {
-     "date": "2026-10-16",
-     "count": 0
-    }
-   ],
-   "countries": [
-    {
-     "name": "Belgium",
-     "count": 15
-    },
-    {
-     "name": "Germany",
-     "count": 15
-    },
-    {
-     "name": "France",
-     "count": 15
-    },
-    {
-     "name": "Austria",
-     "count": 7
-    },
-    {
-     "name": "United States",
-     "count": 7
     }
    ]
   },
@@ -477,6 +501,11 @@
     "date": "2026-10-13",
     "count": 0,
     "uniques": 0
+   },
+   {
+    "date": "2026-10-14",
+    "count": 3,
+    "uniques": 1
    }
   ],
   "referrers": [
