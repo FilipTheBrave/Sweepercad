@@ -104,12 +104,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.9.9 &middot; sweepercad.com</div>
+  <div class="ver">version 0.9.9.1 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.9.9. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.9.9.1. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -225,6 +225,9 @@ above as the list of graphs: the lit one, also lit in the grid, is the one
 makes it that one</strong>. Drag the lines between them to share out the room.
 Click ⊞ again for the tabs. It is remembered, and works in the graphs' own
 window too (❐) - on a second monitor all four get a good size.</p>
+<p><strong>export…</strong> beside a graph writes its curve out: as <strong>SVG</strong>, or as <strong>DXF</strong> in millimetres
+(a polyline within 0.01 mm of the curve) for a plasma cutter, waterjet, laser,
+CNC router or another CAD program - pick the type when saving.</p>
 <p><strong>On a narrow graph</strong> the words along the top shorten, then the controls
 wrap to a second row. Under about 360 px the <strong>ghost list folds to a tab</strong> (<em>‹ ghosts</em>,
 with how many are shown); click it to open the list, and the <strong>›</strong> at the
@@ -1816,19 +1819,60 @@ part and come back when you open it again. Deleting the part clears it too.</p>
 <li><strong>paper / card</strong>: cut lines; folds red dash-dot (mountain — folds away
   from you, the printed side out) and blue dashed (valley); a glue tab on
   one side of every seam, and the same number on both sides.</li>
-<li><strong>sheet metal</strong>: no tabs; bend lines with their angle and direction (down
-  or up). The model is read as the <strong>outside</strong> of the part: set the
-  <strong>thickness</strong>, the <strong>inside bend radius</strong> of a sharp fold and the
+<li><strong>sheet metal</strong>: no tabs; bend lines with their number, direction and
+  angle (<em>1: down 90°</em>). The model is read as the <strong>outside</strong> of the part:
+  set the <strong>thickness</strong>, the <strong>inside bend radius</strong> of a sharp fold and the
   <strong>K-factor</strong> (where the neutral line sits, 0.33–0.45 typical). Each bend
   takes off its bend deduction, so the flat is cut to the neutral line and
   the bent part comes out at the size you drew. A fillet you modelled counts
-  as the bend, its radius as the outside radius.</li>
+  as the bend, its radius as the outside radius. Walls unfold from the
+  largest panel (the base), as a press brake makes them — see <strong>Sheet metal
+  for the shop</strong> below.</li>
 <li><strong>fabric / leather</strong>: the cut line is the piece plus the <strong>seam
   allowance</strong>; the dashed line is where to stitch. Notches and numbers on
   matching seams, and a grain line along each piece.</li>
 <li><strong>foam / felt / laser</strong>: clean cut lines, with an optional <strong>kerf</strong> (the
   cut line moves out by half the cut width).</li>
 </ul>
+<p><strong>Sheet metal for the shop.</strong> With <em>sheet metal</em> chosen, the flat is made
+ready to cut and bend:</p>
+<ul>
+<li><strong>metal</strong>: steel, galvanised, stainless, aluminium 5052 / 5754, 6061-T6,
+  1050, copper, brass, or other. It sets a starting K-factor and what the
+  checks use: the tightest inside radius the metal takes (6061-T6 cracks on
+  tight bends), its springback and its strength. Starting values — test on an
+  offcut.</li>
+<li><strong>bend reliefs</strong>: a bend that ends against material tears or bulges there,
+  so it gets a slot as wide as the sheet, through the bend zone and one
+  thickness beyond — square or round-ended. Where two bends meet at a corner
+  there is one corner relief over both.</li>
+<li><strong>corners</strong>: where two flanges meet (a tray's corner) both walls would fill
+  the same corner of the outside model. <strong>Open</strong> stops both short by the
+  thickness plus the <strong>corner gap</strong>; <strong>closed</strong> lets the larger wall run
+  through and stops the other at its inside face — ready to weld or rivet;
+  <strong>as modelled</strong> leaves them.</li>
+<li><strong>+ hem</strong>: click outside edges of the part; each is folded back flat on
+  itself (<strong>hem length</strong>, outside, 4 × thickness when 0; a <strong>hem gap</strong> above 0
+  makes an open hem, flattened onto a spacer).</li>
+<li><strong>+ open face</strong> (any exact material): click a face to leave it out — the
+  lid of a box, so it unfolds as an open tray. It shows in the seam list;
+  delete it there to bring the face back.</li>
+</ul>
+<p>The status line gives the number of bends, the die, the reliefs and the first
+thing to check; hover it for all of them. <strong>DXF…</strong> writes the flat at true
+size in millimetres — outlines on layer CUT, bend lines on BEND_DOWN (red)
+and BEND_UP (blue), the numbers on TEXT — for a laser or plasma shop, CAD, or
+the brake's own software (it works for paper, fabric and foam too).
+<strong>Brake sheet…</strong> writes a PDF (or a CSV table): the flat with the bends
+numbered in the order to bend them (hems and outer lips first), and per bend
+the angle to <strong>bend by</strong> — springback included — which way the flange goes,
+its length, the <strong>back gauge</strong> (flat distance from the bend line to the edge
+against the gauge), the outside <strong>flange</strong>, and the force. The die is the
+usual one for air bending (about 6 × thickness, the nearest standard V), and
+the sheet says what to check before you bend: a radius too tight for the
+metal, a flange too short for the die (with the die that fits), a hole too
+close to a bend, a U whose walls may hit the top tool, and the inside radius
+that die really gives.</p>
 <p><strong>The page.</strong> Pieces are laid out at true size on A4, A3 or Letter, on a
 <strong>custom size</strong> you type (width × height in mm — a cutting mat, a plotter's
 roll), or with <strong>fit the page to the design</strong>: one page just big enough for
@@ -1854,11 +1898,11 @@ page or the SVG.</p></section><section class="sec" id="stacked-sheets"><h3>Stack
 <p><strong>Lining the layers up</strong>, any combination: <strong>key slots and key strips</strong> - a slot one sheet thick in every layer, and flat strips cut from the same sheet that slide through them and lock the stack; <strong>dowel holes</strong> for a dowel or skewer; and <strong>the next layer's outline</strong> drawn on each layer, as a gluing guide. Keys and dowels sit deep in the material; where the part changes too much for one to pass every layer, they run in overlapping sections that link up.</p>
 <p><strong>Waffle</strong> (<em>how it is built</em>): instead of stacked layers, upright slices across X and across Y, every so many mm, that slot together into an open lattice of the part - no glue. Where two slices cross, one gets a slot from the top and the other from the bottom, each half as deep as their shared height; every slot is labelled with the slice that goes into it.</p>
 <p><strong>Box</strong> (<em>how it is built</em>): for a part that goes straight up - any outline, the same from bottom to top (a prism). You get a <strong>floor</strong> (and optionally a <strong>lid</strong>) with tabs that go through slots in the wall, set in from the edge by the amount you choose, and the <strong>wall unrolled</strong> along its centre line, so it has the right length once bent. Where the outline has a sharp corner the wall is split into panels with <strong>finger joints</strong> (an odd number up each corner), sized to the corner's angle so the outside faces meet - a laser cuts square, so off a right angle there is a hairline wedge inside the corner, or a sliver to sand flush. Corners sharper than about 70 degrees or flatter than about 150 (a triangle, a very shallow bend) are not jointed but <strong>bent</strong>: the corner is rounded a little and the wall bends round it on a hinge. Tick <strong>bend round every corner</strong> to do that everywhere - one piece of wall, no finger joints. Where the outline curves, the wall gets a <strong>living hinge</strong> - rows of slits, offset like brickwork, so the sheet bends. With no corner at all (a round or rounded box) the wall closes on itself with dovetails in its straightest place. Set the slit length, the bridge between slits and their spacing for your material - closer slits bend tighter; plywood likes a spacing of about half its thickness. You are warned when the outline curves tighter than the <strong>tightest bend</strong>, when the walls are not straight, and when there is no straight stretch for tabs (then glue the floor in). A wall too wide for the page is turned a quarter to fit. The hinge slits are cut lines (red) like the outlines.</p>
-<p>The preview shows the stepped stack over the part, with the number of layers, pages and the sheet area. <strong>Save PDF</strong> gives pages at true size to print and cut by hand (with the 50 mm bar); <strong>Save SVG</strong> one file for a laser cutter or cutting plotter - red to cut, blue to engrave (the numbers), green the guides. It opens straight in the laser's own program (LightBurn, LaserGRBL, xTool Creative Space, the Glowforge app, or Inkscape printing to an Epilog or Trotec): true size in mm, hairline cut lines, the numbers as outlines so no font is needed, and no page frame. Give each colour its own power and speed there.</p></section><section class="sec" id="lathe"><h3>Lathe</h3><p>A part that is round about a straight axis - a round profile on a straight spine shaped by its scale graph, a revolve, an imported turned part - can be turned. Select it and click the ⌀ icon in the make-it group. The axis is found by itself (the part is sliced along it and every slice must be a circle); a part that is not round says so.</p><figure><a href="manual/lathe_panel.jpg"><img src="manual/lathe_panel.jpg" style="max-width:380px" alt="The lathe panel: the work, the tools and the output." loading="lazy"></a><figcaption>The lathe panel: the work, the tools and the output.</figcaption></figure>
+<p>The preview shows the stepped stack over the part, with the number of layers, pages and the sheet area. <strong>Save PDF</strong> gives pages at true size to print and cut by hand (with the 50 mm bar); <strong>Save SVG</strong> one file for a laser cutter or cutting plotter - red to cut, blue to engrave (the numbers), green the guides. It opens straight in the laser's own program (LightBurn, LaserGRBL, xTool Creative Space, the Glowforge app, or Inkscape printing to an Epilog or Trotec): true size in mm, hairline cut lines, the numbers as outlines so no font is needed, and no page frame. Give each colour its own power and speed there. <strong>Save DXF</strong> gives the same sheets for a plasma cutter, waterjet, laser or CNC router: true size in mm, outlines and slots on layer CUT, guides on GUIDE, the numbers as text on ENGRAVE.</p></section><section class="sec" id="lathe"><h3>Lathe</h3><p>A part that is round about a straight axis - a round profile on a straight spine shaped by its scale graph, a revolve, an imported turned part - can be turned. Select it and click the ⌀ icon in the make-it group. The axis is found by itself (the part is sliced along it and every slice must be a circle); a part that is not round says so.</p><figure><a href="manual/lathe_panel.jpg"><img src="manual/lathe_panel.jpg" style="max-width:380px" alt="The lathe panel: the work, the tools and the output." loading="lazy"></a><figcaption>The lathe panel: the work, the tools and the output.</figcaption></figure>
 <p>Lathe coordinates: <strong>Z</strong> along the axis, 0 at the free end (the tailstock side), minus toward the chuck; <strong>X</strong> the diameter. Tick <strong>chuck at the other end</strong> to hold it the other way round. Set the <strong>material</strong>, the <strong>stock diameter</strong> (automatic: the part's largest diameter plus 2 mm), and how much to <strong>face off</strong> the end.</p>
 <p><strong>The tools.</strong> The turning tool's <strong>nose radius</strong> (the program gives the usual imaginary tip, touched off on the diameter and on the face, so tapers and curves come out true without nose compensation). <strong>Follows slopes down to</strong>: where the part narrows toward the chuck behind a bulge, the back of the tool hits the work - it can follow a slope only down to about its back clearance (a 35° insert: about 30°). What it cannot reach shows red and is reported, to finish with a neutral or left-hand tool. The <strong>depth of cut</strong> per roughing pass (or from the material), what is <strong>left for the finish</strong>, the <strong>top spindle speed</strong>, and <strong>part off</strong> with the blade width.</p>
 <p>The program: face the end, rough in straight passes (entering a pocket gently), one semi-finish pass that follows the profile, the finish pass, then part off. Plain G0 and G1 only, so every controller reads it: <strong>LinuxCNC</strong> and <strong>grblHAL</strong> in diameter mode, a <strong>generic / Fanuc-style</strong> version, and plain <strong>GRBL</strong> with X as the radius. Speeds and feeds come from the material and are conservative; watch the first run in the air.</p>
-<p><strong>Save G-code…</strong> for a CNC lathe. <strong>Save sheet PDF…</strong> for a manual lathe: the diameters every few mm from the free end (and at every shoulder), and the profile <strong>template</strong> at 1:1 with the 50 mm check bar. <strong>Save template SVG…</strong> gives the same template for a laser cutter or plotter - hold it against the work as you turn.</p></section><section class="sec" id="bending"><h3>Bending</h3><p>A tube or a wire is straights and bends. Select a swept tube - or several spines that continue each other (stacked spines, a route) - and click the ⌒ icon in the make-it group. The centre line is read from the spines, the <strong>diameter</strong> measured from the part (or typed), and you set the <strong>wall</strong> (0 for solid wire or bar), the <strong>material</strong> (it gives the <strong>springback</strong>: how much a bend opens up afterwards - one test bend tells the true number) and the bender: the <strong>die radius</strong> (its centre-line radius, CLR; the pin radius on a wire bender), the <strong>shortest straight</strong> the clamp can hold, and the <strong>tolerance</strong>.</p><figure><a href="manual/bend_sheet.jpg"><img src="manual/bend_sheet.jpg" alt="A bend sheet: the cut length, where each bend starts, how far to turn and to bend." loading="lazy"></a><figcaption>A bend sheet: the cut length, where each bend starts, how far to turn and to bend.</figcaption></figure>
+<p><strong>Save G-code…</strong> for a CNC lathe. <strong>Save sheet PDF…</strong> for a manual lathe: the diameters every few mm from the free end (and at every shoulder), and the profile <strong>template</strong> at 1:1 with the 50 mm check bar. <strong>Save template SVG…</strong> gives the same template for a laser cutter or plotter - hold it against the work as you turn. <strong>Save template DXF…</strong> is the template in mm, to cut it from sheet on a plasma cutter, waterjet or laser.</p></section><section class="sec" id="bending"><h3>Bending</h3><p>A tube or a wire is straights and bends. Select a swept tube - or several spines that continue each other (stacked spines, a route) - and click the ⌒ icon in the make-it group. The centre line is read from the spines, the <strong>diameter</strong> measured from the part (or typed), and you set the <strong>wall</strong> (0 for solid wire or bar), the <strong>material</strong> (it gives the <strong>springback</strong>: how much a bend opens up afterwards - one test bend tells the true number) and the bender: the <strong>die radius</strong> (its centre-line radius, CLR; the pin radius on a wire bender), the <strong>shortest straight</strong> the clamp can hold, and the <strong>tolerance</strong>.</p><figure><a href="manual/bend_sheet.jpg"><img src="manual/bend_sheet.jpg" alt="A bend sheet: the cut length, where each bend starts, how far to turn and to bend." loading="lazy"></a><figcaption>A bend sheet: the cut length, where each bend starts, how far to turn and to bend.</figcaption></figure>
 <p>How it is worked out: a corner drawn sharp means "bend here" - the die rounds it. A curve as tight as the die is one bend; a gentler curve becomes several small bends close together, as many as the tolerance needs. Where the straights would meet are the bend points (yellow); the tube that comes out - those points rounded at the die radius - is drawn green over the design, and how far it strays is reported. Straights too short for the clamp show red, and you are warned when bends overlap, when a curve is drawn tighter than the die, and when the die is tight for a thin wall (wrinkles - use a mandrel).</p>
 <p>For a <strong>flat bar</strong> choose that section: the part is read slice by slice - its width and thickness, and how it lies along the spine - and every change of direction is one of three steps: a <strong>flat bend</strong> (across the thin side, the easy way), an <strong>edgewise bend</strong> (across the wide side, the hard way - roll it; tight ones are flagged because they buckle) or a <strong>twist</strong> about its length. With <strong>holes along the bar</strong> (pitch, first hole, diameter) every bend or twist that reaches into a hole is listed - bend on the bridges between holes, or the holes go oval. The sheet shows the bar straight with its zones and holes, then the steps in order: where to start, what to do, over how long.</p>
 <p>For a <strong>square bar</strong> choose the section: it bends over its faces only, so between bends it may only turn in quarter turns - bends that would need it twisted are listed.</p>
@@ -2024,6 +2068,22 @@ paste them into the same chat after the text: the result from the front,
 the side, the top and at an angle, in one picture. So the AI checks its own
 work against what you asked - the loop closes without you having to
 describe what went wrong.</p>
+<p><strong>Examples from your shelf</strong> (optional, off at first). Tick <em>Add similar
+parts from my shelf as examples</em> and SweeperCAD looks on your asset shelf
+for parts with a similar name or note - your own, the starter shapes, and
+what you took from the online library - and puts up to two of them in the
+prompt, as scripts that build them. The AI does not remember anything
+between conversations, but this way it starts from what already worked.
+An example can also carry its mistakes into the new part, so use it when
+your shelf holds parts you trust. Only what is already on your computer
+is used.</p>
+<p><strong>Pictures of what you want.</strong> Under step 1, <strong>Add…</strong> up to four photos,
+sketches or screenshots of what you are after. They go with the prompt:
+<strong>Copy pictures</strong> puts them in a band marked <em>what I want</em> above the four
+views of the result, to paste into the chat after the text; when it runs by
+itself they are sent with every round, so the AI compares its result with
+them. The prompt tells it that your words and measurements count for more
+than what a picture seems to show.</p>
 <p><strong>Let it run by itself (only if you want).</strong> SweeperCAD makes no network
 calls. In <strong>AI settings…</strong> you can switch on talking to an AI directly:
 Claude or ChatGPT with your own account and API key (kept on this computer
