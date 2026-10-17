@@ -173,9 +173,18 @@
     "mac-intel": 23,
     "windows": 51
    }
+  },
+  {
+   "date": "2026-10-17",
+   "counts": {
+    "linux": 5,
+    "mac-apple-silicon": 96,
+    "mac-intel": 24,
+    "windows": 51
+   }
   }
  ],
- "updated": "2026-10-16T23:56Z",
+ "updated": "2026-10-17T23:30Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -197,13 +206,9 @@
    }
   },
   "changes": {
-   "week": 152,
-   "month": 208,
+   "week": 163,
+   "month": 240,
    "daily": [
-    {
-     "date": "2026-09-17",
-     "count": 0
-    },
     {
      "date": "2026-09-18",
      "count": 0
@@ -318,20 +323,46 @@
     },
     {
      "date": "2026-10-16",
-     "count": 30
+     "count": 31
+    },
+    {
+     "date": "2026-10-17",
+     "count": 31
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-16T23:56Z",
+   "updated": "2026-10-17T23:30Z",
+   "referrers": [
+    {
+     "name": "direct (typed or bookmarked)",
+     "count": 70
+    },
+    {
+     "name": "www.cheetah3d.com",
+     "count": 30
+    },
+    {
+     "name": "Google",
+     "count": 1
+    },
+    {
+     "name": "com.linkedin.android",
+     "count": 1
+    }
+   ],
    "countries": [
     {
      "name": "Belgium",
-     "count": 114
+     "count": 118
+    },
+    {
+     "name": "Austria",
+     "count": 18
     },
     {
      "name": "Germany",
-     "count": 17
+     "count": 18
     },
     {
      "name": "France",
@@ -339,19 +370,23 @@
     },
     {
      "name": "United States",
-     "count": 14
+     "count": 15
     },
     {
-     "name": "Austria",
-     "count": 12
+     "name": "Italy",
+     "count": 5
     },
     {
      "name": "Mexico",
      "count": 5
     },
     {
-     "name": "Italy",
-     "count": 4
+     "name": "Netherlands",
+     "count": 2
+    },
+    {
+     "name": "Canada",
+     "count": 1
     },
     {
      "name": "United Kingdom",
@@ -362,40 +397,40 @@
      "count": 1
     },
     {
-     "name": "Turkey",
+     "name": "Luxembourg",
      "count": 1
     }
    ],
    "browsers": [
     {
      "name": "Safari",
-     "count": 170
+     "count": 180
     },
     {
      "name": "Chrome",
-     "count": 10
+     "count": 17
     },
     {
      "name": "Firefox",
-     "count": 6
+     "count": 8
     }
    ],
    "systems": [
     {
      "name": "iOS",
-     "count": 115
+     "count": 118
     },
     {
      "name": "macOS",
-     "count": 61
+     "count": 70
     },
     {
      "name": "Windows",
-     "count": 6
+     "count": 11
     },
     {
      "name": "Linux",
-     "count": 3
+     "count": 5
     },
     {
      "name": "Android",
@@ -405,22 +440,22 @@
    "screens": [
     {
      "name": "phone",
-     "count": 116
+     "count": 119
     },
     {
      "name": "tablet",
-     "count": 1
+     "count": 2
     },
     {
      "name": "desktop",
-     "count": 49
+     "count": 58
     },
     {
      "name": "large desktop",
-     "count": 20
+     "count": 26
     }
    ],
-   "total": 186,
+   "total": 205,
    "daily": [
     {
      "date": "2026-10-13",
@@ -440,21 +475,11 @@
     },
     {
      "date": "2026-10-17",
-     "count": 2
-    }
-   ],
-   "referrers": [
-    {
-     "name": "direct (typed or bookmarked)",
-     "count": 43
+     "count": 21
     },
     {
-     "name": "www.cheetah3d.com",
-     "count": 25
-    },
-    {
-     "name": "Google",
-     "count": 1
+     "date": "2026-10-18",
+     "count": 0
     }
    ]
   },
@@ -538,6 +563,11 @@
     "date": "2026-10-15",
     "count": 5,
     "uniques": 1
+   },
+   {
+    "date": "2026-10-16",
+    "count": 0,
+    "uniques": 0
    }
   ],
   "referrers": [
