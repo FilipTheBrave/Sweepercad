@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SweeperCAD tutorials - your first objects</title>
+<meta name="description" content="Two short SweeperCAD tutorials: a twisted vase in five minutes, and a mug made by combining objects.">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #fafafa; color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+a { color: inherit; }
+.top { position: sticky; top: 0; z-index: 5; background: #fafafa; border-bottom: 1px solid #e4e4e4;
+  display: flex; align-items: center; gap: 14px; padding: 12px 24px; }
+.top .brand { font-weight: 600; font-size: 18px; text-decoration: none; }
+.top .grow { flex: 1; }
+.top .back { color: #666; text-decoration: none; font-size: 14px; }
+.top .back:hover { color: #222; }
+.top input { width: 260px; max-width: 40vw; padding: 7px 10px; border: 1px solid #ccc; border-radius: 6px; font: inherit; font-size: 14px; background: #fff; }
+.pdf { display: inline-block; padding: 8px 14px; background: #222; color: #fff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.pdf:hover { background: #444; }
+.wrap { display: flex; max-width: 1200px; margin: 0 auto; }
+nav { width: 290px; flex: none; position: sticky; top: 58px; align-self: flex-start; max-height: calc(100vh - 58px);
+  overflow: auto; padding: 24px 12px 40px 24px; font-size: 14px; }
+nav ul { list-style: none; margin: 0; padding: 0; }
+nav li.ch { margin: 0 0 12px; }
+nav li.ch > a { font-weight: 600; text-decoration: none; }
+nav li.ch ul { margin: 4px 0 0 10px; }
+nav li.ch ul li { margin: 3px 0; }
+nav li.ch ul a { color: #666; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+main { flex: 1; min-width: 0; max-width: 820px; padding: 32px 24px 120px; }
+h1 { margin: 8px 0 6px; font-size: 40px; font-weight: 600; letter-spacing: -1px; }
+.lead { color: #666; font-size: 17px; line-height: 1.6; margin: 0 0 8px; }
+h2 { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; margin: 64px 0 8px; padding-top: 12px; border-top: 1px solid #ddd; }
+h3 { font-size: 21px; font-weight: 600; margin: 40px 0 8px; }
+h4 { font-size: 16px; margin: 24px 0 6px; }
+p, li { color: #444; line-height: 1.65; }
+main li { margin: 4px 0; }
+code { background: #eee; padding: 1px 5px; border-radius: 4px; font-size: 90%; }
+pre { background: #1f2630; color: #e8ecf1; padding: 14px 16px; border-radius: 6px; overflow: auto; font-size: 13px; line-height: 1.5; }
+pre code { background: none; padding: 0; color: inherit; }
+table { border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+td, th { border: 1px solid #ddd; padding: 6px 10px; text-align: left; vertical-align: top; }
+figure { margin: 20px 0 24px; }
+figure img { width: 100%; height: auto; border-radius: 6px; border: 1px solid #ddd; display: block; }
+figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; }
+.hit { background: #fff1b8; }
+.none { color: #999; display: none; }
+.cover, .ptoc { display: none; }
+.foot { margin-top: 80px; padding-top: 18px; border-top: 1px solid #ddd; font-size: 14px; color: #888; }
+@media (max-width: 860px) {
+  nav { display: none; }
+  .top input { width: 150px; }
+}
+@media print {
+  @page { size: A4; margin: 18mm 16mm; }
+  .top, nav, .foot, .onscreen { display: none !important; }
+  body { background: #fff; }
+  .wrap { display: block; }
+  main { max-width: none; padding: 0; }
+  .cover { display: flex; flex-direction: column; justify-content: center; height: 245mm; page-break-after: always; }
+  .cover h1 { font-size: 54px; }
+  .cover .sub { font-size: 22px; color: #666; }
+  .cover .ver { margin-top: 40px; font-size: 14px; color: #888; }
+  .ptoc { display: block; page-break-after: always; }
+  .ptoc ul { list-style: none; padding: 0; }
+  .ptoc li.ch { margin: 10px 0 2px; font-weight: 600; }
+  .ptoc li.ch ul { font-weight: 400; margin-left: 14px; font-size: 12px; columns: 2; }
+  .ptoc a { text-decoration: none; }
+  h2 { page-break-before: always; border-top: none; margin-top: 0; }
+  h3, h4 { page-break-after: avoid; }
+  figure { page-break-inside: avoid; }
+  figure img { max-height: 120mm; width: auto; max-width: 100%; }
+  p, li { color: #222; font-size: 10.5pt; orphans: 3; widows: 3; }
+  a { text-decoration: none; }
+  pre { white-space: pre-wrap; background: #f4f4f4; color: #222; border: 1px solid #ddd; }
+}
+</style>
+<style>
+main { margin: 0 auto; }
+.step { display: inline-block; min-width: 26px; height: 26px; line-height: 26px; text-align: center; border-radius: 13px;
+  background: #222; color: #fff; font-size: 14px; font-weight: 600; margin-right: 8px; }
+.tip { background: #f1f6ff; border: 1px solid #d7e4fb; border-radius: 8px; padding: 10px 14px; color: #345; }
+.cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 18px 0 8px; }
+.card { flex: 1 1 280px; border: 1px solid #ddd; border-radius: 10px; padding: 14px 16px; background: #fff; text-decoration: none; }
+.card b { display: block; font-size: 18px; margin-bottom: 4px; color: #222; }
+.card span { color: #666; font-size: 14.5px; line-height: 1.5; }
+.card:hover { border-color: #999; }
+</style>
+<script data-goatcounter="https://sweepercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="/">SweeperCAD</a>
+  <span class="grow"></span>
+  <a class="back" href="manual.html">User manual</a>
+  <a class="back" href="/">&larr; Home</a>
+</div>
+<main>
+<h1>Your first objects</h1>
+<p class="lead">SweeperCAD works differently from most 3D programs, and that can feel unusual at first. Once it clicks,
+it is simple: everything is a <b>profile</b> (a cross-section) pushed along a <b>spine</b> (a path), and a
+<b>scale</b> graph says how big the profile is along the way. These two short tutorials take you there step by step.</p>
+
+<div class="cards">
+  <a class="card" href="#vase"><b>1 &middot; A twisted vase</b><span>One object, three graphs and a twist. About five minutes.</span></a>
+  <a class="card" href="#mug"><b>2 &middot; A mug: combining objects</b><span>Cut one object out of another, add a handle, and round the seam. About ten minutes.</span></a>
+</div>
+
+<p class="tip">&#128161; New in the next version: a short guided tour inside the app (Help &#9656; First steps tour)
+that walks you through the same first steps.</p>
+
+<h2 id="vase">1 &middot; A twisted vase</h2>
+<p>You will make one object and shape it with its three graphs. Nothing to combine, nothing to place.</p>
+
+<h3><span class="step">1</span>The object you start with</h3>
+<p>SweeperCAD opens with one object already there: a small square bar. Below the 3D view are its graphs, in tabs:
+<b>Spine</b>, <b>Profile</b>, <b>End profile</b> and <b>Scale</b>. Every change you make in a graph shows in the 3D view
+straight away.</p>
+<p>In the 3D view, <b>drag</b> to turn it round, <b>scroll</b> to zoom and <b>middle-drag</b> (or Shift-drag) to slide it.</p>
+<figure><img src="tutorials/vase-0.jpg" alt="SweeperCAD with its starting object, a square bar, and the graph tabs marked" loading="lazy">
+<figcaption>The starting object. The graphs are in the tabs marked in orange.</figcaption></figure>
+
+<h3><span class="step">2</span>The profile: give it a fluted cross-section</h3>
+<p>Click the <b>Profile</b> tab. Above the graph, click <b>preset</b> and choose <b>fluted</b>. Set
+<b>flutes</b> to 14, <b>diameter</b> to 50 mm and <b>depth</b> to 1.5 mm, and click OK.</p>
+<p>The profile is what you would see if you cut the object through: now a ribbed circle.</p>
+<figure><img src="tutorials/vase-1.jpg" alt="The profile graph showing a fluted circle; the object is now a short ribbed disc" loading="lazy">
+<figcaption>A fluted profile. The object is still short: its spine is only 10 mm long.</figcaption></figure>
+
+<h3><span class="step">3</span>The spine: make it taller</h3>
+<p>Click the <b>Spine</b> tab. The spine is a straight line with a point at each end. <b>Click the top point</b>,
+type <b>90</b> and press <b>Enter</b>: the line becomes 90 mm long, and the object 90 mm tall.</p>
+<figure><img src="tutorials/vase-2.jpg" alt="The spine graph with a 90 mm line; the object is now a tall fluted column" loading="lazy">
+<figcaption>A 90 mm spine: a fluted column.</figcaption></figure>
+
+<h3><span class="step">4</span>The scale graph: give it a vase shape</h3>
+<p>Click the <b>Scale</b> tab. This graph is the object's silhouette: left is the bottom of the spine, right is the
+top, and the height of the line is how big the profile is there.</p>
+<p><b>Double-click</b> on the top line to add a point, about a third of the way along, and <b>drag it up</b> for the
+belly. Double-click again further right and <b>drag that point down</b> for the neck. Drag the last point up a little
+for the lip. Watch the vase take shape as you drag.</p>
+<figure><img src="tutorials/vase-3.jpg" alt="The scale graph with a belly and a neck; the object is now vase-shaped" loading="lazy">
+<figcaption>The scale graph shapes the silhouette: a belly low down, a neck near the top.</figcaption></figure>
+
+<h3><span class="step">5</span>The twist</h3>
+<p>In the panel on the left, under <b>sweep</b>, type <b>90</b> into <b>twist</b>. The profile now turns a quarter turn
+from bottom to top, and the flutes spiral up the vase.</p>
+<figure><img src="tutorials/vase-4.jpg" alt="The twist field set to 90 degrees; the flutes spiral up the vase" loading="lazy">
+<figcaption>A 90&deg; twist: the flutes spiral.</figcaption></figure>
+
+<h3><span class="step">6</span>Save it and export it</h3>
+<p>Save your work with the save icon at the top right. To print it, click the <b>export</b> icon (&#11123;) and choose
+<b>STL</b> or <b>3MF</b>.</p>
+<p class="tip">&#128161; The vase is solid. To print it as a real vase, use your slicer's <b>vase mode</b> (also called
+<i>spiralize outer contour</i>): it prints only the outer wall, in one go, and leaves the top open.</p>
+<figure><img src="tutorials/vase-5.jpg" alt="The export icon marked at the top right of the 3D view" loading="lazy">
+<figcaption>Export, top right.</figcaption></figure>
+<p>That is the whole idea. Every other shape is made the same way: a profile, a spine, a scale, and sometimes a twist.</p>
+
+<h2 id="mug">2 &middot; A mug: combining objects</h2>
+<p>One object rarely makes a whole part. In SweeperCAD you combine objects: a <b>+</b> object adds material, a
+<b>&minus;</b> object cuts it away. You will make a cup, cut out its inside, and add a handle.</p>
+
+<h3><span class="step">1</span>The cup</h3>
+<p>Start a new file (<b>File &#9656; New</b>). Click the <b>Profile</b> tab, then <b>preset</b> &#9656; <b>circle</b>.
+On the graph, the circle shows its radius as an <b>R</b> label: <b>click it</b>, type <b>30</b> and press Enter.</p>
+<p>Click the <b>Spine</b> tab, click the top point, type <b>70</b> and press Enter. You have a solid cylinder, 60 mm across
+and 70 mm tall.</p>
+<figure><img src="tutorials/mug-1.jpg" alt="A solid cylinder with a circle profile of radius 30" loading="lazy">
+<figcaption>The cup, still solid.</figcaption></figure>
+
+<h3><span class="step">2</span>Cut out the inside</h3>
+<p>With the cup selected, click <b>&minus;</b> at the top left of the 3D view, then <b>click on the top of the cup</b>.
+A new <i>negative</i> object appears, and because the cup was selected it <b>joins the cup</b> by itself: in the node
+editor you now see a red node (the cut) feeding a combine.</p>
+<p>Shape the cut like the cup: <b>Profile</b> &#9656; preset &#9656; circle, R <b>26</b>. <b>Spine</b>: top point, <b>80</b>. Then in
+the left panel set its <b>position</b> to x 0, y 0, z <b>4</b>. That leaves a 4 mm floor and 4 mm walls, and the cut
+runs out through the top.</p>
+<figure><img src="tutorials/mug-2.jpg" alt="The cup hollowed out by a negative object; the node editor shows the cup, the red negative node and a combine" loading="lazy">
+<figcaption>&minus; cuts away. The red node is the cut; the combine joins it to the cup.</figcaption></figure>
+
+<h3><span class="step">3</span>Add a handle</h3>
+<p>In the node editor, click the <b>combine</b> node (the cup with its cut), so the handle joins the whole cup. Click
+<b>+</b> at the top left of the 3D view and click beside the cup.</p>
+<p>Make the handle a ring: <b>Profile</b> &#9656; preset &#9656; circle, R <b>4</b> (that is the thickness of the handle).
+<b>Spine</b> &#9656; preset &#9656; <b>circle (a ring)</b>: the spine itself is now a circle, so the profile travels round it.
+Set its <b>position</b> to x <b>71</b>, y 0, z <b>35</b>, and the ring sits against the side of the cup.</p>
+<figure><img src="tutorials/mug-3.jpg" alt="A ring-shaped handle against the side of the cup" loading="lazy">
+<figcaption>A spine that is a circle makes a ring: the handle.</figcaption></figure>
+
+<h3><span class="step">4</span>Round the seam</h3>
+<p>Click the newest combine in the node editor (the whole mug). In the left panel, under <b>seam blend</b>, set
+<b>mode</b> to <b>fillet</b> and the <b>radius</b> to <b>2</b> mm. The edge where the handle meets the cup is rounded, as if
+it were cast in one piece.</p>
+<figure><img src="tutorials/mug-4.jpg" alt="The finished mug, with the seam between handle and cup rounded" loading="lazy">
+<figcaption>The finished mug: a cup, a cut, a handle and a rounded seam - four steps, three objects.</figcaption></figure>
+
+<p>That is combining: <b>+</b> adds, <b>&minus;</b> cuts, and whatever is selected when you place a new object is what it joins.
+Change any graph of any object later, and the mug follows.</p>
+
+<h2>Where next</h2>
+<ul>
+  <li><b>F1</b> in the app opens the full help.</li>
+  <li>The <a href="manual.html">user manual</a>, chapters 1 and 2, explains the graphs in more depth.</li>
+  <li>The <a href="/#videos">short videos</a> on the home page show what else it can do.</li>
+  <li>Stuck? Use the <a href="/#contact">contact form</a> on the home page - questions help make these tutorials better.</li>
+</ul>
+<div class="foot">SweeperCAD &middot; <a href="/">sweepercad.com</a></div>
+</main>
+</body>
+</html>
