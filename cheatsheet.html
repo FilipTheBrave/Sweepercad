@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SweeperCAD cheat sheet</title>
+<meta name="description" content="Every icon, mouse gesture and shortcut in SweeperCAD on one printable page.">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #fafafa; color: #222; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+a { color: inherit; }
+.top { position: sticky; top: 0; z-index: 5; background: #fafafa; border-bottom: 1px solid #e4e4e4; display: flex; align-items: center; gap: 14px; padding: 12px 24px; }
+.top .brand { font-weight: 600; font-size: 18px; text-decoration: none; }
+.top .grow { flex: 1; }
+.top a.back { color: #666; text-decoration: none; font-size: 14px; }
+.top button { padding: 7px 14px; background: #222; color: #fff; border: 0; border-radius: 6px; font: inherit; font-size: 14px; cursor: pointer; }
+main { max-width: 1240px; margin: 0 auto; padding: 24px 24px 80px; }
+h1 { margin: 6px 0 4px; font-size: 34px; letter-spacing: -0.8px; }
+.lead { color: #555; margin: 0 0 18px; line-height: 1.5; }
+.grid { columns: 3 340px; column-gap: 22px; }
+section { break-inside: avoid; background: #fff; border: 1px solid #e2e2e2; border-radius: 10px; padding: 12px 14px 8px; margin: 0 0 16px; }
+h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.6px; margin: 0 0 8px; color: #b35f00; }
+h3 { font-size: 13px; margin: 10px 0 4px; color: #333; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+td { padding: 3px 4px; vertical-align: top; border-top: 1px solid #f0f0f0; line-height: 1.4; color: #444; }
+tr:first-child td { border-top: 0; }
+td.k { white-space: nowrap; font-weight: 600; color: #222; width: 1%; padding-right: 10px; }
+.g { font-size: 15px; }
+kbd { font-family: inherit; font-size: 12px; background: #f1f1f1; border: 1px solid #d5d5d5; border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; }
+.note { font-size: 12px; color: #888; margin: 6px 0 4px; line-height: 1.4; }
+.idea { columns: auto; background: #222; color: #eee; }
+.idea h2 { color: #ffb347; }
+.idea p { margin: 0 0 6px; font-size: 14px; line-height: 1.5; }
+@media print {
+  @page { size: A4 landscape; margin: 9mm; }
+  .top, .noprint { display: none !important; }
+  body { background: #fff; }
+  main { padding: 0; max-width: none; }
+  h1 { font-size: 20px; margin: 0; } .lead { font-size: 11px; margin: 0 0 6px; }
+  .grid { columns: 4; column-gap: 8px; }
+  section { padding: 5px 7px 3px; margin: 0 0 6px; border-radius: 5px; }
+  h2 { font-size: 10px; margin: 0 0 3px; } h3 { font-size: 9.5px; margin: 4px 0 1px; }
+  table { font-size: 8.6px; } td { padding: 1px 2px; } td.k { padding-right: 5px; }
+  .g { font-size: 10px; } kbd { font-size: 8px; padding: 0 3px; } .note { font-size: 8px; margin: 2px 0; }
+  .idea { background: #fff; color: #222; border-color: #999; } .idea p { font-size: 9px; margin: 0 0 2px; }
+}
+</style>
+<script data-goatcounter="https://sweepercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="/">SweeperCAD</a><span class="grow"></span>
+  <a class="back" href="tutorials.html">Tutorials</a>
+  <a class="back" href="manual.html">User manual</a>
+  <button onclick="window.print()">Print</button>
+</div>
+<main>
+<h1>Cheat sheet</h1>
+<p class="lead">Every icon, mouse gesture and key on one page - print it (it fits on two A4 sheets) and keep it beside your screen.
+Hover over any icon in the app and it says what it does.</p>
+<div class="grid">
+
+<section class="idea"><h2>The idea</h2>
+<p>Everything is a <b>sweep</b>: a <b>profile</b> (the cross-section) pushed along a <b>spine</b> (the path). The
+<b>scale</b> graph says how big the profile is along the way; the <b>end profile</b> lets it morph.</p>
+<p><b>+</b> objects add, <b>&minus;</b> objects cut, a <b>combine</b> joins them. Change any graph later and everything follows.</p></section>
+
+<section><h2>3D view - mouse</h2><table>
+<tr><td class="k">Drag</td><td>turn round the model</td></tr>
+<tr><td class="k">Middle-drag</td><td>slide the view</td></tr>
+<tr><td class="k">Wheel</td><td>zoom</td></tr>
+<tr><td class="k">Click</td><td>select (empty space: nothing)</td></tr>
+<tr><td class="k">Shift-click</td><td>add to the selection</td></tr>
+<tr><td class="k">Ctrl-click</td><td>take out of the selection</td></tr>
+<tr><td class="k">Shift / Ctrl-drag</td><td>select with a band (adds / removes)</td></tr>
+<tr><td class="k">Double-click an object</td><td>curve editing on / off</td></tr>
+<tr><td class="k">Click a plane square</td><td>face that graph's plane and edit its points</td></tr>
+<tr><td class="k">Right-click</td><td>quick menu: selection, gizmo, pivot, curves, dials, place, measure, dimensions, + &minus; &cap; = A= &times;, copy, mirror</td></tr>
+<tr><td class="k">Right-click while a tool runs</td><td>done (finishes a route or drawing; cancels placing)</td></tr>
+</table>
+<h3>Curves and points shown in 3D</h3><table>
+<tr><td class="k">Drag a point</td><td>move it</td></tr>
+<tr><td class="k">Double-click a point</td><td>sharp &harr; smooth</td></tr>
+<tr><td class="k">Double-click the curve</td><td>add a point (while facing its plane)</td></tr>
+<tr><td class="k">Right-click a point</td><td>sharp / smooth / delete</td></tr>
+<tr><td class="k">Corner square</td><td>drag in to round, past it to chamfer; click to type</td></tr>
+<tr><td class="k">Fillet ring</td><td>drag a knot along it; drag the stem square for the radius; <b>+</b> adds a knot</td></tr>
+</table></section>
+
+<section><h2>The gizmo and the dials</h2><table>
+<tr><td class="k">Arrow tips</td><td>move along that axis (scale it, in scale mode)</td></tr>
+<tr><td class="k">Rings</td><td>turn about that axis</td></tr>
+<tr><td class="k">Centre - drag</td><td>move with the screen (in scale mode: scale evenly)</td></tr>
+<tr><td class="k">Centre - click</td><td>arrows switch between move and scale</td></tr>
+<tr><td class="k">Dials (◎)</td><td>grab a dial's dots: <b>spin</b> (amber, first section), <b>roll</b> (middle), <b>twist</b> (violet, last section)</td></tr>
+</table><p class="note">Curve points win over the gizmo; the gizmo wins over the navigator.</p></section>
+
+<section><h2>The navigator (view cube)</h2><table>
+<tr><td class="k">Click a face</td><td>look straight at that side</td></tr>
+<tr><td class="k">Drag the cube</td><td>turn the view</td></tr>
+<tr><td class="k">The four arrows</td><td>a quarter turn that way</td></tr>
+<tr><td class="k">Dot, lower left</td><td>back to the starting view</td></tr>
+<tr><td class="k"><span class="g">🔍</span> click / double-click</td><td>zoom to the selection / fit everything</td></tr>
+<tr><td class="k"><span class="g">🔍</span> drag sideways</td><td>fine zoom</td></tr>
+<tr><td class="k"><span class="g">✋</span> drag / double-click</td><td>slide the view / centre on the model</td></tr>
+<tr><td class="k"><span class="g">✥</span> drag / double-click</td><td>move the navigator / put it back</td></tr>
+</table><p class="note">It stays faint until the pointer comes near.</p></section>
+
+<section><h2>Placing a new object</h2><table>
+<tr><td class="k">+ &minus; &cap;, then click</td><td>place it there</td></tr>
+<tr><td class="k">Drag from + or &minus;</td><td>draw its profile instead: click points, drag for curves, click the first point to close</td></tr>
+<tr><td class="k">Wheel</td><td>turn it 15&deg; a notch</td></tr>
+<tr><td class="k">Type a number</td><td>exact distance; <kbd>Tab</kbd> picks the next distance</td></tr>
+<tr><td class="k">Right-click + or &minus;</td><td>placement settings</td></tr>
+<tr><td class="k"><kbd>Esc</kbd> or right-click</td><td>cancel</td></tr>
+</table><p class="note">With <b>A=</b> on (the default), a new object joins whatever is selected.</p></section>
+
+<section><h2>Measure and other tools</h2><table>
+<tr><td class="k">⟺ measure</td><td>click two points; type a distance + <kbd>Enter</kbd> to move the selected object to it</td></tr>
+<tr><td class="k">⌖ pivot</td><td>click a point: turning and scaling happen about it; <kbd>Esc</kbd> puts it back</td></tr>
+<tr><td class="k">⤳ route</td><td>click the start, Shift-click points to pass, click the end</td></tr>
+<tr><td class="k">✎ draw on the surface</td><td>drag draws, Shift-drag erases; clicked points + <kbd>Enter</kbd> make a smooth curve</td></tr>
+<tr><td class="k">📍 reposition</td><td>click a surface to move the selected object there</td></tr>
+</table></section>
+
+<section><h2>Graphs - mouse</h2><table>
+<tr><td class="k">Click a point</td><td>select it; drag to move</td></tr>
+<tr><td class="k">Shift-click</td><td>add a point to the selection</td></tr>
+<tr><td class="k">Drag on empty space</td><td>select with a band (Shift adds)</td></tr>
+<tr><td class="k">Double-click the curve</td><td>insert a point</td></tr>
+<tr><td class="k">Double-click empty space</td><td>add a point at the end (open curves)</td></tr>
+<tr><td class="k">Double-click a point</td><td>corner &harr; smooth (also Alt-click)</td></tr>
+<tr><td class="k">Drag a handle</td><td>both handles; <b>Alt-drag</b>: that handle only</td></tr>
+<tr><td class="k">Alt-drag a segment</td><td>bend it into a true arc</td></tr>
+<tr><td class="k">Shift / Ctrl while dragging</td><td>15&deg; steps / snap to the grid</td></tr>
+<tr><td class="k">R label at a corner</td><td>drag out to round, back past zero to chamfer; double-click to type</td></tr>
+<tr><td class="k">R label of a profile</td><td>click and type: the whole profile scales to that radius</td></tr>
+<tr><td class="k">Length, angle, x,y labels</td><td>click to type an exact value</td></tr>
+<tr><td class="k">Wheel / middle-drag</td><td>zoom / slide (also Ctrl+drag)</td></tr>
+</table>
+<h3>With several points selected</h3><table>
+<tr><td class="k">Ring / squares / centre</td><td>turn / scale x or y / move them; click the centre to switch</td></tr>
+</table>
+<h3>Typing in a graph</h3><table>
+<tr><td class="k">Point selected, type 40 <kbd>Enter</kbd></td><td>the segment reaching it becomes 40 mm</td></tr>
+<tr><td class="k"><kbd>Delete</kbd></td><td>delete the selected point</td></tr>
+</table></section>
+
+<section><h2>Graphs - icons</h2><table>
+<tr><td class="k"><span class="g">⤢</span></td><td>fit the drawing</td></tr>
+<tr><td class="k"><span class="g">○</span></td><td>open / close the curve</td></tr>
+<tr><td class="k">dashed line</td><td>guide: measure to another object's curve</td></tr>
+<tr><td class="k">L with a square</td><td>constrain: horizontal, vertical, parallel, perpendicular, equal, tangent</td></tr>
+<tr><td class="k"><span class="g">▲▼</span></td><td>switch between the two scale curves</td></tr>
+<tr><td class="k">arc</td><td>arc mode: drag a segment to bend it; click for a tangent arc</td></tr>
+<tr><td class="k">two outlines</td><td>offset (Shift-click bakes it in)</td></tr>
+<tr><td class="k">mirrored shape</td><td>mirror; each click the next axis</td></tr>
+<tr><td class="k">picture</td><td>a reference image to trace</td></tr>
+<tr><td class="k">sheet, bottom right</td><td>the curve as a dimensioned PDF</td></tr>
+</table>
+<h3>Above the graph</h3><table>
+<tr><td class="k">preset / choose…</td><td>starting shapes (circle, gear, thread, fluted…)</td></tr>
+<tr><td class="k">import SVG… / export…</td><td>a curve in from SVG; out to SVG or DXF</td></tr>
+<tr><td class="k">fit to mesh</td><td>profiles from a reference mesh</td></tr>
+<tr><td class="k"><span class="g">⊞</span> / <span class="g">❐</span></td><td>all graphs side by side / in their own window</td></tr>
+</table>
+<h3>Scale graph</h3><table>
+<tr><td class="k">one curve | ↕ two | ↔ two</td><td>one curve, or a second one top/bottom or left/right</td></tr>
+<tr><td class="k">scale about</td><td>the spine, or the profile's centre</td></tr>
+</table>
+<p class="note">On the right edge, the <b>ghost list</b> shows other objects' curves to draw against.</p></section>
+
+<section><h2>Node editor - mouse</h2><table>
+<tr><td class="k">Click / Shift-click</td><td>select / add to the selection</td></tr>
+<tr><td class="k">Drag a node</td><td>move it</td></tr>
+<tr><td class="k">Double-click the name</td><td>rename</td></tr>
+<tr><td class="k">Drag ▶ to an input</td><td>wire it in</td></tr>
+<tr><td class="k">Drag a wire off an input</td><td>re-route it, or drop it on empty space to disconnect</td></tr>
+<tr><td class="k">Curve port to curve port</td><td>link the curves (spine, profile, end, scale)</td></tr>
+<tr><td class="k">◇ attach port</td><td>click: attach dialog; drag to another ◇: attach</td></tr>
+<tr><td class="k">Right-click empty space</td><td>add an object, combine, array, stack or route</td></tr>
+<tr><td class="k">Right-click a node</td><td>duplicate, mirror, rename, colour, disconnect, delete</td></tr>
+<tr><td class="k">Wheel / drag empty space</td><td>zoom / slide (also middle-drag)</td></tr>
+</table></section>
+
+<section><h2>Node editor - on a node</h2><table>
+<tr><td class="k">Sign badge</td><td>click: + &rarr; &minus; &rarr; &cap;(+) &rarr; &cap;(&minus;)</td></tr>
+<tr><td class="k">🔒 lock</td><td>can't be selected or moved</td></tr>
+<tr><td class="k">👁 eye</td><td>show / hide</td></tr>
+<tr><td class="k">blend (combines)</td><td>click cycles fillet / chamfer / none</td></tr>
+<tr><td class="k">ring</td><td>hollow: type a wall thickness (0 = solid)</td></tr>
+<tr><td class="k">eye-dropper</td><td>colour</td></tr>
+<tr><td class="k">two rings</td><td>open the profile in the shape builder</td></tr>
+<tr><td class="k">ƒ</td><td>follows a parameter: hover shows where from</td></tr>
+<tr><td class="k">key number</td><td>twist, blend radius or copies: click to change</td></tr>
+<tr><td class="k">G0 G1 G2</td><td>how smooth a combine's seams came out</td></tr>
+</table>
+<h3>Its toolbar</h3><table>
+<tr><td class="k">⤢ &nbsp;+ &minus; &cap; = ✕ ⤓ ◈ ⧉ ⇋ &nbsp;❐</td><td>frame all, the same makers as in the 3D view, own window</td></tr>
+</table></section>
+
+<section><h2>3D view - icons</h2>
+<h3>Top left - making things</h3><table>
+<tr><td class="k">+ &nbsp;&minus; &nbsp;&cap;</td><td>new object that adds / cuts / keeps only what is inside it</td></tr>
+<tr><td class="k">= &nbsp;(A=)</td><td>combine two selected; A= (in its corner): new objects join the selection</td></tr>
+<tr><td class="k">✕</td><td>array: copies along a curve or over a surface</td></tr>
+<tr><td class="k">⤓</td><td>import a CAD part or a mesh</td></tr>
+<tr><td class="k">◈ &nbsp;(✎)</td><td>lattice; draw on the surface</td></tr>
+<tr><td class="k">⤳</td><td>route: a tube between two points, round the parts</td></tr>
+<tr><td class="k">⧉ &nbsp;⇋</td><td>copy / mirror the selected object</td></tr>
+</table>
+<h3>Top right - the file</h3><table>
+<tr><td class="k">↶ ↷ 📂 💾 🖫+</td><td>undo, redo, open, save, save as</td></tr>
+<tr><td class="k">⭳ &nbsp;📷</td><td>export (STEP, STL, 3MF, OBJ…) / a picture</td></tr>
+<tr><td class="k">Σ group</td><td>stats and checks; casting, machining, unfold, struts, stacked sheets, lathe, bending, eggshell mould, lenses</td></tr>
+<tr><td class="k">⌨ &nbsp;❐ &nbsp;? &nbsp;⚙</td><td>script / make it with AI, own windows, help, settings and menus</td></tr>
+</table>
+<h3>Bottom left - handling the model</h3><table>
+<tr><td class="k">◧ / ⛁</td><td>a click selects the part / its whole assembly</td></tr>
+<tr><td class="k">✥ (⌖, W/L)</td><td>gizmo: move+turn, move, turn, scale, off; pivot; world / local</td></tr>
+<tr><td class="k">⌗ &nbsp;◎</td><td>curves and plane squares / dials on or off</td></tr>
+<tr><td class="k">📍 &nbsp;⟺ (⊢)</td><td>reposition / measure; kept dimensions</td></tr>
+</table>
+<h3>Bottom middle and right</h3><table>
+<tr><td class="k">X&minus; X• X+ … D</td><td>align and distribute (2+ selected); drop onto the floor</td></tr>
+<tr><td class="k">🖼 (◫ ⌇)</td><td>reference images and meshes; section; extract a line</td></tr>
+<tr><td class="k">◑ &nbsp;◐ &nbsp;☀</td><td>how it is drawn; what is shown (+ axes, grid, ortho); light / dark</td></tr>
+<tr><td class="k">PAUSE &nbsp;FULL</td><td>stop rebuilding / build the real model now (in draft mode)</td></tr>
+</table>
+<p class="note">A small ◢ in an icon's corner holds more tools: click the corner.</p></section>
+
+<section><h2>Keys</h2><table>
+<tr><td class="k"><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd></td><td>undo / redo</td></tr>
+<tr><td class="k"><kbd>Ctrl</kbd>+<kbd>N</kbd> <kbd>O</kbd> <kbd>S</kbd></td><td>new, open, save (<kbd>Shift</kbd>: add file / save as)</td></tr>
+<tr><td class="k"><kbd>Ctrl</kbd>+<kbd>D</kbd></td><td>duplicate</td></tr>
+<tr><td class="k"><kbd>A</kbd> / <kbd>S</kbd> / <kbd>C</kbd></td><td>add positive / negative / combine</td></tr>
+<tr><td class="k"><kbd>Delete</kbd></td><td>delete the selection (over a curve point: that point)</td></tr>
+<tr><td class="k"><kbd>X</kbd></td><td>disconnect the selected node</td></tr>
+<tr><td class="k"><kbd>F</kbd></td><td>fit the model in view &dagger;</td></tr>
+<tr><td class="k"><kbd>O</kbd></td><td>perspective &harr; flat</td></tr>
+<tr><td class="k"><kbd>W</kbd></td><td>wireframe</td></tr>
+<tr><td class="k"><kbd>P</kbd> / <kbd>B</kbd></td><td>pause rebuilding / full build now &dagger;</td></tr>
+<tr><td class="k"><kbd>L</kbd></td><td>lens: the full model in a frame</td></tr>
+<tr><td class="k"><kbd>Q</kbd> <kbd>E</kbd> <kbd>R</kbd></td><td>gizmo: move+turn, turn, scale</td></tr>
+<tr><td class="k"><kbd>Esc</kbd></td><td>cancel / stop the current tool</td></tr>
+<tr><td class="k"><kbd>Enter</kbd></td><td>finish a drawing; apply a typed value</td></tr>
+<tr><td class="k"><kbd>Ctrl</kbd>+<kbd>R</kbd> / <kbd>F1</kbd></td><td>script editor / help</td></tr>
+</table>
+<p class="note">Every number field takes arithmetic: <code>360/7</code>, <code>12+3</code>. Keys can be changed in the settings (&#9881;).<br>
+&dagger; From the next version; in 0.9.9.1 F and P do nothing and full build has no key.</p></section>
+
+</div>
+<p class="noprint note" style="margin-top:20px">Missing something, or found a mistake? Tell me through the <a href="/#contact">contact form</a>.</p>
+</main>
+</body>
+</html>
