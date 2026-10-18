@@ -106,7 +106,7 @@ it is simple: everything is a <b>profile</b> (a cross-section) pushed along a <b
 <div class="cards">
   <a class="card" href="#window"><b>1 &middot; Finding your way</b><span>The window, the icons and the navigator. About three minutes.</span></a>
   <a class="card" href="#vase"><b>2 &middot; A twisted vase</b><span>One object, three graphs and a twist. About five minutes.</span></a>
-  <a class="card" href="#mug"><b>3 &middot; A mug: combining objects</b><span>Cut one object out of another, add a handle, and round the seam. About ten minutes.</span></a>
+  <a class="card" href="#mug"><b>3 &middot; A mug: combining objects</b><span>Add a handle to a cup, cut out its inside, and round the seam. About ten minutes.</span></a>
 </div>
 
 <p class="tip">&#128161; New in the next version: a short guided tour inside the app (Help &#9656; First steps tour)
@@ -223,7 +223,7 @@ from bottom to top, and the flutes spiral up the vase.</p>
 
 <h2 id="mug">3 &middot; A mug: combining objects</h2>
 <p>One object rarely makes a whole part. In SweeperCAD you combine objects: a <b>+</b> object adds material, a
-<b>&minus;</b> object cuts it away. You will make a cup, cut out its inside, and add a handle.</p>
+<b>&minus;</b> object cuts it away. You will make a cup, add a handle, and then cut out the inside.</p>
 
 <h3><span class="step">1</span>The cup</h3>
 <p>Start a new file (<b>File &#9656; New</b>). Click the <b>Profile</b> tab, then <b>preset</b> &#9656; <b>circle</b>.
@@ -233,31 +233,33 @@ and 70 mm tall.</p>
 <figure><img src="tutorials/mug-1.jpg" alt="A solid cylinder with a circle profile of radius 30" loading="lazy">
 <figcaption>The cup, still solid.</figcaption></figure>
 
-<h3><span class="step">2</span>Cut out the inside</h3>
-<p>With the cup selected, click <b>&minus;</b> at the top left of the 3D view, then <b>click on the top of the cup</b>.
-A new <i>negative</i> object appears, and because the cup was selected it <b>joins the cup</b> by itself: in the node
-editor you now see a red node (the cut) feeding a combine.</p>
-<p>Shape the cut like the cup: <b>Profile</b> &#9656; preset &#9656; circle, R <b>26</b>. <b>Spine</b>: top point, <b>80</b>. Then in
-the left panel set its <b>position</b> to x 0, y 0, z <b>4</b>. That leaves a 4 mm floor and 4 mm walls, and the cut
-runs out through the top.</p>
-<figure><img src="tutorials/mug-2.jpg" alt="The cup hollowed out by a negative object; the node editor shows the cup, the red negative node and a combine" loading="lazy">
-<figcaption>&minus; cuts away. The red node is the cut; the combine joins it to the cup.</figcaption></figure>
-
-<h3><span class="step">3</span>Add a handle</h3>
-<p>In the node editor, click the <b>combine</b> node (the cup with its cut), so the handle joins the whole cup. Click
-<b>+</b> at the top left of the 3D view and click beside the cup.</p>
+<h3><span class="step">2</span>Add a handle</h3>
+<p>With the cup selected, click <b>+</b> at the top left of the 3D view and click beside the cup. A new object appears,
+and because the cup was selected it <b>joins the cup</b> by itself: in the node editor the two now feed a combine.</p>
 <p>Make the handle a ring: <b>Profile</b> &#9656; preset &#9656; circle, R <b>4</b> (that is the thickness of the handle).
 <b>Spine</b> &#9656; preset &#9656; <b>circle (a ring)</b>: the spine itself is now a circle, so the profile travels round it.
 Set its <b>position</b> to x <b>71</b>, y 0, z <b>35</b>, and the ring sits against the side of the cup.</p>
-<figure><img src="tutorials/mug-3.jpg" alt="A ring-shaped handle against the side of the cup" loading="lazy">
+<figure><img src="tutorials/mug-2.jpg" alt="A ring-shaped handle against the side of the still solid cup" loading="lazy">
 <figcaption>A spine that is a circle makes a ring: the handle.</figcaption></figure>
 
+<h3><span class="step">3</span>Cut out the inside - last</h3>
+<p>In the node editor, click the <b>combine</b> (the cup with its handle), so the cut works on both. Click
+<b>&minus;</b> at the top left of the 3D view, then <b>click on the top of the cup</b>. A <i>negative</i> object joins:
+a red node in the node editor.</p>
+<p>Shape the cut like the cup: <b>Profile</b> &#9656; preset &#9656; circle, R <b>26</b>. <b>Spine</b>: top point, <b>80</b>. Then in
+the left panel set its <b>position</b> to x 0, y 0, z <b>4</b>. That leaves a 4 mm floor and 4 mm walls, and the cut
+runs out through the top.</p>
+<p class="tip">&#128161; Why the handle first? A cut removes everything that comes before it. Cut last, and it also trims
+any bit of the handle that pokes into the cup - the inside stays clean.</p>
+<figure><img src="tutorials/mug-3.jpg" alt="The cup with its handle, hollowed out by a negative object; the node editor shows the red negative node" loading="lazy">
+<figcaption>&minus; cuts away. The red node is the cut.</figcaption></figure>
+
 <h3><span class="step">4</span>Round the seam</h3>
-<p>Click the newest combine in the node editor (the whole mug). In the left panel, under <b>seam blend</b>, set
+<p>Click the combine of the cup and the handle in the node editor. In the left panel, under <b>seam blend</b>, set
 <b>mode</b> to <b>fillet</b> and the <b>radius</b> to <b>2</b> mm. The edge where the handle meets the cup is rounded, as if
 it were cast in one piece.</p>
-<figure><img src="tutorials/mug-4.jpg" alt="The finished mug, with the seam between handle and cup rounded" loading="lazy">
-<figcaption>The finished mug: a cup, a cut, a handle and a rounded seam - four steps, three objects.</figcaption></figure>
+<figure><img src="tutorials/mug-4.jpg" alt="The mug, with the seam between handle and cup rounded" loading="lazy">
+<figcaption>The finished mug: a cup, a handle, a cut and a rounded seam - three objects, two combines.</figcaption></figure>
 
 <p>That is combining: <b>+</b> adds, <b>&minus;</b> cuts, and whatever is selected when you place a new object is what it joins.
 Change any graph of any object later, and the mug follows.</p>
