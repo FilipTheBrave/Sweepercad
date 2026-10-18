@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SweeperCAD tutorials - your first objects</title>
-<meta name="description" content="Two short SweeperCAD tutorials: a twisted vase in five minutes, and a mug made by combining objects.">
+<meta name="description" content="Three short SweeperCAD tutorials: finding your way round the window and the navigator, a twisted vase, and a mug made by combining objects.">
 <style>
 * { box-sizing: border-box; }
 body { margin: 0; background: #fafafa; color: #222;
@@ -101,17 +101,79 @@ main { margin: 0 auto; }
 <h1>Your first objects</h1>
 <p class="lead">SweeperCAD works differently from most 3D programs, and that can feel unusual at first. Once it clicks,
 it is simple: everything is a <b>profile</b> (a cross-section) pushed along a <b>spine</b> (a path), and a
-<b>scale</b> graph says how big the profile is along the way. These two short tutorials take you there step by step.</p>
+<b>scale</b> graph says how big the profile is along the way. These three short tutorials take you there step by step.</p>
 
 <div class="cards">
-  <a class="card" href="#vase"><b>1 &middot; A twisted vase</b><span>One object, three graphs and a twist. About five minutes.</span></a>
-  <a class="card" href="#mug"><b>2 &middot; A mug: combining objects</b><span>Cut one object out of another, add a handle, and round the seam. About ten minutes.</span></a>
+  <a class="card" href="#window"><b>1 &middot; Finding your way</b><span>The window, the icons and the navigator. About three minutes.</span></a>
+  <a class="card" href="#vase"><b>2 &middot; A twisted vase</b><span>One object, three graphs and a twist. About five minutes.</span></a>
+  <a class="card" href="#mug"><b>3 &middot; A mug: combining objects</b><span>Cut one object out of another, add a handle, and round the seam. About ten minutes.</span></a>
 </div>
 
 <p class="tip">&#128161; New in the next version: a short guided tour inside the app (Help &#9656; First steps tour)
 that walks you through the same first steps.</p>
 
-<h2 id="vase">1 &middot; A twisted vase</h2>
+<h2 id="window">1 &middot; Finding your way</h2>
+<p>Before you make anything, a quick look round. Nothing here can break - try everything.</p>
+
+<h3><span class="step">1</span>The four parts of the window</h3>
+<figure><img src="tutorials/win-1.jpg" alt="The SweeperCAD window with its four parts numbered: the panel, the 3D view, the node editor and the graphs" loading="lazy">
+<figcaption>1 the panel &middot; 2 the 3D view &middot; 3 the node editor &middot; 4 the graphs.</figcaption></figure>
+<ol>
+  <li><b>The panel</b> (left) shows the settings of whatever is selected: its name, whether it adds or cuts, where it
+  is (position, rotation, scale), and its twist.</li>
+  <li><b>The 3D view</b> shows your model, with icons in its four corners.</li>
+  <li><b>The node editor</b> shows every object as a node, and how they are combined. Click a node to select that
+  object.</li>
+  <li><b>The graphs</b> shape the selected object: <b>Spine</b>, <b>Profile</b>, <b>End profile</b> and <b>Scale</b>, in
+  tabs.</li>
+</ol>
+<p>Selecting something anywhere selects it everywhere: click an object in the 3D view and its node lights up, its
+settings fill the panel and its graphs open below.</p>
+
+<h3><span class="step">2</span>The icons in the corners of the 3D view</h3>
+<figure><img src="tutorials/win-2.jpg" alt="The 3D view with its four icon groups marked A to D" loading="lazy">
+<figcaption>Each corner has its own job.</figcaption></figure>
+<ul>
+  <li><b>A, top left - making things:</b> <b>+</b> a new object that adds, <b>&minus;</b> one that cuts, <b>=</b> combine,
+  and more. Tutorials 2 and 3 use these.</li>
+  <li><b>B, top right - the file:</b> undo and redo, open, save, <b>export</b>, a picture of the model, the help (?) and
+  the settings (&#9881;).</li>
+  <li><b>C, bottom left - handling the model:</b> how you move, turn and scale the selected object, and measuring.</li>
+  <li><b>D, bottom right - how it is shown:</b> the grid, the axes, perspective or flat, light or dark.</li>
+</ul>
+<p>Hover over any icon and it tells you what it does. An icon with a small &#9698; in its corner holds a few more: click
+the corner to see them.</p>
+
+<h3><span class="step">3</span>Moving round your model</h3>
+<ul>
+  <li><b>Drag</b> in the 3D view to turn round the model.</li>
+  <li><b>Scroll</b> to zoom in and out.</li>
+  <li><b>Middle-drag</b> (or <b>Shift-drag</b>) to slide the view sideways.</li>
+  <li>Press <b>F</b> to fit the whole model in view, and <b>O</b> to switch between perspective and a flat
+  (orthographic) view.</li>
+</ul>
+
+<h3><span class="step">4</span>The navigator</h3>
+<figure style="max-width:300px"><img src="tutorials/win-3.jpg" alt="The navigator cube with its four arrows, the reset dot, the zoom lens and the pan hand" loading="lazy">
+<figcaption>The navigator, at the top of the 3D view. It is faint until the pointer comes near.</figcaption></figure>
+<ul>
+  <li><b>Double-click a face</b> - Top, Front, Right... - to look straight at the model from that side. The view
+  glides there, so you keep your bearings.</li>
+  <li>The <b>four arrows</b> turn the view a quarter turn that way - handy to reach the side you cannot see.</li>
+  <li><b>Drag the cube</b> to turn the view, just like dragging in the 3D view.</li>
+  <li>The small <b>dot</b> at its lower left puts the view back to where it started.</li>
+  <li>Under it, the <b>magnifier</b>: click it to zoom to what is selected, double-click it to fit everything, drag it
+  left and right to zoom finely. The <b>hand</b>: drag it to slide the view, double-click it to centre on the model.</li>
+  <li>The <b>&#10021; handle</b> at its top right moves the navigator itself, if it is in your way.</li>
+</ul>
+
+<h3><span class="step">5</span>Make room</h3>
+<p>Drag the lines between the parts of the window to make any of them bigger. The <b>&#8862;</b> button beside the graph
+tabs shows all the graphs side by side, and <b>&#10064;</b> puts the graphs (or the nodes, or the 3D view) in a window
+of their own - for a second screen. Close that window and it goes back where it was.</p>
+<p>You are ready to make something.</p>
+
+<h2 id="vase">2 &middot; A twisted vase</h2>
 <p>You will make one object and shape it with its three graphs. Nothing to combine, nothing to place.</p>
 
 <h3><span class="step">1</span>The object you start with</h3>
@@ -159,7 +221,7 @@ from bottom to top, and the flutes spiral up the vase.</p>
 <figcaption>Export, top right.</figcaption></figure>
 <p>That is the whole idea. Every other shape is made the same way: a profile, a spine, a scale, and sometimes a twist.</p>
 
-<h2 id="mug">2 &middot; A mug: combining objects</h2>
+<h2 id="mug">3 &middot; A mug: combining objects</h2>
 <p>One object rarely makes a whole part. In SweeperCAD you combine objects: a <b>+</b> object adds material, a
 <b>&minus;</b> object cuts it away. You will make a cup, cut out its inside, and add a handle.</p>
 
