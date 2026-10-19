@@ -50,18 +50,18 @@
    "licence_text": "free to use, no credit needed (CC0)",
    "kind": "asset",
    "file": "part.sweeperasset",
-   "volume_mm3": 142913.2,
-   "area_mm2": 114983.8,
-   "triangles": 251922,
+   "volume_mm3": 140607.4,
+   "area_mm2": 109929.0,
+   "triangles": 279870,
    "size_mm": [
     192.1,
-    191.4,
-    232.6
+    191.2,
+    227.8
    ],
    "objects": 13,
-   "build_s": 52.0,
-   "id": "79adf4e93d04",
-   "added": "2026-10-19"
+   "build_s": 47.9,
+   "id": "68213c509747",
+   "added": "2026-10-20"
   }
  ]
 }
