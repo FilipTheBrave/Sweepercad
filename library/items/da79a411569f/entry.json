@@ -1,0 +1,19 @@
+{
+ "name": "Teapot",
+ "desc": "a teapot in seven sweeps: turned body hollowed by a second sweep, a bored S-curve spout, a C-curve handle, a lid that lifts off",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "asset",
+ "file": "part.sweeperasset",
+ "volume_mm3": 107461.3,
+ "area_mm2": 71019.7,
+ "triangles": 40566,
+ "size_mm": [
+  171.0,
+  111.5,
+  101.8
+ ],
+ "objects": 9,
+ "build_s": 46.7
+}
