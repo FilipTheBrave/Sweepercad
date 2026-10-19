@@ -17,8 +17,8 @@
     138.2
    ],
    "objects": 20,
-   "build_s": 15.9,
-   "id": "2dc56c72ea15",
+   "build_s": 15.0,
+   "id": "f1692caf2079",
    "added": "2026-10-19"
   },
   {
@@ -40,6 +40,27 @@
    "objects": 2,
    "build_s": 9.2,
    "id": "f5048530e9cd",
+   "added": "2026-10-19"
+  },
+  {
+   "name": "Potted plant",
+   "desc": "Nine leaves, each ONE sweep: a cupped lens along a bent midrib, the leaf's outline as its scale graph; the pot a sweep with its silhouette as the graph",
+   "maker": "Filip",
+   "licence": "cc0",
+   "licence_text": "free to use, no credit needed (CC0)",
+   "kind": "asset",
+   "file": "part.sweeperasset",
+   "volume_mm3": 152298.1,
+   "area_mm2": 110642.0,
+   "triangles": 196608,
+   "size_mm": [
+    192.0,
+    191.3,
+    235.2
+   ],
+   "objects": 13,
+   "build_s": 34.7,
+   "id": "6bc5bacac9e5",
    "added": "2026-10-19"
   }
  ]
