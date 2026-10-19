@@ -1,0 +1,19 @@
+{
+ "name": "Robot",
+ "desc": "a cute robot: round shells, intersected sneaker boots, a curved visor, glowing joint rings",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "asset",
+ "file": "part.sweeperasset",
+ "volume_mm3": 355659.4,
+ "area_mm2": 43583.4,
+ "triangles": 53310,
+ "size_mm": [
+  99.7,
+  83.1,
+  148.0
+ ],
+ "objects": 61,
+ "build_s": 78.9
+}
