@@ -1,0 +1,19 @@
+{
+ "name": "Nautilus shell",
+ "desc": "One sweep: a log-spiral spine, an oval, a straight scale graph - and a second sweep for the cavity",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "asset",
+ "file": "part.sweeperasset",
+ "volume_mm3": 20858.4,
+ "area_mm2": 28284.9,
+ "triangles": 26568,
+ "size_mm": [
+  99.9,
+  36.8,
+  76.7
+ ],
+ "objects": 2,
+ "build_s": 9.2
+}
