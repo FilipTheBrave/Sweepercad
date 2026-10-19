@@ -1,0 +1,19 @@
+{
+ "name": "Mecha arm",
+ "desc": "A robot arm from sweeps and bosses - drag a beam's spine to pose it, the blends follow",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "asset",
+ "file": "part.sweeperasset",
+ "volume_mm3": 159323.1,
+ "area_mm2": 34988.7,
+ "triangles": 21526,
+ "size_mm": [
+  189.8,
+  77.0,
+  138.2
+ ],
+ "objects": 20,
+ "build_s": 15.9
+}
