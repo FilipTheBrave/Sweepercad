@@ -191,9 +191,18 @@
     "mac-intel": 24,
     "windows": 52
    }
+  },
+  {
+   "date": "2026-10-20",
+   "counts": {
+    "linux": 5,
+    "mac-apple-silicon": 97,
+    "mac-intel": 25,
+    "windows": 52
+   }
   }
  ],
- "updated": "2026-10-18T23:43Z",
+ "updated": "2026-10-20T00:43Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -215,17 +224,9 @@
    }
   },
   "changes": {
-   "week": 147,
+   "week": 106,
    "month": 240,
    "daily": [
-    {
-     "date": "2026-09-19",
-     "count": 0
-    },
-    {
-     "date": "2026-09-20",
-     "count": 0
-    },
     {
      "date": "2026-09-21",
      "count": 0
@@ -337,22 +338,34 @@
     {
      "date": "2026-10-18",
      "count": 0
+    },
+    {
+     "date": "2026-10-19",
+     "count": 0
+    },
+    {
+     "date": "2026-10-20",
+     "count": 0
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-18T23:43Z",
+   "updated": "2026-10-20T00:43Z",
    "countries": [
     {
      "name": "Belgium",
-     "count": 138
+     "count": 155
+    },
+    {
+     "name": "Germany",
+     "count": 28
     },
     {
      "name": "Austria",
      "count": 23
     },
     {
-     "name": "Germany",
+     "name": "United States",
      "count": 19
     },
     {
@@ -360,8 +373,8 @@
      "count": 17
     },
     {
-     "name": "United States",
-     "count": 15
+     "name": "Canada",
+     "count": 6
     },
     {
      "name": "Italy",
@@ -373,11 +386,11 @@
     },
     {
      "name": "Netherlands",
-     "count": 2
+     "count": 5
     },
     {
-     "name": "Canada",
-     "count": 1
+     "name": "Ireland",
+     "count": 4
     },
     {
      "name": "United Kingdom",
@@ -386,67 +399,63 @@
     {
      "name": "Kazakhstan",
      "count": 1
-    },
-    {
-     "name": "Luxembourg",
-     "count": 1
     }
    ],
    "browsers": [
     {
      "name": "Safari",
-     "count": 205
+     "count": 231
     },
     {
      "name": "Chrome",
-     "count": 18
+     "count": 32
     },
     {
      "name": "Firefox",
-     "count": 8
+     "count": 12
     }
    ],
    "systems": [
     {
      "name": "iOS",
-     "count": 138
+     "count": 153
     },
     {
      "name": "macOS",
-     "count": 75
+     "count": 88
     },
     {
      "name": "Windows",
-     "count": 11
+     "count": 20
     },
     {
      "name": "Linux",
-     "count": 6
+     "count": 10
     },
     {
      "name": "Android",
-     "count": 1
+     "count": 4
     }
    ],
    "screens": [
     {
      "name": "phone",
-     "count": 139
+     "count": 157
     },
     {
      "name": "tablet",
-     "count": 2
+     "count": 6
     },
     {
      "name": "desktop",
-     "count": 59
+     "count": 78
     },
     {
      "name": "large desktop",
-     "count": 31
+     "count": 34
     }
    ],
-   "total": 231,
+   "total": 275,
    "daily": [
     {
      "date": "2026-10-13",
@@ -474,6 +483,14 @@
     },
     {
      "date": "2026-10-19",
+     "count": 39
+    },
+    {
+     "date": "2026-10-20",
+     "count": 5
+    },
+    {
+     "date": "2026-10-21",
      "count": 0
     }
    ],
@@ -584,6 +601,11 @@
    },
    {
     "date": "2026-10-17",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-18",
     "count": 0,
     "uniques": 0
    }
