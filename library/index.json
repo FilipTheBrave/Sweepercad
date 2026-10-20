@@ -104,6 +104,27 @@
    "build_s": 46.7,
    "id": "da79a411569f",
    "added": "2026-10-20"
+  },
+  {
+   "name": "Elliptic-wing fighter",
+   "desc": "a 1930s-style fighter: each elliptical wing one airfoil sweep, a twisted three-blade propeller",
+   "maker": "Filip",
+   "licence": "cc0",
+   "licence_text": "free to use, no credit needed (CC0)",
+   "kind": "asset",
+   "file": "part.sweeperasset",
+   "volume_mm3": 154975.1,
+   "area_mm2": 49980.5,
+   "triangles": 72604,
+   "size_mm": [
+    258.0,
+    278.5,
+    79.6
+   ],
+   "objects": 11,
+   "build_s": 27.5,
+   "id": "cac8abd8b02a",
+   "added": "2026-10-20"
   }
  ]
 }
