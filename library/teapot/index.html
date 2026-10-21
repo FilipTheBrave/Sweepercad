@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to model a teapot in SweeperCAD - free download</title>
+<meta name="description" content="A whole teapot - body, spout, handle, foot and a lid that lifts off - from nine sweeps. No mesh sculpting, no loft wizard: each part is one profile pushed along one curve.">
+<link rel="canonical" href="https://sweepercad.com/library/teapot/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sweepercad.com/library/teapot/">
+<meta property="og:title" content="How to model a teapot in SweeperCAD">
+<meta property="og:description" content="A whole teapot - body, spout, handle, foot and a lid that lifts off - from nine sweeps. No mesh sculpting, no loft wizard: each part is one profile pushed along one curve.">
+<meta property="og:image" content="https://sweepercad.com/library/teapot/teapot-a.jpg">
+<link rel="stylesheet" href="../style.css">
+<style>
+.how h2 { font-size: 22px; margin: 34px 0 8px; }
+.how ol { padding-left: 22px; }
+.how li { margin: 0 0 16px; line-height: 1.6; color: #333; }
+.how li b { display: block; color: #111; margin-bottom: 2px; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin: 22px 0; }
+.shots img { width: 100%; border-radius: 8px; background: #10151e; display: block; }
+.facts { color: #777; font-size: 14px; margin: 6px 0 18px; }
+.more { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.more a { color: #444; }
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "3DModel",
+ "name": "Teapot",
+ "url": "https://sweepercad.com/library/teapot/",
+ "description": "A whole teapot - body, spout, handle, foot and a lid that lifts off - from nine sweeps. No mesh sculpting, no loft wizard: each part is one profile pushed along one curve.",
+ "image": [
+  "https://sweepercad.com/library/teapot/teapot-a.jpg",
+  "https://sweepercad.com/library/teapot/teapot-b.jpg",
+  "https://sweepercad.com/library/teapot/teapot-c.jpg"
+ ],
+ "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+ "isAccessibleForFree": true,
+ "encoding": [
+  {
+   "@type": "MediaObject",
+   "contentUrl": "https://sweepercad.com/library/items/da79a411569f/part.sweeperasset",
+   "encodingFormat": "application/json"
+  }
+ ],
+ "isPartOf": {
+  "@type": "WebSite",
+  "name": "SweeperCAD library",
+  "url": "https://sweepercad.com/library/"
+ },
+ "about": {
+  "@type": "SoftwareApplication",
+  "name": "SweeperCAD",
+  "url": "https://sweepercad.com/"
+ }
+}
+</script>
+</head>
+<body>
+<main class="how">
+  <a class="back" href="../">&larr; the library</a>
+  <h1>How to model a teapot in SweeperCAD</h1>
+  <p class="lead">A whole teapot - body, spout, handle, foot and a lid that lifts off - from nine sweeps. No mesh sculpting, no loft wizard: each part is one profile pushed along one curve.</p>
+  <p><a class="btn" href="../items/da79a411569f/part.sweeperasset" download="Teapot.sweeperasset" data-goatcounter-click="get-da79a411569f">Download the model</a>
+     <a class="btn line" href="https://sweepercad.com/">Get SweeperCAD (free)</a></p>
+  <p class="facts">9 objects · 171 × 112 × 102 mm · free to use, no credit needed (CC0)</p>
+  <div class="shots">
+    <img src="teapot-a.jpg" alt="Teapot modelled in SweeperCAD, view 1" loading="lazy">
+    <img src="teapot-b.jpg" alt="Teapot modelled in SweeperCAD, view 2" loading="lazy">
+    <img src="teapot-c.jpg" alt="Teapot modelled in SweeperCAD, view 3" loading="lazy">
+  </div>
+  <h2>How it is built</h2>
+  <ol>
+    <li><b>The body is a turned shell</b>A circle swept straight up. The scale graph is the teapot&#x27;s silhouette drawn from the side: narrow at the foot, a full belly, a narrower mouth. Drag a point on that graph and the belly swells or slims, live.</li>
+    <li><b>Hollow it with a second sweep</b>The inside is the same kind of sweep: the same silhouette, the wall thickness smaller, started just above the floor and run a little past the mouth - then subtracted. Exact walls, and it rebuilds in a moment.</li>
+    <li><b>The spout is a circle along an S-curve</b>The spine is an S drawn beside the body; the scale graph tapers it from a thick root to a slim lip that flares again at the end. Its bore is the same sweep 2 mm thinner, running from inside the body out past the lip, so the hole goes all the way through.</li>
+    <li><b>The handle is a rounded rectangle along a C</b>Both ends of the C sink into the body, so the combine finds a real seam to round over.</li>
+    <li><b>Foot, lid and knob</b>The foot is a ring - a small circle swept along a circular spine. The lid is a flange, a dome and a knob, each a short sweep with its outline as the scale graph, kept as its own part so it lifts off.</li>
+    <li><b>Fillets only where they show</b>The spout and the handle are blended into the body on their own combine nodes. Change the spout&#x27;s curve later and its fillet is rebuilt with it.</li>
+  </ol>
+  <h2>Open it and pull on it</h2>
+  <p class="lead">Download the model, open it with SweeperCAD and it lands on your asset shelf. Place it, then select
+    any part: its profile, spine and scale graph are right there to drag, and everything downstream rebuilds -
+    fillets included. Every curve stays editable; nothing is ever baked.</p>
+  <h2>More examples</h2>
+  <p class="more"><a href="../nautilus-shell/">Nautilus shell</a> <a href="../mecha-arm/">Mecha arm</a> <a href="../potted-plant/">Potted plant</a> <a href="../robot/">Robot</a> <a href="../elliptic-wing-fighter/">Elliptic-wing fighter</a> &middot; <a href="../">the whole library</a></p>
+</main>
+<script data-goatcounter="https://sweepercad.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
