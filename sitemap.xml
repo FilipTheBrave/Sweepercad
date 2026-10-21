@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://sweepercad.com/</loc><lastmod>2026-10-21</lastmod><priority>1.0</priority></url>
   <url><loc>https://sweepercad.com/cheatsheet.html</loc><lastmod>2026-10-18</lastmod><priority>0.7</priority></url>
-  <url><loc>https://sweepercad.com/tutorials.html</loc><lastmod>2026-10-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://sweepercad.com/tutorials.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
   <url><loc>https://sweepercad.com/manual.html</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://sweepercad.com/fabricate/</loc><lastmod>2026-10-15</lastmod><priority>0.5</priority></url>
   <url><loc>https://sweepercad.com/library/</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
-  <url><loc>https://sweepercad.com/library/teapot/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
-  <url><loc>https://sweepercad.com/library/nautilus-shell/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
-  <url><loc>https://sweepercad.com/library/mecha-arm/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
-  <url><loc>https://sweepercad.com/library/potted-plant/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
-  <url><loc>https://sweepercad.com/library/robot/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
-  <url><loc>https://sweepercad.com/library/elliptic-wing-fighter/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sweepercad.com/tutorials/teapot/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sweepercad.com/tutorials/nautilus-shell/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sweepercad.com/tutorials/mecha-arm/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sweepercad.com/tutorials/potted-plant/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sweepercad.com/tutorials/robot/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sweepercad.com/tutorials/elliptic-wing-fighter/</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
 </urlset>
