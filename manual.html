@@ -701,7 +701,10 @@ part sits. The node editor still selects anything directly.</p>
 <p><strong>Drag with the right mouse button</strong> to select everything inside a box -
 no keys needed (Shift or Ctrl with a left drag does the same). In ⛁ mode
 the box selects whole assemblies. A right click that does not move still
-opens the menu.</p>
+opens the menu. The same right-drag box works in the <strong>node editor</strong> (it
+selects the cards it touches) and in the <strong>curve graphs</strong> - spine, profile,
+end profile and scale (it selects the points inside); Shift adds to what is
+selected, Ctrl takes away.</p>
 <p><strong>Deleting.</strong> Delete removes what is selected - all of it, not just the
 last thing clicked. In ⛁ mode, or with <strong>Shift+Delete</strong>, everything
 feeding the selection goes too: select a placed library model and press
@@ -804,8 +807,10 @@ accident.</p>
 <p>A heavy file opens in draft mode straight away, using the build times it
 was saved with, so the first thing you see is a quick draft rather than
 a long wait. A scene that becomes light again (fewer parts, simpler
-outlines) leaves draft mode by itself. The threshold is four seconds;
-the <code>draft_seconds</code> preference changes it.</p>
+outlines, or empty) leaves draft mode by itself. The threshold is ten
+seconds; the <code>draft_seconds</code> preference changes it, and <em>Settings</em> can
+switch draft mode off altogether. The first build after inserting an asset
+does not count - every part is built once then, which is always slower.</p>
 <hr /></section></section>
 <section class="chapter" id="ch4"><h2>4. Building parts</h2><section class="sec" id="placing-objects-exactly"><h3>Placing objects exactly</h3><p>Click <strong>+</strong> and the next click in the 3D view places a new object on
 whatever it lands on — a face, or the view plane in empty space. The
@@ -1702,6 +1707,16 @@ view: its objects join what is open, alongside, as they were saved - the
 file you are working in stays the current file. A name already taken
 gets a number. Its reference images come along; so do the saved build
 times, so a heavy addition can put the scene in draft mode.</p>
+<p><strong>Placing or inserting an asset.</strong> <em>Place</em> (or a double-click on the
+shelf) puts the asset where you click in the 3D view, with a light preview
+on the cursor and the same guides and snapping as a new object. <em>Insert</em>
+puts it straight into the scene, beside what is there, without the placing
+tool. Every asset keeps its finished shape and a light preview in its
+file, so even heavy ones (the robot, the potted plant) appear quickly;
+edit anything inside one and it rebuilds the ordinary way. The starter
+models come with theirs; an asset you save, or add from the online
+library, gets its own a moment later - built in the background, by this
+computer, never taken from someone else's file.</p>
 <p><strong>Putting an asset back in place.</strong> <em>In place</em> (beside <em>place</em> on the
 asset shelf) inserts the selected asset exactly where it stood when it was
 saved - turned and moved as it was, the combine it sat in included, so a
@@ -2196,6 +2211,20 @@ views of the result, to paste into the chat after the text; when it runs by
 itself they are sent with every round, so the AI compares its result with
 them. The prompt tells it that your words and measurements count for more
 than what a picture seems to show.</p>
+<p><strong>Sketch it.</strong> <strong>Sketch…</strong> (beside <em>Add…</em>) opens a sketch pad: draw what
+you want with the mouse or a pen tablet, like on a napkin - a side view or
+an outline says most. <strong>Free</strong> draws free-hand; <strong>Line</strong> draws straight
+lines (press, pull, let go) that snap level and upright and onto the end
+of an earlier line, so an outline closes. <strong>Curve</strong> draws a smooth
+B-spline: click its control points (the curve is pulled towards them and
+runs through the first and last), double-click or right-click to end it,
+or click the first point again to close it; Undo takes the last point back
+while you draw, Escape drops the curve. Eraser, three widths, undo and a
+faint grid; or
+<strong>Draw over a photo…</strong> to trace a real napkin sketch or an object. <strong>Use
+this sketch</strong> adds it to the pictures. The sketch shows the shape; the
+sizes still go in your words. (An AI on your own computer needs to read
+pictures for this - not every local model can.)</p>
 <p><strong>Let it run by itself (only if you want).</strong> SweeperCAD makes no network
 calls. In <strong>AI settings…</strong> you can switch on talking to an AI directly:
 Claude or ChatGPT with your own account and API key (kept on this computer
