@@ -1296,6 +1296,15 @@ other exactly as you drew it. Fitting an end profile turns on "morph to
 an end profile" for you; you do not have to tick it first. Both ends get the same number of points so the morph
 between them does not twist, and the result is a normal editable curve.
 The object's ends have to be inside the mesh.</p>
+<p><strong>The scale graph is applied on top.</strong> The sweep's section anywhere is the
+profile (morphing into the end profile) times the scale there, so what is
+measured at an end is divided by the scale graph's value at that end: with a
+graph at 0.5 the fitted profile comes out twice as big, and the built object
+still meets the reference. (Using a section from the section panel as a
+profile does the same.) <strong>fit the end profile's shape, its size into the
+scale</strong> is the other way round: the end profile is kept at the start
+profile's size, so it only changes the shape, and how much bigger or smaller
+the end is goes into the scale graph's end, where you can see and edit it.</p>
 <p><strong>fit everything: spine, profile, scale</strong> does the three below in the order
 they depend on each other: the spine first (the other two are measured from
 it), then the profile - the reference's section a little inside the start,
