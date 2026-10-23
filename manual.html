@@ -104,12 +104,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.9.9.4 &middot; sweepercad.com</div>
+  <div class="ver">version 0.9.9.3 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.9.9.4. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.9.9.3. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1001,16 +1001,6 @@ pieces that share it and the chain stays continuous. More cuts follow a
 curved body more closely; six is a good start. Undo takes the whole stack
 back. (Point the plane along the part's length first - the cuts follow the
 plane's direction, whatever it is.)</p>
-<p><strong>Close the ends</strong> (ticked by default, beside the button): a cap at each end
-of the stack instead of stopping in a flat end just inside the part. The
-outer cuts move half a step inward, and each cap runs from its cut on to the
-part's very end, the cut as its profile and its scale graph measured from the
-part - exactly 1 at the cut, down to 0 at the tip - so a rounded end comes
-out rounded and a pointed one pointed. A cap's spine follows the end: the
-cuts are carried on past the outermost one, and the spine runs through the
-middle of each, leaving the cut square to it - so a tip that leans or bends
-away is followed to its point. (A spine bends in one plane: the cap is turned
-so the lean lies in it, and what leans across that is left to the scale.)</p>
 <p><strong>A bent body.</strong> Select an object whose spine follows the part's curve - a
 thin helper drawn along a hose, a horn, a handle - and <em>stack from cuts</em>
 asks whether the cuts should <strong>follow that spine</strong>: planes square to it at
@@ -1681,44 +1671,6 @@ part of your model - not just something to look at.</p>
 <p>An imported part has a transform and a sign and nothing else: move it,
 turn it, scale it, add it or cut with it. <strong>File &gt; Reload imported part
 from source</strong> re-reads the file and keeps where you put it.</p>
-<h4>A mesh as editable sweeps</h4>
-<p>The third answer for an STL or OBJ, <strong>Editable sweeps</strong> - and <strong>Convert to
-sweeps…</strong> for a mesh already loaded as a reference (in the references list,
-and at the bottom of the <em>fit to mesh</em> menu) - rebuilds the mesh as ordinary
-SweeperCAD objects: sweeps and combines you edit like anything you drew.</p>
-<ul>
-<li><strong>A body and its limbs</strong> (a hand, a figure): the thick body is found first -
-  everything thinner than about half of it is taken off - and every piece
-  that is long and reaches out is a <strong>limb</strong>. The body is one sweep along the
-  axis its sections change least along, measured against itself; each limb
-  is a sweep along its own centreline, its root carried on into the body.</li>
-<li><strong>A branching part</strong> (a Y, a tree, a bracket of tubes): at every fork the
-  two branches that run on straightest become one sweep and the others join
-  it, so every seam is a simple ring that can be rounded.</li>
-<li><strong>One body</strong> (a block, a stone): when its section is the same all along,
-  it is an <strong>exact extrusion</strong> of the part's own section, corners and all.</li>
-<li><strong>A mesh as it comes</strong>: corners are welded, loose bits left out, and a
-  mesh that is not a clean solid - holes in it, overlapping or doubled
-  pieces, flipped triangles - is first made solid from its surface (the
-  outside flooded in, what it cannot reach is the part); everything after
-  is measured on that. A clean CAD mesh is read exactly, its corners kept.</li>
-<li><strong>Holes</strong>: holes, bores and pockets are filled first to find the main shape
-  (just enough that no tunnel is left through the part), then each is cut
-  back as a <strong>negative sweep</strong>; a hole that opens out runs well past the
-  surface.</li>
-</ul>
-<p>Each sweep's profile and end profile are cut from the mesh, its scale is
-measured along its spine, and its tips close round. The parts are joined in
-combines and <strong>rounded where they meet</strong>; each rounding is tried in the
-build's helper, and one the kernel cannot make is left sharp - nothing hangs.</p>
-<p>The panel shows what it found before anything is built: the body, each limb
-in its own colour and the holes in red, in place of the mesh. <strong>Detail</strong>,
-<strong>Fill holes up to</strong> (too much and two fingers close up into one), <strong>Limbs
-thinner than</strong>, <strong>Round the joints</strong> and <strong>tips closed round</strong> change it;
-<strong>Preview</strong> shows the change. <strong>Build</strong> puts everything in the node editor
-as one group, laid out - one undo takes it back. A spine lies in one plane,
-so a limb that twists through 3D is flattened into its best plane (the
-status bar says which, and by how much).</p>
 <hr /></section><section class="sec" id="assets"><h3>Assets</h3><p><strong>A starter shelf</strong> comes with the app: a ball, cone, cube, cylinder,
 pyramid, spring, torus and tube, each made of a profile, a spine and a
 scale graph you can open and change. They are copied into your library
