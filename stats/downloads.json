@@ -350,9 +350,18 @@
     "mac-intel": 201,
     "windows": 207
    }
+  },
+  {
+   "date": "2026-10-25",
+   "counts": {
+    "linux": 65,
+    "mac-apple-silicon": 417,
+    "mac-intel": 202,
+    "windows": 207
+   }
   }
  ],
- "updated": "2026-10-24T23:47Z",
+ "updated": "2026-10-25T23:36Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -374,13 +383,9 @@
    }
   },
   "changes": {
-   "week": 144,
+   "week": 122,
    "month": 388,
    "daily": [
-    {
-     "date": "2026-09-25",
-     "count": 0
-    },
     {
      "date": "2026-09-26",
      "count": 0
@@ -496,57 +501,31 @@
     {
      "date": "2026-10-24",
      "count": 1
+    },
+    {
+     "date": "2026-10-25",
+     "count": 0
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-24T23:47Z",
-   "referrers": [
-    {
-     "name": "direct (typed or bookmarked)",
-     "count": 136
-    },
-    {
-     "name": "www.cheetah3d.com",
-     "count": 48
-    },
-    {
-     "name": "com.linkedin.android",
-     "count": 3
-    },
-    {
-     "name": "www.bing.com",
-     "count": 3
-    },
-    {
-     "name": "www.linkedin.com",
-     "count": 2
-    },
-    {
-     "name": "Google",
-     "count": 1
-    },
-    {
-     "name": "www.cheetah3d.com/forum/index.php",
-     "count": 1
-    }
-   ],
+   "updated": "2026-10-25T23:36Z",
    "countries": [
     {
      "name": "Belgium",
-     "count": 242
-    },
-    {
-     "name": "Germany",
-     "count": 33
-    },
-    {
-     "name": "Austria",
-     "count": 31
+     "count": 255
     },
     {
      "name": "United States",
-     "count": 30
+     "count": 49
+    },
+    {
+     "name": "Germany",
+     "count": 34
+    },
+    {
+     "name": "Austria",
+     "count": 33
     },
     {
      "name": "France",
@@ -577,36 +556,36 @@
      "count": 4
     },
     {
-     "name": "United Kingdom",
-     "count": 1
+     "name": "Egypt",
+     "count": 2
     }
    ],
    "browsers": [
     {
      "name": "Safari",
-     "count": 322
+     "count": 355
     },
     {
      "name": "Chrome",
-     "count": 44
+     "count": 46
     },
     {
      "name": "Firefox",
-     "count": 34
+     "count": 37
     }
    ],
    "systems": [
     {
      "name": "iOS",
-     "count": 219
+     "count": 230
     },
     {
      "name": "macOS",
-     "count": 143
+     "count": 167
     },
     {
      "name": "Windows",
-     "count": 21
+     "count": 22
     },
     {
      "name": "Linux",
@@ -614,28 +593,28 @@
     },
     {
      "name": "Android",
-     "count": 6
+     "count": 8
     }
    ],
    "screens": [
     {
      "name": "phone",
-     "count": 225
+     "count": 238
     },
     {
      "name": "tablet",
-     "count": 6
+     "count": 7
     },
     {
      "name": "desktop",
-     "count": 116
+     "count": 138
     },
     {
      "name": "large desktop",
-     "count": 53
+     "count": 55
     }
    ],
-   "total": 400,
+   "total": 438,
    "daily": [
     {
      "date": "2026-10-13",
@@ -643,15 +622,15 @@
     },
     {
      "date": "2026-10-14",
-     "count": 97
+     "count": 102
     },
     {
      "date": "2026-10-15",
-     "count": 49
+     "count": 63
     },
     {
      "date": "2026-10-16",
-     "count": 38
+     "count": 19
     },
     {
      "date": "2026-10-17",
@@ -663,19 +642,19 @@
     },
     {
      "date": "2026-10-19",
-     "count": 39
-    },
-    {
-     "date": "2026-10-20",
-     "count": 32
-    },
-    {
-     "date": "2026-10-21",
      "count": 43
     },
     {
+     "date": "2026-10-20",
+     "count": 30
+    },
+    {
+     "date": "2026-10-21",
+     "count": 42
+    },
+    {
      "date": "2026-10-22",
-     "count": 22
+     "count": 21
     },
     {
      "date": "2026-10-23",
@@ -687,7 +666,41 @@
     },
     {
      "date": "2026-10-25",
-     "count": 6
+     "count": 44
+    },
+    {
+     "date": "2026-10-26",
+     "count": 0
+    }
+   ],
+   "referrers": [
+    {
+     "name": "direct (typed or bookmarked)",
+     "count": 136
+    },
+    {
+     "name": "www.cheetah3d.com",
+     "count": 48
+    },
+    {
+     "name": "com.linkedin.android",
+     "count": 3
+    },
+    {
+     "name": "www.bing.com",
+     "count": 3
+    },
+    {
+     "name": "www.linkedin.com",
+     "count": 2
+    },
+    {
+     "name": "Google",
+     "count": 1
+    },
+    {
+     "name": "www.cheetah3d.com/forum/index.php",
+     "count": 1
     }
    ]
   },
@@ -809,6 +822,11 @@
    },
    {
     "date": "2026-10-23",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-24",
     "count": 0,
     "uniques": 0
    }
