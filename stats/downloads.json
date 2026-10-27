@@ -386,9 +386,18 @@
     "mac-intel": 228,
     "windows": 225
    }
+  },
+  {
+   "date": "2026-10-27",
+   "counts": {
+    "linux": 77,
+    "mac-apple-silicon": 491,
+    "mac-intel": 241,
+    "windows": 234
+   }
   }
  ],
- "updated": "2026-10-26T22:30Z",
+ "updated": "2026-10-27T00:53Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -410,13 +419,9 @@
    }
   },
   "changes": {
-   "week": 104,
+   "week": 90,
    "month": 405,
    "daily": [
-    {
-     "date": "2026-09-27",
-     "count": 0
-    },
     {
      "date": "2026-09-28",
      "count": 0
@@ -532,23 +537,27 @@
     {
      "date": "2026-10-26",
      "count": 16
+    },
+    {
+     "date": "2026-10-27",
+     "count": 0
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-25T23:36Z",
+   "updated": "2026-10-27T00:53Z",
    "countries": [
     {
      "name": "Belgium",
-     "count": 255
+     "count": 274
     },
     {
      "name": "United States",
-     "count": 49
+     "count": 50
     },
     {
      "name": "Germany",
-     "count": 34
+     "count": 37
     },
     {
      "name": "Austria",
@@ -559,16 +568,16 @@
      "count": 17
     },
     {
+     "name": "Italy",
+     "count": 14
+    },
+    {
      "name": "Canada",
      "count": 10
     },
     {
      "name": "New Zealand",
      "count": 9
-    },
-    {
-     "name": "Italy",
-     "count": 5
     },
     {
      "name": "Mexico",
@@ -584,35 +593,35 @@
     },
     {
      "name": "Egypt",
-     "count": 2
+     "count": 3
     }
    ],
    "browsers": [
     {
      "name": "Safari",
-     "count": 355
+     "count": 383
     },
     {
      "name": "Chrome",
-     "count": 46
+     "count": 48
     },
     {
      "name": "Firefox",
-     "count": 37
+     "count": 41
     }
    ],
    "systems": [
     {
      "name": "iOS",
-     "count": 230
+     "count": 236
     },
     {
      "name": "macOS",
-     "count": 167
+     "count": 193
     },
     {
      "name": "Windows",
-     "count": 22
+     "count": 23
     },
     {
      "name": "Linux",
@@ -620,28 +629,28 @@
     },
     {
      "name": "Android",
-     "count": 8
+     "count": 9
     }
    ],
    "screens": [
     {
      "name": "phone",
-     "count": 238
+     "count": 245
     },
     {
      "name": "tablet",
-     "count": 7
+     "count": 8
     },
     {
      "name": "desktop",
-     "count": 138
+     "count": 161
     },
     {
      "name": "large desktop",
-     "count": 55
+     "count": 58
     }
    ],
-   "total": 438,
+   "total": 472,
    "daily": [
     {
      "date": "2026-10-13",
@@ -697,6 +706,14 @@
     },
     {
      "date": "2026-10-26",
+     "count": 33
+    },
+    {
+     "date": "2026-10-27",
+     "count": 1
+    },
+    {
+     "date": "2026-10-28",
      "count": 0
     }
    ],
@@ -856,9 +873,19 @@
     "date": "2026-10-24",
     "count": 0,
     "uniques": 0
+   },
+   {
+    "date": "2026-10-25",
+    "count": 1,
+    "uniques": 1
    }
   ],
   "referrers": [
+   {
+    "site": "github.com",
+    "count": 1,
+    "uniques": 1
+   },
    {
     "site": "sweepercad.com",
     "count": 1,
