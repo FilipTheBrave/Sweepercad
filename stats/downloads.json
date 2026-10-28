@@ -401,9 +401,18 @@
     "mac-intel": 242,
     "windows": 235
    }
+  },
+  {
+   "date": "2026-10-28",
+   "counts": {
+    "linux": 83,
+    "mac-apple-silicon": 524,
+    "mac-intel": 256,
+    "windows": 245
+   }
   }
  ],
- "updated": "2026-10-27T23:39Z",
+ "updated": "2026-10-28T00:46Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -425,13 +434,9 @@
    }
   },
   "changes": {
-   "week": 93,
+   "week": 72,
    "month": 408,
    "daily": [
-    {
-     "date": "2026-09-28",
-     "count": 0
-    },
     {
      "date": "2026-09-29",
      "count": 0
@@ -547,27 +552,65 @@
     {
      "date": "2026-10-27",
      "count": 3
+    },
+    {
+     "date": "2026-10-28",
+     "count": 0
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-27T00:53Z",
+   "updated": "2026-10-28T00:46Z",
+   "referrers": [
+    {
+     "name": "direct (typed or bookmarked)",
+     "count": 196
+    },
+    {
+     "name": "www.cheetah3d.com",
+     "count": 74
+    },
+    {
+     "name": "com.linkedin.android",
+     "count": 3
+    },
+    {
+     "name": "www.bing.com",
+     "count": 3
+    },
+    {
+     "name": "www.linkedin.com",
+     "count": 2
+    },
+    {
+     "name": "Google",
+     "count": 1
+    },
+    {
+     "name": "Hacker News",
+     "count": 1
+    },
+    {
+     "name": "www.cheetah3d.com/forum/index.php",
+     "count": 1
+    }
+   ],
    "countries": [
     {
      "name": "Belgium",
-     "count": 274
-    },
-    {
-     "name": "United States",
-     "count": 50
+     "count": 276
     },
     {
      "name": "Germany",
-     "count": 37
+     "count": 72
+    },
+    {
+     "name": "United States",
+     "count": 51
     },
     {
      "name": "Austria",
-     "count": 33
+     "count": 34
     },
     {
      "name": "France",
@@ -605,15 +648,15 @@
    "browsers": [
     {
      "name": "Safari",
-     "count": 383
+     "count": 421
     },
     {
      "name": "Chrome",
-     "count": 48
+     "count": 50
     },
     {
      "name": "Firefox",
-     "count": 41
+     "count": 43
     }
    ],
    "systems": [
@@ -623,7 +666,7 @@
     },
     {
      "name": "macOS",
-     "count": 193
+     "count": 235
     },
     {
      "name": "Windows",
@@ -649,14 +692,14 @@
     },
     {
      "name": "desktop",
-     "count": 161
+     "count": 200
     },
     {
      "name": "large desktop",
-     "count": 58
+     "count": 61
     }
    ],
-   "total": 472,
+   "total": 514,
    "daily": [
     {
      "date": "2026-10-13",
@@ -716,41 +759,15 @@
     },
     {
      "date": "2026-10-27",
-     "count": 1
+     "count": 43
     },
     {
      "date": "2026-10-28",
      "count": 0
-    }
-   ],
-   "referrers": [
-    {
-     "name": "direct (typed or bookmarked)",
-     "count": 136
     },
     {
-     "name": "www.cheetah3d.com",
-     "count": 48
-    },
-    {
-     "name": "com.linkedin.android",
-     "count": 3
-    },
-    {
-     "name": "www.bing.com",
-     "count": 3
-    },
-    {
-     "name": "www.linkedin.com",
-     "count": 2
-    },
-    {
-     "name": "Google",
-     "count": 1
-    },
-    {
-     "name": "www.cheetah3d.com/forum/index.php",
-     "count": 1
+     "date": "2026-10-29",
+     "count": 0
     }
    ]
   },
@@ -884,16 +901,21 @@
     "date": "2026-10-25",
     "count": 1,
     "uniques": 1
+   },
+   {
+    "date": "2026-10-26",
+    "count": 4,
+    "uniques": 1
    }
   ],
   "referrers": [
    {
-    "site": "github.com",
-    "count": 1,
-    "uniques": 1
+    "site": "sweepercad.com",
+    "count": 2,
+    "uniques": 2
    },
    {
-    "site": "sweepercad.com",
+    "site": "github.com",
     "count": 1,
     "uniques": 1
    }
