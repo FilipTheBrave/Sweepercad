@@ -104,12 +104,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.9.9.13 &middot; sweepercad.com</div>
+  <div class="ver">version 0.9.9.14 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.9.9.13. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.9.9.14. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1251,6 +1251,22 @@ and cylinder union, 0.25 to 1.0 all failed and 1.5 blended every seam.
 When one fails the app tries a few larger radii on that seam and tells
 you the first that works, so the message names a number you can use
 rather than a dead end.</p>
+<p><strong>Rounded another way.</strong> Some joins the kernel's fillet cannot make at
+any radius - a handle whose outline turns tighter than the radius where it
+meets a curved body is the usual case. Then the app rounds the seam
+another way: it trims a narrow strip off both faces along the seam and
+fills the gap with a surface that meets both faces smoothly. Where seams
+meet at corners - three edges of a box at one point, a square peg's loop
+turning at the peg's edges - each run of seam between corners is done that
+way, the runs meet in a mitre where a loop turns, and what is left open at
+a corner where three meet is filled with a patch that meets everything
+round it smoothly. The result is checked like any fillet (one closed,
+valid solid), and the combine says <em>rounded by trim and fill</em>. If the full
+radius does not fit, it tries half the radius before leaving the seam
+sharp. A seam that stops on a face, with no other seam carrying on from
+its end, is still left to the kernel. It is a switch under <strong>Settings &gt;
+Geometry kernel</strong> (<em>round seams the fillet cannot, by trim and fill</em>), on
+by default.</p>
 <p><strong>What the app does first.</strong> A seam around a boss or a hole is one
 LOOP, even though it is made of several edges. If the full radius does
 not fit, each loop is blended at the largest radius IT can take, the
@@ -2290,7 +2306,22 @@ builds shapes (profile, spine, scale), which way is up, the calls it may
 use, a worked example, and what is already in your document - so "add a
 handle to the selected cup" works too. Nothing is sent anywhere by the
 app; you choose what to paste where. Like any script, only run an answer
-you are happy to run.</p></section></section>
+you are happy to run.</p>
+<p><strong>Using SweeperCAD from an AI app (MCP).</strong> An AI app on your computer that
+speaks MCP (the Model Context Protocol) - Claude's desktop app, several
+code editors, local AI apps - can use SweeperCAD as a tool: read how
+SweeperCAD models, run modelling scripts, measure the result, look at it,
+export it (STEP, STL or a SweeperCAD file) and send it to the open
+SweeperCAD window. <strong>Settings &gt; AI &gt; Connect an AI app (MCP)…</strong> shows the
+few lines to paste into that app's MCP settings; press <strong>Copy</strong>, paste,
+and restart the AI app. SweeperCAD itself sends nothing anywhere this way:
+the AI app starts a SweeperCAD helper on your computer and talks to it
+directly. What the AI app does with what it is shown is up to that app -
+one with an AI in the cloud sends it there under your account, one with
+an AI on your computer does not. A model the AI app sends to the window
+is offered there (<strong>Add to this scene</strong>, <strong>Open it</strong> or <strong>Not now</strong>);
+untick <strong>Settings &gt; AI &gt; Let AI apps send models to this window</strong> to stop
+that.</p></section></section>
 <section class="chapter" id="ch9"><h2>9. When something goes wrong</h2><section class="sec" id="what-the-app-notices-while-you-draw"><h3>What the app notices while you draw</h3><p>Let go of the mouse after editing a curve and it is checked — in a few
 milliseconds, before anything is built. If something is worth knowing,
 the status bar says so:</p>
