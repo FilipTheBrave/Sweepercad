@@ -104,12 +104,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.9.9.14 &middot; sweepercad.com</div>
+  <div class="ver">version 0.9.9.15 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.9.9.14. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.9.9.15. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -732,11 +732,16 @@ the button again puts it back.</p>
 <p>It is temporary on purpose: it is never saved, and an autosave or an undo
 taken while it is on records the object exactly as it is. For a permanent
 version, use <strong>origin</strong> in the object's panel: that makes the object turn
-about another object's origin and follows it if that object moves.</p></section><section class="sec" id="how-the-model-is-drawn"><h3>How the model is drawn</h3><p>The <strong>view</strong> button (bottom right) cycles through eight ways of drawing the
-model:</p>
+about another object's origin and follows it if that object moves.</p></section><section class="sec" id="how-the-model-is-drawn"><h3>How the model is drawn</h3><p>The <strong>view</strong> button (bottom right) cycles through nine ways of drawing the
+model. SweeperCAD starts in <strong>clay + edges</strong>; the view you pick is the one
+it opens with next time.</p>
 <ul>
 <li><strong>colour</strong> - shaded and glossy, lit warm against cool;</li>
 <li><strong>grey</strong> - matte and soft, like fired clay;</li>
+<li><strong>clay + edges</strong> - the clay grey with the solid's own edges (the CAD
+  edges between faces, not the mesh) drawn dark on top, only where you can
+  see them: edges behind the part stay hidden. A round surface's seam, and
+  the line where one surface is only stored in two halves, are left out;</li>
 <li><strong>wireframe</strong> - every mesh triangle;</li>
 <li><strong>edges</strong> - the solid's real face outlines and nothing else: a line along
   the sweep for every corner of the profile, a ring only where one loft
@@ -1825,6 +1830,22 @@ each section folds away by the tick in its title (and stays folded):
   piece, before combining</strong> (a piece thin on its own shows up even if it
   is thick once joined), or <strong>the selected one</strong>. It works on a voxel copy
   of the part, good to about a fifth of the wall asked for.</li>
+<li><strong>design rules</strong>: one set of limits a design has to keep, checked on
+  everything shown (or the selected one) and marked in the 3D view. Start
+  from a set - <strong>play equipment (typical EN 1176 values)</strong> or <strong>custom</strong>,
+  which starts empty - and change any value; <em>off</em> switches that check off.
+  <strong>Save…</strong> writes the set to a small file (<em>.swrules</em>) and keeps it in the
+  list; <strong>Load…</strong> opens one. Give the file to the people who design for
+  you (a playground builder to his customers, say) and they design freely,
+  checking against your limits.
+  <ul>
+  <li><strong>No openings from ... to ...</strong>: an opening a ball of the smaller size passes through and one of the larger size does not (a body slips through, a head stays caught) - a hole in a panel, the gap between two bars, a tunnel. It is done the way the probe test is done: balls of both sizes, pushed through the gaps. An inside corner is not an opening, and two long bars trap in their middle, not at a free end. Each opening found is measured on the part itself; the size is the widest ball that sits in its narrowest part (about - measure one that is close to a limit; those within 2 mm are said).</li>
+  <li><strong>Guardrail above / barrier above / highest standing surface</strong>: every surface facing up at least as big as <strong>standing surface from</strong> (0.04 m² is 20 by 20 cm) is measured from the lowest point of the parts, and marked when it wants a guardrail, a barrier, or is too high.</li>
+  <li><strong>Thinnest material</strong>: thinner spots dotted red. <strong>No sealed cavities inside</strong>: voids closed off in a part.</li>
+  <li><strong>Material</strong> and <strong>it must take</strong>: the load it has to carry - pushed sideways at the top, pulled or pushed along it, or pressed down on top, standing on its far end along an axis - with a <strong>safety factor</strong>: estimated from its sections for the material (typical values).</li>
+  <li><strong>Nothing starts in mid-air</strong> along Z, for printing.</li>
+  </ul>
+  It is a check to design by, not a certificate: openings only partly bounded (a V where two parts meet), finger-sized openings on a large design and real loading are not checked, and the standard that applies is what counts. A big design takes a few seconds; the window stays usable.</li>
 </ul></section><section class="sec" id="what-the-selected-object-measures"><h3>What the selected object measures</h3><p>The <strong>stats</strong> panel (Σ in the 3D view) shows the selected part's <strong>size</strong>, <strong>volume</strong> and <strong>surface area</strong>.
 These come from the mesh on screen, so flat-sided shapes are exact
 and curved ones read very slightly low - about 0.3% on a 30 mm
@@ -2273,6 +2294,15 @@ steps for you: it asks, runs the script, measures and pictures the result,
 sends that back and lets the AI improve it, up to the number of rounds you
 set - every round is built in front of you, <strong>Stop</strong> stops it, and Ctrl+Z
 goes back a round. With a change typed in step 4, it changes what is there.</p>
+<p><strong>Checked against the design rules.</strong> Tick <strong>Check it against the design
+rules each round</strong> (<strong>Design rules…</strong> opens them in the stats window, to
+set, load or save). Every round, what the AI made is checked against the
+set - openings, heights, wall thickness, cavities, strength under a load,
+printing - with the same analyses as the stats window; what fails, with
+the numbers, where it is and what would make it pass, goes back to the AI
+with the measurements. It is not done while a check fails, even if the AI
+says so: the failures go back to it. The strength figures are estimates,
+a first look and not a sign-off.</p>
 <p><strong>Setting up the AI, step by step.</strong> Open the script editor, press <strong>AI
 settings…</strong>, tick <strong>Let SweeperCAD talk to an AI</strong>, then one of these:</p>
 <p><em>Claude (Anthropic).</em> The API is paid per use and billed apart from a
@@ -2312,7 +2342,14 @@ speaks MCP (the Model Context Protocol) - Claude's desktop app, several
 code editors, local AI apps - can use SweeperCAD as a tool: read how
 SweeperCAD models, run modelling scripts, measure the result, look at it,
 export it (STEP, STL or a SweeperCAD file) and send it to the open
-SweeperCAD window. <strong>Settings &gt; AI &gt; Connect an AI app (MCP)…</strong> shows the
+SweeperCAD window. It can also <strong>check</strong> what it made with SweeperCAD's
+own analyses - a set of design rules by its name or from a <em>.swrules</em>
+file, or wall thickness, sealed cavities, openings, heights, strength
+under a load (estimated, or simulated with where it is held and pushed)
+and printing one by one - and gets each check back as passed or failed,
+with where and what would make it pass, so it can change the design and
+check again.
+<strong>Settings &gt; AI &gt; Connect an AI app (MCP)…</strong> shows the
 few lines to paste into that app's MCP settings; press <strong>Copy</strong>, paste,
 and restart the AI app. SweeperCAD itself sends nothing anywhere this way:
 the AI app starts a SweeperCAD helper on your computer and talks to it
