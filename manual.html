@@ -104,12 +104,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.9.9.17 &middot; sweepercad.com</div>
+  <div class="ver">version 0.9.9.18 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.9.9.17. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.9.9.18. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -240,6 +240,10 @@ top of the list folds it again at any width.</p>
 <hr /></section><section class="sec" id="drawing"><h3>Drawing</h3><p><strong>Spine presets.</strong> The spine graph's <strong>preset</strong> menu offers a straight
 <strong>line</strong>, a <strong>circle</strong> (sweeps a ring) and an <strong>n-gon</strong> (a frame with mitred
 corners). Each starts at the origin, so the object stays where it is.</p>
+<p>Every preset in the <strong>preset</strong> menus - profiles, spines and scale graphs -
+has a small picture of its curve beside its name: a profile as you look
+down the spine, a spine with its start marked, a scale graph as the side
+outline it gives the part.</p>
 <p><strong>Profile presets.</strong> The profile graph's <strong>preset</strong> menu has a circle, an
 n-gon, a star, a splined ring, an involute gear (and a meshing pair), text,
 and the shapes that become something when swept: an <strong>ellipse</strong>, a
@@ -572,10 +576,10 @@ graph gets a strip from cool to red, and the stretches past the threshold
 are drawn red; <em>show the jumps on the part</em> colours the part the same way.</p>
 <p>Closing the stats window clears everything it drew in the 3D view.</p>
 <hr /></section></section>
-<section class="chapter" id="ch3"><h2>3. The 3D view</h2><section class="sec" id="the-3d-view-s-own-controls"><h3>The 3D view&#x27;s own controls</h3><p><strong>Top left - making things:</strong> add a positive (+), negative (−) or
-keep-inside (∩) object, combine (=), auto-combine (A=), array (✕), <strong>import</strong> a CAD part or a mesh
+<section class="chapter" id="ch3"><h2>3. The 3D view</h2><section class="sec" id="the-3d-view-s-own-controls"><h3>The 3D view's own controls</h3><p><strong>Top left - making things:</strong> add a positive (+), negative (−) or
+keep-inside (/) object, combine (=), auto-combine (A=), array (∗), <strong>import</strong> a CAD part or a mesh
 (⤓), a <strong>lattice</strong> (◈), a <strong>route</strong> (⤳), and <strong>copy</strong> (⧉) and <strong>mirror</strong>
-(⇋), which act on the selected object.</p><figure><a href="manual/view3d.jpg"><img src="manual/view3d.jpg" alt="The 3D view: tools along the top, view and alignment rows along the bottom, the view cube top centre." loading="lazy"></a><figcaption>The 3D view: tools along the top, view and alignment rows along the bottom, the view cube top centre.</figcaption></figure>
+(⇋), which act on the selected object.</p>
 <p><strong>Grouped icons.</strong> A few icons hold more than one tool, to keep the rows
 short. A small <strong>◢ in the corner</strong> shows it: click the corner (or
 right-click the icon) and a row with the others opens; pick one and the
@@ -586,7 +590,7 @@ row shuts. The icon then shows the tool you used last.
   shapes.
 - <strong>🖼 references</strong> (bottom right) holds the <strong>section</strong> (extract a
   plane) and the <strong>line</strong> extractor - helpers that never become the part.
-- <strong>✥ the manipulator</strong> (bottom left) holds the <strong>pivot</strong> and <strong>world /
+- <strong>✥ the manipulator</strong> (bottom left; move / turn / scale / off) holds the <strong>pivot</strong> and <strong>world /
   local</strong>; an <strong>L</strong> on ✥ says local, a dot says a temporary pivot is set.
 - <strong>⟺ measure</strong> holds <strong>dimensions</strong>.
 - <strong>◐ what is shown</strong> (bottom right) holds the <strong>axes</strong>, the <strong>grid</strong>,
@@ -621,9 +625,11 @@ high-resolution screen. Remembered. When a row no longer fits beside
 another one it moves to a line of its own instead of overlapping.</p>
 <p><strong>Bottom left - handling the model:</strong> the manipulator chooser (move and
 turn together, move, turn, scale, or <strong>off</strong> - no gizmo at all, clicks just
-select and orbit), the <strong>dials</strong> switch (◎ - the spin, roll and twist dials)
-and the <strong>overlays</strong> switch (⌗ - the plane squares and the curves in 3D),
-then what a click selects, reposition, the temporary pivot, measure, and
+select and orbit), the <strong>what is on the object</strong> switch - each click the
+next of <strong>⌗ splines</strong> (the plane squares and the curves in 3D), <strong>◎ dials</strong>
+(spin, roll and twist), <strong>⇕ direct editing</strong> and <strong>⬚ the box cage</strong>; its
+picture shows which is on, and a right-click gives the checklist (splines
+and dials together, or neither) - then what a click selects, reposition, the temporary pivot, measure, and
 world/local.</p>
 <p><strong>Bottom middle:</strong> align and distribute, for two or more selected objects.</p>
 <p><strong>Bottom right - how it is shown:</strong> reference images and meshes, with the
@@ -679,9 +685,11 @@ handles — none of them are offered). Those are
 consequences of the radius, so they are not offered — exactly as on the
 graphs — and moving the corner keeps the radius.</p>
 <p>Drawing new curves in 3D is deliberately not offered: the graphs are
-where drawing belongs.</p>
-<hr /></section><section class="sec" id="direct-editing-push-and-pull-the-model-itself"><h3>Direct editing — push and pull the model itself</h3><p>The manipulator chooser (✥, bottom left) has a step for it: <strong>⇕ direct</strong>
-(after move / turn / scale, before off). With it on, the model's own faces
+where drawing belongs.</p></section><section class="sec" id="direct-editing-push-and-pull-the-model-itself"><h3>Direct editing — push and pull the model itself</h3><p>The <strong>what is on the object</strong> switch (bottom left: ⌗ splines, ◎ dials,
+⇕ direct, ⬚ cage - each click the next) has a step for it: <strong>⇕ direct</strong>.
+Picking a manipulator (✥) leaves it again. <strong>The quick way both ways: the
+D key</strong>, or <strong>direct editing</strong> in the right-click menu - direct editing on,
+and again back to the manipulator and what was shown before. With it on, the model's own faces
 and edges answer the pointer - there is nothing to select first:</p>
 <ul>
 <li><strong>Hover</strong> a face or an edge: it lights up and a label says what it is
@@ -697,6 +705,13 @@ and edges answer the pointer - there is nothing to select first:</p>
   last piece running on. The cap has two more grips on its rim: the
   <strong>● dot</strong> tilts the end (the spine's direction there, in its plane) and
   the <strong>■ square</strong> scales the end (the scale graph's value at that end).</li>
+<li><strong>Past zero, a cut.</strong> Keep pulling an end back through the other end and
+  the part carries on out of it the other way, and turns from adding to
+  cutting: a block pushed down into what it stands on becomes a pocket that
+  deep, with the same outline; a hole pulled up out of it becomes a boss.
+  A taper is mirrored across that end. The label says <em>past zero: it cuts
+  now</em>. Drag back above zero and it adds again. This works on a straight
+  part with one profile and no twist; anything else says why it can't.</li>
 <li><strong>A straight side</strong> has a <strong>● dot</strong> at its end: drag it to turn the
   side about its middle (its neighbours keep their lines).</li>
 <li><strong>A side facing along the spine's plane</strong> has a <strong>◆ diamond</strong>: drag it to
@@ -767,12 +782,13 @@ mirrored, so a symmetric part stays symmetric. Click the <strong>⬚</strong> ag
 take the cage off. The result
 stays a CAD solid and every face keeps its name, so pushing, pulling,
 rounding and face nets still find their faces. Each drag is one undo step,
-and the cage is saved with the file. The <strong>⬚</strong> button with the manipulator
-(bottom left, in its group) puts a cage round the selected object too.</p>
+and the cage is saved with the file. The switch's last step, <strong>⬚ cage</strong>,
+puts a cage round the selected object too.</p>
 <p><strong>Where you see them.</strong> Nets and a cage are not nodes of their own: they
 belong to the part (or combine, or array) they shape. Its card says so -
 <em># 2 nets</em>, <em>⬚ cage 3</em> - and its panel has a <strong>shaped</strong> row with <strong>clear
-nets</strong> and <strong>clear cage</strong>.</p></section><section class="sec" id="editing-points-in-the-3d-view"><h3>Editing points in the 3D view</h3><p>With an object selected and its curves shown (⌗), its spine and profile
+nets</strong> and <strong>clear cage</strong>.</p>
+<hr /></section><section class="sec" id="editing-points-in-the-3d-view"><h3>Editing points in the 3D view</h3><p>With an object selected and its curves shown (⌗), its spine and profile
 can be edited in the 3D view much as in the graphs:
 - <strong>drag a point</strong> to move it (in the curve's own plane);
 - <strong>double-click the curve</strong> to add a point there - only while you look
@@ -855,8 +871,8 @@ manipulator, its pivot, the curves and plane squares, the dials, the
 placement pin, the ruler and the kept dimensions, stats, and world / local
 axes. <strong>Right-click in the 3D view</strong> and the menu lists the same things in
 the same order (up to the dimensions), then the creation icons of the top
-row: <strong>+</strong> positive, <strong>−</strong> negative, <strong>∩</strong> keep inside, <strong>=</strong> combine, <strong>A=</strong> auto-combine,
-<strong>×</strong> array, then <strong>copy</strong> and <strong>mirror</strong> of the selection. +, − and ∩
+row: <strong>+</strong> positive, <strong>−</strong> negative, <strong>/</strong> keep inside, <strong>=</strong> combine, <strong>A=</strong> auto-combine,
+<strong>∗</strong> array, then <strong>copy</strong> and <strong>mirror</strong> of the selection. +, − and /
 start placing a new object - click where it goes.</p></section><section class="sec" id="right-click"><h3>Right-click</h3><p><strong>In the 3D view</strong>, a right-click (without dragging) opens the <strong>quick
 menu</strong> - as a <strong>pie</strong> round the cursor or an ordinary <strong>list</strong>, chosen in
 Settings &gt; Right-click menu. Whatever is under the cursor is selected
@@ -917,7 +933,7 @@ does not count - every part is built once then, which is always slower.</p>
 <hr /></section></section>
 <section class="chapter" id="ch4"><h2>4. Building parts</h2><section class="sec" id="placing-objects-exactly"><h3>Placing objects exactly</h3><p>Click <strong>+</strong> and the next click in the 3D view places a new object on
 whatever it lands on — a face, or the view plane in empty space. The
-placed object faces <em>out</em> of the surface it was put on.</p><figure><a href="manual/panel_left.jpg"><img src="manual/panel_left.jpg" alt="The panel on the left: name, sign, transform and the sweep&#x27;s own settings." loading="lazy"></a><figcaption>The panel on the left: name, sign, transform and the sweep&#x27;s own settings.</figcaption></figure>
+placed object faces <em>out</em> of the surface it was put on.</p>
 <p>While you aim, the new object's <strong>wireframe</strong> follows the cursor, posed
 exactly as it will land (green for +, red for −), with the stick showing
 which way it faces. Tick <strong>"line it up with the nearest edge"</strong> in the
@@ -931,15 +947,25 @@ dot); the view does not zoom until it is placed. With the edge line-up on,
 the turn counts from the edge - two notches is square across it. Assets
 show their wireframe too, and turn the same way.</p>
 <p><strong>The placement settings window</strong> (the small icon beside +) holds what a
-new object starts as and how it lands:</p>
+new object starts as and how it lands. It opens at the right edge of the 3D
+view, out of the way of where you place things (drag it by its title to put
+it elsewhere; double-click the title to fold it). At the top, a picture of
+what the next click makes: the profile as you look down the spine, with its
+width and height, and the side view - its length, shaped by the scale
+graph, the segments marked. Under it, what it is:</p>
 <ul>
-<li><strong>depth</strong> — on the surface, or sunk in by an amount</li>
-<li><strong>new profile</strong> — an n-gon by default (a square), or a circle</li>
+<li><strong>new profile</strong> — every profile preset as a picture: an n-gon by default
+  (a square; its sides beside the pictures), a circle, a star, a gear, an
+  I-beam, a heart... The one picked takes the <strong>profile radius</strong> as its size.</li>
 <li><strong>spine length</strong> — how far it is swept (default 10)</li>
 <li><strong>profile radius</strong> — how big it starts (default 7.07: the square's
   corners, so a new object is a 10 mm cube)</li>
 <li><strong>scale</strong> — which scale graph it starts with (the default flat line,
-  the <em>box</em>, or a preset such as <em>to zero</em>)</li>
+  the <em>box</em>, or a preset such as <em>to zero</em>), each with its picture</li>
+</ul>
+<p>And how it lands:</p>
+<ul>
+<li><strong>depth</strong> — on the surface, or sunk in by an amount</li>
 <li><strong>keep</strong> — a distance from the nearest edge, and a second, different
   distance from the edge the cross arm meets (see below)</li>
 <li><strong>snap</strong> — how close the pointer has to be before a guide takes hold,
@@ -2289,21 +2315,41 @@ anyone in the loop.</p>
 suite builds every run, so it cannot quietly stop being true.</p>
 <hr /></section><section class="sec" id="scripting"><h3>Scripting</h3><p><strong>Script → Script editor…</strong> (Ctrl+R). The document is available as
 <code>model</code>, and <code>math</code> and <code>numpy</code> are already imported.</p>
-<pre><code class="language-python">a = model.add(&quot;+&quot;, &quot;body&quot;)
+<p>```python
+a = model.add("+", "body")
 model.profile(a, model.ngon(6, 20))
 model.twist(a, 90)
-
-for i in range(8):                    # a bolt circle
-    h = model.add(&quot;-&quot;)
+model.round_rims(a, 0, 2)              # the top rim rounded 2 mm</p>
+<p>for i in range(8):                    # a bolt circle
+    h = model.add("-")
     model.profile(h, model.circle(3))
     ang = i * 2 * math.pi / 8
-    model.move(h, x=30*math.cos(ang), y=30*math.sin(ang))
-</code></pre>
+    model.move(h, x=30<em>math.cos(ang), y=30</em>math.sin(ang))
+```</p>
 <p>Useful calls: <code>add</code>, <code>combine</code>, <code>duplicate</code>, <code>delete</code>, <code>find</code>, <code>link</code>,
 <code>unlink</code>,
 <code>objects</code>, <code>move</code>, <code>rotate</code>, <code>scale</code>, <code>profile</code>, <code>spine</code>, <code>scale_graph</code>,
 <code>twist</code>, <code>offset</code>, <code>mirror</code>, <code>volume</code>, and curve helpers <code>line</code>,
 <code>circle</code>, <code>polyline</code>, <code>ngon</code>, <code>star</code>, <code>curve_from</code>.</p>
+<p>The newer tools have calls too, so a script - or an AI - can use them:</p>
+<p><code>python
+c = model.combine(a, b, "joined")
+model.blend(c, 3)                          # its seams rounded 3 mm ("chamfer" for a bevel)
+model.bridge([arm, hand], "wrist")         # parts apart joined by one smooth piece
+row = model.array(peg, 5, model.line((0, 0), (100, 0)))   # 5 in a row along X
+ring = model.array(tooth, 8, model.circle(40))            # 8 in a ring round it
+model.hollow(vase, 2)                      # 2 mm walls, closed all round
+for f in model.faces(a): print(f["name"], f["what"])      # its faces, by name
+model.push(f"n{a.id}.seg1", 5)             # a side pushed out 5 mm
+model.round_edge(f"n{a.id}.seg0", f"n{a.id}.seg1", 3)     # the edge between them rounded
+model.net(f"n{a.id}.cap1", 3)              # a 3 x 3 net on its end...
+model.net_point(f"n{a.id}.cap1", 1, 1, 6)  # ...its middle lifted 6 mm
+model.cage(ring, 3)                        # a box cage round the whole ring...
+model.cage_point(ring, 1, 1, 2, z=10)      # ...its top middle point 10 mm up
+part = model.import_file("bracket.step")   # a CAD file as a part</code></p>
+<p>A part's faces are named <code>n&lt;id&gt;.cap0</code> (its start), <code>n&lt;id&gt;.cap1</code> (its end)
+and <code>n&lt;id&gt;.seg&lt;k&gt;</code> (its sides, in the order of the profile), where <code>&lt;id&gt;</code>
+is <code>part.id</code>.</p>
 <p>Everything goes through the same calls the buttons use, so a scripted
 model is identical to a drawn one.</p>
 <p><code>model.link(b, "profile", a)</code> makes b's profile follow a's. <strong>Loops are
@@ -2329,6 +2375,16 @@ for a script that runs but builds something wrong (a cut the geometry
 kernel couldn't make, an offset too big for the shape): once the 3D view
 has built it, the problem is listed under the script and the button
 lights up.</p>
+<p><strong>Rebuild a mesh.</strong> Press <strong>Mesh to rebuild…</strong> and pick an STL or OBJ. It shows
+see-through in the 3D view and is never part of your model. Say what it is -
+"rebuild this bracket" - and the AI gets its measurements: its size, its
+outline wherever it cuts it, a part straight from an outline. Each round of
+<em>Do it for me</em> checks how close the result comes - how far the surfaces stand
+apart, how much they share, where the biggest misses are - and is done when
+it is within the distance set beside the button. The result is ordinary
+parts: change them, or ask the AI to, like anything else. In scripts:
+<code>model.reference(path)</code>, <code>model.section(axis, at)</code>, <code>model.along(axis, n)</code>,
+<code>model.part_from_section(axis, start, end)</code> and <code>model.compare(tol)</code>.</p>
 <p><strong>Want it different?</strong> Step 4 lights up once something is made. Type the
 change - "make the rim wavier and add a foot" - and press <strong>Copy for AI</strong>.
 That copies the script as it is, everything you asked so far, the change -
