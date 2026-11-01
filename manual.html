@@ -493,7 +493,9 @@ every 15° (longer every 90°) turn with it. While you drag, nine light
 <strong>ghost sections</strong> show where the shape is going; the model rebuilds when
 you let go. Dials work <strong>relative</strong>: a twist of 500° is tweaked from 500,
 not reset.</p>
-<p>Switch all three off with the dials icon (bottom left), or each one in
+<p>Switch all three off with the bottom-left switch (on ⌗ splines the dials
+are hidden, and in direct editing; right-click it for the
+checklist), or each one in
 Settings. The manipulator's <strong>off</strong> setting hides the gizmo only - the
 dials and curves keep their own switches.</p>
 <p><strong>Curve points beat the gizmo.</strong> Near a visible spine or profile point, a
@@ -590,7 +592,7 @@ row shuts. The icon then shows the tool you used last.
   shapes.
 - <strong>🖼 references</strong> (bottom right) holds the <strong>section</strong> (extract a
   plane) and the <strong>line</strong> extractor - helpers that never become the part.
-- <strong>✥ the manipulator</strong> (bottom left; move / turn / scale / off) holds the <strong>pivot</strong> and <strong>world /
+- <strong>✥ the manipulator</strong> (bottom left; move / turn / scale / direct / off) holds the <strong>pivot</strong> and <strong>world /
   local</strong>; an <strong>L</strong> on ✥ says local, a dot says a temporary pivot is set.
 - <strong>⟺ measure</strong> holds <strong>dimensions</strong>.
 - <strong>◐ what is shown</strong> (bottom right) holds the <strong>axes</strong>, the <strong>grid</strong>,
@@ -623,13 +625,12 @@ the system and stays.</p>
 editor's 1.25 or 1.5 times bigger, glyphs included - handy on a large or
 high-resolution screen. Remembered. When a row no longer fits beside
 another one it moves to a line of its own instead of overlapping.</p>
-<p><strong>Bottom left - handling the model:</strong> the manipulator chooser (move and
-turn together, move, turn, scale, or <strong>off</strong> - no gizmo at all, clicks just
-select and orbit), the <strong>what is on the object</strong> switch - each click the
-next of <strong>⌗ splines</strong> (the plane squares and the curves in 3D), <strong>◎ dials</strong>
-(spin, roll and twist), <strong>⇕ direct editing</strong> and <strong>⬚ the box cage</strong>; its
-picture shows which is on, and a right-click gives the checklist (splines
-and dials together, or neither) - then what a click selects, reposition, the temporary pivot, measure, and
+<p><strong>Bottom left - handling the model:</strong> the manipulator chooser - each click
+the next of move and turn together, move, turn, scale, <strong>⇕ direct editing</strong>
+or <strong>off</strong> (no gizmo at all, clicks just select and orbit) - then the <strong>what is on the object</strong> switch - <strong>⌗ splines</strong> (the
+plane squares and the curves in 3D) or <strong>◎ dials</strong> (spin, roll and twist);
+its picture shows which is on, and a right-click gives the checklist
+(splines and dials together, or neither) - then what a click selects, reposition, the temporary pivot, measure, and
 world/local.</p>
 <p><strong>Bottom middle:</strong> align and distribute, for two or more selected objects.</p>
 <p><strong>Bottom right - how it is shown:</strong> reference images and meshes, with the
@@ -685,9 +686,10 @@ handles — none of them are offered). Those are
 consequences of the radius, so they are not offered — exactly as on the
 graphs — and moving the corner keeps the radius.</p>
 <p>Drawing new curves in 3D is deliberately not offered: the graphs are
-where drawing belongs.</p></section><section class="sec" id="direct-editing-push-and-pull-the-model-itself"><h3>Direct editing — push and pull the model itself</h3><p>The <strong>what is on the object</strong> switch (bottom left: ⌗ splines, ◎ dials,
-⇕ direct, ⬚ cage - each click the next) has a step for it: <strong>⇕ direct</strong>.
-Picking a manipulator (✥) leaves it again. <strong>The quick way both ways: the
+where drawing belongs.</p></section><section class="sec" id="direct-editing-push-and-pull-the-model-itself"><h3>Direct editing — push and pull the model itself</h3><p>The manipulator chooser (bottom left: move and turn, move, turn, scale,
+⇕ direct, off - each click the next, and Q, W, E, R pick the first
+four) has a step for it: <strong>⇕ direct</strong>. The next manipulator leaves it
+again, and brings back the splines or dials that were shown. <strong>The quick way both ways: the
 D key</strong>, or <strong>direct editing</strong> in the right-click menu - direct editing on,
 and again back to the manipulator and what was shown before. With it on, the model's own faces
 and edges answer the pointer - there is nothing to select first:</p>
@@ -704,7 +706,10 @@ and edges answer the pointer - there is nothing to select first:</p>
 <li><strong>Drag an end cap</strong> to pull it - the spine gets longer or shorter, its
   last piece running on. The cap has two more grips on its rim: the
   <strong>● dot</strong> tilts the end (the spine's direction there, in its plane) and
-  the <strong>■ square</strong> scales the end (the scale graph's value at that end).</li>
+  the <strong>■ square</strong> scales the end (the scale graph's value at that end).
+  Tilting one end leaves the other end exactly as it was; with <em>View &gt;
+  Direct editing: tilting an end keeps the other end in place</em> off, the
+  whole spine bends with it.</li>
 <li><strong>Past zero, a cut.</strong> Keep pulling an end back through the other end and
   the part carries on out of it the other way, and turns from adding to
   cutting: a block pushed down into what it stands on becomes a pocket that
@@ -720,7 +725,10 @@ and edges answer the pointer - there is nothing to select first:</p>
 <li><strong>Drag an edge</strong> to round it - between two sides it is the profile's
   corner radius, round a cap it is the rim rounding, between two parts it
   is the seam's fillet (a fillet already there can be dragged on its own
-  face). Dragged past zero it becomes a chamfer, as everywhere. An edge
+  face). Dragged past zero it becomes a chamfer, as everywhere. While you
+  drag, the rounding is drawn on the edge at once - the two lines where it
+  meets each face, and arcs across it (a chamfer as its flat) - and the
+  part itself is rebuilt when you let go. An edge
   between two sides also has a <strong>■ square</strong>: drag it to move the corner
   itself, out or in along its middle line; both sides follow.</li>
 <li><strong>A hole</strong> is pushed the same way: its wall's arrow points into the
