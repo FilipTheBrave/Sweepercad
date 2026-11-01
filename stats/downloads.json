@@ -485,9 +485,18 @@
     "mac-intel": 462,
     "windows": 424
    }
+  },
+  {
+   "date": "2026-11-01",
+   "counts": {
+    "linux": 279,
+    "mac-apple-silicon": 897,
+    "mac-intel": 516,
+    "windows": 473
+   }
   }
  ],
- "updated": "2026-10-31T23:11Z",
+ "updated": "2026-11-01T00:28Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -510,12 +519,8 @@
   },
   "changes": {
    "week": 74,
-   "month": 462,
+   "month": 463,
    "daily": [
-    {
-     "date": "2026-10-02",
-     "count": 0
-    },
     {
      "date": "2026-10-03",
      "count": 0
@@ -631,53 +636,23 @@
     {
      "date": "2026-10-31",
      "count": 23
+    },
+    {
+     "date": "2026-11-01",
+     "count": 1
     }
    ]
   },
   "goat": {
-   "updated": "2026-10-31T01:05Z",
-   "referrers": [
-    {
-     "name": "direct (typed or bookmarked)",
-     "count": 213
-    },
-    {
-     "name": "www.cheetah3d.com",
-     "count": 82
-    },
-    {
-     "name": "com.linkedin.android",
-     "count": 3
-    },
-    {
-     "name": "www.bing.com",
-     "count": 3
-    },
-    {
-     "name": "Hacker News",
-     "count": 2
-    },
-    {
-     "name": "www.linkedin.com",
-     "count": 2
-    },
-    {
-     "name": "Google",
-     "count": 1
-    },
-    {
-     "name": "www.cheetah3d.com/forum/index.php",
-     "count": 1
-    }
-   ],
+   "updated": "2026-11-01T00:28Z",
    "countries": [
     {
      "name": "Belgium",
-     "count": 294
+     "count": 315
     },
     {
      "name": "Germany",
-     "count": 76
+     "count": 78
     },
     {
      "name": "United States",
@@ -723,7 +698,7 @@
    "browsers": [
     {
      "name": "Safari",
-     "count": 442
+     "count": 463
     },
     {
      "name": "Chrome",
@@ -731,17 +706,17 @@
     },
     {
      "name": "Firefox",
-     "count": 47
+     "count": 49
     }
    ],
    "systems": [
     {
      "name": "iOS",
-     "count": 251
+     "count": 270
     },
     {
      "name": "macOS",
-     "count": 251
+     "count": 255
     },
     {
      "name": "Windows",
@@ -759,7 +734,7 @@
    "screens": [
     {
      "name": "phone",
-     "count": 260
+     "count": 279
     },
     {
      "name": "tablet",
@@ -767,14 +742,14 @@
     },
     {
      "name": "desktop",
-     "count": 211
+     "count": 215
     },
     {
      "name": "large desktop",
      "count": 68
     }
    ],
-   "total": 547,
+   "total": 570,
    "daily": [
     {
      "date": "2026-10-13",
@@ -850,11 +825,49 @@
     },
     {
      "date": "2026-10-31",
-     "count": 0
+     "count": 19
     },
     {
      "date": "2026-11-01",
+     "count": 4
+    },
+    {
+     "date": "2026-11-02",
      "count": 0
+    }
+   ],
+   "referrers": [
+    {
+     "name": "direct (typed or bookmarked)",
+     "count": 213
+    },
+    {
+     "name": "www.cheetah3d.com",
+     "count": 82
+    },
+    {
+     "name": "com.linkedin.android",
+     "count": 3
+    },
+    {
+     "name": "www.bing.com",
+     "count": 3
+    },
+    {
+     "name": "Hacker News",
+     "count": 2
+    },
+    {
+     "name": "www.linkedin.com",
+     "count": 2
+    },
+    {
+     "name": "Google",
+     "count": 1
+    },
+    {
+     "name": "www.cheetah3d.com/forum/index.php",
+     "count": 1
     }
    ]
   },
@@ -1006,6 +1019,11 @@
    },
    {
     "date": "2026-10-29",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-30",
     "count": 0,
     "uniques": 0
    }
