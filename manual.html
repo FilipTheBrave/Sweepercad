@@ -714,8 +714,10 @@ and edges answer the pointer - there is nothing to select first:</p>
   the part carries on out of it the other way, and turns from adding to
   cutting: a block pushed down into what it stands on becomes a pocket that
   deep, with the same outline; a hole pulled up out of it becomes a boss.
-  A taper is mirrored across that end. The label says <em>past zero: it cuts
-  now</em>. Drag back above zero and it adds again. This works on a straight
+  A taper is mirrored across that end. A part placed on a face sits a hair
+  into it, so the cut also reaches a hair back out past the surface - the
+  pocket opens at the top, and a boss sinks a hair in. The label says
+  <em>past zero: it cuts now</em>. Drag back above zero and it adds again. This works on a straight
   part with one profile and no twist; anything else says why it can't.</li>
 <li><strong>A straight side</strong> has a <strong>● dot</strong> at its end: drag it to turn the
   side about its middle (its neighbours keep their lines).</li>
@@ -728,7 +730,12 @@ and edges answer the pointer - there is nothing to select first:</p>
   face). Dragged past zero it becomes a chamfer, as everywhere. While you
   drag, the rounding is drawn on the edge at once - the two lines where it
   meets each face, and arcs across it (a chamfer as its flat) - and the
-  part itself is rebuilt when you let go. An edge
+  part itself is rebuilt when you let go.</li>
+<li><strong>Every drag shows what it makes</strong> before you let go: pushing a side,
+  the turn dot, the corner square, the length, the tilt dot, the end size
+  and a bend draw the new shape as rings across the part and lines along
+  it, over the part as it was. A cage point bends the part along with it,
+  and a net point lifts the face around it. An edge
   between two sides also has a <strong>■ square</strong>: drag it to move the corner
   itself, out or in along its middle line; both sides follow.</li>
 <li><strong>A hole</strong> is pushed the same way: its wall's arrow points into the
