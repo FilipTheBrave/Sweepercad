@@ -697,7 +697,7 @@ four) has a step for it: <strong>⇕ direct</strong>. The next manipulator leave
 again, and brings back the splines or dials that were shown. <strong>The quick way both ways: the
 D key</strong>, or <strong>direct editing</strong> in the right-click menu - direct editing on,
 and again back to the manipulator and what was shown before. With it on, the model's own faces
-and edges answer the pointer - there is nothing to select first:</p>
+and edges answer the pointer - there is nothing to select first. <strong>The app opens in direct editing</strong> the first time, and after that in whatever you left it in - splines, dials, none or direct - when you closed it:</p>
 <ul>
 <li><strong>Hover</strong> a face or an edge: it lights up and a label says what it is
   (<em>block: side 2</em>, <em>block: end cap</em>, <em>c: seam</em>) and its number now.</li>
@@ -819,6 +819,7 @@ solid with every face named, saved like any net, and goes on being edited
 the usual way. The part is rebuilt when the stroke ends. A stroke that
 crosses onto another face carries on there with that face's net; a
 fillet's own face is left alone.</p>
+<p>The brush is a share of the model: its <strong>radius</strong> is a percentage of the model's span (the box round everything drawn, corner to corner; 5 % to start), and a <strong>dab</strong> a percentage of the radius (8 %) - so it is the same brush on a pendant and on a gate, and the net a face gets follows it. While the brush is on, <strong>a bar at the bottom of the 3D view</strong> has both as sliders, with the millimetres beside them; the panel's sculpt row shows the same numbers and either moves the other. A small brush still moves the nearest net point with every dab. Leaving direct editing switches the brush off. When a press does nothing the status line says why: beside the part, on a fillet's face (left alone - sculpt the face beside it), or on a part that cannot take a net.</p>
 <p>The <strong>sculpt</strong> row in the node box has the brush: <strong>pull</strong> (out), <strong>push</strong>
 (in) or <strong>smooth</strong> (the points under the brush drawn toward their
 neighbours), the <strong>radius</strong> on the surface, the <strong>strength</strong> (how far one
