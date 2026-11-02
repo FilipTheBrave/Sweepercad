@@ -512,9 +512,18 @@
     "mac-intel": 627,
     "windows": 574
    }
+  },
+  {
+   "date": "2026-11-02",
+   "counts": {
+    "linux": 423,
+    "mac-apple-silicon": 1113,
+    "mac-intel": 684,
+    "windows": 626
+   }
   }
  ],
- "updated": "2026-11-01T23:08Z",
+ "updated": "2026-11-02T01:04Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -536,13 +545,9 @@
    }
   },
   "changes": {
-   "week": 91,
+   "week": 75,
    "month": 480,
    "daily": [
-    {
-     "date": "2026-10-03",
-     "count": 0
-    },
     {
      "date": "2026-10-04",
      "count": 1
@@ -658,19 +663,23 @@
     {
      "date": "2026-11-01",
      "count": 18
+    },
+    {
+     "date": "2026-11-02",
+     "count": 0
     }
    ]
   },
   "goat": {
-   "updated": "2026-11-01T00:28Z",
+   "updated": "2026-11-02T01:03Z",
    "countries": [
     {
      "name": "Belgium",
-     "count": 315
+     "count": 330
     },
     {
      "name": "Germany",
-     "count": 78
+     "count": 80
     },
     {
      "name": "United States",
@@ -716,25 +725,25 @@
    "browsers": [
     {
      "name": "Safari",
-     "count": 463
+     "count": 478
     },
     {
      "name": "Chrome",
-     "count": 58
+     "count": 60
     },
     {
      "name": "Firefox",
-     "count": 49
+     "count": 52
     }
    ],
    "systems": [
     {
      "name": "iOS",
-     "count": 270
+     "count": 282
     },
     {
      "name": "macOS",
-     "count": 255
+     "count": 263
     },
     {
      "name": "Windows",
@@ -752,7 +761,7 @@
    "screens": [
     {
      "name": "phone",
-     "count": 279
+     "count": 291
     },
     {
      "name": "tablet",
@@ -760,14 +769,14 @@
     },
     {
      "name": "desktop",
-     "count": 215
+     "count": 222
     },
     {
      "name": "large desktop",
-     "count": 68
+     "count": 69
     }
    ],
-   "total": 570,
+   "total": 590,
    "daily": [
     {
      "date": "2026-10-13",
@@ -847,10 +856,14 @@
     },
     {
      "date": "2026-11-01",
-     "count": 4
+     "count": 24
     },
     {
      "date": "2026-11-02",
+     "count": 0
+    },
+    {
+     "date": "2026-11-03",
      "count": 0
     }
    ],
@@ -1042,6 +1055,11 @@
    },
    {
     "date": "2026-10-30",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-10-31",
     "count": 0,
     "uniques": 0
    }
