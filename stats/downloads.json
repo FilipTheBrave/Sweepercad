@@ -533,9 +533,18 @@
     "mac-intel": 744,
     "windows": 679
    }
+  },
+  {
+   "date": "2026-11-03",
+   "counts": {
+    "linux": 524,
+    "mac-apple-silicon": 1270,
+    "mac-intel": 804,
+    "windows": 734
+   }
   }
  ],
- "updated": "2026-11-02T17:55Z",
+ "updated": "2026-11-03T03:06Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -557,13 +566,9 @@
    }
   },
   "changes": {
-   "week": 86,
-   "month": 491,
+   "week": 95,
+   "month": 503,
    "daily": [
-    {
-     "date": "2026-10-04",
-     "count": 1
-    },
     {
      "date": "2026-10-05",
      "count": 20
@@ -678,20 +683,24 @@
     },
     {
      "date": "2026-11-02",
-     "count": 11
+     "count": 18
+    },
+    {
+     "date": "2026-11-03",
+     "count": 5
     }
    ]
   },
   "goat": {
-   "updated": "2026-11-02T01:03Z",
+   "updated": "2026-11-03T03:06Z",
    "countries": [
     {
      "name": "Belgium",
-     "count": 330
+     "count": 339
     },
     {
      "name": "Germany",
-     "count": 80
+     "count": 83
     },
     {
      "name": "United States",
@@ -737,7 +746,7 @@
    "browsers": [
     {
      "name": "Safari",
-     "count": 478
+     "count": 486
     },
     {
      "name": "Chrome",
@@ -745,17 +754,17 @@
     },
     {
      "name": "Firefox",
-     "count": 52
+     "count": 56
     }
    ],
    "systems": [
     {
      "name": "iOS",
-     "count": 282
+     "count": 286
     },
     {
      "name": "macOS",
-     "count": 263
+     "count": 271
     },
     {
      "name": "Windows",
@@ -773,7 +782,7 @@
    "screens": [
     {
      "name": "phone",
-     "count": 291
+     "count": 295
     },
     {
      "name": "tablet",
@@ -781,14 +790,14 @@
     },
     {
      "name": "desktop",
-     "count": 222
+     "count": 229
     },
     {
      "name": "large desktop",
-     "count": 69
+     "count": 70
     }
    ],
-   "total": 590,
+   "total": 602,
    "daily": [
     {
      "date": "2026-10-13",
@@ -872,10 +881,14 @@
     },
     {
      "date": "2026-11-02",
-     "count": 0
+     "count": 11
     },
     {
      "date": "2026-11-03",
+     "count": 1
+    },
+    {
+     "date": "2026-11-04",
      "count": 0
     }
    ],
@@ -1074,12 +1087,17 @@
     "date": "2026-10-31",
     "count": 0,
     "uniques": 0
+   },
+   {
+    "date": "2026-11-01",
+    "count": 1,
+    "uniques": 1
    }
   ],
   "referrers": [
    {
     "site": "sweepercad.com",
-    "count": 3,
+    "count": 4,
     "uniques": 3
    },
    {
