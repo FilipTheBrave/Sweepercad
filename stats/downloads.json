@@ -728,9 +728,18 @@
     "mac-intel": 1792,
     "windows": 1640
    }
+  },
+  {
+   "date": "2026-11-14",
+   "counts": {
+    "linux": 1443,
+    "mac-apple-silicon": 2708,
+    "mac-intel": 1871,
+    "windows": 1714
+   }
   }
  ],
- "updated": "2026-11-13T04:46Z",
+ "updated": "2026-11-14T01:52Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -752,13 +761,9 @@
    }
   },
   "changes": {
-   "week": 123,
-   "month": 537,
+   "week": 115,
+   "month": 523,
    "daily": [
-    {
-     "date": "2026-10-15",
-     "count": 31
-    },
     {
      "date": "2026-10-16",
      "count": 31
@@ -873,46 +878,16 @@
     },
     {
      "date": "2026-11-13",
-     "count": 1
+     "count": 2
+    },
+    {
+     "date": "2026-11-14",
+     "count": 0
     }
    ]
   },
   "goat": {
-   "updated": "2026-11-13T02:10Z",
-   "referrers": [
-    {
-     "name": "direct (typed or bookmarked)",
-     "count": 252
-    },
-    {
-     "name": "www.cheetah3d.com",
-     "count": 91
-    },
-    {
-     "name": "Google",
-     "count": 4
-    },
-    {
-     "name": "com.linkedin.android",
-     "count": 3
-    },
-    {
-     "name": "www.bing.com",
-     "count": 3
-    },
-    {
-     "name": "Hacker News",
-     "count": 2
-    },
-    {
-     "name": "www.linkedin.com",
-     "count": 2
-    },
-    {
-     "name": "www.cheetah3d.com/forum/index.php",
-     "count": 1
-    }
-   ],
+   "updated": "2026-11-14T01:51Z",
    "countries": [
     {
      "name": "Belgium",
@@ -1150,6 +1125,44 @@
     {
      "date": "2026-11-14",
      "count": 0
+    },
+    {
+     "date": "2026-11-15",
+     "count": 0
+    }
+   ],
+   "referrers": [
+    {
+     "name": "direct (typed or bookmarked)",
+     "count": 252
+    },
+    {
+     "name": "www.cheetah3d.com",
+     "count": 91
+    },
+    {
+     "name": "Google",
+     "count": 4
+    },
+    {
+     "name": "com.linkedin.android",
+     "count": 3
+    },
+    {
+     "name": "www.bing.com",
+     "count": 3
+    },
+    {
+     "name": "Hacker News",
+     "count": 2
+    },
+    {
+     "name": "www.linkedin.com",
+     "count": 2
+    },
+    {
+     "name": "www.cheetah3d.com/forum/index.php",
+     "count": 1
     }
    ]
   },
@@ -1366,6 +1379,11 @@
    },
    {
     "date": "2026-11-11",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-11-12",
     "count": 0,
     "uniques": 0
    }
