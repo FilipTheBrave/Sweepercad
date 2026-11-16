@@ -1,0 +1,12 @@
+{
+ "name": "Walker",
+ "desc": "A two-legged walker of about 800 parts, written as one script: sweeps between points, armour plates as SubD shells, coils, arrays, a lattice, a muzzle cut and blended, a bridge. A heavy project - after opening, press FULL and give it several minutes",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "project.sweeper",
+ "triangles": 3072511,
+ "objects": 800,
+ "build_s": 500.0
+}
