@@ -765,9 +765,22 @@ row shuts. The icon then shows the tool you used last.
   hold.</p>
 <p>The switch groups (=, ✥, ⟺, ◐) keep their own icon; a state you could
 not see otherwise is marked on it.</p>
+<p><strong>The icons in the order of the work.</strong> The first button, top left, says
+<strong>AI</strong> - Build with AI (and the script editor). Beside it, one row holds
+what you add to the model: <strong>a sweep that adds, one that cuts, one that
+keeps what is inside</strong> - and the corner of each opens a <strong>coil</strong>, a <strong>stick
+figure</strong> and a <strong>route</strong> of that same sign - then combine, auto-combine,
+array, SubD (with SubD over a part), lattice (with drawing on a shape) and
+import. The node toolbar has the same three corners. <strong>Cut, join and
+connect sweeps, copy and mirror</strong> sit at the bottom left, before the ruler,
+with the other things that change the selection; the sculpt brush and the
+box cage each have their own icon there. <strong>Every corner of icons is faint
+until the mouse is on it</strong>; a button that is switched on stays in full.
+<strong>Settings ▸ Icons in the order of the work</strong> brings the rows as they were
+back.</p>
 <p><strong>Top right - the document:</strong> undo, redo, <strong>open</strong> (📂 - open, open recent,
 new), save, save as, export, a <strong>picture</strong> of the model (📷), the <strong>stats</strong> (Σ), the
-script editor (⌨), <strong>own windows</strong> (❐), <strong>help</strong> (? - how to use, the scripting
+<strong>Build with AI</strong> (AI - top left in the order of the work), <strong>own windows</strong> (❐), <strong>help</strong> (? - how to use, the scripting
 reference, terms, a newer version, supporting development, about) and the
 <strong>gear</strong> (⚙).</p>
 <p><strong>Own windows - for a second monitor (❐).</strong> Put the <strong>3D view</strong>, the
@@ -3604,7 +3617,7 @@ through <code>python cli.py ...</code>.)</p>
 <p>AI_GUIDE.md documents the format, with a minimal example the check
 suite builds every run, so it cannot quietly stop being true.</p>
 <hr />
-<hr /></section><section class="sec" id="scripting"><h3>Scripting</h3><p><strong>Script → Script editor…</strong> (Ctrl+R). The document is available as
+<hr /></section><section class="sec" id="scripting"><h3>Scripting</h3><p>The <strong>AI</strong> button, or <strong>Script → Build with AI / script editor…</strong> (Ctrl+R). The document is available as
 <code>model</code>, and <code>math</code> and <code>numpy</code> are already imported.</p>
 <p>```python
 a = model.add("+", "body")
