@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.1 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.2 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.1. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.2. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1285,7 +1285,7 @@ inserting an asset does not count - every part is built once then, which
 is always slower.</p>
 <hr />
 <hr /></section><section class="sec" id="animation"><h3>Animation</h3><p><strong>The animation icon</strong> (top right, a play triangle over a line with keys) shows and hides
-everything for animation: the <strong>play bar</strong> at the bottom of the view and the <strong>timeline</strong> standing on it.</p>
+everything for animation: the <strong>play bar</strong> at the bottom of the view and the <strong>timeline</strong>, a panel of its own that you can move.</p>
 <figure><a href="manual/animation.jpg"><img src="manual/animation.jpg" alt="The timeline and the play bar: a row for every setting that moves, its keys along the clip, and the graph of the selected row." loading="lazy"></a><figcaption>The timeline and the play bar: a row for every setting that moves, its keys along the clip, and the graph of the selected row.</figcaption></figure>
 <p><strong>Record.</strong> Switch <strong>Record</strong> on, drag the clock to a time and change something on a part - a number
 in a field, its place or turn with the handles, a curve in a graph, its eye (shown / hidden). That is
@@ -1318,7 +1318,9 @@ selected row under it.</p>
 <tr><td>drag a handle of a selected key</td><td>shapes how the value arrives and leaves</td></tr>
 <tr><td><strong>smooth / linear / held</strong></td><td>how the value leaves the selected key</td></tr>
 <tr><td><strong>key</strong>, <strong>row</strong> with a cross</td><td>remove the selected keys, or all keys of the row</td></tr>
-<tr><td><strong>window</strong></td><td>the timeline in a window of its own - anywhere, any size</td></tr>
+<tr><td>drag the title line &middot; double-click it</td><td>the timeline is a panel of its own: move it &middot; fold it to one line</td></tr>
+<tr><td><strong>graph</strong> &middot; the corner</td><td>show or hide the graph &middot; size the panel</td></tr>
+<tr><td><strong>Done</strong></td><td>puts the timeline and the play bar away</td></tr>
 </tbody>
 </table>
 <p><strong>Playing.</strong> <strong>fast</strong> shows a quick draft of each frame, <strong>full</strong> the real model. Frames that were
