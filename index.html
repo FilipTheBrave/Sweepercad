@@ -308,14 +308,19 @@
         <p>SweeperCAD works with the AI you already use &mdash; Claude, ChatGPT or one on your own computer.
             No subscription, and by default the app sends nothing anywhere: you choose what to paste where.</p>
         <ol>
-            <li><b>Describe it</b> &mdash; &ldquo;an angle bracket, 60 &times; 40 &times; 50 mm, 6 mm plate, two M5 holes&rdquo; &mdash; and press <b>Copy for AI</b>.
+            <li><b>Describe it</b> &mdash; &ldquo;an angle bracket, 60 &times; 40 &times; 50 mm, 6 mm plate, two M5 holes&rdquo; &mdash; and press <b>Copy message for AI</b>.
                 Measured parts with flat faces, edges and holes come out best; the app offers a few requests to start from.
                 <b>Or sketch it:</b> the sketch pad takes free-hand lines, straight lines and smooth curves, or you can
                 draw over a photo of a napkin sketch, and the drawing goes to the AI with your words. To change what
                 it made, draw on the model itself &mdash; circle, arrow or cross out in red what should be different.</li>
-            <li><b>Paste it into your AI</b> and copy its answer.</li>
-            <li>Press <b>Paste the answer &amp; run</b>. The part appears, as a real solid you can keep editing, fillet and export.</li>
+            <li><b>Paste it into any AI chat</b> and send it. When it answers, press the <b>Copy</b> button on the box with the code.</li>
+            <li>Back in SweeperCAD, press <b>Paste the AI&rsquo;s answer and build it</b> &mdash; nothing to paste by hand.
+                The part appears, as a real solid you can keep editing, fillet and export. Every step says what to press
+                next, and if you copied the wrong thing, it tells you.</li>
         </ol>
+        <p><b>See how it was built, and change one part.</b> The AI names the parts it makes; <i>How it was built</i>
+            lists each one, how it was made and its size. Pick a part, describe the change, and only that part is made
+            again &mdash; everything else stays exactly as it was. <a href="#videos">Part 12b shows it step by step</a>.</p>
         <p>Want it different? Type the change &mdash; &ldquo;make the rim wavier and add a foot&rdquo; &mdash; and go round again.
             SweeperCAD hands the AI what its script actually made, <b>measured</b> &mdash; sizes, volume, loose pieces,
             anything the build complained about &mdash; and <b>pictures from four sides</b>, so it checks its own work
@@ -359,6 +364,16 @@
                 and passes for compositing &mdash; depth, normal, object, material, motion.</li>
         </ul>
         <p style="font-size:14px;color:#666;clear:both"><a href="manual.html#animation">Animation, in the manual</a> &middot; <a href="#videos">the video, part 24</a>.</p>
+    </section>
+
+    <section class="ai anim" id="reliefs">
+        <h2>Reliefs</h2>
+        <p>A picture or a height map raises a face: lighter is higher. A bas-relief on a plate, a pattern wrapped
+            round the side of a part, terrain from height data &mdash; or both ways, around mid-grey. Or <b>paint the
+            relief</b> in the app, on a canvas made to fit the face, and watch the model follow each stroke. Sculpt on
+            top of it, and erase the sculpting again without losing the relief. It is not a texture painted on: the
+            surface really moves, so it prints, casts and mills.</p>
+        <p style="font-size:14px;color:#666;clear:both"><a href="manual.html#reliefs-a-picture-or-a-height-map-raises-a-face">Reliefs, in the manual</a> &middot; <a href="#videos">the video, part 16</a>.</p>
     </section>
 
     <section class="videos" id="videos">
@@ -443,7 +458,7 @@
         </video>
         <p class="note">Part 10, glasses, moulds and making:
             lenses from a prescription, cut the way an optician cuts them, checked against the curve of your
-            face, with a data sheet for the optician - a study tool, not medically approved. Moulds for
+            face, with a data sheet for the optician - a study tool, for designing frames only. Moulds for
             any part: a thin eggshell to print, cast into and crack away - or split along one or more cuts,
             pie-wise or on a plane you place, with flanges, registration bumps, a funnel, vents, a core, engraved
             text, and cracks only where the mould would lock; or a cradle, a box or a pour box around it.
