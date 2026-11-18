@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.6 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.7 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.6. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.7. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -3814,6 +3814,25 @@ with the wrong thing copied and it says what happened: nothing copied yet,
 the message for the AI itself (it has not been sent to your AI yet), or
 plain text that is no script (copy the code box - or ask the AI for "the
 SweeperCAD script").</p>
+<p><strong>Say it instead of typing (🎤).</strong> Beside ① and ④ is a microphone button: hold it, say
+what you want or the change, let go - the words are typed into that step. The <strong>🎤 hold and
+speak</strong> button at the bottom of the window understands three kinds of things, the first that
+fits:</p>
+<ul>
+<li><strong>a field you can see</strong>, by its label and a number: "cell size 8", "depth minus 1.5",
+  "thickness 2 millimetres" - it is filled in as if typed;</li>
+<li><strong>a quick change to the selected part</strong>, no AI needed: "make it 20 mm longer" (a sweep's end
+  is pulled, exactly as dragging it), "make that bit shorter" (10 %), "wider by 5 mm", "make it
+  10 percent bigger", "round the edges 2 mm", "colour it red", "hide it", "show everything",
+  "delete it", "undo", "redo" - each one undo step;</li>
+<li><strong>anything else is a change for the AI</strong>: Build with AI opens with it in step ④ (in ① when
+  nothing is built yet), for the selected part or the one picked in <em>How it was built</em>.</li>
+</ul>
+<p>What was understood is shown at the bottom of the window. Speech is turned into text <strong>on this
+computer</strong> (whisper.cpp): the first press asks to download the speech model once (about 57 MB,
+kept in your SweeperCAD folder); after that nothing you say leaves the computer. It understands
+many languages. Your system's own dictation works in every field too: on a Mac the dictation key
+(or Fn twice), on Windows Win+H.</p>
 <p><strong>The script box.</strong> The AI's answer lands in the box under the steps. You can
 also paste a script there yourself, or write one, and press <strong>▶ Build this
 script</strong>.</p>
