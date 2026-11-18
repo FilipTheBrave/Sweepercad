@@ -1,0 +1,19 @@
+{
+ "name": "Enclosure with vented lid",
+ "desc": "A rounded electronics box with screw bosses and a slotted lid. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 68053.0,
+ "area_mm2": 74178.3,
+ "triangles": 5464,
+ "size_mm": [
+  120.0,
+  80.0,
+  62.0
+ ],
+ "objects": 2,
+ "build_s": 11.2
+}

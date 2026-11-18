@@ -1,0 +1,19 @@
+{
+ "name": "Jar with screw lid",
+ "desc": "A threaded jar neck and a knurled lid that screws onto it. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 28747.7,
+ "area_mm2": 25416.0,
+ "triangles": 27048,
+ "size_mm": [
+  69.5,
+  68.0,
+  66.0
+ ],
+ "objects": 3,
+ "build_s": 3.5
+}

@@ -1,0 +1,19 @@
+{
+ "name": "Hex nut and washer",
+ "desc": "An M12 nut with a real inner thread, on a washer. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 2913.4,
+ "area_mm2": 2595.0,
+ "triangles": 3944,
+ "size_mm": [
+  24.0,
+  24.0,
+  12.4
+ ],
+ "objects": 2,
+ "build_s": 4.3
+}

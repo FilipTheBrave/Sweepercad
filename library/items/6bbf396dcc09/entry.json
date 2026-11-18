@@ -1,0 +1,19 @@
+{
+ "name": "Cordless drill",
+ "desc": "A drill with a battery pack, chuck and bit. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 1070369.2,
+ "area_mm2": 118208.8,
+ "triangles": 14666,
+ "size_mm": [
+  296.2,
+  63.1,
+  194.4
+ ],
+ "objects": 13,
+ "build_s": 11.3
+}

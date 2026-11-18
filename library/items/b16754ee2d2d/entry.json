@@ -1,0 +1,19 @@
+{
+ "name": "Desk fan",
+ "desc": "A fan with blades, a wire guard, a motor housing and a base. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 883979.0,
+ "area_mm2": 209260.0,
+ "triangles": 36636,
+ "size_mm": [
+  248.0,
+  153.0,
+  364.0
+ ],
+ "objects": 17,
+ "build_s": 16.9
+}

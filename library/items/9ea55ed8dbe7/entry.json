@@ -1,0 +1,19 @@
+{
+ "name": "Gearbox housing",
+ "desc": "An open housing with two bearing bores, a flange, mounting feet and screw holes. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 469395.1,
+ "area_mm2": 141396.5,
+ "triangles": 5044,
+ "size_mm": [
+  228.0,
+  178.0,
+  70.0
+ ],
+ "objects": 1,
+ "build_s": 5.0
+}

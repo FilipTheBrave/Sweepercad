@@ -1,0 +1,722 @@
+{
+ "format": "sweeper-project",
+ "version": 3,
+ "roots": [
+  3
+ ],
+ "nodes": [
+  {
+   "id": 1,
+   "name": "axle",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.09,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     90.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "+",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0,
+       0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0,
+       180.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       15.0,
+       0.0
+      ],
+      "in": [
+       15.0,
+       -8.284271247
+      ],
+      "out": [
+       15.0,
+       8.284271247
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       15.0
+      ],
+      "in": [
+       8.284271247,
+       15.0
+      ],
+      "out": [
+       -8.284271247,
+       15.0
+      ]
+     },
+     {
+      "pos": [
+       -15.0,
+       0.0
+      ],
+      "in": [
+       -15.0,
+       8.284271247
+      ],
+      "out": [
+       -15.0,
+       -8.284271247
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       -15.0
+      ],
+      "in": [
+       -8.284271247,
+       -15.0
+      ],
+      "out": [
+       8.284271247,
+       -15.0
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       5.555555555555556e-06,
+       0.6
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.005555555555555556,
+       0.6666666666666666
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.011111111111111112,
+       0.6666666666666666
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.011116666666666665,
+       0.6
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.017777777777777778,
+       0.6
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.017783333333333335,
+       0.6666666666666666
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.1388888888888889,
+       0.6666666666666666
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.13889444444444446,
+       0.9333333333333333
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.14444444444444443,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.6888888888888889,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.6944444444444444,
+       0.9333333333333333
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.69445,
+       0.6666666666666666
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.8155555555555556,
+       0.6666666666666666
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.8155611111111112,
+       0.6
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.8222222222222222,
+       0.6
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.8222277777777778,
+       0.6666666666666666
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.8333333333333334,
+       0.6666666666666666
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.833338888888889,
+       0.4
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.9944444444444445,
+       0.4
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       0.3333333333333333
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 2,
+   "name": "keyway",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.06,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     75.0,
+     0.0,
+     11.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "-",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0,
+       0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0,
+       6
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       16.0,
+       -4.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       17.23606797749979,
+       -3.804226065180614
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       18.351141009169893,
+       -3.23606797749979
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       19.23606797749979,
+       -2.3511410091698925
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       19.804226065180615,
+       -1.2360679774997896
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       20.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       19.804226065180615,
+       1.2360679774997896
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       19.23606797749979,
+       2.3511410091698925
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       18.351141009169893,
+       3.23606797749979
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       17.23606797749979,
+       3.804226065180614
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       16.0,
+       4.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -16.0,
+       4.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -17.23606797749979,
+       3.8042260651806146
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -18.351141009169893,
+       3.23606797749979
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -19.23606797749979,
+       2.351141009169893
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -19.804226065180615,
+       1.23606797749979
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -20.0,
+       4.898587196589413e-16
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -19.804226065180615,
+       -1.2360679774997891
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -19.23606797749979,
+       -2.351141009169892
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -18.351141009169893,
+       -3.2360679774997894
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -17.23606797749979,
+       -3.804226065180614
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       -16.0,
+       -4.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 3,
+   "name": "axle",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.06,
+   "origin_from": null,
+   "color": [
+    0.7,
+    0.72,
+    0.75
+   ],
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 1,
+   "b": 2,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "none",
+    "radius": 1.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  }
+ ]
+}

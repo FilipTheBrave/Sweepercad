@@ -1,0 +1,3181 @@
+{
+ "format": "sweeper-project",
+ "version": 3,
+ "roots": [
+  379
+ ],
+ "nodes": [
+  {
+   "id": 355,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.08,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     8.0,
+     0.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "+",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       8.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       41.0,
+       -30.0
+      ],
+      "in": [
+       38.7908610008,
+       -30.0
+      ],
+      "out": [
+       43.2091389992,
+       -30.0
+      ]
+     },
+     {
+      "pos": [
+       45.0,
+       -26.0
+      ],
+      "in": [
+       45.0,
+       -28.2091389992
+      ],
+      "out": [
+       45.0,
+       -23.7908610008
+      ]
+     },
+     {
+      "pos": [
+       45.0,
+       26.0
+      ],
+      "in": [
+       45.0,
+       23.7908610008
+      ],
+      "out": [
+       45.0,
+       28.2091389992
+      ]
+     },
+     {
+      "pos": [
+       41.0,
+       30.0
+      ],
+      "in": [
+       43.2091389992,
+       30.0
+      ],
+      "out": [
+       38.7908610008,
+       30.0
+      ]
+     },
+     {
+      "pos": [
+       -41.0,
+       30.0
+      ],
+      "in": [
+       -38.7908610008,
+       30.0
+      ],
+      "out": [
+       -43.2091389992,
+       30.0
+      ]
+     },
+     {
+      "pos": [
+       -45.0,
+       26.0
+      ],
+      "in": [
+       -45.0,
+       28.2091389992
+      ],
+      "out": [
+       -45.0,
+       23.7908610008
+      ]
+     },
+     {
+      "pos": [
+       -45.0,
+       -26.0
+      ],
+      "in": [
+       -45.0,
+       -23.7908610008
+      ],
+      "out": [
+       -45.0,
+       -28.2091389992
+      ]
+     },
+     {
+      "pos": [
+       -41.0,
+       -30.0
+      ],
+      "in": [
+       -43.2091389992,
+       -30.0
+      ],
+      "out": [
+       -38.7908610008,
+       -30.0
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 356,
+   "name": "arm",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.07,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     -15.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     90.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "+",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       30.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       4,
+       -25
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       4,
+       25
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       60,
+       17
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       60,
+       -17
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 357,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.96,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 355,
+   "b": 356,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "fillet",
+    "radius": 3.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 358,
+   "name": "rib",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.05,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     -12.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     90.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "+",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       6.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       2,
+       -30
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       2,
+       -18
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       56,
+       -18
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       72,
+       -22
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       72,
+       -26
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 359,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 9.09,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 357,
+   "b": 358,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "fillet",
+    "radius": 3.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 360,
+   "name": "rib",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.04,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     6.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     90.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "+",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       6.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       2,
+       -30
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       2,
+       -18
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       56,
+       -18
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       72,
+       -22
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       72,
+       -26
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 361,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 2.94,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 359,
+   "b": 360,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "fillet",
+    "radius": 3.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 362,
+   "name": "ring",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.03,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     -15.0,
+     80.0,
+     0.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     90.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "+",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       30.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       28.0,
+       0.0
+      ],
+      "in": [
+       28.0,
+       -15.463972994399999
+      ],
+      "out": [
+       28.0,
+       15.463972994399999
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       28.0
+      ],
+      "in": [
+       15.463972994399999,
+       28.0
+      ],
+      "out": [
+       -15.463972994399999,
+       28.0
+      ]
+     },
+     {
+      "pos": [
+       -28.0,
+       0.0
+      ],
+      "in": [
+       -28.0,
+       15.463972994399999
+      ],
+      "out": [
+       -28.0,
+       -15.463972994399999
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       -28.0
+      ],
+      "in": [
+       -15.463972994399999,
+       -28.0
+      ],
+      "out": [
+       15.463972994399999,
+       -28.0
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 363,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 7.23,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 361,
+   "b": 362,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "fillet",
+    "radius": 3.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 364,
+   "name": "ears",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.07,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     -15.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     90.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "+",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       30.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       71,
+       18
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       89,
+       18
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       89,
+       34
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       71,
+       34
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 365,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.21,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 363,
+   "b": 364,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "fillet",
+    "radius": 3.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 366,
+   "name": "bore",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.06,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     -16.0,
+     80.0,
+     0.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     90.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "-",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       32.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       20.0,
+       0.0
+      ],
+      "in": [
+       20.0,
+       -11.045694996
+      ],
+      "out": [
+       20.0,
+       11.045694996
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       20.0
+      ],
+      "in": [
+       11.045694996,
+       20.0
+      ],
+      "out": [
+       -11.045694996,
+       20.0
+      ]
+     },
+     {
+      "pos": [
+       -20.0,
+       0.0
+      ],
+      "in": [
+       -20.0,
+       11.045694996
+      ],
+      "out": [
+       -20.0,
+       -11.045694996
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       -20.0
+      ],
+      "in": [
+       -11.045694996,
+       -20.0
+      ],
+      "out": [
+       11.045694996,
+       -20.0
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 367,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.11,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 365,
+   "b": 366,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "none",
+    "radius": 1.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 368,
+   "name": "slit",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.06,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     -16.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     90.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "-",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       32.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       79,
+       0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       81,
+       0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       81,
+       40
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       79,
+       40
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 369,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.08,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 367,
+   "b": 368,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "none",
+    "radius": 1.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 370,
+   "name": "hole M6 clearance",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.07,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     90.5,
+     27.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "-",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       20.5
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       3.3,
+       0.0
+      ],
+      "in": [
+       3.3,
+       -1.8225396743399997
+      ],
+      "out": [
+       3.3,
+       1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       3.3
+      ],
+      "in": [
+       1.8225396743399997,
+       3.3
+      ],
+      "out": [
+       -1.8225396743399997,
+       3.3
+      ]
+     },
+     {
+      "pos": [
+       -3.3,
+       0.0
+      ],
+      "in": [
+       -3.3,
+       1.8225396743399997
+      ],
+      "out": [
+       -3.3,
+       -1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       -3.3
+      ],
+      "in": [
+       -1.8225396743399997,
+       -3.3
+      ],
+      "out": [
+       1.8225396743399997,
+       -3.3
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 371,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.15,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 369,
+   "b": 370,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "none",
+    "radius": 1.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 372,
+   "name": "hole M6 countersunk",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.06,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     -35.0,
+     8.5,
+     -20.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "-",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       9.5
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       3.3,
+       0.0
+      ],
+      "in": [
+       3.3,
+       -1.8225396743399997
+      ],
+      "out": [
+       3.3,
+       1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       3.3
+      ],
+      "in": [
+       1.8225396743399997,
+       3.3
+      ],
+      "out": [
+       -1.8225396743399997,
+       3.3
+      ]
+     },
+     {
+      "pos": [
+       -3.3,
+       0.0
+      ],
+      "in": [
+       -3.3,
+       1.8225396743399997
+      ],
+      "out": [
+       -3.3,
+       -1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       -3.3
+      ],
+      "in": [
+       -1.8225396743399997,
+       -3.3
+      ],
+      "out": [
+       1.8225396743399997,
+       -3.3
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       2.0303030303030303
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.3578947368421053,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 373,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.1,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 371,
+   "b": 372,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "none",
+    "radius": 1.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 374,
+   "name": "hole M6 countersunk",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.02,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     -35.0,
+     8.5,
+     20.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "-",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       9.5
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       3.3,
+       0.0
+      ],
+      "in": [
+       3.3,
+       -1.8225396743399997
+      ],
+      "out": [
+       3.3,
+       1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       3.3
+      ],
+      "in": [
+       1.8225396743399997,
+       3.3
+      ],
+      "out": [
+       -1.8225396743399997,
+       3.3
+      ]
+     },
+     {
+      "pos": [
+       -3.3,
+       0.0
+      ],
+      "in": [
+       -3.3,
+       1.8225396743399997
+      ],
+      "out": [
+       -3.3,
+       -1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       -3.3
+      ],
+      "in": [
+       -1.8225396743399997,
+       -3.3
+      ],
+      "out": [
+       1.8225396743399997,
+       -3.3
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       2.0303030303030303
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.3578947368421053,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 375,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.09,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 373,
+   "b": 374,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "none",
+    "radius": 1.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 376,
+   "name": "hole M6 countersunk",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.02,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     35.0,
+     8.5,
+     -20.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "-",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       9.5
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       3.3,
+       0.0
+      ],
+      "in": [
+       3.3,
+       -1.8225396743399997
+      ],
+      "out": [
+       3.3,
+       1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       3.3
+      ],
+      "in": [
+       1.8225396743399997,
+       3.3
+      ],
+      "out": [
+       -1.8225396743399997,
+       3.3
+      ]
+     },
+     {
+      "pos": [
+       -3.3,
+       0.0
+      ],
+      "in": [
+       -3.3,
+       1.8225396743399997
+      ],
+      "out": [
+       -3.3,
+       -1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       -3.3
+      ],
+      "in": [
+       -1.8225396743399997,
+       -3.3
+      ],
+      "out": [
+       1.8225396743399997,
+       -3.3
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       2.0303030303030303
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.3578947368421053,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 377,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.09,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 375,
+   "b": 376,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "none",
+    "radius": 1.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  },
+  {
+   "id": 378,
+   "name": "hole M6 countersunk",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.02,
+   "origin_from": null,
+   "color": null,
+   "transform": {
+    "position": [
+     35.0,
+     8.5,
+     20.0
+    ],
+    "rotation": [
+     90.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "base",
+   "sign": "-",
+   "attach": null,
+   "attach_offset": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spine": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       0.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.0,
+       9.5
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "profile": {
+    "closed": true,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       3.3,
+       0.0
+      ],
+      "in": [
+       3.3,
+       -1.8225396743399997
+      ],
+      "out": [
+       3.3,
+       1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       3.3
+      ],
+      "in": [
+       1.8225396743399997,
+       3.3
+      ],
+      "out": [
+       -1.8225396743399997,
+       3.3
+      ]
+     },
+     {
+      "pos": [
+       -3.3,
+       0.0
+      ],
+      "in": [
+       -3.3,
+       1.8225396743399997
+      ],
+      "out": [
+       -3.3,
+       -1.8225396743399997
+      ]
+     },
+     {
+      "pos": [
+       0.0,
+       -3.3
+      ],
+      "in": [
+       -1.8225396743399997,
+       -3.3
+      ],
+      "out": [
+       1.8225396743399997,
+       -3.3
+      ]
+     }
+    ]
+   },
+   "profile_group": null,
+   "outlines": {},
+   "guides": {},
+   "constraints": {},
+   "scale_graph": {
+    "closed": false,
+    "seg_kinds": [],
+    "anchors": [
+     {
+      "pos": [
+       0.0,
+       2.0303030303030303
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       0.3578947368421053,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     },
+     {
+      "pos": [
+       1.0,
+       1.0
+      ],
+      "in": null,
+      "out": null
+     }
+    ]
+   },
+   "asym_axis": "y",
+   "scale_graph_neg": null,
+   "twist_deg": 0.0,
+   "roll_deg": 0.0,
+   "scale_in_place": false,
+   "sections": 33,
+   "auto_sections": true,
+   "allow_slow": false,
+   "merge_smooth": true,
+   "end_round": [
+    0.0,
+    0.0
+   ],
+   "draft_deg": 0.0,
+   "section_tolerance_deg": 5.0,
+   "spacing": "curvature",
+   "fold_fix": "ease",
+   "check_fold": true,
+   "auto_fix_fold": true,
+   "end_profile": null,
+   "blend_bias": 0.5,
+   "blend_ease": "smooth",
+   "blend_align": 0.0,
+   "blend_auto_align": true,
+   "loft_mode": "auto",
+   "heading": "transport",
+   "spin_deg": 0.0,
+   "spin_axis": null,
+   "up_vector": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "fold_safety": 0.6,
+   "link_spine": null,
+   "link_profile": null,
+   "link_end": null,
+   "link_scale": null,
+   "offset_spine": 0.0,
+   "offset_profile": 0.0,
+   "offset_end": 0.0,
+   "offset_scale": 0.0,
+   "mirror_spine": null,
+   "mirror_profile": null,
+   "mirror_end": null,
+   "mirror_scale": null
+  },
+  {
+   "id": 379,
+   "name": "bracket",
+   "ui_pos": [
+    0.0,
+    0.0
+   ],
+   "visible": true,
+   "keep_as": "+",
+   "hollow": 0.0,
+   "locked": false,
+   "build_s": 0.09,
+   "origin_from": null,
+   "color": [
+    0.75,
+    0.78,
+    0.82
+   ],
+   "transform": {
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "type": "combine",
+   "a": 377,
+   "b": 378,
+   "allow_slow": false,
+   "draft_skip": false,
+   "blend": {
+    "mode": "none",
+    "radius": 1.0,
+    "per_edge": {},
+    "exclude": [],
+    "min_edge_length": 0.05,
+    "max_fragments": 8,
+    "max_total_edges": 60,
+    "auto_skip": true,
+    "force": [],
+    "auto_shrink": true,
+    "g2": false,
+    "g2_fullness": 1.0,
+    "rings": [],
+    "fit": "each"
+   }
+  }
+ ]
+}

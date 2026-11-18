@@ -1,0 +1,19 @@
+{
+ "name": "Handwheel",
+ "desc": "A rim, a bored hub, five spokes and a turning handle. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 120430.5,
+ "area_mm2": 36045.2,
+ "triangles": 1696,
+ "size_mm": [
+  161.0,
+  160.0,
+  64.0
+ ],
+ "objects": 4,
+ "build_s": 0.4
+}

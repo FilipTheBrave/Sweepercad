@@ -1,0 +1,19 @@
+{
+ "name": "Flanged pipe tee",
+ "desc": "Three tubes with flanges, bored through. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 150168.7,
+ "area_mm2": 56402.4,
+ "triangles": 1544,
+ "size_mm": [
+  140.0,
+  64.0,
+  102.0
+ ],
+ "objects": 1,
+ "build_s": 1.0
+}

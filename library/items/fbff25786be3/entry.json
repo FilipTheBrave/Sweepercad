@@ -1,0 +1,19 @@
+{
+ "name": "Swivel caster",
+ "desc": "A caster with a top plate, fork, wheel and axle. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 197997.7,
+ "area_mm2": 47931.2,
+ "triangles": 2144,
+ "size_mm": [
+  70.0,
+  60.0,
+  99.9
+ ],
+ "objects": 8,
+ "build_s": 0.9
+}

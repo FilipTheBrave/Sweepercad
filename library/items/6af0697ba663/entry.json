@@ -1,0 +1,19 @@
+{
+ "name": "Desk lamp",
+ "desc": "A spring-arm desk lamp, its parts named: base, arms, springs, shade. Change one part and the rest stays. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 800431.0,
+ "area_mm2": 214307.1,
+ "triangles": 36604,
+ "size_mm": [
+  568.6,
+  160.0,
+  444.5
+ ],
+ "objects": 23,
+ "build_s": 4.5
+}

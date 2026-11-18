@@ -1,0 +1,19 @@
+{
+ "name": "Phone stand",
+ "desc": "One bent plate with a lip and a cable slot. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 82091.7,
+ "area_mm2": 32911.3,
+ "triangles": 1040,
+ "size_mm": [
+  90.0,
+  80.0,
+  96.2
+ ],
+ "objects": 1,
+ "build_s": 0.4
+}

@@ -1,0 +1,19 @@
+{
+ "name": "Motor mount",
+ "desc": "An angle bracket with a gusset, a pilot bore and four screw holes. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 33264.8,
+ "area_mm2": 16217.8,
+ "triangles": 1416,
+ "size_mm": [
+  56.0,
+  50.0,
+  56.0
+ ],
+ "objects": 1,
+ "build_s": 1.6
+}

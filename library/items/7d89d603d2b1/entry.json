@@ -1,0 +1,19 @@
+{
+ "name": "Compression spring",
+ "desc": "A coil spring standing on a plate. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 19050.6,
+ "area_mm2": 14087.2,
+ "triangles": 9486,
+ "size_mm": [
+  50.0,
+  50.0,
+  66.2
+ ],
+ "objects": 2,
+ "build_s": 0.6
+}

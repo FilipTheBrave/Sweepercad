@@ -1,0 +1,19 @@
+{
+ "name": "Shaft support bracket",
+ "desc": "A split clamp on a stem and base plate, bolted. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 143414.7,
+ "area_mm2": 32269.6,
+ "triangles": 3444,
+ "size_mm": [
+  90.0,
+  108.0,
+  64.0
+ ],
+ "objects": 1,
+ "build_s": 22.2
+}

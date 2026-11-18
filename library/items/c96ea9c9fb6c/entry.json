@@ -1,0 +1,19 @@
+{
+ "name": "Flanged hub",
+ "desc": "A hub on a bolted flange: six holes on a circle, a keyed bore and a set-screw hole. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 194849.3,
+ "area_mm2": 35165.4,
+ "triangles": 3190,
+ "size_mm": [
+  109.9,
+  110.0,
+  57.0
+ ],
+ "objects": 1,
+ "build_s": 1.4
+}

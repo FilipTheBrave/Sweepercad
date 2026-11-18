@@ -1,0 +1,19 @@
+{
+ "name": "V-belt pulley",
+ "desc": "A two-groove pulley with curved spokes and a hub. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 202185.4,
+ "area_mm2": 58781.3,
+ "triangles": 2786,
+ "size_mm": [
+  131.5,
+  131.6,
+  45.0
+ ],
+ "objects": 1,
+ "build_s": 1.2
+}

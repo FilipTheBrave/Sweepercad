@@ -1,0 +1,19 @@
+{
+ "name": "Divided tray",
+ "desc": "A tray with rounded compartments. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 19025.4,
+ "area_mm2": 22302.9,
+ "triangles": 1028,
+ "size_mm": [
+  100.0,
+  70.0,
+  8.0
+ ],
+ "objects": 1,
+ "build_s": 2.0
+}

@@ -1,0 +1,19 @@
+{
+ "name": "Pillow block",
+ "desc": "A bearing pillow block with ribs, slotted feet and a grease nipple boss. Made with Build with AI.",
+ "maker": "Filip",
+ "licence": "cc0",
+ "licence_text": "free to use, no credit needed (CC0)",
+ "kind": "project",
+ "file": "part.sweeper",
+ "volume_mm3": 215613.9,
+ "area_mm2": 40921.8,
+ "triangles": 1656,
+ "size_mm": [
+  160.0,
+  45.0,
+  88.0
+ ],
+ "objects": 1,
+ "build_s": 2.4
+}
