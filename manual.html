@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.11 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.14 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.11. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.14. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -293,7 +293,7 @@ done by placing the points themselves backwards.</p>
 graph in use side by side, up to four - for an ordinary object the spine,
 the profile, the end profile when it is on, and the scale. The tabs stay
 above as the list of graphs: the lit one, also lit in the grid, is the one
-<em>preset</em>, <em>import SVG</em> and the rest act on, and <strong>a click inside any graph
+<em>preset</em>, <em>import SVG</em> and the rest act on (they are the icons above the graphs: a preset shape, import an SVG, fit to the mesh, export, a reference picture — hover one for its name), and <strong>a click inside any graph
 makes it that one</strong>. Drag the lines between them to share out the room.
 Click ⊞ again for the tabs. It is remembered, and works in the graphs' own
 window too (❐) - on a second monitor all four get a good size.</p>
@@ -2049,7 +2049,7 @@ it like any object; the copies follow.</p>
 original too"</strong> to keep one more exactly where the object is - a hub inside
 a ring of copies. It is not added twice when a copy already sits there.</p>
 <hr />
-<hr /></section><section class="sec" id="growing-arrays-spirals-pine-cones-trees-corals"><h3>Growing arrays — spirals, pine cones, trees, corals</h3><p>In the array panel, <strong>place on: grown</strong>. One step, again and again: each
+<hr /></section><section class="sec" id="growing-arrays-spirals-pine-cones-trees-corals"><h3>Growing arrays — spirals, pine cones, trees, corals</h3><p>When you make an array, the dialog asks where the copies go — <strong>along a curve</strong>, <strong>on a surface</strong> or <strong>grown</strong>, each with its icon — and for grown, what to <strong>grow like</strong> (pine cone, spiral, coil, tree, coral, flower, burst). Later, in the array panel, <strong>place on: grown</strong>. One step, again and again: each
 copy stands to the next as the first stands to the second - <strong>moved</strong>,
 <strong>turned</strong> and <strong>scaled</strong> by the same amounts, in the copy's own frame, so
 the step shrinks as the copies do. <strong>Start from</strong> fills in a starting point:
@@ -3004,6 +3004,7 @@ from source</strong> re-reads the file and keeps where you put it.</p>
 sweeps…</strong> for a mesh already loaded as a reference (in the references list,
 and at the bottom of the <em>fit to mesh</em> menu) - rebuilds the mesh as ordinary
 SweeperCAD objects: sweeps and combines you edit like anything you drew.</p>
+<p><strong>Made for hard parts.</strong> Flat faces, holes, cylinders, drafts and roundings convert well. A mesh that reads as organic — a sculpted or scanned form that bends two ways nearly everywhere, like a hand or a face — is offered <strong>Draw SubD over it</strong> instead: the mesh stays as a reference and every point you place lands on it. <strong>Convert anyway</strong> is still there.</p>
 <p><strong>Method: sections along the spines</strong> (the default). Every part of the mesh
 - the trunk and each limb or branch - becomes one sweep whose profiles are
 the mesh's own cross-sections, cut square to the part's centreline at
