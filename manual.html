@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.14 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.15 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.14. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.15. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -321,16 +321,12 @@ and the shapes that become something when swept: an <strong>ellipse</strong>, a
 blade</strong> (a thin radial blade on the axis; twisted, a screw flight - add a
 shaft as a second + object), a curve of <strong>constant width</strong>; a <strong>rack</strong> that
 runs on the gears (same module and pressure angle; its pitch line is y = 0,
-so a gear's centre sits module x teeth / 2 above it) - and a <strong>thread</strong>. A thread is the shank seen in cross section: the
-outline sits on the major diameter along the crest, runs down a flank,
-sits on the minor diameter along the root and climbs back - one turn per
-pitch, so the four arcs share the circle the way crest, flank, root and
-flank share the pitch (an ISO V-thread: 1/8, 5/16, 1/4, 5/16, depth 0.54 x
-pitch). Give it the major diameter, the pitch and the number of starts;
-with a straight spine it also sets the <strong>twist</strong> that makes it a thread,
-360° per pitch of length (divided by the starts). A bent spine leaves the
-twist to you. Threads are long twists, so the object is marked <em>allow
-slow</em>; a long bolt is a heavy build - model the threaded length only.</p>
+so a gear's centre sits module x teeth / 2 above it) - and a <strong>thread</strong>: a real screw thread, the ISO 60° tooth wound round a core as a
+coil - a true helix. Give it the major diameter, the pitch (or leave the standard coarse one),
+the length, and whether it is an <strong>outside thread</strong> (a bolt's threaded end) or a
+<strong>cutter for an inside thread</strong> (combine it with a nut; a clearance makes it a little bigger
+for printing). With a straight part selected it takes that part's start, direction and length -
+draw the shank, then add its thread; otherwise it stands on the origin along Z.</p>
 <p><strong>The same gestures on every graph.</strong> Click a point to select it (and drag
 it). <strong>Double-click</strong> on the curve to insert a point there, or in empty
 space on an open curve to add one at the end - a new point matches the one
@@ -2282,6 +2278,9 @@ closes the outside with a solid wall.</p>
 and all, with no seam.</p>
 <p><strong>Decal</strong>: text (any font), an image or an SVG, projected onto one side of
 the part and embossed or engraved there.</p>
+<p><strong>Cells</strong> - a 3D pattern (gyroid, grid…) filling a sweep follows it: <em>even cells
+through the part</em> keeps one cell size everywhere, bending with the spine; <em>round the spine</em>
+lays the cells round it like spokes - small in the middle, full size at the skin.</p>
 <p><strong>Place</strong> - a repeating pattern (gyroid, honeycomb, struts, foams, grid,
 Voronoi) can be slid <strong>across / up / along</strong> the object and <strong>turned</strong>, as
 numbers in the panel or by hand: with the lattice selected an amber handle
