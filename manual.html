@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.19 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.20 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.19. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.20. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2088,7 +2088,9 @@ and dotted.</p>
 <p>Only how it looks on screen and in pictures - the part itself does not
 change. Kept with the project. Zebra, chrome and the other check views
 ignore it, and the grey views mute it - a note under the search field says so;
-click it for the Colour view. From a script: <code>model.material(part, "oak")</code>, or settings of its
+click it for the Colour view. When you export a mesh, tick <strong>burn the materials into the
+colours</strong> to take the look along: a colour on every vertex in OBJ, PLY and GLB, on
+every triangle in 3MF and STL (fine patterns get extra triangles so they show). From a script: <code>model.material(part, "oak")</code>, or settings of its
 own: <code>model.material(part, rough=0.2, metal=1, color=(0.8, 0.6, 0.3))</code>.</p>
 <hr /></section><section class="sec" id="lights"><h3>Lights</h3><p>The <strong>💡 lights</strong> button, bottom right beside the display buttons, opens the
 lights panel. At the top, <strong>the sky seen from above</strong>: the model in the middle,
