@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.20 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.21 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.20. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.21. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2115,6 +2115,15 @@ lit from every side you orbit to) or stays put in the scene like a sun,
 from underneath), its <strong>brightness</strong> and its <strong>colour</strong>. <strong>Ambient</strong> lifts
 the shadows everywhere. Every change shows at once; the lights are kept with
 the project, and pictures you save are lit the same way.</p>
+<p><strong>Shadows and depth.</strong> Once the view stands still - and in every picture you
+save - creases and the places where parts touch get a little darker (<strong>ambient
+occlusion</strong>), parts cast a <strong>shadow</strong> on each other, and a soft
+<strong>shadow lies on the floor</strong> under the model. One shadow, from your brightest light,
+or from above with the built-in lights. In the lights panel, under <strong>Shadows and
+depth</strong>, each can be switched off, and a slider makes the shadow edges sharp or soft (soft
+ones stay sharp where they touch the part that casts them). Turning the view stays as fast as
+ever: the shadows come with the sharp frame drawn after you stop. Saved pictures are drawn at
+twice their size and averaged down, so their edges are smooth.</p>
 <hr /></section>
 <section class="sec" id="wrapping-a-part-onto-a-surface"><h3>Wrapping a part onto a surface</h3><p>A part modelled flat - standing on a flat floor - can be bent to lie on the
 part under it. In the placement settings pick a <strong>wrap</strong> picture (off, straight down, along the surface) and place it, or
