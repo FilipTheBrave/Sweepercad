@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.18 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.19 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.18. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.19. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2063,25 +2063,32 @@ grows from the origin and turns about its Z axis. Up to 1500 copies - each the
 same shape reused, so it stays quick. From a script:
 <code>model.grow(branch, "tree", generations=7)</code>.</p>
 <hr /></section><section class="sec" id="materials-and-textures"><h3>Materials and textures</h3><p>The <strong>● materials</strong> button, bottom right beside the lights, opens the
-project's materials, each shown on a little ball. Pick one and <strong>✔ Apply to
-the selected</strong> - the selected objects wear it; <strong>none</strong> puts them back to
+project's materials, each shown on a little ball. Select the objects, pick a material and press the big yellow
+<strong>✔ Apply</strong> button - it says which material goes on how many objects - or
+double-click the material; <strong>none</strong> puts them back to
 the standard look. Change a material and every object wearing it changes at
 once. <strong>+ New</strong> (from any of them), <strong>Duplicate</strong>, <strong>− Remove</strong>; and for the
 chosen one: its <strong>name</strong>, <strong>its own colour</strong> (or each object keeps its own
 and takes only the finish), <strong>roughness</strong> (0 polished - a small bright
-highlight; matte - none), <strong>metal</strong> (the highlight in the object's own
-colour, the surface darker), <strong>opacity</strong> (see-through), an <strong>outline</strong> round
+highlight; matte - none), <strong>metal</strong> (it reflects a soft studio, in the
+object's own colour), <strong>opacity</strong> (see-through), an <strong>outline</strong> round
 the object (its width and colour - the "drawing" look), and a <strong>texture</strong>:
 <strong>wood</strong>, <strong>concrete</strong>, <strong>marble</strong>, <strong>granite</strong>, <strong>brushed</strong>, <strong>cork</strong> or
 <strong>hammered</strong>, with its size in mm - a pattern through the material, as if
 the part were cut from it, so the grain runs on round corners with nothing to
 unwrap - or <strong>your own picture</strong>, thrown on from the three sides and blended
-where they meet, repeated every so many mm. Ready to use: plastic, satin,
+where they meet, repeated every so many mm. Or a <strong>pattern</strong>: stripes, rings, waves,
+checkerboard, grid, dots, bricks, cell noise, Voronoi, reptile scales, noise,
+turbulence or a gradient, each with a <strong>2nd colour</strong> (✕: a darker shade of the
+material), an <strong>amount</strong> (thin lines or wide bands, small or big dots) and an
+<strong>angle</strong>. Ready to use: plastic, satin,
 matte, polished and brushed metal, rubber, glass, drawing, oak, walnut,
-concrete, marble, granite, brushed steel, cork and bronze.</p>
+concrete, marble, granite, brushed steel, cork, bronze, striped, checkerboard
+and dotted.</p>
 <p>Only how it looks on screen and in pictures - the part itself does not
 change. Kept with the project. Zebra, chrome and the other check views
-ignore it. From a script: <code>model.material(part, "oak")</code>, or settings of its
+ignore it, and the grey views mute it - a note under the search field says so;
+click it for the Colour view. From a script: <code>model.material(part, "oak")</code>, or settings of its
 own: <code>model.material(part, rough=0.2, metal=1, color=(0.8, 0.6, 0.3))</code>.</p>
 <hr /></section><section class="sec" id="lights"><h3>Lights</h3><p>The <strong>💡 lights</strong> button, bottom right beside the display buttons, opens the
 lights panel. At the top, <strong>the sky seen from above</strong>: the model in the middle,
@@ -3945,8 +3952,9 @@ the message for the AI itself (it has not been sent to your AI yet), or
 plain text that is no script (copy the code box - or ask the AI for "the
 SweeperCAD script").</p>
 <p><strong>Say it instead of typing (🎤).</strong> Beside ① and ④ is a microphone button: hold it, say
-what you want or the change, let go - the words are typed into that step. The <strong>🎤 hold and
-speak</strong> button at the bottom of the window understands three kinds of things, the first that
+what you want or the change, let go - the words are typed into that step. The round <strong>🎤 microphone</strong>
+at the end of the search field in the 3D view (and the <strong>hold and speak</strong> button at the
+bottom of the window) understands three kinds of things, the first that
 fits:</p>
 <ul>
 <li><strong>a field you can see</strong>, by its label and a number: "cell size 8", "depth minus 1.5",
