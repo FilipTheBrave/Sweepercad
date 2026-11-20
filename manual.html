@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.28 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.29 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.28. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.29. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -3658,7 +3658,7 @@ page or the SVG.</p>
 <p>The preview shows the stepped stack over the part, with the number of layers, pages and the sheet area. <strong>Save PDF</strong> gives pages at true size to print and cut by hand (with the 50 mm bar); <strong>Save SVG</strong> one file for a laser cutter or cutting plotter - red to cut, blue to engrave (the numbers), green the guides. It opens straight in the laser's own program (LightBurn, LaserGRBL, xTool Creative Space, the Glowforge app, or Inkscape printing to an Epilog or Trotec): true size in mm, hairline cut lines, the numbers as outlines so no font is needed, and no page frame. Give each colour its own power and speed there. <strong>Save DXF</strong> gives the same sheets for a plasma cutter, waterjet, laser or CNC router: true size in mm, outlines and slots on layer CUT, guides on GUIDE, the numbers as text on ENGRAVE.</p>
 <hr /></section>
 <section class="sec" id="parts-catalogue"><h3>Parts — the catalogue of ready parts</h3><p>Click <strong>parts</strong> in the make-it group, or the orange <strong>ready parts</strong> button at the top of the asset shelf, beside your own saved parts: every ready part in one list, each with a picture, in groups, with a <strong>find</strong> field at the top. Click one: a small window asks for its few numbers (it remembers what you used last), and the part is made at the origin - ordinary objects, to move, combine, cut and change like anything else. Where parts fit together, the play your printer needs (from the fit test) is used. The search and the microphone find each part by name: say "pillow block".</p>
-<figure><a href="manual/parts_catalogue.jpg"><img src="manual/parts_catalogue.jpg" alt="A selection of the ready parts: screws, a nut, a bearing, a pillow block, a coupler, a worm and wheel, bevel gears, a hinge, a universal joint, a box with lid, a handle, a wing nut, a knob, pipe fittings, a hose barb and a funnel." loading="lazy"></a><figcaption>A few of the 76: screws, nut, bearing, pillow block, coupler, worm and wheel, bevel gears, hinge, universal joint, box and lid, handle, wing nut, knob, elbow, tee, hose barb, funnel.</figcaption></figure>
+<figure><a href="manual/parts_catalogue.jpg"><img src="manual/parts_catalogue.jpg" alt="A selection of the ready parts: screws, a nut, a bearing, a pillow block, a coupler, a worm and wheel, bevel gears, a hinge, a universal joint, a box with lid, a handle, a wing nut, a knob, pipe fittings, a hose barb and a funnel." loading="lazy"></a><figcaption>A few of the 100: screws, nut, bearing, pillow block, coupler, worm and wheel, bevel gears, hinge, universal joint, box and lid, handle, wing nut, knob, elbow, tee, hose barb, funnel.</figcaption></figure>
 <ul>
 <li><strong>Gears and drives:</strong> a spur gear, a meshing pair set at the right distance, a ring gear, a helical pair.</li>
 <li><strong>Shafts and bearings:</strong> shaft couplers (rigid, or spiral-cut so they flex a little), shaft collars, flanged bushings, a pillow block and a flange housing made for the bearing you pick, a T8 lead screw (plain, or a real 4-start thread - that one takes a while) with its flanged nut, a GT2 belt clamp.</li>
@@ -3670,6 +3670,7 @@ page or the SVG.</p>
 <li><strong>Enclosures and fixings:</strong> a box with a snap or a screwed lid (made from the outside size), standoffs, mounts in the Raspberry Pi and Arduino hole patterns, a cable clip, a cable grommet, a hook, a wall bracket with a brace, a pull handle, a foot with a recess for a rubber pad.</li>
 <li><strong>Pipes and fluids:</strong> an elbow (90° or 45°), a tee, a reducer, a hose barb, a press-fit tube socket (a tight socket, not a push-to-connect fitting), a funnel, a nozzle.</li>
 <li><strong>More:</strong> a rocket nozzle, text, the tool tray.</li>
+<li><strong>New:</strong> a <strong>barrel hinge</strong> (two leaves and a pin), a <strong>ball joint</strong> that prints in place, a <strong>cam lever</strong> for a quick-release clamp, a <strong>gear rack</strong> and a <strong>cable chain link</strong>; a <strong>linear bearing holder</strong> (LM6UU to LM12UU) and a <strong>belt idler</strong> round a ball bearing; a <strong>shoulder bolt</strong>, an <strong>eye bolt</strong>, a <strong>spacer</strong>, a <strong>rivet</strong> and a <strong>knurled thumb nut</strong>; a <strong>screw boss</strong> with ribs and a <strong>keyhole slot</strong> (a negative part) for plastic housings; a <strong>box with a sliding lid</strong>, a <strong>DIN rail clip</strong>, a <strong>vent grille</strong>, a <strong>cable gland</strong> with its nut and a <strong>cable tie mount</strong>; an aluminium-extrusion <strong>corner bracket</strong> and <strong>end cap</strong> (2020, 3030, 4040); a <strong>pipe flange</strong> with its bolt circle, a <strong>pipe saddle clamp</strong> and a <strong>45° Y-branch</strong>.</li>
 </ul>
 <p>The graph panel's preset menu keeps the profiles - a gear's outline, a rack, a thread's tooth, mouldings - to sweep yourself. From a script or Build with AI: <code>model.hardware("socket", "M4", 16)</code> and <code>model.ready_part("pillow", bearing="608")</code>.</p>
 <hr /></section>
