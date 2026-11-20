@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.29 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.30 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.29. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.30. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -321,7 +321,7 @@ and the shapes that become something when swept: an <strong>ellipse</strong>, a
 blade</strong> (a thin radial blade on the axis; twisted, a screw flight - add a
 shaft as a second + object), a curve of <strong>constant width</strong>; a <strong>rack</strong> that
 runs on the gears (same module and pressure angle; its pitch line is y = 0,
-so a gear's centre sits module x teeth / 2 above it) - and a <strong>thread</strong> (also under the <strong>+</strong> and <strong>−</strong> icons, beside the coil: + a bolt's thread, − a nut's cutter; the <strong>gear</strong> sits there too - + a new gear part, − a gear-shaped cut): a real screw thread, the ISO 60° tooth wound round a core as a
+so a gear's centre sits module x teeth / 2 above it) - and a <strong>thread</strong> (also under the <strong>+</strong> and <strong>−</strong> icons, beside the coil: + a bolt's thread, − a nut's cutter): a real screw thread, the ISO 60° tooth wound round a core as a
 coil - a true helix. Give it the major diameter, the pitch (or leave the standard coarse one),
 the length, and whether it is an <strong>outside thread</strong> (a bolt's threaded end) or a
 <strong>cutter for an inside thread</strong> (combine it with a nut; a clearance makes it a little bigger
@@ -1418,11 +1418,13 @@ placement settings and it also turns so its sides run along the edge of
 the face you point at - the edge the distances are measured from - by the
 smallest turn that does it. <strong>"show the object while placing"</strong> switches
 the wireframe off if you'd rather see only the stick.</p>
-<p><strong>Turn it with the wheel.</strong> While placing, the mouse wheel turns the
-object about the face it sits on, 15° a notch (the angle shows under the
-dot); the view does not zoom until it is placed. With the edge line-up on,
-the turn counts from the edge - two notches is square across it. Assets
-show their wireframe too, and turn the same way.</p>
+<p><strong>Size it with the wheel, turn it with Shift.</strong> While placing a new object, the
+mouse wheel makes it bigger or smaller, 10 % a notch - its profile and its spine
+together, so it keeps its proportions; the placement window's numbers follow.
+<strong>Shift + wheel</strong> turns it about the face it sits on, 15° a notch (the angle shows
+under the dot). The view does not zoom until it is placed. With the edge line-up
+on, the turn counts from the edge - two notches is square across it. Moving an
+object or placing an asset, there is no size to set: the wheel turns it.</p>
 <p><strong>The placement settings window</strong> (the small icon beside +) holds what a
 new object starts as and how it lands. It opens at the right edge of the 3D
 view, out of the way of where you place things (drag it by its title to put
@@ -1499,7 +1501,7 @@ spine — 90° means the far end is a quarter turn from the near one.
 first section. Use roll to orient a square or an n-gon; use twist to
 make it spiral.</p>
 <hr />
-<p><strong>Settings in a window.</strong> A new array, infill, surface pattern, coil or eggshell mould opens its settings in a window over the 3D view: set them and watch the result follow, then press <strong>Done</strong> and they go back to the left panel, where they always are when that node is selected (selecting something else puts them back too). The route tool's window has a <strong>Ready</strong> button the same way.</p>
+<p><strong>Settings in a window.</strong> A new array, infill, surface pattern, coil or eggshell mould opens its settings in a window over the 3D view: set them and watch the result follow, then press <strong>Done</strong> and they go back to the left panel, where they always are when that node is selected (selecting something else puts them back too). The route tool's window has a <strong>Ready</strong> button the same way. The mouse wheel over the left panel always scrolls it: a field, list or slider only takes the wheel once you have clicked into it, so scrolling past a number never changes it.</p>
 <hr /></section><section class="sec" id="nodes"><h3>Nodes</h3><p><strong>Each card is the colour of what it is:</strong> green a positive object, red
 a negative, yellow a keep-inside one, blue a combine, purple an array,
 orange a bridge, cyan an imported part (a mesh with a dashed border), magenta a lattice (a colour you give a node
@@ -2021,9 +2023,10 @@ continuous by construction; the helper can be hidden or deleted afterwards.</p>
 <hr /></section><section class="sec" id="arrays-along-a-curve-or-on-a-surface"><h3>Arrays - along a curve or on a surface</h3><p>An array repeats whatever is wired into it. It <strong>takes that object's sign</strong>:
 an array of a negative is negative (drawn red and see-through), so an array
 of holes cuts.</p>
-<p>Where the copies go is chosen on the node itself - the <strong>curve / surface
-chip</strong> (a wave, or copies on a line) and the copies chip both open the
-array's dialog - and in the panel, "place on":</p>
+<p>Select an object and press the array icon: the array is made at once and
+its settings open in their own window (press <strong>Done</strong> when it looks right).
+Where the copies go is chosen there, "place on" - and on the node itself the
+<strong>curve / surface chip</strong> and the copies chip open the same window:</p>
 <ul>
 <li><strong>along the curve</strong> - the Array graph, as always: count, one per point,
   follow the curve, spin and scale per copy.</li>
@@ -4021,31 +4024,46 @@ boundary, and one that looks like a sandbox invites misplaced trust.
 Only run scripts you would be willing to run in a terminal.</p>
 <hr /></section><section class="sec" id="make-it-with-ai"><h3>Make it with AI</h3><p>Any AI you already use - ChatGPT, Claude, Gemini, a local one - can build
 things in SweeperCAD for you, and you do not need to write any code. Press
-the <strong>AI</strong> button (top left of the 3D view, or <strong>Script → Build with AI…</strong>)
-and follow the numbered steps at the top:</p>
-<ol>
-<li><strong>① Describe what you want</strong>, in plain words - "a desk lamp: round base,
-   two arms of 300 mm, a red shade 160 mm across". Sizes help. Press <strong>Copy
-   message for AI</strong>: that copies one long message with what you asked and
-   everything an AI needs to know to model it in SweeperCAD.</li>
-<li><strong>② Open your AI chat</strong> (in your browser or its app), <strong>paste</strong> the
-   message (Cmd+V on a Mac, Ctrl+V on Windows) and send it. The AI answers
-   with a script in a box with the code: press the small <strong>Copy</strong> button at
-   the top right of that box (or select all of its answer and copy that).</li>
-<li><strong>③ Back in SweeperCAD, press Paste the AI's answer and build it.</strong> There
-   is nothing to paste by hand: the button takes what you copied, picks the
-   script out of it, puts it in the box below and builds it in the 3D view.</li>
-<li><strong>④ Not quite right? Describe the change</strong> and press <strong>Copy for AI</strong>;
-   paste it into the <em>same</em> chat, copy its answer, and press ③ again - the
-   new version replaces the last one.</li>
-</ol>
-<p>After every press, the line under the steps says what to do next. Press ③
-with the wrong thing copied and it says what happened: nothing copied yet,
-the message for the AI itself (it has not been sent to your AI yet), or
-plain text that is no script (copy the code box - or ask the AI for "the
-SweeperCAD script").</p>
-<p><strong>Say it instead of typing (🎤).</strong> Beside ① and ④ is a microphone button: hold it, say
-what you want or the change, let go - the words are typed into that step. The round <strong>🎤 microphone</strong>
+the <strong>AI</strong> button (top left of the 3D view, or <strong>Script → Build with AI…</strong>).
+The window asks two things:</p>
+
+<p><strong>What do you want to make?</strong> Say it in plain words - "a desk lamp: round
+base, two arms of 300 mm, a red shade 160 mm across". Sizes help. The 🎤
+beside the field lets you say it instead, and the <em>try</em> chips fill in an
+example.</p>
+
+<p><strong>How shall the AI build it?</strong> Pick one of three tiles:</p>
+
+<ul>
+<li>🤖 <strong>By itself.</strong> The AI builds it on its own, round after round. The first
+  time, press <strong>Set it up - once</strong> and choose your AI (see <em>Let it run by
+  itself</em> below). After that there is one button: <strong>▶ Build it</strong> - and
+  <strong>Stop</strong>.</li>
+<li>💬 <strong>With my AI chat.</strong> No setup at all, three steps with arrows:
+  <strong>① Copy the message</strong> (what you asked plus everything an AI needs to know
+  to model it in SweeperCAD) → <strong>② paste it into ChatGPT, Claude or Gemini</strong>
+  (Cmd+V on a Mac, Ctrl+V on Windows) and copy its answer - the small <strong>Copy</strong>
+  button on its code box → <strong>③ Paste the answer</strong> - the button picks the
+  script out of what you copied and builds it in the 3D view.</li>
+<li>🔌 <strong>Connect an AI app.</strong> For an AI app on your computer that can drive
+  SweeperCAD itself (see <em>Connect an AI app</em> below).</li>
+</ul>
+
+<p>The line under the tiles always says what to do next, and the window
+remembers which way you chose. Press ③ with the wrong thing copied and it
+says what happened: nothing copied yet, the message for the AI itself (not
+sent to your AI yet), or plain text that is no script (copy the code box -
+or ask the AI for "the SweeperCAD script").</p>
+
+<p><strong>Not quite right?</strong> Describe the change in the row under it and build
+again - by itself, or copy it into the <em>same</em> chat and paste the answer; the
+new version replaces the last one.</p>
+
+<p>Everything else is folded away: <strong>▸ More</strong> holds the pictures, the sketch,
+the examples from the shelf, the design rules and the mesh to rebuild;
+<strong>▸ The script</strong> shows the script itself, to read, change and run.</p>
+<p><strong>Say it instead of typing (🎤).</strong> Beside the ask field and the change row is a microphone button: hold it, say
+what you want or the change, let go - the words are typed into that field. The round <strong>🎤 microphone</strong>
 at the end of the search field in the 3D view (and the <strong>hold and speak</strong> button at the
 bottom of the window) understands four kinds of things, the first that
 fits:</p>
@@ -4090,7 +4108,7 @@ lights up.</p>
 see-through in the 3D view and is never part of your model. Say what it is -
 "rebuild this bracket" - and the AI gets its measurements: its size, its
 outline wherever it cuts it, a part straight from an outline. Each round of
-<em>Do it for me</em> checks how close the result comes - how far the surfaces stand
+<em>Build it</em> checks how close the result comes - how far the surfaces stand
 apart, how much they share, where the biggest misses are - and is done when
 it is within the distance set beside the button. The result is ordinary
 parts: change them, or ask the AI to, like anything else. In scripts:
@@ -4148,7 +4166,7 @@ only), or an AI running on this computer (Ollama, LM Studio) - then nothing
 leaves your machine at all. Before anything is sent off the computer you
 are told exactly what goes (what you describe, the script, the
 measurements, the pictures - nothing else) and asked to agree. While it is
-on, the status bar says <strong>● AI on</strong>. Then <strong>▶ Do it for me</strong> does the
+on, the status bar says <strong>● AI on</strong>. Then <strong>▶ Build it</strong> (By itself) does the
 steps for you: it asks, runs the script, measures and pictures the result,
 sends that back and lets the AI improve it, up to the number of rounds you
 set - every round is built in front of you, <strong>Stop</strong> stops it, and Ctrl+Z
