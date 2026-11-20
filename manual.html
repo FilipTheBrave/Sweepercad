@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.26 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.27 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.26. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.27. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -762,7 +762,7 @@ row shuts. The icon then shows the tool you used last.
   <strong>I</strong>) hides everything but the selection - a combine with its inputs, a
   part with the combine it is in - with one click, and one more click
   brings it all back (an eye you shut yourself stays shut). No key to
-  hold.</p>
+  hold. While it is on, an orange line under the search field says so - click it to show everything.</p>
 <p>The switch groups (=, ✥, ⟺, ◐) keep their own icon; a state you could
 not see otherwise is marked on it.</p>
 <p><strong>The icons in the order of the work.</strong> The first button, top left, says
@@ -1535,6 +1535,7 @@ end point.</p>
 <figure><a href="manual/node_groups.jpg"><img src="manual/node_groups.jpg" alt="A closed group as one card, and the same group open as a frame round its nodes." loading="lazy"></a><figcaption>Above: a group closed - one card. Below: open - a frame round its nodes.</figcaption></figure>
 <ul>
 <li><strong>Open</strong>, the frame's header has <strong>▾</strong> to close it, the name, and <strong>hide</strong> / <strong>lock</strong> for everything in it at once.</li>
+<li>Opening a group pushes the nodes below it down to make room; closing it brings them back up.</li>
 <li><strong>Closed</strong>, the group is one card where its nodes were, saying how many it holds; only the wires going in and out are drawn, and you can still wire from its output. <strong>▸</strong> opens it.</li>
 <li><strong>Drag</strong> a header or a card and the whole group moves; <strong>click</strong> it and its objects are selected; <strong>double-click</strong> the name to rename it.</li>
 <li><strong>Ctrl+Shift+G</strong> (or ▣ with a whole group selected) takes the group away - the nodes stay as they were.</li>
@@ -2102,8 +2103,9 @@ concrete, marble, granite, brushed steel, cork, bronze, striped, checkerboard
 and dotted.</p>
 <p>Only how it looks on screen and in pictures - the part itself does not
 change. Kept with the project. Zebra, chrome and the other check views
-ignore it, and the grey views mute it - a note under the search field says so;
-click it for the Colour view. When you export a mesh, tick <strong>burn the materials into the
+ignore it, and the grey views mute it - an orange line under the search field says so;
+click it for the Colour view. A combined result wears its own material, or else the material of the
+part it was built on (never a cutter's), so a part's look stays when you combine it. When you export a mesh, tick <strong>burn the materials into the
 colours</strong> to take the look along: a colour on every vertex in OBJ, PLY and GLB, on
 every triangle in 3MF and STL (fine patterns get extra triangles so they show). From a script: <code>model.material(part, "oak")</code>, or settings of its
 own: <code>model.material(part, rough=0.2, metal=1, color=(0.8, 0.6, 0.3))</code>.</p>
@@ -3673,6 +3675,7 @@ page or the SVG.</p>
 <section class="sec" id="tool-tray"><h3>Tool tray — from a photo of your tools</h3><p>A tray with a pocket for each tool, the way foam holds them in a case. Click <strong>▦ tool tray</strong> in the make-it group.</p>
 <p><strong>The photo.</strong> Lay the tools on a sheet of paper (A4, Letter or A3 - pick which), not touching, and take a photo from straight above, the whole sheet in view, in soft light. The paper gives the size: SweeperCAD finds the sheet, straightens the picture and measures each tool's outline in millimetres. Dark or coloured tools on white paper are found best; shiny chrome on white is the hard case - a coloured sheet under the tools helps.</p>
 <p><strong>The tray.</strong> The tools are listed: give each a name (it goes on its label) and a <strong>pocket depth</strong>, or set one depth for all. Then the <strong>room round each tool</strong>, the <strong>floor</strong> under the deepest pocket and the <strong>wall</strong> round the outside; <strong>finger slots</strong> across each pocket to lift the tool out; a <strong>strip for a label</strong> under each pocket. <strong>Laid out:</strong> snugly, each tool turned along its length and packed in rows - or as they lay on the photo. <strong>Make the tray</strong> builds it as one part, to print or mill.</p>
+<p><strong>In foam, for a laser cutter.</strong> Set the <strong>foam sheets</strong>' thickness and press <strong>save the cutting SVG&hellip;</strong>: the tray as a stack of foam sheets, side by side in one SVG in millimetres. Each pocket, with its finger slot, is one clean outline and goes through as many sheets as its depth reaches into (depths are rounded to whole sheets - it tells you which); the last sheet is the solid base. Red hairlines are to cut, blue to engrave: the tools' names on the top sheet, and each sheet's number in a corner. Glue the sheets in order and the tools drop in.</p>
 <hr /></section>
 <section class="sec" id="flex-parts"><h3>Flex parts — hinges, springs and snaps to print</h3><p>Parts that work by bending. Click <strong>⌇ flex parts</strong> in the make-it group, pick the part and the material you will print it in - PP, PETG, PLA, ABS, nylon, TPU or a tough resin - and set its sizes. Under them, as you change them: how stiff it is, how far it bends before it takes a set or cracks, and a warning with the size that would hold. <strong>Add to the scene</strong> makes it. Each part is laid out the way it prints best: it bends <em>along</em> the layers, never across them, where a printed part breaks.</p>
 <figure><a href="manual/flex_parts.jpg"><img src="manual/flex_parts.jpg" alt="The six flex parts: living hinge, zig-zag spring, coil spring, spiral spring, snap clip and snap-fit pin." loading="lazy"></a><figcaption>Living hinge, zig-zag spring, coil spring, spiral spring, snap clip, snap-fit pin.</figcaption></figure>
@@ -3835,7 +3838,7 @@ if you like. Only the model: no grid, gizmo, dials or selection. Made for sharin
 <li><strong>Lens:</strong> flat (no perspective - how SweeperCAD starts, best to judge proportions) or a camera's
 24, 35, 50, 85 or 135 mm. It is the view's own camera: the view changes with it, and the model keeps its
 size on screen. A wide lens shows depth, a long one flattens it.</li>
-<li><strong>Depth of field:</strong> what is far from the focus goes soft. <strong>Focus on</strong> the selected part, the view's
+<li><strong>Depth of field:</strong> what is far from the focus goes soft. <strong>Focus on</strong> the selected part (select another and the view refocuses), the view's
 centre or any part by name, <strong>nearer / farther</strong> by so many mm; a <strong>sharp zone</strong> of so many mm in front
 and behind (or set from the frame); and the <strong>blur</strong>, from a little to a close-up photo's. Each part
 softens by its own amount, so a sharp part keeps a clean edge.</li>
