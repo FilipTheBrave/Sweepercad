@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.24 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.25 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.24. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.25. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2139,6 +2139,19 @@ depth</strong>, each can be switched off, and a slider makes the shadow edges sh
 ones stay sharp where they touch the part that casts them). Turning the view stays as fast as
 ever: the shadows come with the sharp frame drawn after you stop. Saved pictures are drawn at
 twice their size and averaged down, so their edges are smooth.</p>
+<p><strong>A panorama (HDRI).</strong> Below the lights, a <strong>panorama</strong> - a picture of a place all round you -
+goes on top of the built-in or your own lights. Metal and shiny parts <strong>reflect</strong> it, softer the
+rougher the material; and <strong>its light</strong> takes as much of the lighting as you give it: at
+<strong>reflections only</strong> your lights light the model and the panorama is only seen in the metal (a studio
+for the metal - how SweeperCAD starts), at <strong>all its light</strong> the model is lit the way that place would
+light it, soft from all round. With half or more of its light, the one shadow comes from its sun or
+brightest window. Five come with the app - a <strong>studio</strong> with soft boxes, and four from Poly Haven (CC0):
+Venice at sunset, a quarry, a city overpass and a night golf course - or load any <strong>.hdr</strong> or panorama
+picture of your own. <strong>Turned</strong> moves its sun round you, <strong>brightness</strong> sets how strong it is, and
+<strong>behind the model in the 3D view</strong> shows it in the view whenever it stands still (and it can be the
+background of a picture or a clip). <strong>None</strong> gives the metal the simple built-in studio. Nothing
+bounces from part to part, and no part is mirrored in another - that would take a ray tracer.</p>
+<figure><a href="manual/panorama.jpg"><img src="manual/panorama.jpg" alt="Bronze, chrome and plastic balls lit by a sunset panorama, then the same with the panorama behind them." loading="lazy"></a><figcaption>Bronze, chrome and plastic in &ldquo;Venice at sunset&rdquo; - below, with the panorama behind them.</figcaption></figure>
 <hr /></section>
 <section class="sec" id="wrapping-a-part-onto-a-surface"><h3>Wrapping a part onto a surface</h3><p>A part modelled flat - standing on a flat floor - can be bent to lie on the
 part under it. In the placement settings pick a <strong>wrap</strong> picture (off, straight down, along the surface) and place it, or
@@ -3814,8 +3827,24 @@ shows. They go into STL, OBJ, 3MF, PLY and GLB as meshes.</p>
 <p><strong>A picture of the model.</strong> The camera icon (📷, top right) saves a PNG
 of the model as it is shown - any view mode, chrome included - at 1× to
 4× the view's size, with a <strong>transparent</strong>, the view's own or a white
-background, and trimmed to the model if you like. Only the model: no grid,
-gizmo, dials or selection. Made for sharing.</p>
+background - or <strong>a colour</strong>, <strong>a soft gradient</strong> (lighter behind the model, darker to the edges),
+<strong>a picture</strong> of your own (cut to fit, never stretched) or <strong>the panorama</strong> - and trimmed to the model
+if you like. Only the model: no grid, gizmo, dials or selection. Made for sharing.</p>
+<p><strong>The camera.</strong> The same window, and the one that saves a clip, has <strong>the camera</strong>:</p>
+<ul>
+<li><strong>Lens:</strong> flat (no perspective - how SweeperCAD starts, best to judge proportions) or a camera's
+24, 35, 50, 85 or 135 mm. It is the view's own camera: the view changes with it, and the model keeps its
+size on screen. A wide lens shows depth, a long one flattens it.</li>
+<li><strong>Depth of field:</strong> what is far from the focus goes soft. <strong>Focus on</strong> the selected part, the view's
+centre or any part by name, <strong>nearer / farther</strong> by so many mm; a <strong>sharp zone</strong> of so many mm in front
+and behind (or set from the frame); and the <strong>blur</strong>, from a little to a close-up photo's. Each part
+softens by its own amount, so a sharp part keeps a clean edge.</li>
+<li><strong>Glow</strong> round the brightest highlights, and a <strong>vignette</strong> - the corners a touch darker.</li>
+<li><strong>Motion blur</strong> for clips: what moves is smeared along its way, with a shutter from a tenth to a whole frame.</li>
+<li><strong>Also in the 3D view, once it stands still</strong>: the view shows this look whenever it stops; while you
+turn it, it stays plain and fast.</li>
+</ul>
+<figure><a href="manual/depth_of_field.jpg"><img src="manual/depth_of_field.jpg" alt="Five screws and nuts: in focus on the middle bolt, then on the far nut, then all sharp with a deep sharp zone." loading="lazy"></a><figcaption>Depth of field: focused on the middle bolt; on the far nut; a sharp zone of ±40 mm.</figcaption></figure>
 <p><strong>Line art.</strong> In the same window, <strong>save as: line art</strong> keeps exactly the
 3D view's angle but writes the model's <strong>edges</strong> instead of the shading -
 taken from the exact solid, at <strong>true size in mm</strong>, with <strong>hidden lines
