@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.33 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.35 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.33. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.35. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2522,7 +2522,7 @@ the radius - a wavy or lobed outline - it is still rounded at the radius
 you asked: the rounding runs on as a smooth, slightly wider patch through
 each tight bend, and rolls round an inside corner of the outline (where two
 lobes meet); the status line says in how many places it patched. Holes in
-the end are rounded the same way, and so are sides that lean evenly (a
+the end are rounded the same way, and so are sides that lean (a
 draft or a taper). (This is for a flat end; where two roundings would meet -
 less than twice the radius of material between them - it is not this case.) Where even
 that cannot be built, the radius eases down only in the tight bends (the
@@ -2623,7 +2623,10 @@ it runs along - on a wavy part the ball no longer fits there. When the
 full radius fails for that reason, the blend keeps the full radius
 wherever it fits and eases down only in the tight bends, smoothly; the
 status line says "rounded at 12 where it fits, down to 7 in the tightest
-bend". Only if that fails too is the whole loop made smaller.</p>
+bend". Only if that fails too is the whole loop made smaller. A part standing
+on a flat face - a boss on a plate - is first rounded at the radius asked all
+round, with a smooth patch where its foot bends too tightly for it; only where
+that cannot be built does the radius ease down.</p>
 <p><strong>Two options for the hard cases</strong>, in the combine's blend box - the
 first on unless you untick it, the second off until you tick it:</p>
 <ul>
