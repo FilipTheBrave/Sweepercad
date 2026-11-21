@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.30 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.32 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.30. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.32. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2517,9 +2517,15 @@ chip is lit.</p>
 <p>The rounding is part of the object, so it stays through every join: a
 part rounded this way and then combined with another keeps its rounded
 rim, and the seams the join makes on it are listed like any other (the new
-faces are <em>round0</em> and <em>round1</em>). A rim that will not take the radius is
-tried at 70, 50 and 30 % and the status line says so; one that takes
-nothing is left sharp and said. An end with no flat cap - a closed spine,
+faces are <em>round0</em> and <em>round1</em>). Where the rim bends more tightly than
+the radius - a wavy or lobed outline - it is still rounded at the radius
+you asked: the rounding runs on as a smooth, slightly wider patch through
+each tight bend, and rolls round an inside corner of the outline (where two
+lobes meet); the status line says in how many places it patched. (This is for
+a flat end on sides square to it, without holes in it.) Where even
+that cannot be built, the radius eases down only in the tight bends (the
+status line says how far), and only then is the whole rim tried at 70, 50
+and 30 %; one that takes nothing is left sharp and said. An end with no flat cap - a closed spine,
 an end scaled to a point - has nothing to round and says so once.</p>
 <p>To round where two parts MEET, use the combine's blend; to close an end
 with a full dome, use a bridge with one input. The rims are for the edge
@@ -2608,7 +2614,14 @@ gets as much of the radius as there is room for there — measured from
 the seam to the nearest edge of the faces beside it — easing smoothly
 between, so it is large where there is room and small where it is
 cramped, never a step. The status line says how far it eased down, and
-where.</p>
+where.
+
+<strong>Tighter than a bend.</strong> A fillet cannot be bigger than the tightest bend
+it runs along - on a wavy part the ball no longer fits there. When the
+full radius fails for that reason, the blend keeps the full radius
+wherever it fits and eases down only in the tight bends, smoothly; the
+status line says "rounded at 12 where it fits, down to 7 in the tightest
+bend". Only if that fails too is the whole loop made smaller.</p>
 <p><strong>Two options for the hard cases</strong>, in the combine's blend box - the
 first on unless you untick it, the second off until you tick it:</p>
 <ul>
