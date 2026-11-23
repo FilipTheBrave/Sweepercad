@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.43 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.44 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.43. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.44. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1568,7 +1568,7 @@ end point.</p>
 </ul>
 <p>Parts from the parts catalogue, flex parts, the tool tray and Build with AI's plan parts arrive as closed groups under their own names. Groups are saved with the project; files from before open as they were.</p>
 <hr /></section>
-<section class="sec" id="the-stick-figure-balls-and-sticks-like-zspheres"><h3>The stick figure — balls and sticks, like ZSpheres</h3><p>The ⦿ icon (beside the route tool, in the same corner group) opens the stick figure: a quick
+<section class="sec" id="the-stick-figure-balls-and-sticks-like-zspheres"><h3>The stick figure — balls and sticks, like ZSpheres</h3><p><em>In full screen the stick figure's panel opens inside the main window, at the left over the side panel, not as a window of its own - drag it by its title strip; point at the strip for how the tool works.</em></p><p>The ⦿ icon (beside the route tool, in the same corner group) opens the stick figure: a quick
 way to block in a figure, a creature, a branching part - anything made of
 limbs - before refining it with the graphs, the nets and the brush.</p>
 <ul>
@@ -1755,14 +1755,20 @@ hand (SubD)</strong> brings the mesh in as a reference, every triangle, and star
 the tool on it.</p>
 <ul>
 <li><strong>The bar shows the drawing tools only</strong> while you draw: ✚, ◯ rings,
-  ═ strip, each with its own − and + beside it, ✂ ring cut, ≈ relax,
-  ⊞ refine, ▦− ▦+, ▭− ▭+ and the falloff ◐− ◐+ - the current value stands
-  beside each pair. For an exact thickness, type it in the SubD box of the
+  ═ strip, each with its own − and + beside it, ✂ ring cut, ≈ relax and
+  ≋ relax everything, ⊞ refine, ▦− ▦+, ▭− ▭+, the falloff ◐− ◐+, ⇋ symmetry
+  and ◑ near side only - the current value stands beside each pair. For an exact thickness, type it in the SubD box of the
   side panel (below zero it lies inside the drawn surface). The green
   <strong>✓ Done</strong> at the top of the view leaves. Point at any button and its
   tooltip says what it does. <strong>✥</strong> at
   the bottom goes to the cage's tools (move, bevel, knife, crease,
   symmetry...); <strong>✚</strong> there comes back to drawing. One set at a time.</li>
+<li><strong>Trace, from an automatic start</strong> (the import's other trace button): the
+  mesh comes in as the reference and is also simplified, automatically, to
+  a light cage of four-sided faces - and that cage is opened here, as if
+  you had drawn it. Its points lie on the mesh: drag them, relax them,
+  take a face away and draw it again. On a few hundred faces a change
+  takes a few seconds to check.</li>
 <li><strong>A click on the other part places a point</strong> on its surface.</li>
 <li><strong>Point inside three or four placed points</strong> and the face they would make
   is shown, with a <strong>dot</strong> at its middle. A click on the dot makes the face;
@@ -1774,8 +1780,10 @@ the tool on it.</p>
   way round it there, shown while you drag. The next ring joins the one
   before with a band of faces - the part appears at the first band - and
   so on along the limb. A ring that joins another takes that one's number
-  of points; the <strong>−</strong> and <strong>+</strong> beside ◯ set the number for a ring that starts
-  afresh (8 to begin with). A drag that starts beside the part still turns
+  of points - unless you press the <strong>−</strong> or <strong>+</strong> beside ◯ first: the next
+  ring then has the number shown, and the band between the two gets a few
+  triangles to make up the difference (fewer points towards a wrist or a
+  fingertip). A ring that starts afresh has the number shown (8 to begin with). A drag that starts beside the part still turns
   the view. ◯ again, and a click places single points as before - the
   rings' points are ordinary points: drag them, × them, fill between them.</li>
 <li><strong>Pull an open edge.</strong> Point at the middle of any open edge of a drawn
@@ -1791,10 +1799,28 @@ the tool on it.</p>
   the one you drag follow it, less the further away they are - and each of
   them stays on the other part.</li>
 <li><strong>≈ relax - spread the points evenly.</strong> Switch ≈ on and brush over the
-  drawn points (the dashed circle is the brush): each moves towards the
+  drawn points (the dashed circle is the brush; the <strong>&minus;</strong> and <strong>+</strong> beside ≈
+  set its size): each moves towards the
   middle of its neighbours and is laid back on the other part. The points
   of an open edge only slide along it, and where the outline turns a
   corner the point stays. One undo takes a whole brush stroke back.</li>
+<li><strong>≋ relax everything</strong> does the relax brush's work on every drawn point
+  at once.</li>
+<li><strong>Drop a point on another and the two become one.</strong> Dragged within reach
+  of another drawn point it snaps onto it; let go there and they are
+  welded (with the falloff off).</li>
+<li><strong>Join two openings.</strong> Press on the dot at the middle of one opening and
+  drag to the dot of another: a band of faces joins the two - a finger to
+  a palm, an arm to a body. Where the two have a different number of
+  points, a few of the band's faces are triangles.</li>
+<li><strong>⇋ symmetry while drawing.</strong> With ⇋ on, what you draw on one side of
+  X = 0 - the plane through the middle of a part modelled symmetric - is
+  drawn on the other side too: points, faces, rings, strips, fills, and
+  what you take away. Points on the plane are shared; a face that reaches
+  across it stays as it is. The side you work on is the one that counts.</li>
+<li><strong>◑ near side only</strong> (on to begin with): the drawn points and faces on
+  the far side of the part are hidden and cannot be picked, so the back
+  of a hand does not show through its palm. ◑ again shows both sides.</li>
 <li><strong>Close an opening.</strong> A small dot sits at the middle of every opening -
   the open end of a ringed limb, a hole left between faces. A click on it
   closes the opening with faces: one for three or four points, otherwise

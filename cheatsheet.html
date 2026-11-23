@@ -112,7 +112,11 @@ Hover over any icon in the app and it says what it does.</p>
 
 <section><h2>Placing a new object</h2><table>
 <tr><td class="k">+ &minus; &cap;, then click</td><td>place it there</td></tr>
-<tr><td class="k">Drag from + or &minus;</td><td>draw its profile instead: click points, drag for curves, click the first point to close</td></tr>
+<tr><td class="k">+ or &minus;, then drag</td><td>size it as it is placed: the drag is its footprint, let go, move up for the height, click (switch <b>drag: size</b>)</td></tr>
+<tr><td class="k">After a click or a footprint: type</td><td>the lit size; <kbd>Tab</kbd> the next (width, depth, height); <kbd>Enter</kbd> done</td></tr>
+<tr><td class="k">Switches, top left</td><td><b>drag: size / draw</b> &middot; <b>from: auto / centre / corner</b> &middot; <b>keep proportions</b></td></tr>
+<tr><td class="k">Drag, switch on <b>draw</b></td><td>draw its profile instead: click points, drag for curves, click the first point to close</td></tr>
+<tr><td class="k">&minus; on a face</td><td>runs into the face and cuts the part under it; a + on a face joins that part (with <b>A=</b> on)</td></tr>
 <tr><td class="k">Wheel / Shift+wheel</td><td>size it 10 % a notch / turn it 15&deg; a notch</td></tr>
 <tr><td class="k">Type a number</td><td>exact distance; <kbd>Tab</kbd> picks the next distance; <kbd>S</kbd> snapping on / off</td></tr>
 <tr><td class="k">Right-click + or &minus;</td><td>placement settings</td></tr>
@@ -268,13 +272,22 @@ Hover over any icon in the app and it says what it does.</p>
 <tr><td>lens panel &middot; <b>&#128083; Make the frame</b></td><td>rims, bridge, saddle on the nose, end pieces, temples - on the scan, with a skin check</td></tr>
 </table></section>
 <section><h2>SubD - the bar at the left</h2>
-<p class="chips"><span class="chip"><img src="icons/done.png" alt="">done</span><span class="chip"><img src="icons/move.png" alt="">move</span><span class="chip"><img src="icons/slide.png" alt="">slide a point</span><span class="chip"><img src="icons/ring.png" alt="">ring cut</span><span class="chip"><img src="icons/bevel.png" alt="">bevel</span><span class="chip"><img src="icons/knife.png" alt="">knife</span><span class="chip"><img src="icons/weld.png" alt="">weld</span><span class="chip"><img src="icons/crease.png" alt="">crease</span><span class="chip"><img src="icons/mirror.png" alt="">symmetry</span><span class="chip"><img src="icons/sym.png" alt="">make symmetric</span><span class="chip"><img src="icons/fall-.png" alt="">falloff &minus;</span><span class="chip"><img src="icons/fall+.png" alt="">falloff +</span><span class="chip"><img src="icons/snap.png" alt="">stick to what is underneath</span><span class="chip"><img src="icons/lay.png" alt="">lay on</span></p>
+<p class="chips"><span class="chip"><img src="icons/move.png" alt="">move</span><span class="chip"><img src="icons/slide.png" alt="">slide a point</span><span class="chip"><img src="icons/ring.png" alt="">ring cut</span><span class="chip"><img src="icons/bevel.png" alt="">bevel</span><span class="chip"><img src="icons/knife.png" alt="">knife</span><span class="chip"><img src="icons/weld.png" alt="">weld</span><span class="chip"><img src="icons/crease.png" alt="">crease</span><span class="chip"><img src="icons/mirror.png" alt="">symmetry</span><span class="chip"><img src="icons/sym.png" alt="">make symmetric</span><span class="chip"><img src="icons/fall-.png" alt="">falloff &minus;</span><span class="chip"><img src="icons/fall+.png" alt="">falloff +</span><span class="chip"><img src="icons/snap.png" alt="">stick to what is underneath</span><span class="chip"><img src="icons/lay.png" alt="">lay on</span></p>
 <h3>Drawn over another part</h3>
-<p class="chips"><span class="chip"><img src="icons/draw.png" alt="">draw: points, then the dot for a face</span><span class="chip"><img src="icons/refine.png" alt="">refine</span><span class="chip"><img src="icons/coarser.png" alt="">cells larger</span><span class="chip"><img src="icons/finer.png" alt="">cells smaller</span><span class="chip"><img src="icons/thin.png" alt="">thinner</span><span class="chip"><img src="icons/thick.png" alt="">thicker</span></p>
+<p class="chips"><span class="chip"><img src="icons/draw.png" alt="">draw: points, then the dot for a face</span><span class="chip"><b>&#9711;</b> rings &minus; +</span><span class="chip"><b>&#9552;</b> strip &minus; +</span><span class="chip"><img src="icons/ring.png" alt="">ring cut</span><span class="chip"><b>&asymp;</b> relax brush &minus; +</span><span class="chip"><b>&#8779;</b> relax everything</span><span class="chip"><img src="icons/refine.png" alt="">refine</span><span class="chip"><img src="icons/coarser.png" alt="">follow the part: fewer cells</span><span class="chip"><img src="icons/finer.png" alt="">more cells</span><span class="chip"><img src="icons/thin.png" alt="">thinner</span><span class="chip"><img src="icons/thick.png" alt="">thicker</span><span class="chip"><img src="icons/fall-.png" alt="">falloff &minus;</span><span class="chip"><img src="icons/fall+.png" alt="">falloff +</span><span class="chip"><img src="icons/mirror.png" alt="">symmetry</span><span class="chip"><b>&#9681;</b> near side only</span><span class="chip"><img src="icons/move.png" alt="">to the cage's tools</span></p>
 <table>
 <tr><td class="k">click on the other part</td><td>a point on its surface</td></tr>
 <tr><td class="k">inside 3 or 4 points</td><td>the face is shown, with a dot: click the dot</td></tr>
+<tr><td class="k">drag a point</td><td>it slides over the part; with a falloff, its neighbours follow</td></tr>
+<tr><td class="k">drop a point on another</td><td>the two become one</td></tr>
 <tr><td class="k">&times; &nbsp;&#9670; beside a point</td><td>take it away / a sharp corner of the outline</td></tr>
+<tr><td class="k">&#9711; on: press on a limb, drag across</td><td>a ring of points round it; the next ring joins the one before</td></tr>
+<tr><td class="k">drag the middle of an open edge</td><td>a new face; keep dragging: a row of faces along the stroke</td></tr>
+<tr><td class="k">&#9552; on: press on the part, drag along</td><td>a strip of faces under the stroke</td></tr>
+<tr><td class="k">the dot in an opening</td><td>click: close it &middot; drag to another opening's dot: join the two</td></tr>
+<tr><td class="k">&asymp; on: brush over the points</td><td>they spread out evenly, still on the part</td></tr>
+<tr><td class="k">green <b>&#10003; Done</b> at the top</td><td>leave (there is no &#10003; on the bar)</td></tr>
+<tr><td class="k">import &middot; <b>Trace, from an automatic start</b></td><td>the mesh as reference, its simplified cage ready to edit here</td></tr>
 </table></section>
 
 <section><h2>Keys</h2><table>
