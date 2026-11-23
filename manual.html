@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.42 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.43 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.42. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.43. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1686,7 +1686,7 @@ output and no inputs - a sign, a position, wires like any object.</p>
 <p><strong>The bar at the left of the view</strong> (there whenever a SubD is shown) sets
 what the mouse does - a mode stays on until you pick another:</p>
 <ul>
-<li><strong>✓ done</strong> - closes the cage and goes back to the manipulator. To open
+<li>The green <strong>✓ Done</strong> at the top of the view closes the cage and goes back to the manipulator. To open
   it again later: select the SubD part and press <strong>✎ edit cage</strong> at the
   left of the view. With a SubD part selected the cage you work on is that
   part's; with nothing selected every SubD part's cage is open.</li>
@@ -1755,8 +1755,12 @@ hand (SubD)</strong> brings the mesh in as a reference, every triangle, and star
 the tool on it.</p>
 <ul>
 <li><strong>The bar shows the drawing tools only</strong> while you draw: ✚, ◯ rings,
-  ═ strip with its + and −, ✂ ring cut, ⊞ refine, ▦+ ▦−, ▭+ ▭− and
-  ✓ done. Point at any button and its tooltip says what it does. <strong>✥</strong> at
+  ═ strip, each with its own − and + beside it, ✂ ring cut, ≈ relax,
+  ⊞ refine, ▦− ▦+, ▭− ▭+ and the falloff ◐− ◐+ - the current value stands
+  beside each pair. For an exact thickness, type it in the SubD box of the
+  side panel (below zero it lies inside the drawn surface). The green
+  <strong>✓ Done</strong> at the top of the view leaves. Point at any button and its
+  tooltip says what it does. <strong>✥</strong> at
   the bottom goes to the cage's tools (move, bevel, knife, crease,
   symmetry...); <strong>✚</strong> there comes back to drawing. One set at a time.</li>
 <li><strong>A click on the other part places a point</strong> on its surface.</li>
@@ -1770,7 +1774,7 @@ the tool on it.</p>
   way round it there, shown while you drag. The next ring joins the one
   before with a band of faces - the part appears at the first band - and
   so on along the limb. A ring that joins another takes that one's number
-  of points; <strong>+</strong> and <strong>−</strong> set the number for a ring that starts
+  of points; the <strong>−</strong> and <strong>+</strong> beside ◯ set the number for a ring that starts
   afresh (8 to begin with). A drag that starts beside the part still turns
   the view. ◯ again, and a click places single points as before - the
   rings' points are ordinary points: drag them, × them, fill between them.</li>
@@ -1781,8 +1785,16 @@ the tool on it.</p>
   turn. Let go on a point that is already there and the row joins it.</li>
 <li><strong>═ strip</strong> does the same from nothing: switch it on, press on the bare
   part and drag along it - a row of faces is laid under your stroke.
-  <strong>+</strong> and <strong>−</strong> set how wide (as you see it); with ◯ on they set the
-  ring's number of points instead.</li>
+  The <strong>−</strong> and <strong>+</strong> beside ═ set how wide (as you see it).</li>
+<li><strong>Drag several points at once.</strong> <strong>◐+</strong> and <strong>◐−</strong> set a falloff (shown
+  beside them, in mm; off to begin with). With one set, the points near
+  the one you drag follow it, less the further away they are - and each of
+  them stays on the other part.</li>
+<li><strong>≈ relax - spread the points evenly.</strong> Switch ≈ on and brush over the
+  drawn points (the dashed circle is the brush): each moves towards the
+  middle of its neighbours and is laid back on the other part. The points
+  of an open edge only slide along it, and where the outline turns a
+  corner the point stays. One undo takes a whole brush stroke back.</li>
 <li><strong>Close an opening.</strong> A small dot sits at the middle of every opening -
   the open end of a ringed limb, a hole left between faces. A click on it
   closes the opening with faces: one for three or four points, otherwise
@@ -1813,7 +1825,7 @@ the tool on it.</p>
 <li><strong>⊞ refine</strong> splits every face in four and lays the new points on the
   other part - point at the button to see it first. Unlike ▦+ it adds real
   points, which you can then drag.</li>
-<li><strong>✓ done</strong> leaves; <strong>✚</strong> later carries on with the same part.</li>
+<li>The green <strong>✓ Done</strong> at the top of the view leaves; <strong>✚</strong> later carries on with the same part.</li>
 </ul>
 <p>The smooth part passes exactly through the points you clicked, and its
 edges and border are drawn as the smooth curves they really are - a drawn
