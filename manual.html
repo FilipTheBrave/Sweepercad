@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.41 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.42 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.41. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.42. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1754,12 +1754,41 @@ on</em> something: another part, a scan, a reference mesh. The same mode is
 hand (SubD)</strong> brings the mesh in as a reference, every triangle, and starts
 the tool on it.</p>
 <ul>
+<li><strong>The bar shows the drawing tools only</strong> while you draw: ✚, ◯ rings,
+  ═ strip with its + and −, ✂ ring cut, ⊞ refine, ▦+ ▦−, ▭+ ▭− and
+  ✓ done. Point at any button and its tooltip says what it does. <strong>✥</strong> at
+  the bottom goes to the cage's tools (move, bevel, knife, crease,
+  symmetry...); <strong>✚</strong> there comes back to drawing. One set at a time.</li>
 <li><strong>A click on the other part places a point</strong> on its surface.</li>
 <li><strong>Point inside three or four placed points</strong> and the face they would make
   is shown, with a <strong>dot</strong> at its middle. A click on the dot makes the face;
   a click beside the dot places another point. Four points are taken before
   three. A face that could not be part of a solid is shown red, with the
   reason.</li>
+<li><strong>◯ rings - a limb in a few strokes.</strong> Switch ◯ on, press <em>on</em> an arm, a
+  finger, a handle, and drag across it: a ring of points is laid all the
+  way round it there, shown while you drag. The next ring joins the one
+  before with a band of faces - the part appears at the first band - and
+  so on along the limb. A ring that joins another takes that one's number
+  of points; <strong>+</strong> and <strong>−</strong> set the number for a ring that starts
+  afresh (8 to begin with). A drag that starts beside the part still turns
+  the view. ◯ again, and a click places single points as before - the
+  rings' points are ordinary points: drag them, × them, fill between them.</li>
+<li><strong>Pull an open edge.</strong> Point at the middle of any open edge of a drawn
+  face: it lights up. Drag it and a new face comes out of it, its two new
+  points on the other part. <strong>Keep dragging and a row of faces follows
+  your stroke</strong>, each about as long as the edge is wide, turning where you
+  turn. Let go on a point that is already there and the row joins it.</li>
+<li><strong>═ strip</strong> does the same from nothing: switch it on, press on the bare
+  part and drag along it - a row of faces is laid under your stroke.
+  <strong>+</strong> and <strong>−</strong> set how wide (as you see it); with ◯ on they set the
+  ring's number of points instead.</li>
+<li><strong>Close an opening.</strong> A small dot sits at the middle of every opening -
+  the open end of a ringed limb, a hole left between faces. A click on it
+  closes the opening with faces: one for three or four points, otherwise
+  faces round a new point at its middle, or straight across for a long
+  narrow opening. A limb closed at both ends is a solid by itself. The
+  outline of a patch is not an opening and gets no dot.</li>
 <li><strong>The part appears at the first face.</strong> Until then the points are only the
   tool's - nothing that is not a solid is ever in the scene.</li>
 <li><strong>Open = a thickness, closed = a solid.</strong> While the drawn faces do not
