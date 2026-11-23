@@ -276,7 +276,9 @@ without an end profile it switches the morph on, the end a copy of the
 start). <strong>remove</strong> takes the picked one out; the sweep then runs through
 its neighbours. The tick at the start edits the start profile, with its
 presets and shape list; the <strong>morph</strong> box on the graph switches more than
-one profile on and off. A converted mesh's
+one profile on and off. Sharp corners stay sharp through a morph: a star
+or a square keeps its corners exactly as drawn, at every profile, and its
+rims can be rounded like any other part's. A converted mesh's
 sweeps are made of these - a finger has ten to forty - so every one of them
 can be reached and reshaped. Scripts (and the AI) have the same:
 <code>model.profiles</code>, <code>add_profile</code>, <code>remove_profile</code>, <code>move_profile</code>,
@@ -2627,6 +2629,12 @@ bend". Only if that fails too is the whole loop made smaller. A part standing
 on a flat face - a boss on a plate - is first rounded at the radius asked all
 round, with a smooth patch where its foot bends too tightly for it; only where
 that cannot be built does the radius ease down.</p>
+<p><strong>Wider than the part.</strong> A rim asked for more than the part is wide gets as
+much as it takes. Where the whole rim is narrow - an L with arms 20 wide
+asked for 12 - it is rounded as a full round all the way; where only a part
+of it is - a wide body with a narrow arm - the body takes the radius asked
+and the arm a full round, eased from one to the other. The status line says
+which. A bigger radius never rounds less than a smaller one did.</p>
 <p><strong>Two options for the hard cases</strong>, in the combine's blend box - the
 first on unless you untick it, the second off until you tick it:</p>
 <ul>
