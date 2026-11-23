@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.38 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.39 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.38. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.39. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2871,11 +2871,14 @@ drawing switches, decide the rest, and are remembered:</p>
 <p>The footprint lies in the face it was started on, so a boss dragged on a
 slanted side stands square to it. <strong>A &minus; placed on a face runs into it</strong> -
 clicked or dragged - starting a hair above the face so the cut comes
-cleanly through; the pointer then sets its depth. It cuts the part it was
-put on, also when nothing is selected (with something selected, it cuts
-that). A + grows out of the
+cleanly through; the pointer then sets its depth. A + grows out of the
 face, as always; on the ground both stand up. What you get is an ordinary
 object: its profile and spine are in the graphs as always.</p>
+<p><strong>What a new object joins</strong> is auto-combine's doing (<strong>A=</strong>, on the = icon;
+a green A says it is on). With it on, a new object joins whatever is
+selected - and with nothing selected, an object placed <strong>on a face</strong> joins
+the part that face belongs to: a + becomes part of it, a &minus; cuts it. On the
+ground it stands alone. With auto-combine off nothing joins by itself.</p>
 <p>A click on <strong>empty space puts the object on the ground</strong>, where the
 grid is - not floating at whatever depth the camera implied. Click a
 surface instead and it goes there, as before.</p>
