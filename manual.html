@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.40 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.41 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.40. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.41. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -3116,8 +3116,22 @@ part of your model - not just something to look at.</p>
   any CAD part. Add edge loops in the cage to keep an edge sharp.
   Any other mesh is <strong>prepared</strong> first: corners that coincide are welded
   (most exports store each face with its own corners), doubled faces
-  dropped, holes closed, and a dense mesh (a scan, a sculpt, most STLs)
-  is rebuilt as a light cage whose smooth surface is fitted back onto it.
+  dropped, holes closed, and a dense mesh (a scan, a sculpt, most STLs, a
+  finely modelled part) is <strong>simplified</strong>: a CAD patch for every one of
+  its faces is far more than the shape needs. The mesh's own faces are
+  merged where it is flat or gently curved and kept where it is not - a
+  fingertip gets small patches, a forearm large ones, a thin wall is not
+  lost - into a light cage of four-sided faces, whose points are laid back
+  on the mesh. Each of those faces is one CAD patch: many times fewer than
+  the mesh had faces. It goes on merging for as long as the smooth surface
+  stays as close to the mesh as the <strong>detail</strong> you chose asks, so a plain
+  shape ends with few patches and a detailed one with more. The note after
+  the import says how many faces it had and how many patches it has now.
+  A coarse cage - a low-poly model that stands for the smooth shape - is
+  never simplified: it comes in face for face.
+  <strong>Every face</strong>, the last detail choice, keeps a quad mesh's own faces as
+  the cage, however fine: its holes are closed where they are and the
+  smooth surface is made to pass through its points.
   The status bar says what was done. Sharp edges come out rounded - it is
   a smooth surface.</p>
 </li>
