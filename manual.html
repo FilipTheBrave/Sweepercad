@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.37 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.38 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.37. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.38. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2844,6 +2844,11 @@ cancel and it is exactly where it was.</p>
 <p>When you move something with the <strong>pin</strong>, it ignores the object
 being moved, so a click lands on whatever is behind it rather than
 on the thing in your hand.</p>
+<p><strong>Type its size after a click.</strong> A click places the ready-made object, as
+always - and its sizes then show beside it, the width lit: type a number
+to set it, <strong>Tab</strong> for the next (depth, then height), <strong>Enter</strong> when done.
+Nothing has to be typed; the first click or any other key leaves it as it
+is.</p>
 <p><strong>Drag to size a new object.</strong> With <strong>+</strong> or <strong>&minus;</strong> armed, a click still
 places the ready-made object - and a <strong>drag sizes it as it is placed</strong>: the
 drag is its footprint (a rectangle for a box, a circle for a round
@@ -2859,11 +2864,16 @@ drawing switches, decide the rest, and are remembered:</p>
 <li><strong>from: auto / centre / corner</strong> - where the footprint grows from. <em>auto</em>
   grows a round object from its centre, a box from corner to corner, and
   anything from its centre when the drag starts on a centre snap.</li>
+<li><strong>keep proportions</strong> - the footprint keeps the profile's own shape: a
+  square stays square, a 2:1 slot stays 2:1, and the drag (or one typed
+  size) sets how big.</li>
 </ul>
 <p>The footprint lies in the face it was started on, so a boss dragged on a
 slanted side stands square to it. <strong>A &minus; placed on a face runs into it</strong> -
 clicked or dragged - starting a hair above the face so the cut comes
-cleanly through; the pointer then sets its depth. A + grows out of the
+cleanly through; the pointer then sets its depth. It cuts the part it was
+put on, also when nothing is selected (with something selected, it cuts
+that). A + grows out of the
 face, as always; on the ground both stand up. What you get is an ordinary
 object: its profile and spine are in the graphs as always.</p>
 <p>A click on <strong>empty space puts the object on the ground</strong>, where the
