@@ -103,12 +103,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.36 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.37 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.36. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.37. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -2844,6 +2844,28 @@ cancel and it is exactly where it was.</p>
 <p>When you move something with the <strong>pin</strong>, it ignores the object
 being moved, so a click lands on whatever is behind it rather than
 on the thing in your hand.</p>
+<p><strong>Drag to size a new object.</strong> With <strong>+</strong> or <strong>&minus;</strong> armed, a click still
+places the ready-made object - and a <strong>drag sizes it as it is placed</strong>: the
+drag is its footprint (a rectangle for a box, a circle for a round
+profile), let go, move the pointer up for the height, click to finish. The
+sizes show beside the shape as you go. Once the footprint is down you can
+<strong>type a number</strong> for the size that is lit - the height first - press
+<strong>Tab</strong> for the next one, <strong>Enter</strong> when done; <strong>Esc</strong> gives the size up
+and leaves you placing. Two small switches at the top left, beside the
+drawing switches, decide the rest, and are remembered:</p>
+<ul>
+<li><strong>drag: size / drag: draw</strong> - what a drag does. On <em>draw</em> a drag draws a
+  spine or a profile on the face, as before.</li>
+<li><strong>from: auto / centre / corner</strong> - where the footprint grows from. <em>auto</em>
+  grows a round object from its centre, a box from corner to corner, and
+  anything from its centre when the drag starts on a centre snap.</li>
+</ul>
+<p>The footprint lies in the face it was started on, so a boss dragged on a
+slanted side stands square to it. <strong>A &minus; placed on a face runs into it</strong> -
+clicked or dragged - starting a hair above the face so the cut comes
+cleanly through; the pointer then sets its depth. A + grows out of the
+face, as always; on the ground both stand up. What you get is an ordinary
+object: its profile and spine are in the graphs as always.</p>
 <p>A click on <strong>empty space puts the object on the ground</strong>, where the
 grid is - not floating at whatever depth the camera implied. Click a
 surface instead and it goes there, as before.</p>
