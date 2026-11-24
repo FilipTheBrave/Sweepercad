@@ -60,13 +60,23 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 .none { color: #999; display: none; }
 .cover, .ptoc { display: none; }
 .foot { margin-top: 80px; padding-top: 18px; border-top: 1px solid #ddd; font-size: 14px; color: #888; }
+.mtoc { display: none; }
 @media (max-width: 860px) {
   nav { display: none; }
   .top input { width: 150px; }
+  /* on a phone the side list of chapters has no room: the same list, folded, at the top */
+  .mtoc { display: block; margin: 14px 0 22px; border: 1px solid #ddd; border-radius: 8px; background: #fff; }
+  .mtoc > summary { padding: 11px 14px; font-weight: 600; cursor: pointer; }
+  .mtoc ul { list-style: none; margin: 0; padding: 0 14px 6px; }
+  .mtoc li.ch { margin: 0; border-top: 1px solid #eee; }
+  .mtoc li.ch > a { display: block; padding: 10px 0; font-weight: 600; text-decoration: none; }
+  .mtoc li.ch ul { display: none; padding: 0 0 8px 12px; }
+  .mtoc li.ch.open ul { display: block; }
+  .mtoc li.ch ul a { display: block; padding: 5px 0; color: #555; text-decoration: none; }
 }
 @media print {
   @page { size: A4; margin: 18mm 16mm; }
-  .top, nav, .foot, .onscreen { display: none !important; }
+  .top, nav, .foot, .onscreen, .mtoc { display: none !important; }
   body { background: #fff; }
   .wrap { display: block; }
   main { max-width: none; padding: 0; }
@@ -123,6 +133,7 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
   with pictures. For version 0.10.45. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
+<details class="mtoc"></details>
 <div class="ptoc cover-toc"></div>
 <section class="chapter" id="welcome"><h2>Welcome</h2><p>Sweeps are at the heart of it: a <strong>sweep</strong> is a cross-section pushed along a path.
 You draw the parts in 2D graphs and the 3D shape follows.</p>
@@ -5044,6 +5055,20 @@ repeat under still goes through the pieces as before.</p>
   var pt = document.querySelector('.ptoc');
   var t = document.querySelector('#toc ul');
   if (pt && t) { pt.innerHTML = '<h2 style="page-break-before:avoid">Contents</h2>' + t.outerHTML; }
+  // on a phone: the chapters, folded, at the top - a tap on a chapter opens its sections
+  var mt = document.querySelector('.mtoc');
+  if (mt && t) {
+    mt.innerHTML = '<summary>Contents - 9 chapters and the index</summary>' + t.outerHTML;
+    Array.prototype.forEach.call(mt.querySelectorAll('li.ch'), function (li) {
+      var a = li.firstElementChild, sub = li.querySelector('ul');
+      if (!sub) { a.addEventListener('click', function () { mt.open = false; }); return; }
+      a.addEventListener('click', function (e) {
+        if (!li.classList.contains('open')) { e.preventDefault(); li.classList.add('open'); }
+        else { mt.open = false; }
+      });
+      Array.prototype.forEach.call(sub.querySelectorAll('a'), function (x) { x.addEventListener('click', function () { mt.open = false; }); });
+    });
+  }
   var q = document.getElementById('q'), none = document.getElementById('none');
   var secs = Array.prototype.slice.call(document.querySelectorAll('main section.sec, main section.chapter#welcome'));
   var chapters = Array.prototype.slice.call(document.querySelectorAll('main section.chapter'));
