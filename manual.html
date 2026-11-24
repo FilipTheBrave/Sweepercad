@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.50 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.51 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.50. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.51. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -769,6 +769,14 @@ refused with the reason. A combine left with one input collapses into it,
 so the graph stays tidy.</p>
 <hr /></section>
 <section class="sec" id="coils-springs-threads-shells-and-horns"><h3>Coils — springs, threads, shells and horns</h3><p>Every sweep - adding or cutting - has a <strong>coil</strong> box with a tick: tick it and that sweep's own profile winds round its own spine; untick it for a plain sweep again (the winding is kept). A cutting sweep wound round makes a thread's groove. The ≀ icon (in the stick figure's corner group, beside the route tool; also on the node editor's row) is the quick way to a new one - a <strong>coil</strong>: an object whose wire winds round its spine. It is the one object whose path is not drawn in a plane — everything else about it is a sweep's: the profile and the scale graph are drawn as usual, it combines, cuts and exports like any object, and its node carries the ≀ mark in its sign's colour.</p>
+<p><strong>In the 3D view.</strong> With a coil selected a short bar stands at the left:
+<strong>presets</strong> (a list to start from - spring, thread, shell, horn...),
+<strong>left-handed</strong>, <strong>the profile grows</strong>, <strong>straighten the spine</strong>, and
+<strong>turns</strong>, <strong>pitch</strong>, <strong>radius</strong> (and <strong>grow / turn</strong> when the radius grows)
+with <strong>−</strong> and <strong>+</strong> - each number can be clicked and typed. They are the
+coil box's own settings. While the bar is up a click beside the coil does
+not let go of it; the green <strong>✓ Done</strong> at the top of the view leaves, and
+<strong>✎ edit coil</strong> at the left - or a click on the coil - brings it back.</p>
 <ul>
 <li><strong>The spine is the axis.</strong> A new coil starts on a straight spine exactly as long as it climbs: a plain spring. Bend the spine and the coil follows it — a phone cord, a ram's horn. <em>Straighten the spine to the climb</em> puts it back.</li>
 <li><strong>Preset</strong>: spring, thread, conical spring, shell, ammonite, golden, horn. Every number stays editable afterwards.</li>
@@ -1551,13 +1559,16 @@ spine — 90° means the far end is a quarter turn from the near one.
 first section. Use roll to orient a square or an n-gon; use twist to
 make it spiral.</p>
 <hr />
-<p><strong>Settings in the view, or in a window.</strong> A new array, infill or surface
+<p><strong>Settings in the view, or in a window.</strong> A new array, coil, route, infill or surface
 pattern shows its main settings as a bar of icons at the left of the 3D view,
 with the green <strong>✓ Done</strong> at the top; everything else is in the left panel. A
-new coil or eggshell mould opens its settings in a window over the 3D view: set
-them and watch the result follow, then press <strong>Done</strong> and they go back to the
-left panel, where they always are when that node is selected. The route tool's window has a <strong>Ready</strong>
-button the same way. The mouse wheel over the left panel always scrolls it: a
+combine has one too, for how its parts meet - <strong>sharp, fillet, chamfer or
+bridge</strong>, with the radius, <em>smooth</em> and <em>as big as it fits</em> for a fillet, and
+reach, bulge and flare for a bridge - but because combines are everywhere it
+waits behind its <strong>✎ edit combine</strong> button at the left of the view. A
+new eggshell mould opens its settings in a window over the 3D view: set them
+and watch the result follow, then press <strong>Done</strong> and they go back to the left
+panel, where they always are when that node is selected. The mouse wheel over the left panel always scrolls it: a
 field, list or slider only takes the wheel once you have clicked into it, so
 scrolling past a number never changes it.</p>
 <hr /></section><section class="sec" id="nodes"><h3>Nodes</h3><p><strong>Each card is the colour of what it is:</strong> green a positive object, red
@@ -2195,7 +2206,7 @@ panel, under "place on":</p>
 <p>Each copy is placed by <strong>its own origin</strong> - the point the object was drawn
 around - not by the world's origin, so it does not matter where the object
 sits before you array it. The copies follow when the surface changes.
-Untick a copy in "copies shown" to leave it out.</p>
+To leave single copies out, click <strong>leave copies out</strong> in the array's bar: a dot stands on every copy, a click on a dot takes that copy away (the dot goes hollow), a click on it again brings it back. The same list is in the left panel as "copies shown".</p>
 <p><strong>Where the curve sits.</strong> An <strong>open</strong> curve starts at the object's origin:
 the first copy is where the object was. A <strong>closed</strong> curve goes <strong>round</strong>
 the object: its middle (the middle of its extent) is on the object's
@@ -2386,6 +2397,20 @@ is selected. Typical workshop values - check them against your screws.
 From a script: <code>model.hole("M4", "countersunk", 8, at=(x, y, z))</code>.</p>
 <hr />
 <hr /></section>
+<section class="sec" id="text-on-a-part"><h3>Text on a part</h3><p><strong>T</strong> under <strong>+</strong> makes raised text, <strong>T</strong> under <strong>−</strong> text that is cut in.
+Pick one, then <strong>press on a part and drag</strong> where the text goes - from where
+it starts to where it ends: the drag is its place, its width and its
+direction, on the side of the part you dragged on. Let go and a small panel
+opens under it: <strong>type the text</strong>, pick its <strong>font</strong>, <strong>B</strong> for bold - the
+part follows a moment after each change. Enter, or ✓, closes the panel.</p>
+<p>The text fits the frame you dragged: a longer text has smaller letters.
+Afterwards, with the text selected: <strong>drag its frame</strong> to move it over the
+part, <strong>drag the dot at its end</strong> to size it, <strong>drag the ring above it</strong>
+to turn it (it holds at every 15°), <strong>click the frame</strong> to type again; its width under the frame can be clicked and typed.
+It reads the right way round on whichever side it stands. Depth is in the
+left panel. The result is a mesh, as with every surface pattern (for
+letters as exact CAD parts, see <strong>text</strong> in the parts catalogue).</p>
+<hr /></section>
 <section class="sec" id="machine-parts-nozzles-gears-pulleys-a-snap-fit"><h3>Machine parts — nozzles, gears, pulleys, a snap fit</h3><p>The <strong>machine parts</strong> - now in Make › <strong>parts</strong>, the catalogue - make a whole part from one form, as
 ordinary objects (a sweep, or a few in a combine): afterwards edit their
 graphs, move them, cut them, give them a draft like anything else. Each
@@ -2436,6 +2461,7 @@ leaves following the curve. (The slot replaces the drawn curve; redo it
 after changing the centreline.)</p>
 <hr /></section><section class="sec" id="the-lattice-node"><h3>Infill and surface patterns (the lattice node)</h3><p>Two tools, one engine, each with its own icon (in the group with <strong>✎ draw on
 the surface</strong>) and its own node:</p>
+<p>(The <strong>eggshell mould</strong> has its icon in this group too.)</p>
 <ul>
 <li><strong>◈ Infill</strong> fills a part inside - gyroid and the other surfaces, struts,
   2D fills, foams, your own cell - through the whole volume, or keeps it
@@ -2556,7 +2582,7 @@ pattern</strong>) at the left - or a click on the lattice - brings the bar back.
   drag the wall's edge for its thickness. The numbers show under it, and
   in the panel.</li>
 <li><strong>A gradient, to handle.</strong> When the walls or the cells are graded along
-  X, Y or Z, a band lies along that direction over the part, as wide at
+  X, Y or Z, a band lies along that direction at the part's edge, as wide at
   each end as the value there, with a knob at each end: drag a knob away
   from the line for more, towards it for less.</li>
 </ul>
@@ -2662,6 +2688,16 @@ rotation field yourself: the object's rotation composed with a turn of
 its holder: the lid on a box, an arm on a base, a wheel on an axle, a
 slide in its rail. The <strong>joint</strong> box in the panel (for a top-level part)
 has it:</p>
+<p><strong>From the 3D view.</strong> Select the part that should move, click the <strong>joint</strong>
+icon (with the combine, top left), then click the part that holds it: it is
+a hinge at once, and the joint's bar stands at the left of the view -
+<strong>held by</strong> (click another holder), <strong>hinge / slider / ball</strong>, <strong>pick the
+axis</strong> (click a face of the holding part), <strong>play</strong>, <strong>check</strong> and <strong>take
+the joint off</strong>, and below them where it stands <strong>now</strong> and its limits
+<strong>from</strong> and <strong>to</strong> (a ball also has tilt and swing), each with − and + and
+a number to click and type. The green <strong>✓ Done</strong> leaves; a part with a
+joint keeps an <strong>✎ edit joint</strong> button at the left of the view. The same
+settings are in the left panel:</p>
 <ul>
 <li><strong>held by</strong> — the part that holds this one. Pick it and the joint is
   made: where the part is <strong>now</strong> is its pose at the joint's zero.</li>
@@ -3225,13 +3261,19 @@ and the net as an OBJ of lines.</p>
 the <strong>end</strong>. Either can sit on a part or in free space, for example down
 to the floor. <strong>Shift-click</strong> points in between to make it pass
 through them. Esc cancels.</p>
-<p><strong>Its settings window</strong> opens with the tool, like the placement window
-(right-click <strong>⤳</strong> to open just the window). Set the tube radius, the
-plane, the clearances and the rules there <em>before</em> you pick the points;
-with no route selected the window shows what the <strong>next</strong> route starts
-with, and that is remembered. With a route selected it edits that route,
-live. The same settings sit in the inspector's <strong>route</strong> panel when the
-window is closed. Drag the title to move it, double-click to fold it.</p>
+<p><strong>Its settings stand in the view.</strong> A new route starts with what the last
+one had, and the moment it is made its bar stands at the left of the 3D
+view: the <strong>plane</strong> it lies in and <strong>smooth or square</strong> (each opens a
+list), <strong>inside the part</strong> (a channel instead of a tube), <strong>live</strong> (it
+finds its way again when an end or a part moves), <strong>find the way again</strong>,
+<strong>pick the points again</strong>, and - once it wanders - <strong>another way</strong>. Below
+them the <strong>radius</strong>, how far it <strong>keeps off</strong> the parts, the smallest
+<strong>bend</strong> and how much it <strong>wanders</strong>, each with − and + and a number you
+can click and type. The green <strong>✓ Done</strong> at the top leaves; <strong>✎ edit
+route</strong> brings the bar back. Everything else - directions, slopes, how it
+leaves and arrives - is in the left panel's <strong>route</strong> group. (Right-click
+<strong>⤳</strong> still opens all of it as one window, to set what the next route
+starts with before picking.)</p>
 <p><strong>Editing its points.</strong> Select the route and its points show in the 3D
 view: the <strong>start</strong> green, the points it passes through blue, the <strong>end</strong>
 orange, and a small <strong>+</strong> halfway between each two.
@@ -4090,7 +4132,7 @@ down behind them - plus the lenses in it. It takes about a minute. The front
 and the temples are separate parts, to shape further like any part: round
 them, give the front a relief, print them. A study tool - not for wearing
 with real lenses.</p>
-<p><strong>The lens shape</strong> is how the optician cuts the lens: round, oval, rounded rectangle, cat-eye, or your own outline (draw it as an object's profile at real size, the temple side to the right, select it and click <em>take the outline</em>). Width A, height B and the bridge DBL, and the edge: a V-bevel for a full rim, a groove for a half rim, flat for rimless.</p>
+<p><strong>The lens shape</strong> is how the optician cuts the lens: round, oval, rounded rectangle, cat-eye, or your own outline (draw it as an object's profile at real size, the temple side to the right, select it and click <em>take the outline</em>). Or read it from a picture: <strong>shape from a picture of a frame…</strong> takes a picture of a frame seen from the front, on a plain background, finds its two lens openings and makes the lens shape from them - the two evened out, a slightly tilted picture levelled - with the height and the bridge to match. A picture has no scale, so the width A sets the size: type the frame's own lens width (the first number printed inside a temple, the 52 of 52-18-140) and the shape follows. It needs rims that close all round; a half-rim or rimless frame has no opening to read. <strong>Copying an existing frame?</strong> A picture shows the opening, and in a full rim the lens sits in a groove behind it: set <em>lens larger than the pictured opening by</em> (often about 0.5 mm) and the lens is grown by that all round, with A still the lens's own width. For a frame of your own leave it at 0 - there the shape is the lens, and the frame and its groove are cut from it. Width A, height B and the bridge DBL, and the edge: a V-bevel for a full rim, a groove for a half rim, flat for rimless.</p>
 <p><strong>Fit to the face - nose and head.</strong> The pupil is rarely in the middle of the lens: the box (A wide) starts DBL/2 from the nose line and the pupil sits at the PD, so it usually lands a few mm towards the nose, and the fitting height puts it above or below the middle. The panel says by how much. Then the measurements for the frame itself: the <strong>nose</strong> - its width where the pads sit, how high its top (where the bridge rests) is above the pupils, how far down the pads touch, how far it stands in front of the eyes, and its <strong>splay</strong> and <strong>frontal</strong> angles (how its sides open towards the back and downwards); and the <strong>head</strong> - its width at the temples, above the ears, and how far back and how high the ears are, and the <strong>hinge height</strong> (where the temples start on the frame front, above the pupil line). With <strong>show the guides</strong> they are drawn live in the 3D view and follow every number at once: the lens boxes and pupils (grey and blue), the nose as an orange wedge with the bands where the pads rest, and the head width with the temples' path to the ears (purple). Design the frame against them. Below the numbers the panel says what they mean - how much room there is for the rim at the nose, how wide the end pieces get, how long the temples are - and warns when something will not fit. <strong>Fit the lenses to the face</strong> sets A, B and DBL for these measurements while the pupils stay exactly where they are: DBL becomes the nose width at the pads plus the <em>frame beside the nose</em> on both sides; A grows out towards the temples, but only until the pupil is 3 mm from the lens centre - the limit an optician aims for, so the lenses stay thin and even and fit the blank - and wider end pieces (at least <em>end pieces at least</em>) take the rest of the head width; B keeps the shape's proportions and the fitting heights keep each pupil's height in its lens. The panel also says how big a blank each lens needs (the farthest corner of the shape from the pupil, twice, plus 2 mm) and warns when that is more than the blank diameter. <strong>The nose is a ridge</strong>, not a block: from its top it runs down and comes forward at the <strong>nose slope</strong> (its angle from vertical, seen from the side), and its sides open backwards at the splay angle (and a little more downwards, the frontal angle) so that it is exactly as wide as you measured where the pads touch it. Tick <strong>the nose runs on through the frame front</strong> to see its outline carried forward through the frame - where the frame crosses it, it has to stand in front of the nose. <strong>Shape the lenses round the nose</strong> (on at first) pushes each lens's nasal side out of the nose wherever it would come closer than <strong>lenses clear of the nose by</strong> - usually the lower inner corner, as real frames do; the cut lenses, the cutters, the data sheet and the OMA file follow it. Without it the panel warns how far the lenses reach into the nose, and a red cross marks the spot. <strong>Check the selected frame against the nose</strong> measures how far the objects you selected - your frame - reach into the nose, and marks those spots red. <em>Also add the guides as objects</em> makes the nose as a negative block (in a combine with your frame it keeps the frame off the nose), the temples' paths as thin rods and the ear points. While the lens panel is open, these measurements also go with the prompt in <em>Make it with AI</em>, so a frame an AI writes leaves room for the nose.</p>
 <p><strong>Add to scene</strong> makes the cut lenses as parts, with their 3D edge. Options add: <em>cutters for the frame</em> (the lenses grown by a clearance, already negative - put them in a combine with your frame and they cut the opening and the groove), <em>the frame surface</em> (a curved sheet through the front of both lenses at your wrap - a base for the frame front) and <em>markers at the pupils</em>.</p>
 <p><strong>Save data sheet</strong> writes an A4 PDF with the prescription, the lens and fit, the thicknesses, the frame numbers and both shapes at true size (with a 50 mm bar to check the print), and beside it an OMA shape file - the format optician edging machines read. Check it with your optician's software before relying on it.</p>
@@ -5122,6 +5164,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#stats-and-checks">Takes a push of</a></li>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Tangent to the balls</a></li>
 <li><a href="#the-terms-updates-and-what-this-is-for">Terms, updates, and what this is for</a></li>
+<li><a href="#text-on-a-part">Text on a part</a></li>
 <li><a href="#the-eggshell-mould">Thickness</a></li>
 <li><a href="#mirroring-an-object">Through</a></li>
 <li><a href="#what-the-app-notices-while-you-draw">Tight bends</a></li>
