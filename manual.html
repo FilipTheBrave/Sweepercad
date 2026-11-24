@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.57 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.58 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.57. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.58. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -2723,22 +2723,38 @@ rotation field yourself: the object's rotation composed with a turn of
 its holder: the lid on a box, an arm on a base, a wheel on an axle, a
 slide in its rail. The <strong>joint</strong> box in the panel (for a top-level part)
 has it:</p>
-<p><strong>From the 3D view.</strong> Select the part that should move, click the <strong>joint</strong>
-icon (at the bottom left, beside measure: two arms on a pin), then click the part that holds it: it is
-a hinge at once (or pick hinge, slider or ball first, beside <em>held by</em>).
-While it waits the view says what to click and names the parts that can
-hold it. Then the joint is drawn on the model: its <strong>axis</strong> dashed through the
-<strong>pivot</strong> (white), the holder named, and how it moves - a hinge's <strong>arc</strong> from
-its lower limit to its upper one, a slider's <strong>track</strong>, a ball's <strong>sphere</strong> -
-with where it stands <strong>now</strong> marked. Its bar stands at the left of the view -
-<strong>held by</strong> (click another holder), <strong>hinge / slider / ball</strong>, <strong>pick the
-axis</strong> (click a face of the holding part), <strong>play</strong>, <strong>into the animation</strong>
-(keys from its lower limit to its upper one and back over the clip - press
-play on the animation bar; move or change them in the timeline), <strong>check</strong> and <strong>take
-the joint off</strong>, and below them where it stands <strong>now</strong> and its limits
-<strong>from</strong> and <strong>to</strong> (a ball also has tilt and swing), each with − and + and
-a number to click and type. The green <strong>✓ Done</strong> leaves; a part with a
-joint keeps an <strong>✎ edit joint</strong> button at the left of the view. The same
+<p><strong>From the 3D view, step by step.</strong> Select the part that should move and click
+the <strong>joint</strong> icon (at the bottom left, beside measure: two arms on a pin). Its
+bar stands at the left of the view, and under it the steps in order - the one
+to do now lit, the ones done ticked:</p>
+<ol>
+<li><strong>held by</strong> — click the part that holds it. The parts that can hold it are
+   outlined and named on the model. It is a hinge at once.</li>
+<li><strong>how it moves</strong> — <strong>hinge</strong>, <strong>slider</strong> or <strong>ball</strong>.</li>
+<li><strong>its axis</strong> — picking it starts by itself. <strong>Point at the holder and the
+   axis shows before you click</strong> (a white dashed line, with in words what it
+   is): on a round face (a pin, a hole) its own axis; near an <strong>edge</strong> of a
+   face a line <strong>along that edge</strong> - the hinge line of a lid - with the edge
+   lit green; near the <strong>middle</strong> of a flat face square to it through its
+   middle; anywhere else square to the face through the point. The click takes
+   what was shown. Or <strong>X / Y / Z</strong> through the pivot it has, and <strong>flip</strong> to
+   turn the axis round (it opens the other way).</li>
+<li><strong>try it</strong> — <strong>play</strong> runs it between its limits and back, smoothly, until
+   pressed again (the parts move on screen; the model is built once, where it
+   stops). Or <strong>drag the round dot</strong> on the model by hand: round the arc of a
+   hinge, along the track of a slider - it stops at its limits.</li>
+<li><strong>check</strong> — does it run into anything between its limits.</li>
+</ol>
+<p>On the model: its <strong>axis</strong> dashed through the <strong>pivot</strong> (white), the holder
+named, and how it moves - a hinge's <strong>arc</strong> from its lower limit to its upper
+one, a slider's <strong>track</strong>, a ball's <strong>sphere</strong> - with where it stands <strong>now</strong>.
+The move gizmo stays out of the way while a joint is set up. The bar also
+has <strong>into the animation</strong> (keys from its lower limit to its upper one and
+back over the clip - press play on the animation bar; move or change them in
+the timeline) and <strong>take the joint off</strong>, and below them where it stands
+<strong>now</strong> and its limits <strong>from</strong> and <strong>to</strong> (a ball also has tilt and swing),
+each with − and + and a number to click and type. The green <strong>✓ Done</strong> leaves;
+a part with a joint keeps an <strong>✎ edit joint</strong> button at the left of the view. The same
 settings are in the left panel:</p>
 <ul>
 <li><strong>held by</strong> — the part that holds this one. Pick it and the joint is
@@ -2746,9 +2762,9 @@ settings are in the left panel:</p>
 <li><strong>kind</strong> — a <strong>hinge</strong> turns about the axis, a <strong>slider</strong> moves along it,
   a <strong>ball</strong> turns about the point (its angle, plus a tilt and a swing),
   <strong>fixed</strong> just rides along.</li>
-<li><strong>axis</strong> — <strong>pick the axis in 3D…</strong> and click a face of the holder: a
-  round face (a pin, a hole) gives its own axis, a flat face its normal
-  through the click. Or world <strong>X / Y / Z</strong> through the part's origin. The
+<li><strong>axis</strong> — <strong>pick the axis in 3D…</strong> and point at the holder (see the
+  steps above: a round face, an edge, a face's middle). Or world
+  <strong>X / Y / Z</strong> through the pivot it has. The
   axis is kept in the holder's own frame, so moving or editing the holder
   moves the axis with it.</li>
 <li><strong>value</strong> — the angle or distance, held inside the <strong>range</strong>; the
@@ -4471,14 +4487,11 @@ Only run scripts you would be willing to run in a terminal.</p>
 things in SweeperCAD for you, and you do not need to write any code. Press
 the <strong>AI</strong> button (top left of the 3D view, or <strong>Script → Build with AI…</strong>).
 The window asks two things:</p>
-
 <p><strong>What do you want to make?</strong> Say it in plain words - "a desk lamp: round
 base, two arms of 300 mm, a red shade 160 mm across". Sizes help. The 🎤
 beside the field lets you say it instead, and the <em>try</em> chips fill in an
 example.</p>
-
 <p><strong>How shall the AI build it?</strong> Pick one of three tiles:</p>
-
 <ul>
 <li>🤖 <strong>By itself.</strong> The AI builds it on its own, round after round. The first
   time, press <strong>Set it up - once</strong> and choose your AI (see <em>Let it run by
@@ -4493,24 +4506,20 @@ example.</p>
 <li>🔌 <strong>Connect an AI app.</strong> For an AI app on your computer that can drive
   SweeperCAD itself (see <em>Connect an AI app</em> below).</li>
 </ul>
-
 <p>The line under the tiles always says what to do next, and the window
 remembers which way you chose. Press ③ with the wrong thing copied and it
 says what happened: nothing copied yet, the message for the AI itself (not
 sent to your AI yet), or plain text that is no script (copy the code box -
 or ask the AI for "the SweeperCAD script").</p>
-
 <p><strong>Not quite right?</strong> Describe the change in the row under it and build
 again - by itself, or copy it into the <em>same</em> chat and paste the answer; the
 new version replaces the last one.</p>
-
 <p>Everything else is folded away: <strong>▸ More</strong> holds the pictures, the sketch,
 the examples from the shelf, the design rules and the mesh to rebuild;
 <strong>▸ The script</strong> shows the script itself, to read, change and run.</p>
 <p><strong>Say it instead of typing (🎤).</strong> Beside the ask field and the change row is a microphone button: hold it, say
-what you want or the change, let go - the words are typed into that field. The round <strong>🎤 microphone</strong>
-at the end of the search field in the 3D view (and the <strong>hold and speak</strong> button at the
-bottom of the window) understands four kinds of things, the first that
+what you want or the change, let go - the words are typed into that field. The <strong>🎤 hold and
+speak</strong> button at the bottom of the window understands three kinds of things, the first that
 fits:</p>
 <ul>
 <li><strong>a field you can see</strong>, by its label and a number: "cell size 8", "depth minus 1.5",
@@ -4519,15 +4528,12 @@ fits:</p>
   is pulled, exactly as dragging it), "make that bit shorter" (10 %), "wider by 5 mm", "make it
   10 percent bigger", "round the edges 2 mm", "colour it red", "hide it", "show everything",
   "delete it", "undo", "redo" - each one undo step;</li>
-<li><strong>a command or a part by its name</strong>, as in the search: "tool tray", "pillow block", "export", "lights" -
-  run at once when the name fits one command; when it fits several, the search opens to pick one.
-  Start with "find" or "search for" ("find thread") and the search opens with those words in it;</li>
 <li><strong>anything else is a change for the AI</strong>: Build with AI opens with it in step ④ (in ① when
   nothing is built yet), for the selected part or the one picked in <em>How it was built</em>.</li>
 </ul>
 <p>What was understood is shown at the bottom of the window. Speech is turned into text <strong>on this
-computer</strong> (whisper.cpp), with the speech model that comes with the app - nothing is
-downloaded, and nothing you say leaves the computer. It understands
+computer</strong> (whisper.cpp): the first press asks to download the speech model once (about 57 MB,
+kept in your SweeperCAD folder); after that nothing you say leaves the computer. It understands
 many languages. Your system's own dictation works in every field too: on a Mac the dictation key
 (or Fn twice), on Windows Win+H.</p>
 <p><strong>The script box.</strong> The AI's answer lands in the box under the steps. You can
@@ -4549,7 +4555,14 @@ for a script that runs but builds something wrong (a cut the geometry
 kernel couldn't make, an offset too big for the shape): once the 3D view
 has built it, the problem is listed under the script and the button
 lights up.</p>
-<p><strong>Rebuild a mesh.</strong> Press <strong>Mesh to rebuild…</strong> and pick an STL or OBJ. It shows
+<p><strong>Show it what you mean.</strong> Right under what you want to make: <strong>A
+picture…</strong>, <strong>A sketch…</strong> (the sketch pad), <strong>An STL / OBJ to rebuild…</strong>,
+and <strong>Use parts from my shelf as examples</strong> - all optional, each described
+below - and beside it <strong>Check it against my design rules each round</strong> with
+its <strong>Design rules…</strong> button. And it always knows the <strong>ready parts</strong> (gears, bearings, screws,
+nuts, brackets, pipe fittings…) and <strong>what is in your scene now</strong>, so ask it
+to use them: "a 608 bearing in a pillow block", "a lid for the selected box".</p>
+<p><strong>Rebuild a mesh.</strong> Press <strong>An STL / OBJ to rebuild…</strong> and pick an STL or OBJ. It shows
 see-through in the 3D view and is never part of your model. Say what it is -
 "rebuild this bracket" - and the AI gets its measurements: its size, its
 outline wherever it cuts it, a part straight from an outline. Each round of
@@ -4569,8 +4582,12 @@ paste them into the same chat after the text: the result from the front,
 the side, the top and at an angle, in one picture. So the AI checks its own
 work against what you asked - the loop closes without you having to
 describe what went wrong.</p>
-<p><strong>Examples from your shelf</strong> (optional, off at first). Tick <em>Add similar
-parts from my shelf as examples</em> and SweeperCAD looks on your asset shelf
+<p><strong>Mark it on the model.</strong> Beside the change, <strong>✏ Mark it on the model…</strong>
+opens the sketch pad with the 3D view as it is now under the paper: circle
+what is wrong, draw an arrow where it should go, a line where it should be
+cut - your marks, in red, go to the AI with the change. Turn the view to
+the side that shows it best first.</p>
+<p><strong>Examples from your shelf</strong> (optional, off at first). Tick <em>Use parts from my shelf as examples</em> and SweeperCAD looks on your asset shelf
 for parts with a similar name or note - your own, the starter shapes, and
 what you took from the online library - and puts up to two of them in the
 prompt, as scripts that build them. The AI does not remember anything
@@ -4578,14 +4595,14 @@ between conversations, but this way it starts from what already worked.
 An example can also carry its mistakes into the new part, so use it when
 your shelf holds parts you trust. Only what is already on your computer
 is used.</p>
-<p><strong>Pictures of what you want.</strong> Under step 1, <strong>Add…</strong> up to four photos,
+<p><strong>Pictures of what you want.</strong> Under what you want, <strong>A picture…</strong> adds up to four photos,
 sketches or screenshots of what you are after. They go with the prompt:
 <strong>Copy pictures</strong> puts them in a band marked <em>what I want</em> above the four
 views of the result, to paste into the chat after the text; when it runs by
 itself they are sent with every round, so the AI compares its result with
 them. The prompt tells it that your words and measurements count for more
 than what a picture seems to show.</p>
-<p><strong>Sketch it.</strong> <strong>Sketch…</strong> (beside <em>Add…</em>) opens a sketch pad: draw what
+<p><strong>Sketch it.</strong> <strong>A sketch…</strong> opens a sketch pad: draw what
 you want with the mouse or a pen tablet, like on a napkin - a side view or
 an outline says most. <strong>Free</strong> draws free-hand; <strong>Line</strong> draws straight
 lines (press, pull, let go) that snap level and upright and onto the end
@@ -4882,6 +4899,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-lattice-node">Cells</a></li>
 <li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Chain sprocket</a></li>
 <li><a href="#assemblies-joints-between-parts">Chains</a></li>
+<li><a href="#assemblies-joints-between-parts">Check</a></li>
 <li><a href="#assemblies-joints-between-parts">Check collisions</a></li>
 <li><a href="#how-the-model-is-drawn">Chrome</a></li>
 <li><a href="#circular-arcs">Circular arcs</a></li>
@@ -5286,6 +5304,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#lathe">Tools</a></li>
 <li><a href="#tool-tray">Tray</a></li>
 <li><a href="#keep-only-what-s-inside">Trim blends</a></li>
+<li><a href="#assemblies-joints-between-parts">Try it</a></li>
 <li><a href="#routes">Tube radius</a></li>
 <li><a href="#coils-springs-threads-shells-and-horns">Turns</a></li>
 <li><a href="#twist-and-roll">Twist</a></li>
