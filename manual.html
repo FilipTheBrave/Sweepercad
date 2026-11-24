@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.54 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.55 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.54. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.55. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1138,9 +1138,14 @@ gone is kept, asleep, and wakes if the side comes back. Nets work on
 swept parts, imported CAD parts and the fillets a combine makes.</p>
 <hr /></section><section class="sec" id="the-box-cage-bend-a-whole-object"><h3>The box cage — bend a whole object</h3><p>For an array, a big combine, or whenever a whole object should bend,
 bulge, taper or lean, select it and pick the <strong>box cage</strong> tool (⬚ beside the
-pencil, bottom left): a cage of 3 x 3 x 3 points goes round it, and a bar at
-the top of the view has <strong>finer</strong>, <strong>coarser</strong>, <strong>✕ Remove the cage</strong> and
-<strong>✓ Done</strong>. Drag a point - it moves in the view's plane - and
+pencil, bottom left): a cage of 3 x 3 x 3 points goes round it. Its
+controls stand at the left of the view as icons, like every tool's: the
+<strong>cage</strong> icon (lit while there is one - click it to take the cage off, again
+to put one on), <strong>finer</strong> and <strong>coarser</strong>, and <strong>soft</strong> - proportional dragging: the
+points that many steps round the one you drag follow it, less and less
+with distance (0: that point alone). Point at a cage point and the ones that
+would follow are ringed in orange, the bigger the ring the further they go
+along. <strong>✓ Done</strong> and the tool's name are at the top. Drag a point - it moves in the view's plane - and
 everything inside follows smoothly; where the point stands, the object
 moves exactly as far. <strong>⊕</strong> and <strong>⊖</strong> beside the <strong>⬚</strong> make the cage finer or
 coarser (2 to 6 points a side), the shape it makes kept. With <em>View &gt;
@@ -1168,7 +1173,7 @@ solid with every face named, saved like any net, and goes on being edited
 the usual way. The part is rebuilt when the stroke ends. A stroke that
 crosses onto another face carries on there with that face's net; a
 fillet's own face is left alone.</p>
-<p>The brush is a share of the model: its <strong>radius</strong> is a percentage of the model's span (the box round everything drawn, corner to corner; 5 % to start), and a <strong>dab</strong> a percentage of the radius (8 %) - so it is the same brush on a pendant and on a gate, and the net a face gets follows it. While the brush is on, <strong>a bar at the bottom of the 3D view</strong> has both as sliders, with the millimetres beside them; the panel's sculpt row shows the same numbers and either moves the other. A small brush still moves the nearest net point with every dab. Leaving direct editing switches the brush off. A drag in empty space beside the part turns the view, as it does without the brush. The bar also has <strong>pull / push / smooth / erase / grab</strong> - <strong>erase</strong> takes the net's points under it back to nothing, so the sculpting goes and a relief under it stays; <strong>grab</strong> drags the points under it like a manipulator - and a press <strong>held still</strong> keeps sculpting there (a small dab every 60 ms) until you let go. The net's resolution: a face's size divided by the brush radius, plus one point, kept between 3 and 9 per side (or a fixed count in the sculpt row). When a press on a part does nothing the status line says why: on a fillet's face (left alone - sculpt the face beside it), or on a part that cannot take a net.</p>
+<p>The brush is a share of the model: its <strong>radius</strong> is a percentage of the model's span (the box round everything drawn, corner to corner; 5 % to start), and a <strong>dab</strong> a percentage of the radius (8 %) - so it is the same brush on a pendant and on a gate, and the net a face gets follows it. The face nets' tool has its controls as icons at the left of the view, like every tool's: the <strong>brush</strong> (lit while it is on - click it again to put it away and stay on the nets), and while it is on its five ways - <strong>pull</strong>, <strong>push</strong>, <strong>smooth</strong>, <strong>erase</strong>, <strong>grab</strong> - with its <strong>size</strong> and <strong>strength</strong> as numbers with − and + (click one to type it); below them <strong>paint a relief</strong>, <strong>relief or pattern</strong>, <strong>a blank for a face</strong>, <strong>take a face's net off</strong> and <strong>take every net off</strong>.</p>
 <p>The <strong>sculpt</strong> row in the node box has the brush: <strong>pull</strong> (out), <strong>push</strong>
 (in) or <strong>smooth</strong> (the points under the brush drawn toward their
 neighbours), the <strong>radius</strong> on the surface, the <strong>strength</strong> (how far one
@@ -1182,7 +1187,7 @@ belong to the part (or combine, or array) they shape. Its card says so -
 <em># 2 nets</em>, <em>⬚ cage 3</em> - and its panel has a <strong>shaped</strong> row with <strong>clear
 nets</strong> and <strong>clear cage</strong> - and <strong>soft</strong>, the falloff.</p>
 <p><strong>Soft falloff.</strong> Dragging one point of a net or a cage normally moves
-that point alone. <strong>Soft</strong> (in the shaped row; remembered) makes its
+that point alone. <strong>Soft</strong> (in the box cage's and the face nets' bars at the left of the view, and in the shaped row; remembered) makes its
 neighbours follow it, less and less with distance, out to that many net
 or cage steps: 0 moves only the point, 1.5 gives a smooth dent from one
 drag, 3 a broad swell across a fine net. It applies to every drag, nets
