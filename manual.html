@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.48 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.49 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.48. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.49. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1546,7 +1546,15 @@ spine — 90° means the far end is a quarter turn from the near one.
 first section. Use roll to orient a square or an n-gon; use twist to
 make it spiral.</p>
 <hr />
-<p><strong>Settings in a window.</strong> A new array, infill, surface pattern, coil or eggshell mould opens its settings in a window over the 3D view: set them and watch the result follow, then press <strong>Done</strong> and they go back to the left panel, where they always are when that node is selected (selecting something else puts them back too). The route tool's window has a <strong>Ready</strong> button the same way. The mouse wheel over the left panel always scrolls it: a field, list or slider only takes the wheel once you have clicked into it, so scrolling past a number never changes it.</p>
+<p><strong>Settings in the view, or in a window.</strong> A new array, infill or surface
+pattern shows its main settings as a bar of icons at the left of the 3D view,
+with the green <strong>✓ Done</strong> at the top; everything else is in the left panel. A
+new coil or eggshell mould opens its settings in a window over the 3D view: set
+them and watch the result follow, then press <strong>Done</strong> and they go back to the
+left panel, where they always are when that node is selected. The route tool's window has a <strong>Ready</strong>
+button the same way. The mouse wheel over the left panel always scrolls it: a
+field, list or slider only takes the wheel once you have clicked into it, so
+scrolling past a number never changes it.</p>
 <hr /></section><section class="sec" id="nodes"><h3>Nodes</h3><p><strong>Each card is the colour of what it is:</strong> green a positive object, red
 a negative, yellow a keep-inside one, blue a combine, purple an array,
 orange a bridge, cyan an imported part (a mesh with a dashed border), magenta a lattice (a colour you give a node
@@ -2150,9 +2158,24 @@ continuous by construction; the helper can be hidden or deleted afterwards.</p>
 an array of a negative is negative (drawn red and see-through), so an array
 of holes cuts.</p>
 <p>Select an object and press the array icon: the array is made at once and
-its settings open in their own window (press <strong>Done</strong> when it looks right).
-Where the copies go is chosen there, "place on" - and on the node itself the
-<strong>curve / surface chip</strong> and the copies chip open the same window:</p>
+a short <strong>bar stands at the left of the view</strong> - its main settings as
+icons, the same ones as in the left panel, so either can be used:</p>
+<ul>
+<li><strong>where the copies go</strong>: along a curve, on a surface, or grown;</li>
+<li><strong>copies</strong> with <strong>−</strong> and <strong>+</strong> - and the number itself can be clicked
+  and typed (so can spin, scale, rows and columns);</li>
+<li>along a curve: <strong>follow the curve</strong>, <strong>one per point</strong>, <strong>keep the
+  original</strong>, and spin and scale per copy;</li>
+<li>on a surface: <strong>scattered</strong> or <strong>in a grid</strong>, and <strong>which object</strong> -
+  switch it on and click the object in the view;</li>
+<li>grown: copies, branches, scale per copy, and <strong>place the 2nd copy by
+  hand</strong>.</li>
+</ul>
+<p>While the bar is up the array has the view to itself: a click beside the
+part does not let go of it. The green <strong>✓ Done</strong> at the top of the view
+leaves; the array stays selected, and <strong>✎ edit array</strong> at the left - or a
+click on the array - brings the bar back. Everything else is in the left
+panel, under "place on":</p>
 <ul>
 <li><strong>along the curve</strong> - the Array graph, as always: count, one per point,
   follow the curve, spin and scale per copy.</li>
@@ -2471,7 +2494,12 @@ by a <strong>grayscale image</strong>, or by <strong>your own graph</strong> (th
 the part, y in mm). <strong>Attractors</strong>: other objects that thicken (or thin)
 the pattern near them, fading over a distance you set.</p>
 <p><strong>Walls and cells in the 3D view.</strong> With a lattice selected a short bar stands
-at the left of the view - what it does shows on the part itself:</p>
+at the left of the view - what it does shows on the part itself: While it
+is up the lattice has the view to itself: a click beside the part does not
+let go of it. The green <strong>✓ Done</strong> at the top of the view leaves; the
+lattice stays selected, and <strong>✎ edit infill</strong> (or <strong>edit surface
+pattern</strong>) at the left - or a click on the lattice - brings the bar back.
+</p>
 <ul>
 <li><strong>The pattern, and where it goes.</strong> The bar's first two buttons show
   what is chosen. Click one and the choices open as pictures beside the
@@ -4734,6 +4762,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#exporting">Colour in exports</a></li>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Commit as sweeps</a></li>
 <li><a href="#cutting-and-joining-sweeps">Connect</a></li>
+<li><a href="#arrays-along-a-curve-or-on-a-surface">Copies</a></li>
 <li><a href="#when-a-fillet-will-not-take">Cornered</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Corners</a></li>
 <li><a href="#the-eggshell-mould">Cradle</a></li>
@@ -5031,7 +5060,6 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#a-fillet-that-changes-along-the-seam">Select a combine</a></li>
 <li><a href="#exporting">Separate bodies</a></li>
 <li><a href="#made-to-be-driven-by-a-program-not-only-by-a-person">Set</a></li>
-<li><a href="#placing-objects-exactly">Settings in a window</a></li>
 <li><a href="#lights">Shadows and depth</a></li>
 <li><a href="#parts-catalogue">Shafts and bearings</a></li>
 <li><a href="#assets">Sharing a part</a></li>
