@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.46 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.47 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.46. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.47. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1778,7 +1778,7 @@ the tool on it.</p>
 <ul>
 <li><strong>The bar shows the drawing tools only</strong> while you draw: <img class="ic" src="icons/draw.png" alt="✚">, <img class="ic" src="icons/loop.png" alt="◯"> rings,
   <img class="ic" src="icons/strip.png" alt="═"> strip, each with its own − and + beside it, <img class="ic" src="icons/ring.png" alt="✂"> ring cut, <img class="ic" src="icons/relax.png" alt="≈"> relax and
-  <img class="ic" src="icons/relaxall.png" alt="≋"> relax everything, <img class="ic" src="icons/refine.png" alt="⊞"> refine, <img class="ic" src="icons/coarser.png" alt="▦−"> <img class="ic" src="icons/finer.png" alt="▦+">, <img class="ic" src="icons/thin.png" alt="▭−"> <img class="ic" src="icons/thick.png" alt="▭+">, the falloff <img class="ic" src="icons/fall-.png" alt="◐−"> <img class="ic" src="icons/fall+.png" alt="◐+">, <img class="ic" src="icons/mirror.png" alt="⇋"> symmetry
+  <img class="ic" src="icons/relaxall.png" alt="≋"> relax everything, the <img class="ic" src="icons/erase.png" alt="⌫"> eraser, <img class="ic" src="icons/refine.png" alt="⊞"> refine and <img class="ic" src="icons/unrefine.png" alt="⊟"> its opposite, <img class="ic" src="icons/coarser.png" alt="▦−"> <img class="ic" src="icons/finer.png" alt="▦+">, <img class="ic" src="icons/thin.png" alt="▭−"> <img class="ic" src="icons/thick.png" alt="▭+">, the falloff <img class="ic" src="icons/fall-.png" alt="◐−"> <img class="ic" src="icons/fall+.png" alt="◐+">, <img class="ic" src="icons/mirror.png" alt="⇋"> symmetry
   and <img class="ic" src="icons/near.png" alt="◑"> near side only - the current value stands beside each pair. For an exact thickness, type it in the SubD box of the
   side panel (below zero it lies inside the drawn surface). The green
   <strong>✓ Done</strong> at the top of the view leaves. Point at any button and its
@@ -1797,9 +1797,11 @@ the tool on it.</p>
   a click beside the dot places another point. Four points are taken before
   three. A face that could not be part of a solid is shown red, with the
   reason.</li>
-<li><strong><img class="ic" src="icons/loop.png" alt="◯"> rings - a limb in a few strokes.</strong> Switch <img class="ic" src="icons/loop.png" alt="◯"> on, press <em>on</em> an arm, a
-  finger, a handle, and drag across it: a ring of points is laid all the
-  way round it there, shown while you drag. The next ring joins the one
+<li><strong><img class="ic" src="icons/loop.png" alt="◯"> rings - a limb in a few strokes.</strong> Switch <img class="ic" src="icons/loop.png" alt="◯"> on and point at an arm, a
+  finger, a handle: the ring shows under the pointer, straight across the
+  limb whichever way you look at it - a <strong>click</strong> lays it. For a tilted
+  ring, press on the limb and drag a line across it instead: the ring
+  follows the line. The next ring joins the one
   before with a band of faces - the part appears at the first band - and
   so on along the limb. A ring that joins another takes that one's number
   of points - unless you press the <strong>−</strong> or <strong>+</strong> beside <img class="ic" src="icons/loop.png" alt="◯"> first: the next
@@ -1828,6 +1830,10 @@ the tool on it.</p>
   corner the point stays. One undo takes a whole brush stroke back.</li>
 <li><strong><img class="ic" src="icons/relaxall.png" alt="≋"> relax everything</strong> does the relax brush's work on every drawn point
   at once.</li>
+<li><strong><img class="ic" src="icons/erase.png" alt="⌫"> eraser.</strong> Switch it on and brush over faces and points: what the
+  brush passes is marked red, and goes when you let go - in one step, one
+  undo. Its <strong>−</strong> and <strong>+</strong> set the brush's size. The last face of a part
+  cannot go.</li>
 <li><strong>Drop a point on another and the two become one.</strong> Dragged within reach
   of another drawn point it snaps onto it; let go there and they are
   welded (with the falloff off).</li>
@@ -1873,6 +1879,10 @@ the tool on it.</p>
 <li><strong><img class="ic" src="icons/refine.png" alt="⊞"> refine</strong> splits every face in four and lays the new points on the
   other part - point at the button to see it first. Unlike <img class="ic" src="icons/finer.png" alt="▦+"> it adds real
   points, which you can then drag.</li>
+<li><strong><img class="ic" src="icons/unrefine.png" alt="⊟"> undo refine</strong> is its opposite: every four faces a refine made
+  become one again, and the points it added go. It works on a part that
+  was refined - also later, after points were moved - and says so when
+  the faces are not a refine's.</li>
 <li>The green <strong>✓ Done</strong> at the top of the view leaves. To carry on later,
   select the part: two buttons stand at the left of the view - <strong>✚ draw
   on</strong> goes back into the drawing tools with it; <strong>✎ burn to a cage</strong>
@@ -4689,6 +4699,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-eggshell-mould">Eggshell</a></li>
 <li><a href="#the-eggshell-mould">Eggshell mould</a></li>
 <li><a href="#parts-catalogue">Enclosures and fixings</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Eraser</a></li>
 <li><a href="#apply-a-scale-to-the-drawings">Even scale</a></li>
 <li><a href="#every-edit-shows-at-once">Every edit shows at once</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Exact</a></li>
@@ -5008,6 +5019,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-lattice-node">Types</a> <a class="more" href="#parameters">2</a></li>
 </ul>
 <h4 id="idx-U">U</h4><ul>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Undo refine</a></li>
 <li><a href="#an-uneven-chamfer">Uneven chamfer</a></li>
 <li><a href="#apply-a-scale-to-the-drawings">Uneven scale</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Unfold</a></li>
