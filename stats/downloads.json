@@ -1,10 +1,10 @@
 {
  "since": "2026-10-06",
  "banked": {
-  "linux": 7506,
-  "mac-apple-silicon": 12734,
-  "mac-intel": 8625,
-  "windows": 8099
+  "linux": 7629,
+  "mac-apple-silicon": 12929,
+  "mac-intel": 8759,
+  "windows": 8222
  },
  "publishes": [
   {
@@ -780,6 +780,12 @@
    "tag": "v0.10.52",
    "builds": "mac-build-166, windows-build-158, linux-build-176",
    "downloads_before": 36964
+  },
+  {
+   "at": "2026-11-24T18:06Z",
+   "tag": "v0.10.53",
+   "builds": "mac-build-167, windows-build-159, linux-build-177",
+   "downloads_before": 37539
   }
  ],
  "daily": [
@@ -1191,14 +1197,14 @@
   {
    "date": "2026-11-24",
    "counts": {
-    "linux": 7506,
-    "mac-apple-silicon": 12734,
-    "mac-intel": 8625,
-    "windows": 8099
+    "linux": 7629,
+    "mac-apple-silicon": 12929,
+    "mac-intel": 8759,
+    "windows": 8222
    }
   }
  ],
- "updated": "2026-11-24T16:51Z",
+ "updated": "2026-11-24T18:06Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -1207,21 +1213,21 @@
   },
   "builds": {
    "Mac": {
-    "at": "2026-11-24T16:50:19Z",
+    "at": "2026-11-24T18:05:28Z",
     "ok": true
    },
    "Windows": {
-    "at": "2026-11-24T16:44:42Z",
+    "at": "2026-11-24T17:59:55Z",
     "ok": true
    },
    "Linux": {
-    "at": "2026-11-24T16:42:30Z",
+    "at": "2026-11-24T17:57:14Z",
     "ok": true
    }
   },
   "changes": {
-   "week": 234,
-   "month": 632,
+   "week": 243,
+   "month": 641,
    "daily": [
     {
      "date": "2026-10-26",
@@ -1341,7 +1347,7 @@
     },
     {
      "date": "2026-11-24",
-     "count": 39
+     "count": 48
     }
    ]
   },
