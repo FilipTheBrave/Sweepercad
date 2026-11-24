@@ -43,6 +43,16 @@ pre code { background: none; padding: 0; color: inherit; }
 table { border-collapse: collapse; margin: 12px 0; font-size: 14px; }
 td, th { border: 1px solid #ddd; padding: 6px 10px; text-align: left; vertical-align: top; }
 figure { margin: 20px 0 24px; }
+/* index */
+.idx { column-count: 3; column-gap: 28px; font-size: 14px; }
+.idx h4 { margin: 10px 0 2px; break-after: avoid; }
+.idx ul { list-style: none; margin: 0 0 6px; padding: 0; }
+.idx li { break-inside: avoid; padding: 1px 0; }
+.idx a.more { font-size: 11px; color: #777; }
+.idxjump a { display: inline-block; min-width: 1.2em; margin-right: 6px; font-weight: 600; }
+@media (max-width: 800px) { .idx { column-count: 2; } }
+@media print { .idx { column-count: 3; font-size: 8.5pt; } }
+/* /index */
 img.ic { height: 1.6em; width: auto; vertical-align: -0.42em; margin: 0 1px; }
 figure img { width: 100%; height: auto; border-radius: 6px; border: 1px solid #ddd; display: block; }
 figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; }
@@ -99,6 +109,7 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <li class="ch"><a href="#ch7">7. Checking and making</a><ul><li><a href="#stats-and-checks">Stats and checks</a></li><li><a href="#what-the-selected-object-measures">What the selected object measures</a></li><li><a href="#machining-g-code-for-a-cnc">Machining (G-code for a CNC)</a></li><li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Unfold — lay it out flat to print and cut</a></li><li><a href="#stacked-sheets">Stacked sheets</a></li><li><a href="#parts-catalogue">Parts — the catalogue of ready parts</a></li><li><a href="#tool-tray">Tool tray — from a photo of your tools</a></li><li><a href="#flex-parts">Flex parts — hinges, springs and snaps to print</a></li><li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Woodwork — the cut list, the stock, the cutting diagrams</a></li><li><a href="#lathe">Lathe</a></li><li><a href="#bending">Bending</a></li><li><a href="#the-eggshell-mould">The eggshell mould</a></li><li><a href="#lenses-for-glasses-a-study-tool">Lenses for glasses (a study tool)</a></li><li><a href="#exporting">Exporting</a></li><li><a href="#what-gets-exported">What gets exported</a></li></ul></li>
 <li class="ch"><a href="#ch8">8. Scripts and AI</a><ul><li><a href="#made-to-be-driven-by-a-program-not-only-by-a-person">Made to be driven by a program, not only by a person</a></li><li><a href="#scripting">Scripting</a></li><li><a href="#make-it-with-ai">Make it with AI</a></li></ul></li>
 <li class="ch"><a href="#ch9">9. When something goes wrong</a><ul><li><a href="#what-the-app-notices-while-you-draw">What the app notices while you draw</a></li><li><a href="#when-a-feature-says-a-package-is-missing">When a feature says a package is missing</a></li><li><a href="#when-something-is-taking-too-long">When something is taking too long</a></li><li><a href="#when-something-will-not-build">When something will not build</a></li></ul></li>
+<li class="ch"><a href="#ch-index">Index</a></li>
 </ul></nav>
 <main>
 <div class="cover">
@@ -4540,6 +4551,490 @@ different where the ring meets itself, or a twist the profile does not
 repeat under still goes through the pieces as before.</p>
 <hr />
 <hr /></section></section>
+<section class="chapter" id="ch-index"><h2>Index</h2>
+<p class="note">Every heading and every named thing in the manual, A to Z. A term found in more than one place has a number for each further place.</p>
+<p class="idxjump"><a href="#idx-0-9">0-9</a> <a href="#idx-A">A</a> <a href="#idx-B">B</a> <a href="#idx-C">C</a> <a href="#idx-D">D</a> <a href="#idx-E">E</a> <a href="#idx-F">F</a> <a href="#idx-G">G</a> <a href="#idx-H">H</a> <a href="#idx-I">I</a> <a href="#idx-J">J</a> <a href="#idx-K">K</a> <a href="#idx-L">L</a> <a href="#idx-M">M</a> <a href="#idx-N">N</a> <a href="#idx-O">O</a> <a href="#idx-P">P</a> <a href="#idx-Q">Q</a> <a href="#idx-R">R</a> <a href="#idx-S">S</a> <a href="#idx-T">T</a> <a href="#idx-U">U</a> <a href="#idx-V">V</a> <a href="#idx-W">W</a> <a href="#idx-Z">Z</a></p>
+<div class="idx">
+<h4 id="idx-0-9">0-9</h4><ul>
+<li><a href="#parameters">Ƒ chip</a></li>
+<li><a href="#machining-g-code-for-a-cnc">3D detail</a></li>
+<li><a href="#the-3d-view-s-own-controls">3D view&#x27;s own controls</a></li>
+</ul>
+<h4 id="idx-A">A</h4><ul>
+<li><a href="#when-a-fillet-will-not-take">Absolute</a></li>
+<li><a href="#a-stack-of-objects">Add a stack</a></li>
+<li><a href="#the-eggshell-mould">Add pour funnel</a></li>
+<li><a href="#lenses-for-glasses-a-study-tool">Add to scene</a></li>
+<li><a href="#the-eggshell-mould">Add vents</a></li>
+<li><a href="#animation">Animation</a></li>
+<li><a href="#animation">Animation icon</a></li>
+<li><a href="#apply-a-scale-to-the-drawings">Apply a scale to the drawings</a></li>
+<li><a href="#what-a-click-selects">Arrange the nodes</a></li>
+<li><a href="#arrays-along-a-curve-or-on-a-surface">Arrays</a></li>
+<li><a href="#assemblies-joints-between-parts">Assemblies</a></li>
+<li><a href="#assets">Assets</a></li>
+<li><a href="#asymmetric-scale">Asymmetric scale</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Auto dart</a></li>
+<li><a href="#assemblies-joints-between-parts">Axis</a></li>
+</ul>
+<h4 id="idx-B">B</h4><ul>
+<li><a href="#drawing-a-spine-or-a-profile">Backspace</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Bend reliefs</a></li>
+<li><a href="#bending">Bending</a></li>
+<li><a href="#a-stack-of-sweeps-from-cuts">Bent body</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Bevel</a></li>
+<li><a href="#editing-in-the-3d-view">Bezier handles</a></li>
+<li><a href="#reliefs-a-picture-or-a-height-map-raises-a-face">Blank for a face</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Body and its limbs</a></li>
+<li><a href="#the-border-where-two-parts-meet">Border where two parts meet</a></li>
+<li><a href="#the-bottom-left-row-and-the-right-click-menu">Bottom-left row and the right-click menu</a></li>
+<li><a href="#stacked-sheets">Box</a></li>
+<li><a href="#the-box-cage-bend-a-whole-object">Box cage</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Branching part</a></li>
+<li><a href="#exporting">BREP</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Bridge</a></li>
+<li><a href="#bridging-under-parts-apart-joined-by-one-smooth-piece">Bridge as the mode</a></li>
+<li><a href="#the-bridge-node">Bridge node</a></li>
+<li><a href="#bridging-under-parts-apart-joined-by-one-smooth-piece">Bridging under =</a></li>
+<li><a href="#building-it-from-struts">Build as struts</a></li>
+<li><a href="#building-it-from-struts">Building it from struts</a></li>
+</ul>
+<h4 id="idx-C">C</h4><ul>
+<li><a href="#animation">Camera</a> <a class="more" href="#exporting">2</a></li>
+<li><a href="#twist-and-roll">Camera moves glide</a></li>
+<li><a href="#when-something-is-taking-too-long">Cancel</a></li>
+<li><a href="#placing-objects-exactly">Carrying a spine on</a></li>
+<li><a href="#stats-and-checks">Casting</a></li>
+<li><a href="#the-lattice-node">Cells</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Chain sprocket</a></li>
+<li><a href="#assemblies-joints-between-parts">Chains</a></li>
+<li><a href="#assemblies-joints-between-parts">Check collisions</a></li>
+<li><a href="#how-the-model-is-drawn">Chrome</a></li>
+<li><a href="#circular-arcs">Circular arcs</a></li>
+<li><a href="#how-the-model-is-drawn">Clay + edges</a></li>
+<li><a href="#drawing-a-spine-or-a-profile">Click</a></li>
+<li><a href="#circular-arcs">Click a segment</a></li>
+<li><a href="#circular-arcs">Click an arc</a></li>
+<li><a href="#coils-springs-threads-shells-and-horns">Climb</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Close an opening</a></li>
+<li><a href="#a-stack-of-sweeps-from-cuts">Close the ends</a></li>
+<li><a href="#node-groups">Closed</a></li>
+<li><a href="#flex-parts">Coil spring</a></li>
+<li><a href="#coils-springs-threads-shells-and-horns">Coils</a></li>
+<li><a href="#how-the-model-is-drawn">Colour</a></li>
+<li><a href="#exporting">Colour in exports</a></li>
+<li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Commit as sweeps</a></li>
+<li><a href="#cutting-and-joining-sweeps">Connect</a></li>
+<li><a href="#when-a-fillet-will-not-take">Cornered</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Corners</a></li>
+<li><a href="#the-eggshell-mould">Cradle</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Crease</a></li>
+<li><a href="#what-the-app-notices-while-you-draw">Crossings</a></li>
+<li><a href="#node-groups">Ctrl+Shift+G</a></li>
+<li><a href="#extracting-a-line-from-a-surface">Curve</a></li>
+<li><a href="#exporting">Curve on paper</a></li>
+<li><a href="#animation">Curves</a></li>
+<li><a href="#the-lattice-node">Cut</a></li>
+<li><a href="#cutting-and-joining-sweeps">Cutting and joining sweeps</a></li>
+</ul>
+<h4 id="idx-D">D</h4><ul>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Dart</a></li>
+<li><a href="#the-lattice-node">Decal</a></li>
+<li><a href="#what-a-click-selects">Deleting</a></li>
+<li><a href="#placing-objects-exactly">Depth</a></li>
+<li><a href="#exporting">Depth of field</a></li>
+<li><a href="#stats-and-checks">Design rules</a></li>
+<li><a href="#twist-and-roll">Dials</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Direct editing</a></li>
+<li><a href="#how-the-model-is-drawn">Direction</a></li>
+<li><a href="#drawing">Double-click</a></li>
+<li><a href="#drawing">Double-click a point</a></li>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Dovetail</a></li>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Dowels</a></li>
+<li><a href="#draft-sides-that-lean-so-it-comes-out-of-a-mould">Draft</a></li>
+<li><a href="#draft-mode-when-the-scene-gets-heavy">Draft mode</a></li>
+<li><a href="#drawing">Drag</a> <a class="more" href="#drawing-a-spine-or-a-profile">2</a> <a class="more" href="#node-groups">3</a> <a class="more" href="#when-a-fillet-will-not-take">4</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Drag a point</a></li>
+<li><a href="#circular-arcs">Drag a segment</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Drag a side face</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Drag an edge</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Drag an end cap</a></li>
+<li><a href="#guides-measuring-to-another-object">Dragging</a></li>
+<li><a href="#drawing">Drawing</a> <a class="more" href="#exporting">2</a></li>
+<li><a href="#drawing-a-spine-or-a-profile">Drawing a spine or a profile</a></li>
+<li><a href="#drawing-on-the-surface">Drawing on the surface</a></li>
+<li><a href="#drop-onto-the-floor">Drop onto the floor</a></li>
+</ul>
+<h4 id="idx-E">E</h4><ul>
+<li><a href="#growing-arrays-spirals-pine-cones-trees-corals">Easiest way</a></li>
+<li><a href="#how-the-model-is-drawn">Edges</a></li>
+<li><a href="#editing-in-the-3d-view">Editing in the 3D view</a></li>
+<li><a href="#routes">Editing its points</a></li>
+<li><a href="#editing-points-in-the-3d-view">Editing points in the 3D view</a></li>
+<li><a href="#the-eggshell-mould">Eggshell</a></li>
+<li><a href="#the-eggshell-mould">Eggshell mould</a></li>
+<li><a href="#parts-catalogue">Enclosures and fixings</a></li>
+<li><a href="#apply-a-scale-to-the-drawings">Even scale</a></li>
+<li><a href="#every-edit-shows-at-once">Every edit shows at once</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Exact</a></li>
+<li><a href="#make-it-with-ai">Examples from your shelf</a></li>
+<li><a href="#the-four-graphs">Export</a></li>
+<li><a href="#exporting">Exporting</a></li>
+<li><a href="#extracting-a-line-from-a-surface">Extracting a line from a surface</a></li>
+</ul>
+<h4 id="idx-F">F</h4><ul>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Fabric / leather</a></li>
+<li><a href="#face-nets-shape-a-face-by-a-net-of-points">Face nets</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Falloff</a></li>
+<li><a href="#a-fillet-that-changes-along-the-seam">Fillet that changes along the seam</a></li>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Finger  joint</a></li>
+<li><a href="#the-first-run-screen">First-run screen</a></li>
+<li><a href="#when-a-fillet-will-not-take">Fit everything</a></li>
+<li><a href="#when-a-fillet-will-not-take">Fit the scale graph</a></li>
+<li><a href="#when-a-fillet-will-not-take">Fit the whole stack</a></li>
+<li><a href="#when-a-fillet-will-not-take">Fit to mesh</a></li>
+<li><a href="#lenses-for-glasses-a-study-tool">Fit to the face</a></li>
+<li><a href="#stats-and-checks">Fits in</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Flat-belt pulley</a></li>
+<li><a href="#flex-parts">Flex parts</a></li>
+<li><a href="#the-lattice-node">Form</a></li>
+<li><a href="#animation">Formulas</a></li>
+<li><a href="#the-four-graphs">Four graphs</a></li>
+<li><a href="#smooth-curvature-continuous-fillets">Fullness</a></li>
+</ul>
+<h4 id="idx-G">G</h4><ul>
+<li><a href="#the-3d-view-s-own-controls">Gear holds the Settings</a></li>
+<li><a href="#parts-catalogue">Gears and drives</a></li>
+<li><a href="#how-the-model-is-drawn">Glass</a></li>
+<li><a href="#exporting">GLB</a></li>
+<li><a href="#exporting">Glow</a></li>
+<li><a href="#the-lattice-node">Grading</a></li>
+<li><a href="#how-the-model-is-drawn">Grey</a></li>
+<li><a href="#the-3d-view-s-own-controls">Grouped icons</a></li>
+<li><a href="#growing-arrays-spirals-pine-cones-trees-corals">Growing arrays</a></li>
+<li><a href="#guides-measuring-to-another-object">Guides</a> <a class="more" href="#placing-objects-exactly">2</a></li>
+</ul>
+<h4 id="idx-H">H</h4><ul>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Half lap</a></li>
+<li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Handles on a bend</a></li>
+<li><a href="#parts-catalogue">Hardware</a></li>
+<li><a href="#coils-springs-threads-shells-and-horns">Heading</a></li>
+<li><a href="#assemblies-joints-between-parts">Held by</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Helical gear pair</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Hem</a></li>
+<li><a href="#what-gets-exported">Hidden</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Hole</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Holes</a></li>
+<li><a href="#hollow">Hollow</a></li>
+<li><a href="#the-eggshell-mould">Hollow, wall</a></li>
+<li><a href="#guides-measuring-to-another-object">Horizontal</a></li>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Housing</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Hover</a></li>
+<li><a href="#how-the-model-is-drawn">How the model is drawn</a></li>
+</ul>
+<h4 id="idx-I">I</h4><ul>
+<li><a href="#the-3d-view-s-own-controls">Icon size</a></li>
+<li><a href="#exporting">IGES</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Imported CAD part</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Importing CAD parts and meshes</a></li>
+<li><a href="#mirroring-an-object">Include everything feeding it</a></li>
+<li><a href="#the-lattice-node">Infill</a></li>
+<li><a href="#the-lattice-node">Infill and surface patterns</a></li>
+<li><a href="#reliefs-a-picture-or-a-height-map-raises-a-face">Invert</a></li>
+</ul>
+<h4 id="idx-J">J</h4><ul>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Join two openings</a></li>
+<li><a href="#assemblies-joints-between-parts">Joint values are names</a></li>
+<li><a href="#parts-catalogue">Joints between two boards</a> <a class="more" href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">2</a></li>
+</ul>
+<h4 id="idx-K">K</h4><ul>
+<li><a href="#placing-objects-exactly">Keep</a></li>
+<li><a href="#keep-only-what-s-inside">Keep only what&#x27;s inside</a></li>
+<li><a href="#when-a-fillet-will-not-take">Keep proportions</a></li>
+<li><a href="#mirroring-an-object">Keep the original</a></li>
+<li><a href="#keys">Keys</a></li>
+<li><a href="#assemblies-joints-between-parts">Kind</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Knife</a></li>
+</ul>
+<h4 id="idx-L">L</h4><ul>
+<li><a href="#lathe">Lathe</a></li>
+<li><a href="#exporting">Lattices</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Lay on</a></li>
+<li><a href="#asymmetric-scale">Layer jumps</a></li>
+<li><a href="#draft-mode-when-the-scene-gets-heavy">Lens</a> <a class="more" href="#exporting">2</a></li>
+<li><a href="#lenses-for-glasses-a-study-tool">Lens shape</a></li>
+<li><a href="#lenses-for-glasses-a-study-tool">Lenses for glasses</a></li>
+<li><a href="#parameters">Levels</a></li>
+<li><a href="#lights">Lights</a></li>
+<li><a href="#exporting">Line art</a></li>
+<li><a href="#stacked-sheets">Lining the layers up</a></li>
+<li><a href="#drawing">Lining up</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">List</a></li>
+<li><a href="#guides-measuring-to-another-object">Live reference that moves</a></li>
+<li><a href="#flex-parts">Living hinge</a></li>
+<li><a href="#what-gets-exported">Locked</a></li>
+<li><a href="#when-something-will-not-build">Loft mode</a></li>
+</ul>
+<h4 id="idx-M">M</h4><ul>
+<li><a href="#machining-g-code-for-a-cnc">Machine</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Machine parts</a></li>
+<li><a href="#machining-g-code-for-a-cnc">Machining</a></li>
+<li><a href="#machining-g-code-for-a-cnc">Machining icon</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Made for hard parts</a></li>
+<li><a href="#the-eggshell-mould">Make</a></li>
+<li><a href="#make-it-with-ai">Make it with AI</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Make symmetric</a></li>
+<li><a href="#lenses-for-glasses-a-study-tool">Make the frame</a></li>
+<li><a href="#stats-and-checks">Material</a></li>
+<li><a href="#machining-g-code-for-a-cnc">Material and stock</a></li>
+<li><a href="#materials-and-textures">Materials and textures</a></li>
+<li><a href="#parts-catalogue">Mechanisms</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Mesh as editable sweeps</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Mesh as it comes</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Metal</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Method</a></li>
+<li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Mirror</a> <a class="more" href="#mirroring-an-object">2</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Mirror editing</a></li>
+<li><a href="#mirroring-an-object">Mirroring an object</a></li>
+<li><a href="#when-a-fillet-will-not-take">Mixed</a></li>
+<li><a href="#coils-springs-threads-shells-and-horns">Morph</a></li>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Mortise and tenon</a></li>
+<li><a href="#exporting">Motion blur</a></li>
+<li><a href="#the-eggshell-mould">Mould settings</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Move</a></li>
+<li><a href="#moving-the-gizmo-for-a-moment">Moving the gizmo for a moment</a></li>
+</ul>
+<h4 id="idx-N">N</h4><ul>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Near side only</a></li>
+<li><a href="#offset-and-mirror-a-drawing-how-to-hollow-something">Negative offset</a></li>
+<li><a href="#parts-catalogue">New</a></li>
+<li><a href="#placing-objects-exactly">New profile</a></li>
+<li><a href="#node-groups">Node groups</a></li>
+<li><a href="#nodes">Nodes</a></li>
+<li><a href="#the-terms-updates-and-what-this-is-for">Nothing is sent anywhere</a></li>
+<li><a href="#stats-and-checks">Nothing starts in mid-air</a></li>
+</ul>
+<h4 id="idx-O">O</h4><ul>
+<li><a href="#exporting">OBJ</a></li>
+<li><a href="#arrays-along-a-curve-or-on-a-surface">Object being repeated</a></li>
+<li><a href="#offset-and-mirror-a-drawing-how-to-hollow-something">Offset and mirror a drawing</a></li>
+<li><a href="#assets">Online library</a></li>
+<li><a href="#node-groups">Open</a></li>
+<li><a href="#the-eggshell-mould">Open at the top</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Open face</a></li>
+<li><a href="#machining-g-code-for-a-cnc">Operations</a></li>
+<li><a href="#arrays-along-a-curve-or-on-a-surface">Original as well</a></li>
+<li><a href="#guides-measuring-to-another-object">Overconstraint check</a></li>
+<li><a href="#the-3d-view-s-own-controls">Own windows</a></li>
+</ul>
+<h4 id="idx-P">P</h4><ul>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Page</a></li>
+<li><a href="#reliefs-a-picture-or-a-height-map-raises-a-face">Paint a relief</a></li>
+<li><a href="#lights">Panorama</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Paper / card</a></li>
+<li><a href="#guides-measuring-to-another-object">Parallel to</a></li>
+<li><a href="#parameters">Parameters</a></li>
+<li><a href="#parts-catalogue">Parts</a></li>
+<li><a href="#the-lattice-node">Pattern in</a></li>
+<li><a href="#when-something-is-taking-too-long">Pause</a></li>
+<li><a href="#tool-tray">Photo</a></li>
+<li><a href="#stats-and-checks">Physics</a></li>
+<li><a href="#parameters">Pick instead of typing</a></li>
+<li><a href="#exporting">Picture of the model</a></li>
+<li><a href="#parts-catalogue">Pipes and fluids</a></li>
+<li><a href="#the-lattice-node">Place</a></li>
+<li><a href="#placing-objects-exactly">Placement settings window</a></li>
+<li><a href="#placing-a-section-as-a-profile">Placing a section as a profile</a></li>
+<li><a href="#placing-objects-exactly">Placing objects exactly</a></li>
+<li><a href="#machining-g-code-for-a-cnc">Plan and simulate</a></li>
+<li><a href="#extracting-a-line-from-a-surface">Plane</a></li>
+<li><a href="#routes">Plane per leg</a></li>
+<li><a href="#animation">Playing</a></li>
+<li><a href="#exporting">PLY</a></li>
+<li><a href="#extracting-a-line-from-a-surface">Points</a></li>
+<li><a href="#the-eggshell-mould">Pour box for plaster</a></li>
+<li><a href="#the-eggshell-mould">Pour box for silicone</a></li>
+<li><a href="#coils-springs-threads-shells-and-horns">Preset</a></li>
+<li><a href="#drawing">Profile presets</a></li>
+<li><a href="#placing-objects-exactly">Profile radius</a></li>
+<li><a href="#the-four-graphs">Profiles along the spine</a></li>
+<li><a href="#the-profile-s-radius">Profile&#x27;s radius</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Pull an open edge</a></li>
+<li><a href="#parts-catalogue">Pulleys and chain</a></li>
+</ul>
+<h4 id="idx-Q">Q</h4><ul>
+<li><a href="#a-fillet-that-changes-along-the-seam">Quick shapes</a></li>
+</ul>
+<h4 id="idx-R">R</h4><ul>
+<li><a href="#coils-springs-threads-shells-and-horns">Radius</a></li>
+<li><a href="#the-bridge-node">Reach</a></li>
+<li><a href="#placing-objects-exactly">Readout</a></li>
+<li><a href="#asymmetric-scale">Reality check</a></li>
+<li><a href="#make-it-with-ai">Rebuild a mesh</a></li>
+<li><a href="#animation">Record</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Refine</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Refine the cage</a></li>
+<li><a href="#the-eggshell-mould">Registration</a></li>
+<li><a href="#when-a-fillet-will-not-take">Relative</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Relax</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Relax everything</a></li>
+<li><a href="#reliefs-a-picture-or-a-height-map-raises-a-face">Reliefs</a></li>
+<li><a href="#placing-objects-exactly">Repositioning</a></li>
+<li><a href="#drawing-a-spine-or-a-profile">Right-click</a> <a class="more" href="#right-click">2</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Ring cut</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Ring cuts</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Ring gear</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Rings</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Rocket nozzle</a></li>
+<li><a href="#twist-and-roll">Roll</a></li>
+<li><a href="#when-a-fillet-will-not-take">Rounded another way</a></li>
+<li><a href="#editing-in-the-3d-view">Rounded corners</a></li>
+<li><a href="#drawing">Rounding a corner</a></li>
+<li><a href="#rounding-and-chamfering-a-corner">Rounding and chamfering a corner</a></li>
+<li><a href="#rounding-the-rims-of-an-end">Rounding the rims of an end</a></li>
+<li><a href="#routes">Routes</a></li>
+</ul>
+<h4 id="idx-S">S</h4><ul>
+<li><a href="#animation">Save</a></li>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Save CSV</a></li>
+<li><a href="#lenses-for-glasses-a-study-tool">Save data sheet</a></li>
+<li><a href="#machining-g-code-for-a-cnc">Save G-code</a> <a class="more" href="#lathe">2</a></li>
+<li><a href="#assets">Save selected</a></li>
+<li><a href="#extracting-a-line-from-a-surface">Save to library</a></li>
+<li><a href="#placing-objects-exactly">Scale</a></li>
+<li><a href="#asymmetric-scale">Scale graph in 3D</a></li>
+<li><a href="#importing-cad-parts-and-meshes">Scans</a></li>
+<li><a href="#stats-and-checks">Schedule</a></li>
+<li><a href="#draft-sides-that-lean-so-it-comes-out-of-a-mould">Screw holes</a></li>
+<li><a href="#parts-catalogue">Screws and holes</a></li>
+<li><a href="#make-it-with-ai">Script box</a></li>
+<li><a href="#scripting">Scripting</a></li>
+<li><a href="#the-sculpting-brush">Sculpting brush</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Seam</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Seam list</a></li>
+<li><a href="#stats-and-checks">Seams</a></li>
+<li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Section on screen</a></li>
+<li><a href="#a-fillet-that-changes-along-the-seam">Select a combine</a></li>
+<li><a href="#exporting">Separate bodies</a></li>
+<li><a href="#made-to-be-driven-by-a-program-not-only-by-a-person">Set</a></li>
+<li><a href="#placing-objects-exactly">Settings in a window</a></li>
+<li><a href="#lights">Shadows and depth</a></li>
+<li><a href="#parts-catalogue">Shafts and bearings</a></li>
+<li><a href="#assets">Sharing a part</a></li>
+<li><a href="#the-bridge-node">Sharp corners</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Sheet metal</a></li>
+<li><a href="#the-eggshell-mould">Show</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Show the cage</a></li>
+<li><a href="#stats-and-checks">Simulate</a></li>
+<li><a href="#make-it-with-ai">Sketch it</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Slide</a></li>
+<li><a href="#a-slot-round-a-curve-you-drew">Slot round a curve you drew</a></li>
+<li><a href="#stats-and-checks">Smallest gap</a></li>
+<li><a href="#stats-and-checks">Smallest joint</a></li>
+<li><a href="#when-a-fillet-will-not-take">Smooth</a></li>
+<li><a href="#smooth-curvature-continuous-fillets">Smooth  fillets</a></li>
+<li><a href="#placing-objects-exactly">Snap</a></li>
+<li><a href="#flex-parts">Snap clip</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Snap fit</a></li>
+<li><a href="#flex-parts">Snap-fit pin</a></li>
+<li><a href="#drawing">Snapping and guides</a></li>
+<li><a href="#the-sculpting-brush">Soft falloff</a></li>
+<li><a href="#twist-and-roll">Spin</a></li>
+<li><a href="#coils-springs-threads-shells-and-horns">Spine is the axis</a></li>
+<li><a href="#placing-objects-exactly">Spine length</a></li>
+<li><a href="#editing-in-the-3d-view">Spine points</a></li>
+<li><a href="#drawing">Spine presets</a></li>
+<li><a href="#flex-parts">Spiral spring</a></li>
+<li><a href="#the-splash-screen">Splash screen</a></li>
+<li><a href="#a-stack-of-objects">Stack of objects</a></li>
+<li><a href="#a-stack-of-sweeps-from-cuts">Stack of sweeps from cuts</a></li>
+<li><a href="#stacked-sheets">Stacked sheets</a></li>
+<li><a href="#assets">Starter shelf</a></li>
+<li><a href="#stats-and-checks">Stats and checks</a></li>
+<li><a href="#exporting">STEP</a></li>
+<li><a href="#importing-cad-parts-and-meshes">STEP, IGES, BREP</a></li>
+<li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Stick ends</a></li>
+<li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Stick figure</a></li>
+<li><a href="#exporting">STL</a></li>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Stock and saw</a></li>
+<li><a href="#wrapping-a-part-onto-a-surface">Straight down</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Straight side</a></li>
+<li><a href="#stats-and-checks">Strength</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Stretch</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Strip</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">SubD</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">SubD box</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">SubD over a part</a></li>
+<li><a href="#the-lattice-node">Surface cages</a></li>
+<li><a href="#the-lattice-node">Surface patterns</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Symmetry</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Symmetry while drawing</a></li>
+</ul>
+<h4 id="idx-T">T</h4><ul>
+<li><a href="#assemblies-joints-between-parts">Take the joint off</a></li>
+<li><a href="#stats-and-checks">Takes a push of</a></li>
+<li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Tangent to the balls</a></li>
+<li><a href="#the-terms-updates-and-what-this-is-for">Terms, updates, and what this is for</a></li>
+<li><a href="#the-eggshell-mould">Thickness</a></li>
+<li><a href="#mirroring-an-object">Through</a></li>
+<li><a href="#what-the-app-notices-while-you-draw">Tight bends</a></li>
+<li><a href="#animation">Timeline</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Timing pulley</a></li>
+<li><a href="#tool-tray">Tool tray</a></li>
+<li><a href="#lathe">Tools</a></li>
+<li><a href="#tool-tray">Tray</a></li>
+<li><a href="#keep-only-what-s-inside">Trim blends</a></li>
+<li><a href="#coils-springs-threads-shells-and-horns">Turns</a></li>
+<li><a href="#twist-and-roll">Twist</a></li>
+<li><a href="#twist-and-roll">Twist and roll</a> <a class="more" href="#placing-objects-exactly">2</a></li>
+<li><a href="#keep-only-what-s-inside">Two / together</a></li>
+<li><a href="#placing-objects-exactly">Two different distances</a></li>
+<li><a href="#direct-editing-push-and-pull-the-model-itself">Type a number</a></li>
+<li><a href="#the-lattice-node">Types</a> <a class="more" href="#parameters">2</a></li>
+</ul>
+<h4 id="idx-U">U</h4><ul>
+<li><a href="#an-uneven-chamfer">Uneven chamfer</a></li>
+<li><a href="#apply-a-scale-to-the-drawings">Uneven scale</a></li>
+<li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Unfold</a></li>
+<li><a href="#extracting-a-line-from-a-surface">Use as scale</a></li>
+<li><a href="#exporting">UVs, at real size</a></li>
+</ul>
+<h4 id="idx-V">V</h4><ul>
+<li><a href="#assemblies-joints-between-parts">Value</a></li>
+<li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">V-belt pulley</a></li>
+<li><a href="#what-the-app-notices-while-you-draw">Very short segments</a></li>
+</ul>
+<h4 id="idx-W">W</h4><ul>
+<li><a href="#stacked-sheets">Waffle</a></li>
+<li><a href="#stats-and-checks">Walls and cavities</a></li>
+<li><a href="#make-it-with-ai">Want it different?</a></li>
+<li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Web</a></li>
+<li><a href="#stats-and-checks">Weighs at most</a></li>
+<li><a href="#what-the-selected-object-measures">Weight and material cost</a></li>
+<li><a href="#subd-box-modelling-that-stays-exact-cad">Weld</a></li>
+<li><a href="#what-a-click-selects">What a click selects</a></li>
+<li><a href="#what-gets-exported">What gets exported</a></li>
+<li><a href="#what-the-app-notices-while-you-draw">What the app notices while you draw</a></li>
+<li><a href="#what-the-selected-object-measures">What the selected object measures</a></li>
+<li><a href="#when-a-fillet-will-not-take">When a fillet will not take</a></li>
+<li><a href="#when-something-is-taking-too-long">When something is taking too long</a></li>
+<li><a href="#when-something-will-not-build">When something will not build</a></li>
+<li><a href="#where-the-scale-scales-from">Where the scale scales from</a></li>
+<li><a href="#when-a-fillet-will-not-take">Which drives which</a></li>
+<li><a href="#bridging-under-parts-apart-joined-by-one-smooth-piece">Which end joins</a> <a class="more" href="#the-bridge-node">2</a></li>
+<li><a href="#guides-measuring-to-another-object">Which ghosts you see</a></li>
+<li><a href="#smooth-curvature-continuous-fillets">Which is which</a></li>
+<li><a href="#asymmetric-scale">Which way it splits</a></li>
+<li><a href="#when-a-fillet-will-not-take">Wider than the part</a></li>
+<li><a href="#how-the-model-is-drawn">Wireframe</a></li>
+<li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Woodwork</a></li>
+<li><a href="#wrapping-a-part-onto-a-surface">Wrapping a part onto a surface</a></li>
+</ul>
+<h4 id="idx-Z">Z</h4><ul>
+<li><a href="#how-the-model-is-drawn">Zebra</a></li>
+<li><a href="#flex-parts">Zig-zag spring</a></li>
+</ul>
+</div></section>
 <p class="foot">SweeperCAD &middot; <a href="index.html">sweepercad.com</a> &middot; this manual is the app's own help, so it always matches the version you download.</p>
 </main>
 </div>
