@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.55 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.56 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.55. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.56. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -3223,10 +3223,17 @@ become <strong>wires</strong>. Select the part, click ✎, and:
   stroke is evened out and the hand's jitter smoothed away);
 - <strong>click points</strong>: a smooth curve through them, hugging the surface;
   <strong>Enter</strong> (or a double-click) ends it, Esc drops it;
-- <strong>Shift-drag</strong> erases the strokes it touches; <strong>Ctrl+Z</strong> undoes;
+- the <strong>eraser</strong> (or Shift-drag) takes away the strokes it touches; <strong>Ctrl+Z</strong> undoes;
 - a press <strong>off</strong> the part still turns the view, so you can turn round it
   and draw on the other side; <strong>Esc</strong> (or ✎ again) stops.</p>
-<figure><a href="manual/surface_3d.jpg"><img src="manual/surface_3d.jpg" alt="A closed loop drawn on the surface, filled with a honeycomb that follows the curve." loading="lazy"></a><figcaption>A closed loop drawn on the surface, filled with a honeycomb that follows the curve.</figcaption></figure><p>With a drawing tablet, <strong>pen pressure</strong> sets the thickness as you draw
+<p><strong>Its controls stand at the left of the view</strong> while you draw: the
+<strong>pencil</strong> and the <strong>eraser</strong>, <strong>what the strokes become</strong> (a list), <strong>fill
+closed loops</strong>, <strong>tapered ends</strong>, <strong>pen pressure</strong> and <strong>clear all</strong>; below
+them the <strong>thickness</strong> of the strokes, the <strong>fillet</strong> where they meet and
+the <strong>detail</strong> (the voxel size: smaller is finer and slower), with − and +
+or a number typed - and, while fills are on, what a filled shape is filled
+with and its pattern's cell. <strong>✓ Done</strong> at the top stops drawing.</p>
+<p>With a drawing tablet, <strong>pen pressure</strong> sets the thickness as you draw
 (firm is thick, light is thin). The strokes are 3D, on the surface.</p>
 <p>The drawing is a <strong>lattice node</strong> of type "drawn", with the part as its
 input: a light, closed <strong>mesh</strong>, made from the strokes' distance field -
