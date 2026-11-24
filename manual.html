@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.49 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.50 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.49. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.50. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1144,6 +1144,11 @@ stays a CAD solid and every face keeps its name, so pushing, pulling,
 rounding and face nets still find their faces. Each drag is one undo step,
 and the cage is saved with the file. The switch's last step, <strong>⬚ cage</strong>,
 puts a cage round the selected object too.</p>
+<p><strong>It is not a SubD cage, and does not look like one.</strong> The box cage is a
+scaffold <em>round</em> a part that is already there: violet, dashed, with hollow
+round points and its name beside it, and "Box cage · bends the part inside
+it" at the top of the view. A SubD's cage <em>is</em> the part: light blue, solid,
+with small white squares, and "SubD cage · the part itself" at the top.</p>
 <hr /></section>
 <section class="sec" id="the-sculpting-brush"><h3>The sculpting brush</h3><p><strong>✎</strong> beside ⌗ in the bottom-left row (or <strong>B</strong>) switches the <strong>brush</strong> on, in
 direct editing. Drag over a face and the surface rises under the brush,
@@ -1718,7 +1723,7 @@ output and no inputs - a sign, a position, wires like any object.</p>
 what the mouse does - a mode stays on until you pick another:</p>
 <ul>
 <li>The green <strong>✓ Done</strong> at the top of the view closes the cage and goes back to the manipulator. To open
-  it again later: select the SubD part and press <strong>✎ edit cage</strong> at the
+  it again later: select the SubD part and press <strong>✎ edit SubD cage</strong> at the
   left of the view. With a SubD part selected the cage you work on is that
   part's; with nothing selected every SubD part's cage is open.</li>
 <li><strong><img class="ic" src="icons/move.png" alt="✥"> move</strong> - drag points and edges; a face moves by the <img class="ic" src="icons/move.png" alt="✥"> at its middle.
