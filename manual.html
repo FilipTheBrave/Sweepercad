@@ -3218,14 +3218,16 @@ volume at all. Move one into the other a little.</p>
 <hr />
 <hr /></section></section>
 <section class="chapter" id="ch6"><h2>6. Surfaces, routes and more</h2><section class="sec" id="drawing-on-the-surface"><h3>Drawing on the surface</h3><p><strong>✎</strong> in the 3D view draws on a part like a pencil, and the strokes
-become <strong>wires</strong>. Select the part, click ✎, and:
-- <strong>drag</strong> across it: a freehand stroke that sticks to the surface (the
-  stroke is evened out and the hand's jitter smoothed away);
-- <strong>click points</strong>: a smooth curve through them, hugging the surface;
-  <strong>Enter</strong> (or a double-click) ends it, Esc drops it;
-- the <strong>eraser</strong> (or Shift-drag) takes away the strokes it touches; <strong>Ctrl+Z</strong> undoes;
-- a press <strong>off</strong> the part still turns the view, so you can turn round it
-  and draw on the other side; <strong>Esc</strong> (or ✎ again) stops.</p>
+become <strong>wires</strong>. Select the part, click ✎, and:</p>
+<ul>
+<li><strong>drag</strong> across it: a freehand stroke that sticks to the surface (the
+  stroke is evened out and the hand's jitter smoothed away);</li>
+<li><strong>click points</strong>: a smooth curve through them, hugging the surface;
+  <strong>Enter</strong> (or a double-click) ends it, Esc drops it;</li>
+<li>the <strong>eraser</strong> (or Shift-drag) takes away the strokes it touches; <strong>Ctrl+Z</strong> undoes;</li>
+<li>a press <strong>off</strong> the part still turns the view, so you can turn round it
+  and draw on the other side; <strong>Esc</strong> (or ✎ again) stops.</li>
+</ul>
 <p><strong>Its controls stand at the left of the view</strong> while you draw: the
 <strong>pencil</strong> and the <strong>eraser</strong>, <strong>what the strokes become</strong> (a list), <strong>fill
 closed loops</strong>, <strong>tapered ends</strong>, <strong>pen pressure</strong> and <strong>clear all</strong>; below
@@ -3238,16 +3240,18 @@ with and its pattern's cell. <strong>✓ Done</strong> at the top stops drawing.
 <p>The drawing is a <strong>lattice node</strong> of type "drawn", with the part as its
 input: a light, closed <strong>mesh</strong>, made from the strokes' distance field -
 no CAD booleans. The part stays on screen, see-through, to draw on. The
-<strong>drawing</strong> panel:
-- <strong>result</strong>: <strong>wires only</strong> (the part is just the guide - a cage for
+<strong>drawing</strong> panel:</p>
+<ul>
+<li><strong>result</strong>: <strong>wires only</strong> (the part is just the guide - a cage for
   casting), <strong>wires, the part cut out</strong> (their inner side follows the
   part exactly: a <strong>tight fit</strong>, with a <strong>gap</strong> for a sliding fit or
-  shrinkage), <strong>raised on the part</strong>, or <strong>cut into the part</strong>;
-- <strong>fillet</strong>: a rounded blend where strokes meet - good for the metal's
-  flow;
-- <strong>tapered stroke ends</strong>, <strong>pen pressure</strong>, and <strong>fill closed loops</strong>: a
+  shrinkage), <strong>raised on the part</strong>, or <strong>cut into the part</strong>;</li>
+<li><strong>fillet</strong>: a rounded blend where strokes meet - good for the metal's
+  flow;</li>
+<li><strong>tapered stroke ends</strong>, <strong>pen pressure</strong>, and <strong>fill closed loops</strong>: a
   loop drawn back to its start becomes a sheet on the surface inside it
-  (for patches, not for loops that wrap all the way round a part).</p>
+  (for patches, not for loops that wrap all the way round a part).</li>
+</ul>
 <p>The wire thickness is the lattice's <strong>wall / strut</strong>. Select the drawing
 and click ✎ (or <strong>draw</strong> in its panel) to add to it later.</p>
 <hr /></section>
