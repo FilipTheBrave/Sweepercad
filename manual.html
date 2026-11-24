@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.51 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.52 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.51. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.52. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -3132,8 +3132,23 @@ sizes show beside the shape as you go. Once the footprint is down you can
 and leaves you placing. Two small switches at the top left, beside the
 drawing switches, decide the rest, and are remembered:</p>
 <ul>
-<li><strong>drag: size / drag: draw</strong> - what a drag does. On <em>draw</em> a drag draws a
-  spine or a profile on the face, as before.</li>
+<li><strong>drag: size / drag: draw / from the face</strong> - what a drag does. On <em>draw</em>
+  a drag draws a spine or a profile on the face, as before.</li>
+<li><strong>from the face</strong> - push and pull. Point at a <strong>flat face</strong> and its own
+  outline lights up; click it (or press and drag) and the new object has
+  exactly that outline as its profile, while the pointer pulls its height -
+  a boss with <strong>+</strong>, a pocket of that depth with <strong>−</strong>. Click to finish, or
+  type the height. <strong>The mouse wheel is the offset</strong>: one way the outline
+  grows, the other it shrinks, and it shows at the top left as <em>offset …
+  mm</em> - click that to type it. A plus starts on the outline itself; a minus
+  one step inside it, so a pocket keeps a wall (set it to 0 to lower the
+  whole face). Straight edges stay straight, round edges stay arcs, and a
+  free-form edge is followed closely through a dozen points.
+  What it does not do: a hole in the face is not carried over (the outer
+  outline only); the new object is a copy of the outline and does not
+  follow the part afterwards; and it reads exact CAD faces only - on a
+  curved face, a mesh or the ground, nothing lights up and a click places
+  the ordinary object.</li>
 <li><strong>from: auto / centre / corner</strong> - where the footprint grows from. <em>auto</em>
   grows a round object from its centre, a box from corner to corner, and
   anything from its centre when the drag starts on a centre snap.</li>
