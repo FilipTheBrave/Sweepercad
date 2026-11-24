@@ -1772,8 +1772,7 @@ what the mouse does - a mode stays on until you pick another:</p>
 only points, edges and grips take the mouse.</p>
 <h4 id="subd-over-a-part-tracing-a-scan-or-another-model">SubD over a part - tracing a scan or another model</h4>
 <p>The second SubD icon (<strong><img class="ic" src="icons/add_subd_over.png" alt="⊕"></strong>, beside the first) starts a SubD that is <em>drawn
-on</em> something: another part, a scan, a reference mesh. The same mode is
-<strong><img class="ic" src="icons/draw.png" alt="✚"></strong> on the SubD bar. Importing an OBJ or STL offers it too - <strong>Trace by
+on</em> something: another part, a scan, a reference mesh. Importing an OBJ or STL offers it too - <strong>Trace by
 hand (SubD)</strong> brings the mesh in as a reference, every triangle, and starts
 the tool on it.</p>
 <ul>
@@ -1783,9 +1782,9 @@ the tool on it.</p>
   and <img class="ic" src="icons/near.png" alt="◑"> near side only - the current value stands beside each pair. For an exact thickness, type it in the SubD box of the
   side panel (below zero it lies inside the drawn surface). The green
   <strong>✓ Done</strong> at the top of the view leaves. Point at any button and its
-  tooltip says what it does. <strong><img class="ic" src="icons/move.png" alt="✥"></strong> at
-  the bottom goes to the cage's tools (move, bevel, knife, crease,
-  symmetry...); <strong><img class="ic" src="icons/draw.png" alt="✚"></strong> there comes back to drawing. One set at a time.</li>
+  tooltip says what it does. Neither bar leads into the other: the drawing
+  tools and the cage's tools cannot be mixed. Both are reached from the 3D
+  view - see the end of this list.</li>
 <li><strong>Trace, from an automatic start</strong> (the import's other trace button): the
   mesh comes in as the reference and is also simplified, automatically, to
   a light cage of four-sided faces - and that cage is opened here, as if
@@ -1874,16 +1873,21 @@ the tool on it.</p>
 <li><strong><img class="ic" src="icons/refine.png" alt="⊞"> refine</strong> splits every face in four and lays the new points on the
   other part - point at the button to see it first. Unlike <img class="ic" src="icons/finer.png" alt="▦+"> it adds real
   points, which you can then drag.</li>
-<li>The green <strong>✓ Done</strong> at the top of the view leaves; <strong><img class="ic" src="icons/draw.png" alt="✚"></strong> later carries on with the same part.</li>
+<li>The green <strong>✓ Done</strong> at the top of the view leaves. To carry on later,
+  select the part: two buttons stand at the left of the view - <strong>✚ draw
+  on</strong> goes back into the drawing tools with it; <strong>✎ burn to a cage</strong>
+  makes it an ordinary SubD cage, on purpose, and opens the cage's tools
+  (one undo brings the drawn part back).</li>
 </ul>
 <p>The smooth part passes exactly through the points you clicked, and its
 edges and border are drawn as the smooth curves they really are - a drawn
 outline is the rounded outline the part will have. Between the points it
 follows its own smooth flow, not the other part - <img class="ic" src="icons/finer.png" alt="▦+"> makes it follow the
-other part there too. The other tools
-of the bar (move, bevel, crease, symmetry...) edit the cage itself; after
-one of them the part is an ordinary SubD cage and <img class="ic" src="icons/draw.png" alt="✚"> no longer carries on
-with it - undo brings that back.</p>
+other part there too. The cage's tools (move, bevel, crease, symmetry...)
+work on an ordinary SubD cage, and a drawn part is not one until it is
+<strong>burnt to a cage</strong>: its cage is kept exactly as it is and the drawing it
+was made from is let go - it cannot be drawn on after that. That is why
+the two sets are kept apart, and why burning is a button of its own.</p>
 <p><strong>On the cage, in move mode</strong> (hover a point, an edge or a face and its
 grips appear):</p>
 <ul>
