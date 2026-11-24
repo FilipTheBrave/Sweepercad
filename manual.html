@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.47 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.48 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.47. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.48. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -2470,6 +2470,86 @@ to turn it; the numbers follow and the model rebuilds when you let go.</p>
 by a <strong>grayscale image</strong>, or by <strong>your own graph</strong> (the Grade tab, x along
 the part, y in mm). <strong>Attractors</strong>: other objects that thicken (or thin)
 the pattern near them, fading over a distance you set.</p>
+<p><strong>Walls and cells in the 3D view.</strong> With a lattice selected a short bar stands
+at the left of the view - what it does shows on the part itself:</p>
+<ul>
+<li><strong>The pattern, and where it goes.</strong> The bar's first two buttons show
+  what is chosen. Click one and the choices open as pictures beside the
+  bar - the patterns; or through the volume, hollow, a shell, holes,
+  raised, cut in. Click a picture and it is chosen; a click beside them
+  closes them. They are the panel's own two lists.</li>
+<li><strong>Walls: thicker / thinner.</strong> Switch one on and brush over the part: the
+  paint shows at once as a wash (orange for thicker, blue for thinner) and
+  the lattice is made again when you let go. Passing over the same place
+  again makes it stronger, up to twice as thick (or half).</li>
+<li><strong>Cells: smaller / larger.</strong> The same brush for the size of the cells
+  (green for smaller, violet for larger), down to half or up to twice. The
+  pattern is squeezed round each place and keeps its size everywhere else.
+  Walls and cells are painted apart and add up: small cells with thick
+  walls in one place, large cells with thin walls in another.</li>
+<li><strong>− +</strong> set the brush's size in mm.</li>
+<li>While a brush is on, the pointer says what the lattice will be right
+  there - "here: walls 0.9 mm · cells 10 mm" - before anything is built.
+  The lattice in the view follows a few seconds after you let go; to keep
+  that quick, painted thin walls and small cells are shown a little rough
+  there (thin walls a little thicker than asked) and worked out truly in
+  what you export. With <strong>thin walls: keep them always</strong> in the panel the
+  view shows them truly too, slower.</li>
+<li><strong>Rub out</strong> takes what was painted under the brush away.</li>
+<li><strong>Attractor point.</strong> Switch it on and click on the part: a point is
+  dropped that the lattice gathers round. Drag the point to move it over
+  the part and drag its <strong>ring</strong> to set how far it reaches - the reach in
+  mm shows beside it. Point at it and four small buttons show: <strong>−</strong> and
+  <strong>+</strong> for how strong it is (below nothing it does the opposite), <strong>⇄</strong>
+  for what it works on - the walls or the cells - and <strong>×</strong> to take it
+  away. No second object is needed.</li>
+<li><strong>Repeller point.</strong> The same point the other way round: the lattice
+  thins out round it - thinner walls, or with <strong>⇄</strong> larger cells. Its own
+  button drops one; a point's <strong>−</strong> and <strong>+</strong> take it from attractor to
+  repeller and back, and the view names it by what it is.</li>
+<li><strong>Attractor object.</strong> Any other object can attract - anything but the
+  lattice itself and the part it fills. Switch the button on and click
+  the object in the view (or tick it in the panel). A ring shows round it:
+  drag the ring for how far it reaches. Beside the ring stand its reach
+  and its value - click either to type it - <strong>⇄</strong> for what it works on,
+  the walls or the cells, and <strong>×</strong> to let it go (the object stays). Near
+  the object the lattice moves toward that value: a value above the
+  lattice's own gathers material there, one below thins it out - so the
+  same object is an attractor or a repeller by its value. Each object has
+  its own walls / cells choice.</li>
+<li><strong>Clear</strong> takes all paint and every point away; one undo brings them back.</li>
+<li><strong>The cell, to handle.</strong> Beside the part stands one cell as a square,
+  with one wall in it. Drag the square's corner for the size of the cells;
+  drag the wall's edge for its thickness. The numbers show under it, and
+  in the panel.</li>
+<li><strong>A gradient, to handle.</strong> When the walls or the cells are graded along
+  X, Y or Z, a band lies along that direction over the part, as wide at
+  each end as the value there, with a knob at each end: drag a knob away
+  from the line for more, towards it for less.</li>
+</ul>
+<p><strong>Detail where it is needed.</strong> Where walls get thin or cells small, the
+lattice is worked out more finely there, so they stay whole and crisp:</p>
+<ul>
+<li>round what you <strong>painted</strong> or gathered round a <strong>point</strong> - by as much as
+  things get smaller there, and the rest of the part costs nothing more;</li>
+<li><strong>Walls too thin for the part's size</strong> - thinned by a gradient, by an
+  attractor object, or simply set thin on a large part - are your choice:
+  <strong>thin walls</strong> in the lattice panel. <em>As fast as possible</em> (to begin
+  with): the lattice is built as quickly as it can be and such walls may
+  break up or vanish. <em>Keep them in exports</em>: the view stays fast, what
+  you export has them. <em>Keep them always</em>: the view shows what you get.
+  Keeping them can make a large lattice several times heavier and slower.
+  The view says, under the cell beside the part, when walls are being
+  lost and how thin the part's size allows.</li>
+</ul>
+<p>(Strut and Voronoi cages, a repeated object and a lattice with a graded
+cell size are still worked out evenly.)</p>
+<p><strong>Exact numbers.</strong> Every value written in the view - a point's reach, an
+attractor object's reach, the cell, the wall, both ends of a gradient, the
+brush - has a dotted line under it: click it, type the number, Enter.
+Esc, or a click elsewhere, leaves it as it was.</p>
+<p>With a brush on, the points and rings are left alone - the brush paints
+straight over them; switch the brush off to handle them.</p>
 <p><strong>Cut: holes</strong> - other objects cut right through wall, pattern and skin:
 drain holes for a hollow part, or bolt holes.</p>
 <p>The view shows a lighter <strong>preview</strong>; tick "full detail in the view" to see
@@ -4599,6 +4679,8 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#assemblies-joints-between-parts">Assemblies</a></li>
 <li><a href="#assets">Assets</a></li>
 <li><a href="#asymmetric-scale">Asymmetric scale</a></li>
+<li><a href="#the-lattice-node">Attractor object</a></li>
+<li><a href="#the-lattice-node">Attractor point</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Auto dart</a></li>
 <li><a href="#assemblies-joints-between-parts">Axis</a></li>
 </ul>
@@ -4630,6 +4712,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#when-something-is-taking-too-long">Cancel</a></li>
 <li><a href="#placing-objects-exactly">Carrying a spine on</a></li>
 <li><a href="#stats-and-checks">Casting</a></li>
+<li><a href="#the-lattice-node">Cell, to handle</a></li>
 <li><a href="#the-lattice-node">Cells</a></li>
 <li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Chain sprocket</a></li>
 <li><a href="#assemblies-joints-between-parts">Chains</a></li>
@@ -4637,6 +4720,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#how-the-model-is-drawn">Chrome</a></li>
 <li><a href="#circular-arcs">Circular arcs</a></li>
 <li><a href="#how-the-model-is-drawn">Clay + edges</a></li>
+<li><a href="#the-lattice-node">Clear</a></li>
 <li><a href="#drawing-a-spine-or-a-profile">Click</a></li>
 <li><a href="#circular-arcs">Click a segment</a></li>
 <li><a href="#circular-arcs">Click an arc</a></li>
@@ -4703,6 +4787,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#apply-a-scale-to-the-drawings">Even scale</a></li>
 <li><a href="#every-edit-shows-at-once">Every edit shows at once</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Exact</a></li>
+<li><a href="#the-lattice-node">Exact numbers</a></li>
 <li><a href="#make-it-with-ai">Examples from your shelf</a></li>
 <li><a href="#the-four-graphs">Export</a></li>
 <li><a href="#exporting">Exporting</a></li>
@@ -4734,6 +4819,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#how-the-model-is-drawn">Glass</a></li>
 <li><a href="#exporting">GLB</a></li>
 <li><a href="#exporting">Glow</a></li>
+<li><a href="#the-lattice-node">Gradient, to handle</a></li>
 <li><a href="#the-lattice-node">Grading</a></li>
 <li><a href="#how-the-model-is-drawn">Grey</a></li>
 <li><a href="#the-3d-view-s-own-controls">Grouped icons</a></li>
@@ -4905,6 +4991,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Relax</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Relax everything</a></li>
 <li><a href="#reliefs-a-picture-or-a-height-map-raises-a-face">Reliefs</a></li>
+<li><a href="#the-lattice-node">Repeller point</a></li>
 <li><a href="#placing-objects-exactly">Repositioning</a></li>
 <li><a href="#drawing-a-spine-or-a-profile">Right-click</a> <a class="more" href="#right-click">2</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Ring cut</a></li>
@@ -4919,6 +5006,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#rounding-and-chamfering-a-corner">Rounding and chamfering a corner</a></li>
 <li><a href="#rounding-the-rims-of-an-end">Rounding the rims of an end</a></li>
 <li><a href="#routes">Routes</a></li>
+<li><a href="#the-lattice-node">Rub out</a></li>
 </ul>
 <h4 id="idx-S">S</h4><ul>
 <li><a href="#animation">Save</a></li>
@@ -5033,6 +5121,7 @@ repeat under still goes through the pieces as before.</p>
 </ul>
 <h4 id="idx-W">W</h4><ul>
 <li><a href="#stacked-sheets">Waffle</a></li>
+<li><a href="#the-lattice-node">Walls</a></li>
 <li><a href="#stats-and-checks">Walls and cavities</a></li>
 <li><a href="#make-it-with-ai">Want it different?</a></li>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Web</a></li>

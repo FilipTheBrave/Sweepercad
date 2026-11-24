@@ -281,7 +281,7 @@ Hover over any icon in the app and it says what it does.</p>
 <tr><td class="k">drag a point</td><td>it slides over the part; with a falloff, its neighbours follow</td></tr>
 <tr><td class="k">drop a point on another</td><td>the two become one</td></tr>
 <tr><td class="k">&times; &nbsp;&#9670; beside a point</td><td>take it away / a sharp corner of the outline</td></tr>
-<tr><td class="k">rings on: press on a limb, drag across</td><td>a ring of points round it; the next ring joins the one before</td></tr>
+<tr><td class="k">rings on: click on a limb (drag across for a tilted one)</td><td>a ring of points round it; the next ring joins the one before</td></tr>
 <tr><td class="k">drag the middle of an open edge</td><td>a new face; keep dragging: a row of faces along the stroke</td></tr>
 <tr><td class="k">strip on: press on the part, drag along</td><td>a strip of faces under the stroke</td></tr>
 <tr><td class="k">the dot in an opening</td><td>click: close it &middot; drag to another opening's dot: join the two</td></tr>
@@ -290,6 +290,19 @@ Hover over any icon in the app and it says what it does.</p>
 <tr><td class="k">a drawn part, selected: <b>draw on</b></td><td>back into the drawing tools with it</td></tr>
 <tr><td class="k">a drawn part, selected: <b>burn to a cage</b></td><td>an ordinary SubD cage from then on (undo brings the drawing back)</td></tr>
 <tr><td class="k">import &middot; <b>Trace, from an automatic start</b></td><td>the mesh as reference, its simplified cage ready to edit here</td></tr>
+</table></section>
+<section><h2>Lattices - the bar at the left</h2>
+<p class="chips"><span class="chip">the first two buttons: the pattern, and where it goes - by picture</span><span class="chip"><img src="icons/lat_wall_p.png" alt="">walls thicker</span><span class="chip"><img src="icons/lat_wall_m.png" alt="">walls thinner</span><span class="chip"><img src="icons/lat_cell_p.png" alt="">cells smaller</span><span class="chip"><img src="icons/lat_cell_m.png" alt="">cells larger</span><span class="chip">&minus; + brush size</span><span class="chip"><img src="icons/lat_erase.png" alt="">rub out</span><span class="chip"><img src="icons/lat_pin.png" alt="">attractor point</span><span class="chip"><img src="icons/lat_repel.png" alt="">repeller point</span><span class="chip"><img src="icons/lat_obj.png" alt="">attractor object</span><span class="chip"><img src="icons/lat_clear.png" alt="">clear</span></p>
+<table>
+<tr><td class="k">a brush on: brush over the part</td><td>a colour wash at once, and "here: walls &hellip; cells &hellip;" at the pointer; the lattice follows when you let go</td></tr>
+<tr><td class="k">attractor / repeller on: click on the part</td><td>a point the lattice gathers round, or thins out round</td></tr>
+<tr><td class="k">drag a point &middot; drag its ring</td><td>move it over the part &middot; how far it reaches</td></tr>
+<tr><td class="k">&minus; + &#8644; &times; beside a point</td><td>weaker, stronger (below nothing: a repeller) &middot; walls or cells &middot; take it away</td></tr>
+<tr><td class="k">attractor object on: click another object</td><td>the lattice follows it; its ring, value, &#8644; and &times; beside it</td></tr>
+<tr><td class="k">the square beside the part</td><td>one cell: drag its corner for the cell size, its wall for the thickness</td></tr>
+<tr><td class="k">the band along a gradient</td><td>drag the knob at either end for the value there</td></tr>
+<tr><td class="k">a number with a dotted line under it</td><td>click, type, Enter</td></tr>
+<tr><td class="k">panel &middot; <b>thin walls</b></td><td>as fast as possible &middot; keep them in exports &middot; keep them always</td></tr>
 </table></section>
 
 <section><h2>Keys</h2><table>
