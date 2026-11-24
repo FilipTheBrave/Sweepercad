@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.53 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.54 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.53. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.54. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1559,7 +1559,7 @@ spine — 90° means the far end is a quarter turn from the near one.
 first section. Use roll to orient a square or an n-gon; use twist to
 make it spiral.</p>
 <hr />
-<p><strong>Settings in the view, or in a window.</strong> A new array, coil, route, infill or surface
+<p><strong>Settings in the view.</strong> A new array, coil, route, infill or surface
 pattern shows its main settings as a bar of icons at the left of the 3D view,
 with the green <strong>✓ Done</strong> at the top; everything else is in the left panel. A
 sweep has one for its own settings - <strong>adds or cuts</strong>, <strong>how the profile
@@ -1570,9 +1570,10 @@ combine has one too, for how its parts meet - <strong>sharp, fillet, chamfer or
 bridge</strong>, with the radius, <em>smooth</em> and <em>as big as it fits</em> for a fillet, and
 reach, bulge and flare for a bridge - but because combines are everywhere it
 waits behind its <strong>✎ edit combine</strong> button at the left of the view. A
-new eggshell mould opens its settings in a window over the 3D view: set them
-and watch the result follow, then press <strong>Done</strong> and they go back to the left
-panel, where they always are when that node is selected. The mouse wheel over the left panel always scrolls it: a
+new eggshell mould has its bar too: <strong>which mould</strong>, <strong>where it cracks</strong>,
+<strong>open at the top</strong> and <strong>another crack pattern</strong>, then the <strong>wall</strong>, the
+<strong>shards</strong> (more: smaller ones), the <strong>crack depth</strong> and the <strong>crack width</strong>;
+the funnel, vents, cuts and flanges are in the left panel. The mouse wheel over the left panel always scrolls it: a
 field, list or slider only takes the wheel once you have clicked into it, so
 scrolling past a number never changes it.</p>
 <hr /></section><section class="sec" id="nodes"><h3>Nodes</h3><p><strong>Each card is the colour of what it is:</strong> green a positive object, red
@@ -2701,8 +2702,13 @@ its holder: the lid on a box, an arm on a base, a wheel on an axle, a
 slide in its rail. The <strong>joint</strong> box in the panel (for a top-level part)
 has it:</p>
 <p><strong>From the 3D view.</strong> Select the part that should move, click the <strong>joint</strong>
-icon (with the combine, top left), then click the part that holds it: it is
-a hinge at once, and the joint's bar stands at the left of the view -
+icon (beside the combine's = at the top left: two arms on a pin), then click the part that holds it: it is
+a hinge at once (or pick hinge, slider or ball first, beside <em>held by</em>).
+While it waits the view says what to click and names the parts that can
+hold it. Then the joint is drawn on the model: its <strong>axis</strong> dashed through the
+<strong>pivot</strong> (white), the holder named, and how it moves - a hinge's <strong>arc</strong> from
+its lower limit to its upper one, a slider's <strong>track</strong>, a ball's <strong>sphere</strong> -
+with where it stands <strong>now</strong> marked. Its bar stands at the left of the view -
 <strong>held by</strong> (click another holder), <strong>hinge / slider / ball</strong>, <strong>pick the
 axis</strong> (click a face of the holding part), <strong>play</strong>, <strong>check</strong> and <strong>take
 the joint off</strong>, and below them where it stands <strong>now</strong> and its limits
@@ -5142,6 +5148,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#a-fillet-that-changes-along-the-seam">Select a combine</a></li>
 <li><a href="#exporting">Separate bodies</a></li>
 <li><a href="#made-to-be-driven-by-a-program-not-only-by-a-person">Set</a></li>
+<li><a href="#placing-objects-exactly">Settings in the view</a></li>
 <li><a href="#lights">Shadows and depth</a></li>
 <li><a href="#parts-catalogue">Shafts and bearings</a></li>
 <li><a href="#assets">Sharing a part</a></li>
