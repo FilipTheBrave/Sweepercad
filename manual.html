@@ -43,6 +43,7 @@ pre code { background: none; padding: 0; color: inherit; }
 table { border-collapse: collapse; margin: 12px 0; font-size: 14px; }
 td, th { border: 1px solid #ddd; padding: 6px 10px; text-align: left; vertical-align: top; }
 figure { margin: 20px 0 24px; }
+img.ic { height: 1.6em; width: auto; vertical-align: -0.42em; margin: 0 1px; }
 figure img { width: 100%; height: auto; border-radius: 6px; border: 1px solid #ddd; display: block; }
 figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; }
 .hit { background: #fff1b8; }
@@ -103,12 +104,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.44 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.45 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.44. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.45. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <div class="ptoc cover-toc"></div>
@@ -1680,7 +1681,7 @@ rest - a palm with its fingers, a grip, a head: a coarse <strong>cage</strong> o
 that stands for the smooth shape inside it. Push the cage around and the
 smooth part follows; the part is a real solid all the same - it combines,
 cuts, fillets and exports to STEP like any other.</p>
-<p>The <strong>◍</strong> icon (with the stick figure) adds one: a rounded block with its
+<p>The <strong><img class="ic" src="icons/add_subd.png" alt="◍"></strong> icon (with the stick figure) adds one: a rounded block with its
 cage round it, and direct editing switched on. A SubD is a node with one
 output and no inputs - a sign, a position, wires like any object.</p>
 <p><strong>The bar at the left of the view</strong> (there whenever a SubD is shown) sets
@@ -1690,7 +1691,7 @@ what the mouse does - a mode stays on until you pick another:</p>
   it again later: select the SubD part and press <strong>✎ edit cage</strong> at the
   left of the view. With a SubD part selected the cage you work on is that
   part's; with nothing selected every SubD part's cage is open.</li>
-<li><strong>✥ move</strong> - drag points and edges; a face moves by the ✥ at its middle.
+<li><strong><img class="ic" src="icons/move.png" alt="✥"> move</strong> - drag points and edges; a face moves by the <img class="ic" src="icons/move.png" alt="✥"> at its middle.
   The grips of what you point at stay while you reach for them. What a
   drag will move is marked before you press: the points themselves in
   yellow, and - with a falloff - every point it takes along as an orange
@@ -1698,16 +1699,16 @@ what the mouse does - a mode stays on until you pick another:</p>
   falloff's reach. While you drag, the smooth surface is drawn as it will
   be.</li>
 <li><strong>↔ slide</strong> - every point you drag slides along its own edges.</li>
-<li><strong>✂ ring cut</strong> - move over an edge and the new edge loop is shown under
+<li><strong><img class="ic" src="icons/ring.png" alt="✂"> ring cut</strong> - move over an edge and the new edge loop is shown under
   the pointer, following it along the edge; click to place it. The mode
   stays on for the next cut. <em>Ring cuts</em> in the SubD box sets how many
   loops go in at once.</li>
-<li><strong>◢ bevel</strong> - move over an edge and it is shown widened into a strip of
+<li><strong><img class="ic" src="icons/bevel.png" alt="◢"> bevel</strong> - move over an edge and it is shown widened into a strip of
   its own: the whole edge loop through it, or the edges you ticked when it
   is one of them. Nearer the edge's middle the strip is wider (the label
   says how wide); click to place it. Two loops close together hold an edge
   tight; crease the strip's borders for a chamfer.</li>
-<li><strong>⟋ knife</strong> - click a point or an edge, then another on the same face:
+<li><strong><img class="ic" src="icons/knife.png" alt="⟋"> knife</strong> - click a point or an edge, then another on the same face:
   a new edge between them (shown as a dashed line before the second
   click). The knife carries on from there; click the last point again to
   put it down.</li>
@@ -1717,52 +1718,52 @@ what the mouse does - a mode stays on until you pick another:</p>
   smooth surface as it will be drawn faintly in green - for the ring cut,
   bevel, knife, weld, crease and an edge's ✕. If the click would be refused
   (it would not leave a solid) the label turns red and says why.</li>
-<li><strong>◆ crease</strong> - click an edge: smooth, soft, hard, and smooth again.</li>
-<li><strong>⇋ symmetry</strong> - a switch (lit while on), not a tool: what you do on one
+<li><strong><img class="ic" src="icons/crease.png" alt="◆"> crease</strong> - click an edge: smooth, soft, hard, and smooth again.</li>
+<li><strong><img class="ic" src="icons/mirror.png" alt="⇋"> symmetry</strong> - a switch (lit while on), not a tool: what you do on one
   side is done to its mirror twin across the part's own X - drags and
   every click tool alike (a ring cut puts a loop on each side, a bevel
   takes the twin edges in the same go, a weld, crease, knife cut and
   removed edge are done on both sides). The cage's line on the mirror plane
   is drawn dashed in magenta, and the twins of what a drag moves are marked
   in green. The same switch as <em>mirror editing</em> in the SubD box.</li>
-<li><strong>◨ make symmetric</strong> - for a cage that has gone lopsided: it is cut along
+<li><strong><img class="ic" src="icons/sym.png" alt="◨"> make symmetric</strong> - for a cage that has gone lopsided: it is cut along
   its own X = 0, its +X half kept and mirrored onto the other side. Point
   at the button to see the result first; a click does it.</li>
-<li><strong>⤓ stick to what is underneath</strong> - a switch (lit while on), beside ⇋:
+<li><strong><img class="ic" src="icons/snap.png" alt="⤓"> stick to what is underneath</strong> - a switch (lit while on), beside <img class="ic" src="icons/mirror.png" alt="⇋">:
   the points you move land on the other part - or reference mesh - under
   them, as you see it, live while you drag; green rings mark the ones that
   landed, and a point with nothing under it moves freely. Put a small cage
   inside a scan or another model, turn the view, and pull its points out
   onto the skin: the cage becomes a clean, editable solid of that shape.
   Cut it finer (ring cut, knife) and lay the new points on again.</li>
-<li><strong>⇊ lay on</strong> - beside ◨: the points of the ticked faces - or, with none
+<li><strong><img class="ic" src="icons/lay.png" alt="⇊"> lay on</strong> - beside <img class="ic" src="icons/sym.png" alt="◨">: the points of the ticked faces - or, with none
   ticked, every point in view - land on the other part in one click. Point
   at the button to see the result first, with how many points would land;
   a result that would tangle the cage is refused, with the reason. With
   symmetry on, the +X side lands and its twin mirrors it - look from the
   front, so both sides are in view.</li>
-<li><strong>◐− ◐+</strong> - the falloff, smaller or larger (proportional editing): points
+<li><strong><img class="ic" src="icons/fall-.png" alt="◐−"> <img class="ic" src="icons/fall+.png" alt="◐+"></strong> - the falloff, smaller or larger (proportional editing): points
   near what you drag follow it, less the further away. A dashed circle
   shows its reach while you drag.</li>
 </ul>
 <p>A press on a face's body, or beside the part, turns the view as always -
 only points, edges and grips take the mouse.</p>
 <h4 id="subd-over-a-part-tracing-a-scan-or-another-model">SubD over a part - tracing a scan or another model</h4>
-<p>The second SubD icon (<strong>⊕</strong>, beside the first) starts a SubD that is <em>drawn
+<p>The second SubD icon (<strong><img class="ic" src="icons/add_subd_over.png" alt="⊕"></strong>, beside the first) starts a SubD that is <em>drawn
 on</em> something: another part, a scan, a reference mesh. The same mode is
-<strong>✚</strong> on the SubD bar. Importing an OBJ or STL offers it too - <strong>Trace by
+<strong><img class="ic" src="icons/draw.png" alt="✚"></strong> on the SubD bar. Importing an OBJ or STL offers it too - <strong>Trace by
 hand (SubD)</strong> brings the mesh in as a reference, every triangle, and starts
 the tool on it.</p>
 <ul>
-<li><strong>The bar shows the drawing tools only</strong> while you draw: ✚, ◯ rings,
-  ═ strip, each with its own − and + beside it, ✂ ring cut, ≈ relax and
-  ≋ relax everything, ⊞ refine, ▦− ▦+, ▭− ▭+, the falloff ◐− ◐+, ⇋ symmetry
-  and ◑ near side only - the current value stands beside each pair. For an exact thickness, type it in the SubD box of the
+<li><strong>The bar shows the drawing tools only</strong> while you draw: <img class="ic" src="icons/draw.png" alt="✚">, <img class="ic" src="icons/loop.png" alt="◯"> rings,
+  <img class="ic" src="icons/strip.png" alt="═"> strip, each with its own − and + beside it, <img class="ic" src="icons/ring.png" alt="✂"> ring cut, <img class="ic" src="icons/relax.png" alt="≈"> relax and
+  <img class="ic" src="icons/relaxall.png" alt="≋"> relax everything, <img class="ic" src="icons/refine.png" alt="⊞"> refine, <img class="ic" src="icons/coarser.png" alt="▦−"> <img class="ic" src="icons/finer.png" alt="▦+">, <img class="ic" src="icons/thin.png" alt="▭−"> <img class="ic" src="icons/thick.png" alt="▭+">, the falloff <img class="ic" src="icons/fall-.png" alt="◐−"> <img class="ic" src="icons/fall+.png" alt="◐+">, <img class="ic" src="icons/mirror.png" alt="⇋"> symmetry
+  and <img class="ic" src="icons/near.png" alt="◑"> near side only - the current value stands beside each pair. For an exact thickness, type it in the SubD box of the
   side panel (below zero it lies inside the drawn surface). The green
   <strong>✓ Done</strong> at the top of the view leaves. Point at any button and its
-  tooltip says what it does. <strong>✥</strong> at
+  tooltip says what it does. <strong><img class="ic" src="icons/move.png" alt="✥"></strong> at
   the bottom goes to the cage's tools (move, bevel, knife, crease,
-  symmetry...); <strong>✚</strong> there comes back to drawing. One set at a time.</li>
+  symmetry...); <strong><img class="ic" src="icons/draw.png" alt="✚"></strong> there comes back to drawing. One set at a time.</li>
 <li><strong>Trace, from an automatic start</strong> (the import's other trace button): the
   mesh comes in as the reference and is also simplified, automatically, to
   a light cage of four-sided faces - and that cage is opened here, as if
@@ -1775,36 +1776,36 @@ the tool on it.</p>
   a click beside the dot places another point. Four points are taken before
   three. A face that could not be part of a solid is shown red, with the
   reason.</li>
-<li><strong>◯ rings - a limb in a few strokes.</strong> Switch ◯ on, press <em>on</em> an arm, a
+<li><strong><img class="ic" src="icons/loop.png" alt="◯"> rings - a limb in a few strokes.</strong> Switch <img class="ic" src="icons/loop.png" alt="◯"> on, press <em>on</em> an arm, a
   finger, a handle, and drag across it: a ring of points is laid all the
   way round it there, shown while you drag. The next ring joins the one
   before with a band of faces - the part appears at the first band - and
   so on along the limb. A ring that joins another takes that one's number
-  of points - unless you press the <strong>−</strong> or <strong>+</strong> beside ◯ first: the next
+  of points - unless you press the <strong>−</strong> or <strong>+</strong> beside <img class="ic" src="icons/loop.png" alt="◯"> first: the next
   ring then has the number shown, and the band between the two gets a few
   triangles to make up the difference (fewer points towards a wrist or a
   fingertip). A ring that starts afresh has the number shown (8 to begin with). A drag that starts beside the part still turns
-  the view. ◯ again, and a click places single points as before - the
+  the view. <img class="ic" src="icons/loop.png" alt="◯"> again, and a click places single points as before - the
   rings' points are ordinary points: drag them, × them, fill between them.</li>
 <li><strong>Pull an open edge.</strong> Point at the middle of any open edge of a drawn
   face: it lights up. Drag it and a new face comes out of it, its two new
   points on the other part. <strong>Keep dragging and a row of faces follows
   your stroke</strong>, each about as long as the edge is wide, turning where you
   turn. Let go on a point that is already there and the row joins it.</li>
-<li><strong>═ strip</strong> does the same from nothing: switch it on, press on the bare
+<li><strong><img class="ic" src="icons/strip.png" alt="═"> strip</strong> does the same from nothing: switch it on, press on the bare
   part and drag along it - a row of faces is laid under your stroke.
-  The <strong>−</strong> and <strong>+</strong> beside ═ set how wide (as you see it).</li>
-<li><strong>Drag several points at once.</strong> <strong>◐+</strong> and <strong>◐−</strong> set a falloff (shown
+  The <strong>−</strong> and <strong>+</strong> beside <img class="ic" src="icons/strip.png" alt="═"> set how wide (as you see it).</li>
+<li><strong>Drag several points at once.</strong> <strong><img class="ic" src="icons/fall+.png" alt="◐+"></strong> and <strong><img class="ic" src="icons/fall-.png" alt="◐−"></strong> set a falloff (shown
   beside them, in mm; off to begin with). With one set, the points near
   the one you drag follow it, less the further away they are - and each of
   them stays on the other part.</li>
-<li><strong>≈ relax - spread the points evenly.</strong> Switch ≈ on and brush over the
-  drawn points (the dashed circle is the brush; the <strong>&minus;</strong> and <strong>+</strong> beside ≈
+<li><strong><img class="ic" src="icons/relax.png" alt="≈"> relax - spread the points evenly.</strong> Switch <img class="ic" src="icons/relax.png" alt="≈"> on and brush over the
+  drawn points (the dashed circle is the brush; the <strong>&minus;</strong> and <strong>+</strong> beside <img class="ic" src="icons/relax.png" alt="≈">
   set its size): each moves towards the
   middle of its neighbours and is laid back on the other part. The points
   of an open edge only slide along it, and where the outline turns a
   corner the point stays. One undo takes a whole brush stroke back.</li>
-<li><strong>≋ relax everything</strong> does the relax brush's work on every drawn point
+<li><strong><img class="ic" src="icons/relaxall.png" alt="≋"> relax everything</strong> does the relax brush's work on every drawn point
   at once.</li>
 <li><strong>Drop a point on another and the two become one.</strong> Dragged within reach
   of another drawn point it snaps onto it; let go there and they are
@@ -1813,14 +1814,14 @@ the tool on it.</p>
   drag to the dot of another: a band of faces joins the two - a finger to
   a palm, an arm to a body. Where the two have a different number of
   points, a few of the band's faces are triangles.</li>
-<li><strong>⇋ symmetry while drawing.</strong> With ⇋ on, what you draw on one side of
+<li><strong><img class="ic" src="icons/mirror.png" alt="⇋"> symmetry while drawing.</strong> With <img class="ic" src="icons/mirror.png" alt="⇋"> on, what you draw on one side of
   X = 0 - the plane through the middle of a part modelled symmetric - is
   drawn on the other side too: points, faces, rings, strips, fills, and
   what you take away. Points on the plane are shared; a face that reaches
   across it stays as it is. The side you work on is the one that counts.</li>
-<li><strong>◑ near side only</strong> (on to begin with): the drawn points and faces on
+<li><strong><img class="ic" src="icons/near.png" alt="◑"> near side only</strong> (on to begin with): the drawn points and faces on
   the far side of the part are hidden and cannot be picked, so the back
-  of a hand does not show through its palm. ◑ again shows both sides.</li>
+  of a hand does not show through its palm. <img class="ic" src="icons/near.png" alt="◑"> again shows both sides.</li>
 <li><strong>Close an opening.</strong> A small dot sits at the middle of every opening -
   the open end of a ringed limb, a hole left between faces. A click on it
   closes the opening with faces: one for three or four points, otherwise
@@ -1831,43 +1832,43 @@ the tool on it.</p>
   tool's - nothing that is not a solid is ever in the scene.</li>
 <li><strong>Open = a thickness, closed = a solid.</strong> While the drawn faces do not
   close all round, the part is those faces given a thickness: 2 mm outside
-  the drawn surface to start, <strong>▭−</strong> and <strong>▭+</strong> on the bar change it, and
+  the drawn surface to start, <strong><img class="ic" src="icons/thin.png" alt="▭−"></strong> and <strong><img class="ic" src="icons/thick.png" alt="▭+"></strong> on the bar change it, and
   past zero it goes to the inside. Its border keeps the outline you drew.
   Once the faces close all round, the part is that solid and the thickness
   drops away.</li>
 <li><strong>Drag a point</strong> and it stays on the other part. The <strong>×</strong> beside a point
   takes it away with its faces; the × at the middle of a face takes only
   the face.</li>
-<li><strong>✂ ring cut</strong>, on a drawn part, cuts an edge loop across the drawn faces
+<li><strong><img class="ic" src="icons/ring.png" alt="✂"> ring cut</strong>, on a drawn part, cuts an edge loop across the drawn faces
   and lays its new points on the other part.</li>
-<li><strong>▦+ follows the other part between your points.</strong> Every drawn face is
+<li><strong><img class="ic" src="icons/finer.png" alt="▦+"> follows the other part between your points.</strong> Every drawn face is
   divided into cells of about one size - a big face gets many, a small one
   few - and the cell points are laid on the other part; the smooth part
   passes through all of them. What you drew stays as few points as you
-  placed. ▦+ again makes the cells smaller, <strong>▦−</strong> larger and then none.
+  placed. <img class="ic" src="icons/finer.png" alt="▦+"> again makes the cells smaller, <strong><img class="ic" src="icons/coarser.png" alt="▦−"></strong> larger and then none.
   Point at either to see the cells first.</li>
 <li><strong>◆ beside a border point</strong> makes the outline turn sharply there; again
   makes it round. A sharp point is drawn as a diamond.</li>
-<li><strong>⊞ refine</strong> splits every face in four and lays the new points on the
-  other part - point at the button to see it first. Unlike ▦+ it adds real
+<li><strong><img class="ic" src="icons/refine.png" alt="⊞"> refine</strong> splits every face in four and lays the new points on the
+  other part - point at the button to see it first. Unlike <img class="ic" src="icons/finer.png" alt="▦+"> it adds real
   points, which you can then drag.</li>
-<li>The green <strong>✓ Done</strong> at the top of the view leaves; <strong>✚</strong> later carries on with the same part.</li>
+<li>The green <strong>✓ Done</strong> at the top of the view leaves; <strong><img class="ic" src="icons/draw.png" alt="✚"></strong> later carries on with the same part.</li>
 </ul>
 <p>The smooth part passes exactly through the points you clicked, and its
 edges and border are drawn as the smooth curves they really are - a drawn
 outline is the rounded outline the part will have. Between the points it
-follows its own smooth flow, not the other part - ▦+ makes it follow the
+follows its own smooth flow, not the other part - <img class="ic" src="icons/finer.png" alt="▦+"> makes it follow the
 other part there too. The other tools
 of the bar (move, bevel, crease, symmetry...) edit the cage itself; after
-one of them the part is an ordinary SubD cage and ✚ no longer carries on
+one of them the part is an ordinary SubD cage and <img class="ic" src="icons/draw.png" alt="✚"> no longer carries on
 with it - undo brings that back.</p>
 <p><strong>On the cage, in move mode</strong> (hover a point, an edge or a face and its
 grips appear):</p>
 <ul>
 <li>a <strong>point</strong>: drag it. Bring it onto a neighbouring point and it snaps
   there - let go and the two are welded. <strong>✓</strong> selects it (for the knife).</li>
-<li>a <strong>face</strong>: <strong>✥</strong> moves it out or in; <strong>+</strong> extrudes it (press and
-  pull); <strong>▣</strong> insets it; <strong>⤢</strong> scales it; <strong>✓</strong> adds it to the selection -
+<li>a <strong>face</strong>: <strong><img class="ic" src="icons/move.png" alt="✥"></strong> moves it out or in; <strong>+</strong> extrudes it (press and
+  pull); <strong><img class="ic" src="icons/grip-inset.png" alt="▣"></strong> insets it; <strong><img class="ic" src="icons/grip-scale.png" alt="⤢"></strong> scales it; <strong>✓</strong> adds it to the selection -
   selected faces move, scale and extrude together.</li>
 <li>an <strong>edge</strong>: drag it. <strong>✕</strong> removes the edge, joining the two faces
   beside it; <strong>✓</strong> selects it.</li>
@@ -1883,7 +1884,7 @@ grips appear):</p>
   <strong>merge</strong>: neighbouring faces become one. <strong>knife</strong>: a new edge across a
   face between any two of its points and edges (an edge is cut at its
   middle).</li>
-<li><strong>ring cuts</strong>: how many loops the ✂ adds at once.</li>
+<li><strong>ring cuts</strong>: how many loops the <img class="ic" src="icons/ring.png" alt="✂"> adds at once.</li>
 <li><strong>falloff</strong>: the bar's ◐ as a number, in mm.</li>
 <li><strong>refine the cage</strong>: four times the quads, the same shape - more points
   for the detail.</li>
