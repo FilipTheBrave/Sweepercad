@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.52 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.53 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.52. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.53. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1038,7 +1038,7 @@ four) has a step for it: <strong>⇕ direct</strong>. The next manipulator leave
 again, and brings back the splines or dials that were shown. <strong>The quick way both ways: the
 D key</strong>, or <strong>direct editing</strong> in the right-click menu - direct editing on,
 and again back to the manipulator and what was shown before. With it on, the model's own faces
-and edges answer the pointer - there is nothing to select first. <strong>The app opens in direct editing</strong> the first time, and after that in whatever you left it in - splines, dials, none or direct - when you closed it:</p>
+and edges answer the pointer - there is nothing to select first. <strong>The app opens in direct editing</strong>, every time, with the left panel folded away so the 3D view has the whole width - click the handle at the left edge (or drag it) to open the panel:</p>
 <ul>
 <li><strong>Hover</strong> a face or an edge: it lights up and a label says what it is
   (<em>block: side 2</em>, <em>block: end cap</em>, <em>c: seam</em>) and its number now.</li>
@@ -1562,6 +1562,10 @@ make it spiral.</p>
 <p><strong>Settings in the view, or in a window.</strong> A new array, coil, route, infill or surface
 pattern shows its main settings as a bar of icons at the left of the 3D view,
 with the green <strong>✓ Done</strong> at the top; everything else is in the left panel. A
+sweep has one for its own settings - <strong>adds or cuts</strong>, <strong>how the profile
+follows the spine</strong> and <strong>how the sections are joined</strong> (each a list),
+<strong>to an end profile</strong>, and <strong>twist</strong>, <strong>roll</strong>, <strong>hollow</strong>, <strong>draft</strong> and the
+<strong>rims</strong> at its start and end - waiting behind its <strong>✎ edit sweep</strong> button. A
 combine has one too, for how its parts meet - <strong>sharp, fillet, chamfer or
 bridge</strong>, with the radius, <em>smooth</em> and <em>as big as it fits</em> for a fillet, and
 reach, bulge and flare for a bridge - but because combines are everywhere it
@@ -1615,7 +1619,7 @@ end point.</p>
 </ul>
 <p>Parts from the parts catalogue, flex parts, the tool tray and Build with AI's plan parts arrive as closed groups under their own names. Groups are saved with the project; files from before open as they were.</p>
 <hr /></section>
-<section class="sec" id="the-stick-figure-balls-and-sticks-like-zspheres"><h3>The stick figure — balls and sticks, like ZSpheres</h3><p><em>In full screen the stick figure's panel opens inside the main window, at the left over the side panel, not as a window of its own - drag it by its title strip; point at the strip for how the tool works.</em></p><p>The ⦿ icon (beside the route tool, in the same corner group) opens the stick figure: a quick
+<section class="sec" id="the-stick-figure-balls-and-sticks-like-zspheres"><h3>The stick figure — balls and sticks, like ZSpheres</h3><p><em>(The stick figure's panel opens inside the main window, at the left over the view - never a window of its own, so it cannot push a full-screen window aside. Drag its title strip to move it.)</em></p><p>The ⦿ icon (beside the route tool, in the same corner group) opens the stick figure: a quick
 way to block in a figure, a creature, a branching part - anything made of
 limbs - before refining it with the graphs, the nets and the brush.</p>
 <ul>
@@ -2203,6 +2207,7 @@ panel, under "place on":</p>
   <strong>Depth</strong> sinks each copy into the surface (negative lifts it off);
   <strong>random twist</strong> turns each about its own axis.</li>
 </ul>
+<p><strong>A line or a circle.</strong> In the array's bar, <strong>along a line</strong> makes the curve a straight row and <strong>round a circle</strong> a ring round the object, each with its one number beside it - the <strong>length</strong> of the row, the <strong>radius</strong> of the ring - with − and +, or click the number and type it. (Any other curve is still drawn in the array's graph; there the <strong>R</strong> on a circle can be clicked and typed too.)</p>
 <p>Each copy is placed by <strong>its own origin</strong> - the point the object was drawn
 around - not by the world's origin, so it does not matter where the object
 sits before you array it. The copies follow when the surface changes.
@@ -2397,19 +2402,26 @@ is selected. Typical workshop values - check them against your screws.
 From a script: <code>model.hole("M4", "countersunk", 8, at=(x, y, z))</code>.</p>
 <hr />
 <hr /></section>
-<section class="sec" id="text-on-a-part"><h3>Text on a part</h3><p><strong>T</strong> under <strong>+</strong> makes raised text, <strong>T</strong> under <strong>−</strong> text that is cut in.
-Pick one, then <strong>press on a part and drag</strong> where the text goes - from where
-it starts to where it ends: the drag is its place, its width and its
-direction, on the side of the part you dragged on. Let go and a small panel
-opens under it: <strong>type the text</strong>, pick its <strong>font</strong>, <strong>B</strong> for bold - the
-part follows a moment after each change. Enter, or ✓, closes the panel.</p>
-<p>The text fits the frame you dragged: a longer text has smaller letters.
-Afterwards, with the text selected: <strong>drag its frame</strong> to move it over the
-part, <strong>drag the dot at its end</strong> to size it, <strong>drag the ring above it</strong>
-to turn it (it holds at every 15°), <strong>click the frame</strong> to type again; its width under the frame can be clicked and typed.
-It reads the right way round on whichever side it stands. Depth is in the
-left panel. The result is a mesh, as with every surface pattern (for
-letters as exact CAD parts, see <strong>text</strong> in the parts catalogue).</p>
+<section class="sec" id="text-on-a-part"><h3>Text on a part</h3><p><strong>T</strong> under <strong>+</strong> raises text out of a part, <strong>T</strong> under <strong>−</strong> sinks it in.
+Pick one, then <strong>press on a face of a part and drag</strong> where the text goes -
+from where it starts to where it ends: the drag is its place, its width and
+its direction. Let go and the faces under it are shaped by the letters, and
+a small panel opens under it: <strong>type the text</strong>, pick its <strong>font</strong>, <strong>B</strong> for
+bold, <strong>raised / sunk</strong> and how <strong>deep</strong> - the part follows a moment after
+you stop typing (a build takes a few seconds). Enter, or ✓, closes the panel.</p>
+<p>It is a <strong>relief on the part's own faces</strong>, the same as <em>Relief or pattern</em>
+on the face nets: no new object, and the part stays <strong>exact CAD</strong> - it
+exports to STEP with the letters in it. The text runs over every face its
+frame falls on. The letters fit the frame you dragged: a longer text has
+smaller letters. Like every relief their edges are softly rounded, and they
+read from about 6 mm tall on a hand-sized part.</p>
+<p>Afterwards, with the part selected, each text shows its frame: <strong>drag the
+frame</strong> to move it, <strong>drag the dot at its end</strong> to size it, <strong>drag the ring
+above it</strong> to turn it (it holds at every 15°), <strong>click the frame</strong> to type
+again, and <strong>×</strong> beside it takes it off. Each is one undo.</p>
+<p>(Texts made before this version were a surface pattern - a mesh - and stay
+as they were. For letters as separate exact parts, see <strong>text</strong> in the parts
+catalogue.)</p>
 <hr /></section>
 <section class="sec" id="machine-parts-nozzles-gears-pulleys-a-snap-fit"><h3>Machine parts — nozzles, gears, pulleys, a snap fit</h3><p>The <strong>machine parts</strong> - now in Make › <strong>parts</strong>, the catalogue - make a whole part from one form, as
 ordinary objects (a sweep, or a few in a combine): afterwards edit their
@@ -3132,17 +3144,23 @@ sizes show beside the shape as you go. Once the footprint is down you can
 and leaves you placing. Two small switches at the top left, beside the
 drawing switches, decide the rest, and are remembered:</p>
 <ul>
-<li><strong>drag: size / drag: draw / from the face</strong> - what a drag does. On <em>draw</em>
-  a drag draws a spine or a profile on the face, as before.</li>
+<li><strong>drag: size / drag: draw / from the face</strong> - what a drag does. <em>From
+  the face</em> is on at first; where there is no flat face under the pointer
+  it behaves as <em>size</em>. On <em>draw</em> a drag draws a spine or a profile on the
+  face, as before.</li>
 <li><strong>from the face</strong> - push and pull. Point at a <strong>flat face</strong> and its own
   outline lights up; click it (or press and drag) and the new object has
   exactly that outline as its profile, while the pointer pulls its height -
   a boss with <strong>+</strong>, a pocket of that depth with <strong>−</strong>. Click to finish, or
   type the height. <strong>The mouse wheel is the offset</strong>: one way the outline
   grows, the other it shrinks, and it shows at the top left as <em>offset …
-  mm</em> - click that to type it. A plus starts on the outline itself; a minus
-  one step inside it, so a pocket keeps a wall (set it to 0 to lower the
-  whole face). Straight edges stay straight, round edges stay arcs, and a
+  mm</em> - click that to type it. Every new object starts on the outline
+  itself (offset 0): a − there lowers the whole face, a notch of the wheel
+  inwards makes it a pocket with a wall. The height you pull or type is
+  the height above the face (the depth below it). <strong>The direction is the
+  sign</strong>: pulled out of the face it adds, pushed into the face it cuts -
+  whichever of + and − you started with; its colour turns as it does. The
+  same holds for an object sized by a drag on a part's face. Straight edges stay straight, round edges stay arcs, and a
   free-form edge is followed closely through a dozen points.
   What it does not do: a hole in the face is not carried over (the outer
   outline only); the new object is a copy of the outline and does not
@@ -3163,10 +3181,11 @@ cleanly through; the pointer then sets its depth. A + grows out of the
 face, as always; on the ground both stand up. What you get is an ordinary
 object: its profile and spine are in the graphs as always.</p>
 <p><strong>What a new object joins</strong> is auto-combine's doing (<strong>A=</strong>, on the = icon;
-a green A says it is on). With it on, a new object joins whatever is
-selected - and with nothing selected, an object placed <strong>on a face</strong> joins
-the part that face belongs to: a + becomes part of it, a &minus; cuts it. On the
-ground it stands alone. With auto-combine off nothing joins by itself.</p>
+a green A says it is on). With it on, an object placed, pulled or drawn
+<strong>on a face</strong> joins the part that face belongs to - a + becomes part of it,
+a − cuts it - whatever else is selected. Where it lands on no part (the
+ground, empty space) it joins what is selected, and with nothing selected
+it stands alone. With auto-combine off nothing joins by itself.</p>
 <p>A click on <strong>empty space puts the object on the ground</strong>, where the
 grid is - not floating at whatever depth the camera implied. Click a
 surface instead and it goes there, as before.</p>
@@ -4970,6 +4989,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#parameters">Levels</a></li>
 <li><a href="#lights">Lights</a></li>
 <li><a href="#exporting">Line art</a></li>
+<li><a href="#arrays-along-a-curve-or-on-a-surface">Line or a circle</a></li>
 <li><a href="#stacked-sheets">Lining the layers up</a></li>
 <li><a href="#drawing">Lining up</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">List</a></li>
