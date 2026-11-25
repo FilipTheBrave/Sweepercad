@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.58 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.59 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.58. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.59. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1076,6 +1076,24 @@ and edges answer the pointer - there is nothing to select first. <strong>The app
   pocket opens at the top, and a boss sinks a hair in. The label says
   <em>past zero: it cuts now</em>. Drag back above zero and it adds again. This works on a straight
   part with one profile and no twist; anything else says why it can't.</li>
+<li><strong>⧉ flush faces together</strong> (the switch in the top bar, on at first):
+  flat faces in the plane of the one you grab, facing the same way and
+  touching it - of the same part or of others beside it - are pushed and
+  pulled with it, as one, by the same amount. They light up with it, and
+  the message says how many went along. One undo takes them all back.</li>
+<li><strong>Rounding as one.</strong> With <em>flush faces together</em> on, an edge that runs
+  on from one part onto another (a top made of two flush tops, an L of two
+  crossing blocks) is rounded as one, not part by part. Where the other
+  part's own edge lies exactly in line (parts stacked or set end to end on
+  one profile), both parts' own corner radii are set together - the label
+  says <em>rounds 2 parts' own edges, in line, together</em>. Otherwise the
+  rounding is made on the joined shape and kept by the combine - the label
+  says <em>rounded as one on the joined shape</em> and that it is heavier to
+  build. <strong>↻ whole loop</strong> (in the top bar, off at first) rounds the whole
+  outline of that face instead, its corners too; off, the edge you grab and
+  what runs on smoothly from it. Drag the fillet's own face to change it;
+  0 takes it off. If an edit makes that edge disappear, the combine warns
+  and keeps the rounding for when it comes back.</li>
 <li><strong>A straight side</strong> has a <strong>● dot</strong> at its end: drag it to turn the
   side about its middle (its neighbours keep their lines).</li>
 <li><strong>A side facing along the spine's plane</strong> has a <strong>◆ diamond</strong>: drag it to
@@ -3217,6 +3235,11 @@ drawing switches, decide the rest, and are remembered:</p>
   whichever of + and − you started with; its colour turns as it does. The
   same holds for an object sized by a drag on a part's face. Straight edges stay straight, round edges stay arcs, and a
   free-form edge is followed closely through a dozen points.
+  <strong>Flush faces as one</strong> (the switch in the placing bar, off at first):
+  flat faces in the same plane, facing the same way and touching the one
+  you point at - also those of other objects beside it - count as one
+  face: their outline together lights up and becomes the new object's
+  profile, so one boss or pocket spans them all.
   What it does not do: a hole in the face is not carried over (the outer
   outline only); the new object is a copy of the outline and does not
   follow the part afterwards; and it reads exact CAD faces only - on a
