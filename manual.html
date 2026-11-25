@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.59 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.60 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.59. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.60. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1090,8 +1090,8 @@ and edges answer the pointer - there is nothing to select first. <strong>The app
   rounding is made on the joined shape and kept by the combine - the label
   says <em>rounded as one on the joined shape</em> and that it is heavier to
   build. <strong>↻ whole loop</strong> (in the top bar, off at first) rounds the whole
-  outline of that face instead, its corners too; off, the edge you grab and
-  what runs on smoothly from it. Drag the fillet's own face to change it;
+  outline of that face instead, its corners too - and a cap's whole rim;
+  off, the edge you grab and what runs on smoothly from it. Drag the fillet's own face to change it;
   0 takes it off. If an edit makes that edge disappear, the combine warns
   and keeps the rounding for when it comes back.</li>
 <li><strong>A straight side</strong> has a <strong>● dot</strong> at its end: drag it to turn the
@@ -1100,7 +1100,9 @@ and edges answer the pointer - there is nothing to select first. <strong>The app
   bend the part there - a smooth point is put in the spine where you
   grabbed it (or the one already near is used) and pulled sideways.</li>
 <li><strong>Drag an edge</strong> to round it - between two sides it is the profile's
-  corner radius, round a cap it is the rim rounding, between two parts it
+  corner radius, round a cap that one edge of the cap (with <strong>↻ whole
+  loop</strong> on: the whole rim, all round the cap; dragging a rounded rim's
+  own face changes the whole rim), between two parts it
   is the seam's fillet (a fillet already there can be dragged on its own
   face). Dragged past zero it becomes a chamfer, as everywhere. While you
   drag, the rounding is drawn on the edge at once - the two lines where it
