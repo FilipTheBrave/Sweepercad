@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.61 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.62 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.61. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.62. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1092,8 +1092,10 @@ and edges answer the pointer - there is nothing to select first. <strong>The app
   build. <strong>↻ whole loop</strong> (in the top bar, off at first) rounds the whole
   outline of that face instead, its corners too - and a cap's whole rim;
   off, the edge you grab and what runs on smoothly from it. Drag the fillet's own face to change it;
-  0 takes it off. If an edit makes that edge disappear, the combine warns
-  and keeps the rounding for when it comes back.</li>
+  0 takes it off. Dragged bigger than there is room for, it is made as big
+  as fits, and the message says how big (<em>the most that fits there</em>). If an
+  edit makes that edge disappear, the combine warns and keeps the rounding
+  for when it comes back.</li>
 <li><strong>A straight side</strong> has a <strong>● dot</strong> at its end: drag it to turn the
   side about its middle (its neighbours keep their lines).</li>
 <li><strong>A side facing along the spine's plane</strong> has a <strong>◆ diamond</strong>: drag it to
@@ -2445,7 +2447,23 @@ is selected. Typical workshop values - check them against your screws.
 From a script: <code>model.hole("M4", "countersunk", 8, at=(x, y, z))</code>.</p>
 <hr />
 <hr /></section>
-<section class="sec" id="text-on-a-part"><h3>Text on a part</h3><p><strong>T</strong> under <strong>+</strong> raises text out of a part, <strong>T</strong> under <strong>−</strong> sinks it in.
+<section class="sec" id="a-qr-code"><h3>A QR code</h3><p><strong>QR code</strong> in the parts catalogue (under <em>signs and labels</em>) makes any text
+or web address into a QR code of <strong>exact squares</strong> - a tag to print, hang or
+glue on. Its window asks for the text, the code's width, how far the squares
+stand out, the plate under it (0: no plate, only the squares) and up to two
+lines of text under the code (the first larger). It uses the strongest error
+correction, so a rounded edge or a worn print still reads.</p>
+<ul>
+<li><strong>mirrored</strong> - for a <strong>stamp</strong>: everything reversed, so it prints the right
+  way round.</li>
+<li><strong>a cutter</strong> - the squares as a minus part: place it on a face and combine
+  it with the part, and the code is sunk into it.</li>
+</ul>
+<p>A code reads by contrast, so on a print in one colour it is the shadows that
+carry it: print the squares in a second colour (a filament change at their
+height) or paint them, for a sure scan. Keep the code 25 mm or wider for a
+phone at arm's length.</p>
+<hr /></section><section class="sec" id="text-on-a-part"><h3>Text on a part</h3><p><strong>T</strong> under <strong>+</strong> raises text out of a part, <strong>T</strong> under <strong>−</strong> sinks it in.
 Pick one, then <strong>press on a face of a part and drag</strong> where the text goes -
 from where it starts to where it ends: the drag is its place, its width and
 its direction. Let go and the faces under it are shaped by the letters, and
@@ -5318,6 +5336,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Tangent to the balls</a></li>
 <li><a href="#drawing-on-the-surface">Tapered stroke ends</a></li>
 <li><a href="#the-terms-updates-and-what-this-is-for">Terms, updates, and what this is for</a></li>
+<li><a href="#a-qr-code">A QR code</a></li>
 <li><a href="#text-on-a-part">Text on a part</a></li>
 <li><a href="#the-eggshell-mould">Thickness</a></li>
 <li><a href="#mirroring-an-object">Through</a></li>
