@@ -292,6 +292,7 @@
     <section class="libsec" id="library">
         <h2>From the library</h2>
         <p>Parts and projects people made in SweeperCAD &mdash; free to download, open and change.
+            Turn any of them round in 3D in your browser first &mdash; and play the ones that move.
             Made something? Share it, no account needed.</p>
         <div class="libgrid" id="libgrid"></div>
         <p class="libhow">Six of them taken apart, step by step:
@@ -363,14 +364,22 @@
             <li><b>Skeletons:</b> build bones with IK, poles, limits and symmetry, bendy bones too; let parts ride
                 on them, or bend a sweep or any part with them; pose with rings or the posing ball, and keep poses
                 by name &mdash; a whole body, or just a hand over it. Or ask Build with AI for a walk cycle.</li>
+            <li><b>Motion helpers:</b> a walk cycle with planted feet, follow-through for tails and ropes,
+                a balance guide, true gravity arcs for jumps, and motion capture from video.</li>
+            <li><b>Rigid bodies:</b> parts that fall, collide, bounce and get pushed &mdash; dynamic, static or moved
+                by your own keys &mdash; baked into keys you can still change.</li>
+            <li><b>Clips and blocks:</b> keep motion as clips and place them as blocks &mdash; repeat, speed up,
+                fade, and layer a wave over a walk.</li>
             <li><b>Drivers:</b> one thing moves another &mdash; slide a block 50 mm and a wheel turns once. Parts and
                 bones alike, and any part can be locked or limited in how it moves.</li>
             <li><b>The camera too:</b> record the view, or one click for a turntable.</li>
-            <li><b>Fluent playing:</b> a quick draft while you work; frames that were built are kept and play at once.</li>
+            <li><b>Fluent playing:</b> a quick draft while you work; frames that were built are kept and play at once,
+                or make every frame ready for instant scrubbing.</li>
             <li><b>Out of the app:</b> a video, GIF or pictures; the model per frame as OBJ to render elsewhere;
-                and passes for compositing &mdash; depth, normal, object, material, motion.</li>
+                and passes for compositing &mdash; depth, normal, object, material, motion. Stop a render and carry on
+                later, or render parts of it on several computers.</li>
         </ul>
-        <p style="font-size:14px;color:#666;clear:both"><a href="manual.html#animation">Animation</a>, <a href="manual.html#skeletons">skeletons</a>, <a href="manual.html#drivers">drivers</a> and <a href="manual.html#limits">limits</a> in the manual &middot; <a href="#videos">the video, part 24</a>.</p>
+        <p style="font-size:14px;color:#666;clear:both"><a href="manual.html#animation">Animation</a>, <a href="manual.html#skeletons">skeletons</a>, <a href="manual.html#drivers">drivers</a> and <a href="manual.html#limits">limits</a> and <a href="manual.html#rigid-bodies-physics">rigid bodies</a> in the manual &middot; <a href="#videos">the video, part 24</a>.</p>
     </section>
 
     <section class="ai anim" id="reliefs">
@@ -765,7 +774,7 @@ document.querySelectorAll("video").forEach(function (v) {
     var g = document.getElementById("libgrid");
     if (!g) return;
     g.innerHTML = items.slice(0, 8).map(function (it) {
-      return '<a href="library/#' + esc(it.id) + '"><img src="library/items/' + esc(it.id) + '/thumb.png" alt="' + esc(it.name) +
+      return '<a href="' + (it.view ? 'library/view.html?id=' : 'library/#') + esc(it.id) + '"><img src="library/items/' + esc(it.id) + '/thumb.png" alt="' + esc(it.name) +
         '" loading="lazy"><span>' + esc(it.name) + '</span><small>' + (it._n ? it._n + " downloads" : (it.maker ? "by " + esc(it.maker) : "")) + '</small></a>';
     }).join("");
   }).catch(function () {});

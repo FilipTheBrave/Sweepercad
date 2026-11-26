@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SweeperCAD library — 3D view</title>
+<meta name="description" content="Turn, zoom and play a part from the SweeperCAD library in your browser.">
+<link rel="stylesheet" href="style.css">
+<style>
+  html, body { height: 100%; }
+  body { margin: 0; display: flex; flex-direction: column; background: #f4f5f7; }
+  header { display: flex; align-items: center; gap: 16px; padding: 12px 20px; flex-wrap: wrap; }
+  header h1 { font-size: 20px; margin: 0; }
+  header .by { color: #666; font-size: 14px; }
+  header .sp { flex: 1; }
+  #stage { position: relative; flex: 1; min-height: 320px; }
+  #c { width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+  #c:active { cursor: grabbing; }
+  .hint { position: absolute; left: 14px; bottom: 12px; color: #666; font-size: 13px; background: rgba(255,255,255,.8);
+          padding: 4px 9px; border-radius: 7px; }
+  .play { position: absolute; right: 14px; bottom: 12px; display: none; align-items: center; gap: 9px;
+          background: rgba(255,255,255,.92); padding: 6px 10px; border-radius: 9px; border: 1px solid #ddd; }
+  .play button { border: 0; background: #2f6fb0; color: #fff; border-radius: 6px; padding: 5px 12px; font-size: 14px; cursor: pointer; }
+  .play input { width: 220px; }
+  .msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #666; }
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="./">&larr; Library</a>
+  <h1 id="name">3D view</h1><span class="by" id="by"></span>
+  <span class="sp"></span>
+  <a class="btn" id="get" href="#">Get</a>
+</header>
+<div id="stage">
+  <canvas id="c"></canvas>
+  <div class="msg" id="msg">loading&hellip;</div>
+  <div class="hint">drag to turn &middot; right-drag or shift-drag to move &middot; wheel or pinch to zoom &middot; double-click to fit</div>
+  <div class="play" id="play"><button id="pp">&#10073;&#10073;</button><input type="range" id="sl" min="0" max="0" value="0"></div>
+</div>
+<script>
+// (w1463) A plain WebGL viewer for the robot's view.json: the meshes the library robot built itself.
+// Nothing from the uploaded file runs here - only triangles.
+const $ = id => document.getElementById(id);
+const id = (new URLSearchParams(location.search).get("id") || "").replace(/[^a-z0-9]/g, "");
+const base = "items/" + id + "/";
+const cv = $("c"), gl = cv.getContext("webgl", {antialias: true});
+function fail(t) { $("msg").textContent = t; $("msg").style.display = "flex"; }
+if (!id) fail("No part chosen - pick one in the library.");
+if (!gl) fail("This browser cannot show 3D (WebGL is off).");
+gl && gl.getExtension("OES_element_index_uint");
+
+const VS = `attribute vec3 p; attribute vec3 n; uniform mat4 mvp; uniform mat4 mv; varying vec3 vn; varying vec3 vp;
+void main(){ vn = mat3(mv) * n; vp = (mv * vec4(p,1.0)).xyz; gl_Position = mvp * vec4(p,1.0); }`;
+const FS = `precision mediump float; varying vec3 vn; varying vec3 vp; uniform vec3 col;
+void main(){ vec3 N = normalize(vn); if (!gl_FrontFacing) N = -N;
+  vec3 V = normalize(-vp); vec3 L = normalize(vec3(-0.35, 0.55, 0.75));
+  float d = max(dot(N, L), 0.0); float h = max(dot(N, V), 0.0);
+  vec3 H = normalize(L + V); float s = pow(max(dot(N, H), 0.0), 40.0);
+  vec3 c = col * (0.30 + 0.55 * d + 0.25 * h) + vec3(0.22) * s;
+  gl_FragColor = vec4(pow(c, vec3(0.95)), 1.0); }`;
+function sh(t, s) { const o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return o; }
+let prog;
+if (gl) {
+  prog = gl.createProgram(); gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+  gl.linkProgram(prog); gl.useProgram(prog);
+}
+const U = n => gl.getUniformLocation(prog, n);
+function b64(s, T) { const b = atob(s), u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return new T(u.buffer); }
+
+let FR = [], lo = [1e9, 1e9, 1e9], hi = [-1e9, -1e9, -1e9], fps = 0, mode = "loop";
+function upload(m) {
+  const P = b64(m.p, Float32Array), N = b64(m.n, Int8Array), I = b64(m.i, Uint32Array);
+  for (let i = 0; i < P.length; i += 3) for (let a = 0; a < 3; a++) { lo[a] = Math.min(lo[a], P[i + a]); hi[a] = Math.max(hi[a], P[i + a]); }
+  const pb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, pb); gl.bufferData(gl.ARRAY_BUFFER, P, gl.STATIC_DRAW);
+  const nb = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, nb); gl.bufferData(gl.ARRAY_BUFFER, N, gl.STATIC_DRAW);
+  const ib = gl.createBuffer(); gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib); gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, I, gl.STATIC_DRAW);
+  return {pb, nb, ib, n: I.length, c: m.c};
+}
+
+// the camera: Z up, turning round the middle of the part
+let yaw = -35, pitch = 22, dist = 100, ctr = [0, 0, 0], frame = 0, playing = true, t0 = performance.now();
+function fit() {
+  ctr = [0, 1, 2].map(a => (lo[a] + hi[a]) / 2);
+  const r = Math.hypot(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2]) / 2 || 1;
+  dist = r / Math.sin(35 * Math.PI / 360) * 1.1; yaw = -35; pitch = 22;
+}
+function mul(a, b) { const o = new Array(16).fill(0);
+  for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) for (let k = 0; k < 4; k++) o[j * 4 + i] += a[k * 4 + i] * b[j * 4 + k]; return o; }
+function view() {
+  const y = yaw * Math.PI / 180, p = pitch * Math.PI / 180;
+  const f = [Math.cos(p) * Math.sin(y), -Math.cos(p) * Math.cos(y), Math.sin(p)];     // from the middle to the eye
+  const eye = ctr.map((c, a) => c + f[a] * dist);
+  const z = f, up = [0, 0, 1];
+  let x = [up[1] * z[2] - up[2] * z[1], up[2] * z[0] - up[0] * z[2], up[0] * z[1] - up[1] * z[0]];
+  const lx = Math.hypot(...x) || 1; x = x.map(v => v / lx);
+  const yy = [z[1] * x[2] - z[2] * x[1], z[2] * x[0] - z[0] * x[2], z[0] * x[1] - z[1] * x[0]];
+  const d = a => -(a[0] * eye[0] + a[1] * eye[1] + a[2] * eye[2]);
+  return {m: [x[0], yy[0], z[0], 0, x[1], yy[1], z[1], 0, x[2], yy[2], z[2], 0, d(x), d(yy), d(z), 1], x, y: yy};
+}
+function proj(asp) {
+  const f = 1 / Math.tan(35 * Math.PI / 360), n = dist / 200, fa = dist * 20;
+  return [f / asp, 0, 0, 0, 0, f, 0, 0, 0, 0, (fa + n) / (n - fa), -1, 0, 0, 2 * fa * n / (n - fa), 0];
+}
+function draw() {
+  const dpr = window.devicePixelRatio || 1, w = cv.clientWidth, h = cv.clientHeight;
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  gl.viewport(0, 0, cv.width, cv.height);
+  gl.clearColor(0.957, 0.961, 0.969, 1); gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  gl.enable(gl.DEPTH_TEST);
+  if (FR.length > 1 && playing && fps > 0) {
+    const n = FR.length, k = Math.floor((performance.now() - t0) / 1000 * fps);
+    frame = mode === "once" ? Math.min(k, n - 1) : mode === "pingpong" ? (k % (2 * n - 2) < n ? k % (2 * n - 2) : 2 * n - 2 - k % (2 * n - 2)) : k % n;
+    $("sl").value = frame;
+  }
+  const V = view(), mv = V.m, mvp = mul(proj(w / Math.max(h, 1)), mv);
+  gl.uniformMatrix4fv(U("mvp"), false, new Float32Array(mvp)); gl.uniformMatrix4fv(U("mv"), false, new Float32Array(mv));
+  const pa = gl.getAttribLocation(prog, "p"), na = gl.getAttribLocation(prog, "n");
+  gl.enableVertexAttribArray(pa); gl.enableVertexAttribArray(na);
+  for (const m of FR[frame] || []) {
+    gl.bindBuffer(gl.ARRAY_BUFFER, m.pb); gl.vertexAttribPointer(pa, 3, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, m.nb); gl.vertexAttribPointer(na, 3, gl.BYTE, true, 0, 0);
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, m.ib); gl.uniform3fv(U("col"), m.c);
+    gl.drawElements(gl.TRIANGLES, m.n, gl.UNSIGNED_INT, 0);
+  }
+  requestAnimationFrame(draw);
+}
+
+// turning, moving, zooming - mouse and touch
+let drag = null, pts = new Map();
+cv.addEventListener("contextmenu", e => e.preventDefault());
+cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); pts.set(e.pointerId, [e.clientX, e.clientY]);
+  drag = {x: e.clientX, y: e.clientY, pan: e.button === 2 || e.shiftKey || pts.size === 2, pinch: pts.size === 2 ? null : undefined}; });
+cv.addEventListener("pointermove", e => {
+  if (!drag || !pts.has(e.pointerId)) return;
+  pts.set(e.pointerId, [e.clientX, e.clientY]);
+  if (pts.size === 2) {
+    const [a, b] = [...pts.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+    if (drag.pinch) dist *= drag.pinch / d;
+    drag.pinch = d;
+  }
+  const dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag.x = e.clientX; drag.y = e.clientY;
+  if (drag.pan) {
+    const V = view(), k = dist * 0.0018 / (pts.size || 1);
+    ctr = ctr.map((c, a) => c - (V.x[a] * dx - V.y[a] * dy) * k);
+  } else if (pts.size < 2) { yaw -= dx * 0.4; pitch = Math.max(-89, Math.min(89, pitch + dy * 0.4)); }
+});
+const up = e => { pts.delete(e.pointerId); if (!pts.size) drag = null; };
+cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+cv.addEventListener("wheel", e => { e.preventDefault(); dist *= Math.exp(e.deltaY * 0.0012); }, {passive: false});
+cv.addEventListener("dblclick", fit);
+$("pp").onclick = () => { playing = !playing; $("pp").innerHTML = playing ? "&#10073;&#10073;" : "&#9654;";
+  if (playing) t0 = performance.now() - frame / fps * 1000; };
+$("sl").oninput = () => { playing = false; $("pp").innerHTML = "&#9654;"; frame = +$("sl").value; };
+
+const esc = s => String(s || "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+if (id && gl) {
+  fetch("index.json?" + Date.now()).then(r => r.json()).then(d => {
+    const it = (d.items || []).find(x => x.id === id);
+    if (it) { $("name").textContent = it.name; document.title = it.name + " — SweeperCAD library";
+      $("by").textContent = (it.maker ? "by " + it.maker + " · " : "") + (it.licence_text || "");
+      $("get").href = base + it.file;
+      $("get").setAttribute("download", (it.name || "part").replace(/[^A-Za-z0-9 _-]/g, "").trim().replace(/ +/g, "-") + (it.kind === "project" ? ".sweeper" : ".sweeperasset")); }
+  }).catch(() => {});
+  fetch(base + "view.json").then(r => { if (!r.ok) throw 0; return r.json(); }).then(v => {
+    FR = v.frames.map(fr => fr.map(upload)); fps = v.fps || 0; mode = v.mode || "loop";
+    if (FR.length > 1) { $("play").style.display = "flex"; $("sl").max = FR.length - 1; }
+    fit(); $("msg").style.display = "none"; requestAnimationFrame(draw);
+  }).catch(() => fail("This part has no 3D view yet - its picture is in the library."));
+}
+</script>
+</body>
+</html>

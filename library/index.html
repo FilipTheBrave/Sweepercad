@@ -12,7 +12,7 @@
   <a class="back" href="../">&larr; SweeperCAD</a>
   <h1>Library</h1>
   <p class="lead">Parts and projects people made in SweeperCAD. Download one, open it with SweeperCAD and it lands on your
-    asset shelf, ready to change. Made something yourself? <a href="share.html">Share it</a>.</p>
+    asset shelf, ready to change. Press <b>3D</b> to turn one round in your browser first &mdash; and play it, if it moves. Made something yourself? <a href="share.html">Share it</a>.</p>
   <div class="bar">
     <input id="q" type="search" placeholder="search the library&hellip;" aria-label="search">
     <select id="kind" aria-label="kind"><option value="">parts and projects</option><option value="asset">parts</option><option value="project">projects</option></select>
@@ -25,7 +25,8 @@
     <a href="../tutorials/potted-plant/">a potted plant</a> &middot; <a href="../tutorials/robot/">a cute robot</a> &middot;
     <a href="../tutorials/elliptic-wing-fighter/">an elliptical-wing aircraft</a></p>
   <p class="note" style="margin-top:36px">Every file here was checked by a robot before it went up: it must be a real
-    SweeperCAD file with nothing but shapes in it, it must build, and the picture is drawn by the robot itself. See something
+    SweeperCAD file with nothing but shapes (and their motion) in it, it must build, and the picture and the 3D view are
+    made by the robot itself. See something
     that doesn't belong? Press <b>report</b> on it.</p>
 </main>
 <script src="config.js"></script>
@@ -44,7 +45,7 @@ function draw() {
     const base = "items/" + it.id + "/";
     const sz = (it.size_mm || []).map(x => Math.round(x)).join(" × ");
     return `<div class="card" id="${esc(it.id)}">
-      <img src="${base}thumb.png" alt="${esc(it.name)}" loading="lazy">
+      ${it.view ? `<a href="view.html?id=${esc(it.id)}">` : ""}<img src="${base}thumb.png" alt="${esc(it.name)}" loading="lazy">${it.view ? "</a>" : ""}
       <div class="body">
         <h3>${esc(it.name)}</h3>
         <div class="by">${it.maker ? "by " + esc(it.maker) + " · " : ""}${it.kind === "project" ? "project" : "part"}</div>
@@ -52,6 +53,7 @@ function draw() {
         <div class="meta">${sz ? sz + " mm · " : ""}${esc(it.licence_text || "")}</div>
         <div class="acts">
           <a class="btn" href="${base}${esc(it.file)}" download="${esc(fname(it))}" data-goatcounter-click="get-${esc(it.id)}">Get</a>
+          ${it.view ? `<a class="btn line" href="view.html?id=${esc(it.id)}">${it.view > 1 ? "&#9654; 3D" : "3D"}</a>` : ""}
           <button class="rep" data-id="${esc(it.id)}">report</button>
         </div>
       </div></div>`;

@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.68 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.70 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.68. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.70. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1459,8 +1459,8 @@ threshold is ten seconds; the <code>draft_seconds</code> preference changes it, 
 inserting an asset does not count - every part is built once then, which
 is always slower.</p>
 <hr />
-<hr /></section><section class="sec" id="animation"><h3>Animation</h3><p><strong>The animation icon</strong> (top right, a play triangle over a line with keys) shows and hides
-everything for animation: the <strong>play bar</strong> at the bottom of the view and the <strong>timeline</strong>, a panel of its own that you can move.</p>
+<hr /></section><section class="sec" id="animation"><h3>Animation</h3><p><strong>The animation icon</strong> (top right, a play triangle over a line with keys) shows and hides everything
+for animation: the <strong>play bar</strong> at the bottom of the view and the <strong>timeline</strong> standing on it.</p>
 <figure><a href="manual/animation.jpg"><img src="manual/animation.jpg" alt="The timeline and the play bar: a row for every setting that moves, its keys along the clip, and the graph of the selected row." loading="lazy"></a><figcaption>The timeline and the play bar: a row for every setting that moves, its keys along the clip, and the graph of the selected row.</figcaption></figure>
 <p><strong>Record.</strong> Switch <strong>Record</strong> on, drag the clock to a time and change something on a part - a number
 in a field, its place or turn with the handles, a curve in a graph, its eye (shown / hidden). That is
@@ -1469,49 +1469,47 @@ already has keys takes a new key from any change, recording or not, so a tweak i
 Length and diameter are keyed when typed in their own field.</p>
 <p><strong>Curves.</strong> A spine, profile, end profile or scale graph changed while recording gets a key that
 holds the whole curve; between keys every point and handle goes from the one shape to the other. A
-point inserted or removed afterwards is inserted or removed in every key, so the animation plays on.</p>
-<p><strong>Parts that appear and disappear.</strong> Hiding or showing a part while recording is a key too: it is
-there, or not, from that time until the next key.</p>
+point inserted or removed afterwards is inserted or removed in every key.</p>
 <p><strong>The camera.</strong> Looking round the model is not animating it. <strong>Record view</strong> in the timeline keys the
 view: a turn, zoom or pan becomes a key at the clock's time. <strong>Turntable</strong> makes the view turn once
 round the model over the clip.</p>
 <p><strong>Formulas.</strong> The name <code>time</code> runs from 0 to 1 over the clip. Type it in any number field:
-<code>360 * time</code> turns once, <code>mix(2, 10, ease(time))</code> goes softly from 2 to 10, <code>30 * wave(time)</code> swings.
-<code>ease</code> is a soft start and stop, <code>wave</code> one full swing, <code>ping</code> there and back, <code>mix(a, b, t)</code> from a to b.
-Number fields also know <code>sin</code>, <code>cos</code>, <code>tan</code> (in degrees), <code>abs</code>, <code>sqrt</code>, <code>min</code>, <code>max</code>,
-<code>round</code>, <code>floor</code> and <code>clamp</code>.</p>
+<code>360 * time</code>, <code>mix(2, 10, ease(time))</code>, <code>30 * wave(time)</code>. <code>ease</code> is a soft start and stop, <code>wave</code>
+one full swing, <code>ping</code> there and back, <code>mix(a, b, t)</code> from a to b.</p>
 <p><strong>The timeline.</strong> One row for every setting that moves, its keys as diamonds; the graph of the
-selected row under it.</p>
-<table>
-<thead><tr><th>Do this</th><th>and</th></tr></thead>
-<tbody>
-<tr><td>drag on the ruler, or click anywhere empty</td><td>the clock goes there</td></tr>
-<tr><td>drag a key</td><td>its time - in the graph also its value</td></tr>
-<tr><td>drag a frame over empty space</td><td>the keys inside it are selected; drag one and they all move</td></tr>
-<tr><td>drag a row's name sideways</td><td>the whole row moves in time (a click selects all its keys)</td></tr>
-<tr><td>double-click a row or the graph</td><td>a new key there, on the curve</td></tr>
-<tr><td>drag a handle of a selected key</td><td>shapes how the value arrives and leaves</td></tr>
-<tr><td><strong>smooth / linear / held</strong></td><td>how the value leaves the selected key</td></tr>
-<tr><td><strong>key</strong>, <strong>row</strong> with a cross</td><td>remove the selected keys, or all keys of the row</td></tr>
-<tr><td>drag the title line &middot; double-click it</td><td>the timeline is a panel of its own: move it &middot; fold it to one line</td></tr>
-<tr><td><strong>graph</strong> &middot; the corner</td><td>show or hide the graph &middot; size the panel</td></tr>
-<tr><td><strong>Done</strong></td><td>puts the timeline and the play bar away</td></tr>
-</tbody>
-</table>
+selected row under it. The ruler on top, or a click, moves the clock. Drag a key; drag a frame over
+empty space to select several and move them together; drag a row's name to move the whole row;
+double-click for a new key. A selected key has two handles in the graph - drag one to shape the
+curve - and can leave smooth, linear or held. The timeline is a panel of its own: drag its title
+line to move it, double-click that line to fold it away, <strong>graph</strong> shows or hides the graph, and
+the corner sizes it.</p>
 <p><strong>Playing.</strong> <strong>fast</strong> shows a quick draft of each frame, <strong>full</strong> the real model. Frames that were
-built are kept - the green line on the ruler - and play at once the next time round, and while you
-drag the clock. Any edit builds them anew. The clip plays round and round, there and back, or once;
-its length is set in seconds on the play bar.</p>
-<p><strong>Save…</strong> writes the clip as a video (MP4 - this needs ffmpeg installed on the computer), an
-animated GIF or WebP, numbered pictures, or <strong>the model per frame</strong> as an OBJ sequence to light and
-render in another program. Tick <strong>passes</strong> for the same frames as data, numbered pictures beside
-the clip: <strong>depth</strong>, <strong>normal</strong>, <strong>object</strong> (every part its own colour), <strong>material</strong> and <strong>motion</strong>;
-a text file beside them says what each one holds.</p>
+built are kept (the green line on the ruler) and play at once the next time round. The clip plays
+round and round, there and back, or once; its length is set in seconds on the play bar.
+<strong>Ready</strong> builds every frame of the clip once and keeps it, so dragging the clock and playing show
+the real model at once. Stop any time; the frames built so far stay. Any edit makes them stale again.</p>
+<p><strong>Save...</strong> writes the clip as a video (MP4 - needs ffmpeg on the computer), an animated GIF or
+WebP, numbered pictures, or <strong>the model per frame</strong> as an OBJ sequence for another program. Tick
+<strong>passes</strong> for depth, normal, object, material and motion pictures beside it; <code>..._passes.txt</code> says
+what each holds.</p>
+<p><strong>Clips and blocks.</strong> <strong>Blocks</strong> on the play bar opens the block editor. <strong>+ clip from keys</strong> keeps
+the keyed motion between two times as a clip, by name - a step, a wave, a blink. <strong>Place at the
+clock</strong> puts the chosen clip on the timeline as a block. Drag a block to move it in time or to
+another row; drag its right edge to make it play faster or slower. For the selected block: how many
+times round, its speed, a fade in and out, its weight, and mute (a double-click mutes too). Rows are
+layered from the bottom up, and a block only moves what its clip moves: a hand-wave clip on a
+higher row plays over a whole-body walk below. Where no block plays, the ordinary keys move things.</p>
+<p><strong>Stopping and carrying on.</strong> Every finished picture is kept at once in a folder beside the clip
+(<code>clip_frames</code>). <strong>Stop</strong> keeps what is done; saving the clip again with the same settings carries
+on where it stopped. Different settings (size, smoothness, length) start the folder afresh.</p>
+<p><strong>Render in parts.</strong> <strong>frames from … to …</strong> renders only part of the clip. Render frames 1-100
+here and 101-200 on another computer with the same project and settings, copy the pictures into one
+<code>clip_frames</code> folder, and save once more: when every picture is there, the clip is put together and
+the folder cleared.</p>
 <hr /></section><section class="sec" id="skeletons"><h3>Skeletons — bones that move parts</h3><p><strong>The skeleton icon</strong> (top right, beside the animation icon) opens the skeleton. The top bar then
 has three stages beside <strong>Done</strong>: <strong>Build</strong>, <strong>Bind</strong> and <strong>Pose</strong>. Build and Bind show the skeleton
 at rest; Pose is where it moves.</p>
 <figure><a href="manual/skeleton_pose.jpg"><img src="manual/skeleton_pose.jpg" alt="Pose: the selected bone&#x27;s posing ball at the left, its rings on the bone, and the pose manager at the right." loading="lazy"></a><figcaption>Pose: the selected bone&#x27;s posing ball at the left, its rings on the bone, and the pose manager at the right.</figcaption></figure>
-
 <p><strong>Build.</strong> Click where a bone starts, click where it ends, keep clicking for the next bone - the last
 one is always selected. Click a bone to select it; the next click branches from its end. <strong>Offset
 base</strong> starts the next bone away from the selected bone's end (a hip from the pelvis), <strong>reconnect</strong>
@@ -1539,6 +1537,35 @@ root.</p>
 ball of the foot) in Build and click the foot button. In Pose its <strong>foot roll</strong> number lifts the heel
 over the ball of the foot (up to 30), then onto the tip of the toe; below 0 it rocks back on the heel,
 toes up. The foot stays planted where its IK target is; the roll is keyed and kept in poses.</p>
+<p><strong>Follow-through.</strong> In Build, a bone's <strong>follow-through</strong> choice (tail, rope, ear, hair, antenna) makes
+it lag behind, swing past and settle while the rest is animated by hand; <strong>stiff</strong>, <strong>weight</strong> and
+<strong>damping</strong> tune it. Animate the body, then <strong>bake follow-through</strong> in Pose: it works the clip out frame
+by frame and writes keys on those bones, so it plays and scrubs at once and can be touched up. Their
+limits hold and they stay above the floor, and out of the <strong>capsules</strong> you give other bones (a radius
+per bone in Build, drawn as a faint outline): a tail swings past the legs, not through them. Bake again after changing the animation - it always starts
+from your own keys; undo takes a bake back.</p>
+<p><strong>Balance.</strong> The balance switch on the Pose bar shows the skeleton's centre of mass (each bone as heavy
+as it is long, or as the parts riding on it), a dashed line down to the floor and the outline of what
+stands on it: green when it is balanced, red when it would fall (and by how far), grey in the air.</p>
+<p><strong>Walk cycle.</strong> With two legs that each have an IK handle at the ankle (left on +x), the walk button on
+the Pose bar makes one cycle - two steps - over the clip: the stride, foot lift, body bounce, hip sway
+and how long it takes are asked first. The feet stay planted while they stand and swing forward in an
+arc; with foot rolls the heels strike and the toes push off. <strong>In place</strong> keeps the body still for a
+loop. Pose and key the arms and the rest on top.</p>
+<p><strong>Motion capture.</strong> The capture button on the Pose bar carries a person's movement onto the skeleton:
+from <strong>video</strong> (one file per camera - several cameras filmed at the same time give better depth),
+the <strong>webcam</strong> (five seconds recorded here) or a <strong>landmarks file</strong> (.json of body points from another
+tool). The body's points are found in every frame, smoothed, and each bone is turned to point the
+way the person's limb points - matched by its name (thigh, shin, upper arm, forearm, foot, spine,
+neck... with -L / -R) or else by where it sits; the hips' movement moves the root. Any proportions.
+Video and webcam need the mediapipe package; a landmarks file works without it.</p>
+<p><strong>Moving the whole skeleton (root motion).</strong> Select the bone that starts at the root: the posing ball
+gets a pad (four arrows) that moves the whole skeleton flat to the screen - a step forward, a jump.
+It is keyed like a turn; IK feet stay where their targets are.</p>
+<p><strong>Ballistic arcs.</strong> Key a take-off and a landing (the skeleton's root, or a part's place), put the clock
+between them and press the arc button on the Pose bar - or, for a part, Node &gt; <strong>Ballistic arc</strong>: in
+between it flies as things do, steady sideways and on a true gravity parabola up and down (one second
+in the air rises 1.23 m). The two keys stay.</p>
 <p><strong>Motion path and onion skins.</strong> Two switches on the Pose bar, once the skeleton has keys: the
 selected bone's path over the clip (a dot a frame, bigger at its keys, white now), and faint copies
 of the skeleton at the frames before (warm) and after (cool) the clock. In Pose a click on a part that
@@ -1588,7 +1615,6 @@ bone or part under it. The small arrows on the rim say it turns about the line o
 manager</strong> at the right. A driver reads as one sentence: <strong>moves</strong> Block x from 0 to 50, <strong>drives</strong>
 Wheel turn y from 0 to 360 - slide the block 50 mm and the wheel turns once.</p>
 <figure><a href="manual/drivers.jpg"><img src="manual/drivers.jpg" alt="The driver manager: a block sliding along x drives a wheel&#x27;s turn; the dashed arrow runs from what moves to what it drives." loading="lazy"></a><figcaption>The driver manager: a block sliding along x drives a wheel&#x27;s turn; the dashed arrow runs from what moves to what it drives.</figcaption></figure>
-
 <ol>
 <li>Pick what moves and what it drives: the bar's two arrows and a click on the part in the view, or
    the manager's lists (bones are there too - their turns and stretch).</li>
@@ -1610,8 +1636,16 @@ part is changed - the handles in the view, typed numbers, formulas, drivers, key
 than where the part stands moves it to the nearest end (undo puts it back); a turn first tries the
 same turn a whole round on. A slider that may only slide 0–50 mm makes a natural driver.</p>
 <figure><a href="manual/limits.jpg"><img src="manual/limits.jpg" alt="Limits in the transform: move x kept in a range, move z locked - its field greyed and its arrow gone from the handles." loading="lazy"></a><figcaption>Limits in the transform: move x kept in a range, move z locked - its field greyed and its arrow gone from the handles.</figcaption></figure>
-
-<hr /></section></section>
+<hr /></section>
+<section class="sec" id="rigid-bodies-physics"><h3>Rigid bodies - physics</h3><p>Node &gt; <strong>Physics</strong> gives the selected parts a role: <strong>dynamic</strong> (gravity and collisions move it), <strong>static</strong>
+(it does not move, things hit it - a table, a wall) or <strong>kinematic</strong> (it moves as you animate it and
+pushes the dynamic ones - a bat, a hand). Its <strong>material</strong> sets its weight (from its own volume) and
+<strong>bounce</strong> how lively it is. <strong>Simulate and bake over the clip</strong> runs the clip and writes a key a frame
+on each dynamic part, so it plays and scrubs at once and can be touched up; simulate again after a
+change (undo takes a bake back). Parts collide as their outer hull (a cup collides as if it were
+closed) and with the floor.</p>
+<hr /></section>
+</section>
 <section class="chapter" id="ch4"><h2>4. Building parts</h2><section class="sec" id="placing-objects-exactly"><h3>Placing objects exactly</h3><p>Click <strong>+</strong> and the next click in the 3D view places a new object on
 whatever it lands on — a face, or the view plane in empty space. The
 placed object faces <em>out</em> of the surface it was put on.</p>
@@ -3813,7 +3847,8 @@ pyramid, spring, torus and tube, each made of a profile, a spine and a
 scale graph you can open and change. They are copied into your library
 the first time the app starts; after that they are yours - rename,
 change or delete them and they stay that way.</p>
-<figure><a href="manual/asset_shelf.jpg"><img src="manual/asset_shelf.jpg" style="max-width:460px" alt="The asset shelf: the starter parts, and a Spring just downloaded from the online library." loading="lazy"></a><figcaption>The asset shelf: the starter parts, and a Spring just downloaded from the online library.</figcaption></figure><figure><a href="manual/asset_add.jpg"><img src="manual/asset_add.jpg" style="max-width:440px" alt="Opening a part downloaded from the library: add it to the shelf, or add and place it." loading="lazy"></a><figcaption>Opening a part downloaded from the library: add it to the shelf, or add and place it.</figcaption></figure><figure><a href="manual/library_site.jpg"><img src="manual/library_site.jpg" alt="The online library at sweepercad.com/library: free parts, each checked and drawn by the robot." loading="lazy"></a><figcaption>The online library at sweepercad.com/library: free parts, each checked and drawn by the robot.</figcaption></figure><p><strong>Save selected</strong> in the shelf saves the selected node with everything
+<figure><a href="manual/asset_shelf.jpg"><img src="manual/asset_shelf.jpg" style="max-width:460px" alt="The asset shelf: the starter parts, and a Spring just downloaded from the online library." loading="lazy"></a><figcaption>The asset shelf: the starter parts, and a Spring just downloaded from the online library.</figcaption></figure>
+<p><strong>Save selected</strong> in the shelf saves the selected node with everything
 feeding it, with a thumbnail of <em>that</em> asset. The name you give it is
 the name the shelf shows AND the name the node gets when you place it
 — a second copy is numbered. Place one with a
@@ -3837,6 +3872,8 @@ it, drop it on the 3D view, or use <em>Assets → Add an asset file to the
 shelf…</em>. SweeperCAD shows its picture and asks: <strong>Add to shelf</strong>, or <strong>Add
 and place</strong> to drop it straight into the scene. A file that holds anything
 other than shapes is refused.</p>
+<figure><a href="manual/asset_add.jpg"><img src="manual/asset_add.jpg" style="max-width:440px" alt="Opening a part downloaded from the library: add it to the shelf, or add and place it." loading="lazy"></a><figcaption>Opening a part downloaded from the library: add it to the shelf, or add and place it.</figcaption></figure>
+<figure><a href="manual/library_site.jpg"><img src="manual/library_site.jpg" alt="The online library at sweepercad.com/library: free parts, each checked and drawn by the robot." loading="lazy"></a><figcaption>The online library at sweepercad.com/library: free parts, each checked and drawn by the robot.</figcaption></figure>
 <p><strong>Sharing a part.</strong> Select it and click <em>share online…</em> on the shelf (or
 <em>Assets → Share selection online…</em>). SweeperCAD saves it as an asset in your
 Downloads folder, shows it to you, and opens the library's share page in your
@@ -3844,6 +3881,10 @@ browser: pick the file there, give it a name and a line about it, and send.
 A checking robot opens it, builds it and draws its own picture before it
 goes up - nothing you did not mean to share travels along. Anyone can
 report a part; one reported several times is taken down until it is looked at.</p>
+<p><strong>The 3D view.</strong> Parts in the library have a <strong>3D</strong> button: the part in your browser, built by the
+library's robot - drag to turn it, right-drag to move, the wheel or a pinch to zoom, double-click to
+fit. A part saved with its motion plays there too (a play button and a slider). An asset that moves
+can be shared like any other: its keys, clips and blocks go along, checked to be numbers only.</p>
 <p><strong>SweeperCAD itself never goes online.</strong> The library is a web page: your
 browser does the downloading and the uploading, the app only reads and
 writes files on your computer.</p>
@@ -3869,6 +3910,10 @@ edit anything inside one and it rebuilds the ordinary way. The starter
 models come with theirs; an asset you save, or add from the online
 library, gets its own a moment later - built in the background, by this
 computer, never taken from someone else's file.</p>
+<p><strong>Assets that move.</strong> An asset saved from a part that has keys, clips or blocks takes them along;
+placed again, the copy moves the same way (its clips get the asset's name added when the name is
+taken, its blocks go on rows above yours). Motion is numbers only, so it can go to and come from
+the online library too.</p>
 <p><strong>Putting an asset back in place.</strong> <em>In place</em> (beside <em>place</em> on the
 asset shelf) inserts the selected asset exactly where it stood when it was
 saved - turned and moved as it was, the combine it sat in included, so a
@@ -5004,6 +5049,7 @@ repeat under still goes through the pieces as before.</p>
 <h4 id="idx-0-9">0-9</h4><ul>
 <li><a href="#parameters">Ƒ chip</a></li>
 <li><a href="#machining-g-code-for-a-cnc">3D detail</a></li>
+<li><a href="#assets">3D view</a></li>
 <li><a href="#the-3d-view-s-own-controls">3D view&#x27;s own controls</a></li>
 </ul>
 <h4 id="idx-A">A</h4><ul>
@@ -5020,6 +5066,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#arrays-along-a-curve-or-on-a-surface">Arrays</a></li>
 <li><a href="#assemblies-joints-between-parts">Assemblies</a></li>
 <li><a href="#assets">Assets</a></li>
+<li><a href="#assets">Assets that move</a></li>
 <li><a href="#asymmetric-scale">Asymmetric scale</a></li>
 <li><a href="#the-lattice-node">Attractor object</a></li>
 <li><a href="#the-lattice-node">Attractor point</a></li>
@@ -5028,6 +5075,8 @@ repeat under still goes through the pieces as before.</p>
 </ul>
 <h4 id="idx-B">B</h4><ul>
 <li><a href="#drawing-a-spine-or-a-profile">Backspace</a></li>
+<li><a href="#skeletons">Balance</a></li>
+<li><a href="#skeletons">Ballistic arcs</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Bend reliefs</a></li>
 <li><a href="#bending">Bending</a></li>
 <li><a href="#skeletons">Bendy bones</a></li>
@@ -5076,6 +5125,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#drawing-on-the-surface">Click points</a></li>
 <li><a href="#coils-springs-threads-shells-and-horns">Climb</a></li>
 <li><a href="#routes">Cling</a></li>
+<li><a href="#animation">Clips and blocks</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Close an opening</a></li>
 <li><a href="#a-stack-of-sweeps-from-cuts">Close the ends</a></li>
 <li><a href="#node-groups">Closed</a></li>
@@ -5165,6 +5215,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Flat-belt pulley</a></li>
 <li><a href="#flex-parts">Flex parts</a></li>
 <li><a href="#direct-editing-push-and-pull-the-model-itself">Flush faces together</a></li>
+<li><a href="#skeletons">Follow-through</a></li>
 <li><a href="#skeletons">Foot roll</a></li>
 <li><a href="#when-a-fillet-will-not-take">Forcing it</a></li>
 <li><a href="#the-lattice-node">Form</a></li>
@@ -5282,9 +5333,11 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#coils-springs-threads-shells-and-horns">Morph</a></li>
 <li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Mortise and tenon</a></li>
 <li><a href="#exporting">Motion blur</a></li>
+<li><a href="#skeletons">Motion capture</a></li>
 <li><a href="#the-eggshell-mould">Mould settings</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Move</a></li>
 <li><a href="#moving-the-gizmo-for-a-moment">Moving the gizmo for a moment</a></li>
+<li><a href="#skeletons">Moving the whole skeleton</a></li>
 </ul>
 <h4 id="idx-N">N</h4><ul>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Near side only</a></li>
@@ -5365,10 +5418,12 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Relax</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Relax everything</a></li>
 <li><a href="#reliefs-a-picture-or-a-height-map-raises-a-face">Reliefs</a></li>
+<li><a href="#animation">Render in parts</a></li>
 <li><a href="#the-lattice-node">Repeller point</a></li>
 <li><a href="#placing-objects-exactly">Repositioning</a></li>
 <li><a href="#drawing-on-the-surface">Result</a></li>
 <li><a href="#drawing-a-spine-or-a-profile">Right-click</a> <a class="more" href="#right-click">2</a></li>
+<li><a href="#rigid-bodies-physics">Rigid bodies</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Ring cut</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Ring cuts</a></li>
 <li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Ring gear</a></li>
@@ -5450,6 +5505,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Stick figure</a></li>
 <li><a href="#exporting">STL</a></li>
 <li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Stock and saw</a></li>
+<li><a href="#animation">Stopping and carrying on</a></li>
 <li><a href="#routes">Straight between bends</a></li>
 <li><a href="#wrapping-a-part-onto-a-surface">Straight down</a></li>
 <li><a href="#direct-editing-push-and-pull-the-model-itself">Straight side</a></li>
@@ -5507,6 +5563,7 @@ repeat under still goes through the pieces as before.</p>
 </ul>
 <h4 id="idx-W">W</h4><ul>
 <li><a href="#stacked-sheets">Waffle</a></li>
+<li><a href="#skeletons">Walk cycle</a></li>
 <li><a href="#the-lattice-node">Walls</a></li>
 <li><a href="#stats-and-checks">Walls and cavities</a></li>
 <li><a href="#routes">Wander</a></li>
