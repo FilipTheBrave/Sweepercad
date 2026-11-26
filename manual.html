@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.78 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.80 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.78. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.80. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1669,7 +1669,11 @@ and toes, then builds hips, a three-bone spine, neck, head, collarbones, arms, h
 legs, feet and toes, named -L / -R and mirrored (symmetry on). It can attach every part whole to the
 bone nearest it; points (spine, profile, cage) you put on bones yourself in Bind. A first guess: drag
 the joints to fit. Its names map straight onto captures and BVH files.</p>
-<p><strong>Bind.</strong> Click a bone, then <strong>attach</strong> and click the parts that ride on it: each keeps where it
+<p><strong>Recording keeps the start.</strong> Press Record and everything as it is then is the start. Move the clock on and change something: it gets a key now and a key at the start with what it was, so the motion starts where things stood. Whatever you don't change gets no keys. Posing a bone (or moving an IK handle) for the first time does the same.</p>
+<p><strong>Skeletons out of the way.</strong> Outside the skeleton's Build, Bind and Pose, and when not recording, skeletons are drawn very faint and can't be picked - the model is what you work on.</p>
+<p><strong>The whole skeleton.</strong> The bones panel's skeleton row: <strong>hide</strong> (the bones go; the parts stay), <strong>lock</strong> (shown, but not picked or posed), <strong>delete</strong> (every bone, its IK and its keys at once; the parts on it stay where they stand - one undo brings it all back).</p>
+<p><strong>Limits as numbers.</strong> With the limits switch on, a small panel shows the selected bone's limits - x, twist and z, from and to - to type; or drag the grips on the arcs.</p>
+<p><strong>Bind.</strong> Bind (and Build) show the skeleton in its bind pose - at rest - and hold it there: the timeline can't pose it while you bind, and Pose brings your pose back. Click a bone, then <strong>attach</strong> and click the parts that ride on it: each keeps where it
 stands now (its bind position) and goes with the bone as one solid piece. <strong>Detach</strong> and a click
 frees a part. <strong>Points</strong> puts a sweep's spine points on the selected bone, so the sweep bends when
 the bones turn; <strong>auto</strong> puts every point on its nearest bone. A <strong>cage</strong> around any part does the
@@ -1718,6 +1722,8 @@ fist flipped.</p>
 selected part's own axes are the rings, it turns about the selection's middle, and the pad at the
 ball's top left moves it flat to the screen - also when the ball stands on the part (and on a root
 bone, where it moves the whole skeleton).</p>
+<p><strong>IK handles on something.</strong> Drag an IK handle (or its pole), press <strong>attach</strong> on the Pose bar and click a bone or a part: the handle rides on it from where it stands - a hand on a cup being carried, a foot on a moving platform, a knee's pole going along with the hips. Drag it to move it on its host; press attach again to free it.</p>
+<p><strong>Orbiting in Pose.</strong> A drag in empty space turns the view and keeps the selected bone; a click in empty space lets go of it.</p>
 <p><strong>On the joint, or anywhere.</strong> The small switch above the ball takes it off the joint (or the part) -
 put it anywhere with its dot - and puts it back on; it is remembered. Settings &gt; <strong>Ball on the joint</strong>
 - or the ball (◎) in the manipulator selector, for parts - puts the ball right where the bone turns (on a part: its middle), see-through, in place of the
@@ -5454,6 +5460,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-3d-view-s-own-controls">Icon size</a></li>
 <li><a href="#exporting">IGES</a></li>
 <li><a href="#skeletons">IK and FK together</a></li>
+<li><a href="#skeletons">IK handles on something</a></li>
 <li><a href="#direct-editing-push-and-pull-the-model-itself">Imported CAD part</a></li>
 <li><a href="#importing-cad-parts-and-meshes">Importing CAD parts and meshes</a></li>
 <li><a href="#mirroring-an-object">Include everything feeding it</a></li>
@@ -5492,6 +5499,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#parameters">Levels</a></li>
 <li><a href="#lights">Lights</a></li>
 <li><a href="#limits">Limits</a></li>
+<li><a href="#skeletons">Limits as numbers</a></li>
 <li><a href="#skeletons">Limits on the ball</a></li>
 <li><a href="#exporting">Line art</a></li>
 <li><a href="#arrays-along-a-curve-or-on-a-surface">Line or a circle</a></li>
@@ -5561,6 +5569,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-eggshell-mould">Open at the top</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Open face</a></li>
 <li><a href="#machining-g-code-for-a-cnc">Operations</a></li>
+<li><a href="#skeletons">Orbiting in Pose</a></li>
 <li><a href="#arrays-along-a-curve-or-on-a-surface">Original as well</a></li>
 <li><a href="#guides-measuring-to-another-object">Overconstraint check</a></li>
 <li><a href="#the-3d-view-s-own-controls">Own windows</a></li>
@@ -5616,6 +5625,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#asymmetric-scale">Reality check</a></li>
 <li><a href="#make-it-with-ai">Rebuild a mesh</a></li>
 <li><a href="#animation">Record</a></li>
+<li><a href="#skeletons">Recording keeps the start</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Refine</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Refine the cage</a></li>
 <li><a href="#the-eggshell-mould">Registration</a></li>
@@ -5800,6 +5810,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#guides-measuring-to-another-object">Which ghosts you see</a></li>
 <li><a href="#smooth-curvature-continuous-fillets">Which is which</a></li>
 <li><a href="#asymmetric-scale">Which way it splits</a></li>
+<li><a href="#skeletons">Whole skeleton</a></li>
 <li><a href="#when-a-fillet-will-not-take">Wider than the part</a></li>
 <li><a href="#how-the-model-is-drawn">Wireframe</a></li>
 <li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Woodwork</a></li>
