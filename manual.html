@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.75 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.76 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.75. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.76. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1497,6 +1497,15 @@ the clip come its frames and their depth as pictures (near white, far black - th
 real model, not guessed), a ComfyUI workflow, a small script that sends every frame through it with one
 seed, and <code>..._AI.txt</code> saying what to fill in - a checkpoint and a depth ControlNet you have, and your
 prompt. ComfyUI paints over each frame; the depth keeps the shapes and the motion exactly yours.</p>
+<p><strong>Restyle with AI.</strong> Once a clip is saved for AI, a small window asks what it should look like and offers
+three routes from the same files:
+- <strong>Copy message</strong> - a ready message (keep the shapes and the motion, your wish, what is in the clip) to
+  paste into ChatGPT or Gemini with a frame attached, or into a video AI (Runway, Kling, Luma) with the
+  clip's video - <code>..._ai_picture.mp4</code> - and its depth video <code>..._ai_depth.mp4</code> where it takes one.
+- <strong>Restyle the first frame / every frame</strong> with the AI connected in Build with AI's settings: an OpenAI
+  key, or a server on this computer that makes pictures. Every frame comes back as
+  <code>..._ai_restyled_0001.png ...</code> and a video of them. Claude's API makes no pictures.
+- <strong>ComfyUI</strong> - the workflow and script in the folder, all on your own computer.</p>
 <p><strong>Clips and blocks.</strong> <strong>Blocks</strong> on the play bar opens the block editor. <strong>+ clip from keys</strong> keeps
 the keyed motion between two times as a clip, by name - a step, a wave, a blink. <strong>Place at the
 clock</strong> puts the chosen clip on the timeline as a block. Drag a block to move it in time or to
@@ -1690,6 +1699,54 @@ plays it:</p>
 </ul>
 <p>Tick <strong>skeleton only</strong> to leave the parts out. Parts bent by points on bones go as they stand (Save clip &gt;
 the model per frame carries their bending). In Blender a BVH or FBX starts at frame 1, a GLB at frame 0.</p>
+<p><strong>Actions.</strong> The actions button on the Pose bar does a whole move from the clock on: <strong>walk to</strong> a point
+(steps, heel to toe, arms swinging) or <strong>run to</strong> it, <strong>turn to</strong>, <strong>spin</strong>, <strong>jump</strong> (crouch, take-off, flight, landing),
+<strong>roll forward</strong>, <strong>pick up</strong> a part (crouch, reach, grip, rise - the part then rides in the hand) and <strong>put
+down</strong> a held part at a place. Each one keys the skeleton and leaves you a normal set of keys to change.
+They follow on from where the last one ended, and an action that runs past the end makes the animation
+longer, every key keeping its time. One undo step each.</p>
+<p><strong>In-betweens from a rough blocking.</strong> Key only a few poses - the main moments - and let the helpers fill
+the moves between them. The <strong>Animation helpers</strong> button on the Pose bar opens:
+- <strong>style: realistic ↔ cartoony</strong> - one slider that sets all the principles below; change any of them
+  after.
+- <strong>the principles</strong> - anticipation (a little the other way before a move), overshoot (a little past it,
+  settling back), ease in and out, arcs (the body travels in curves, not straight lines), overlap (the
+  end of a limb arrives a moment after its root), squash and stretch, exaggeration, no twins (the two
+  sides of the body not moving exactly alike), the arm swing in a walk.
+- <strong>Fill in-betweens</strong> adds the keys; your own keys stay where they are.</p>
+<p><strong>Weight, size, balance.</strong> In the same window:
+- <strong>size</strong> - how tall the character really is: a mouse 50 mm, a person 1800, a giant 20000. Gravity is
+  gravity at every size, so a mouse's jump is quick and a giant's is slow; left at "as drawn" it uses the
+  model's own size.
+- <strong>weight</strong> - how heavy for its build. Where the weight sits comes from the parts on each bone (a tall
+  thin figure and a small round one carry it differently); this says how heavy overall. Heavier lands
+  deeper and recovers slower.
+- <strong>Physics pass</strong> - the body's centre of weight flies true arcs in the air (hang at the top as the
+  style says), landings give under the weight, the body keeps its balance over the feet that are down,
+  and spins keep their momentum. <strong>Counterbalance</strong>: when one arm or leg goes out, the hips shift, the
+  upper body leans the other way and the free arm goes out to compensate.
+- <strong>Both</strong> runs the in-betweens and then the physics pass.</p>
+<p><strong>Keep balance while posing.</strong> The balance button on the Pose bar (lit when on, remembered): move a limb
+and the hips, the upper body and the free arm counter at once, as you pose.</p>
+<p><strong>Hands and toes.</strong> <strong>Key the hand</strong> (in the helpers window) keys a hand's fingers at the clock: curl
+(0 open, 1 a fist), spread and the thumb. The fingers move together - each bends from its own knuckle, the
+little finger a bit more - the way real fingers share their tendons. Fingers are found by their names
+(thumb, index, middle, ring, pinky) or as the bones hanging under a bone named hand-L / hand-R. <strong>Toes follow
+feet</strong> keys the toes from the foot rolls: as a foot pushes off, the toes bend up and spread a little.</p>
+<p><strong>Throw - let the path go on.</strong> Key a part (or the skeleton's root) where it is let go and where it is a
+moment later; with the clock after those keys, <strong>Throw</strong> continues the path under gravity to the floor or
+its next key - with <strong>bounce</strong>, it bounces on until it rests. A part selected is thrown, otherwise the
+skeleton.</p>
+<p><strong>Silhouette.</strong> The view modes include <strong>silhouette</strong> - every part in its flat colour, no shading -
+to judge whether a pose reads at a glance, as animators do.</p>
+<p><strong>Notes on the animation.</strong> The play bar's <strong>✎ Notes</strong> opens the notes panel: write a note at the clock
+(<strong>+ note here</strong>, for as long as it should show) and <strong>✎ draw</strong> on the view - circles, arrows, a quick sketch of the pose you want.
+The notes show as flags on the timeline and the drawings come back when the clock is there; mark a note <strong>✓ done</strong> when it is dealt with (it stays, faded). <strong>Share for review</strong> writes one web page with the animation playing and the
+notes on it: whoever opens it (any browser, nothing to install) can draw and write their own notes and
+save them as a small file, which <strong>Load notes</strong> brings back in, onto the timeline.</p>
+<p><strong>With Build with AI.</strong> Say it in words: "walk to the table, pick up the cup, jump", "make it heavier and
+more cartoony", "a giant", "curl the right hand into a fist at 2 seconds", "toss the ball and let it
+bounce". The AI uses the same actions and helpers, so everything it does is keys you can change.</p>
 <hr /></section><section class="sec" id="drivers"><h3>Drivers — one thing moves another</h3><p><strong>The driver icon</strong> (beside the skeleton icon) opens a bar at the left of the view and the <strong>driver
 manager</strong> at the right. A driver reads as one sentence: <strong>moves</strong> Block x from 0 to 50, <strong>drives</strong>
 Wheel turn y from 0 to 360 - slide the block 50 mm and the wheel turns once.</p>
@@ -5150,6 +5207,7 @@ repeat under still goes through the pieces as before.</p>
 </ul>
 <h4 id="idx-A">A</h4><ul>
 <li><a href="#when-a-fillet-will-not-take">Absolute</a></li>
+<li><a href="#skeletons">Actions</a></li>
 <li><a href="#a-stack-of-objects">Add a stack</a></li>
 <li><a href="#the-eggshell-mould">Add pour funnel</a></li>
 <li><a href="#lenses-for-glasses-a-study-tool">Add to scene</a></li>
@@ -5340,6 +5398,7 @@ repeat under still goes through the pieces as before.</p>
 <h4 id="idx-H">H</h4><ul>
 <li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Half lap</a></li>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Handles on a bend</a></li>
+<li><a href="#skeletons">Hands and toes</a></li>
 <li><a href="#parts-catalogue">Hardware</a></li>
 <li><a href="#coils-springs-threads-shells-and-horns">Heading</a></li>
 <li><a href="#drivers">Held at the ends</a></li>
@@ -5376,6 +5435,7 @@ repeat under still goes through the pieces as before.</p>
 </ul>
 <h4 id="idx-K">K</h4><ul>
 <li><a href="#routes">Keep away</a></li>
+<li><a href="#skeletons">Keep balance while posing</a></li>
 <li><a href="#keep-only-what-s-inside">Keep only what&#x27;s inside</a></li>
 <li><a href="#when-a-fillet-will-not-take">Keep proportions</a></li>
 <li><a href="#mirroring-an-object">Keep the original</a></li>
@@ -5450,6 +5510,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#parts-catalogue">New</a></li>
 <li><a href="#node-groups">Node groups</a></li>
 <li><a href="#nodes">Nodes</a></li>
+<li><a href="#skeletons">Notes on the animation</a></li>
 <li><a href="#the-terms-updates-and-what-this-is-for">Nothing is sent anywhere</a></li>
 <li><a href="#stats-and-checks">Nothing starts in mid-air</a></li>
 </ul>
@@ -5528,6 +5589,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#animation">Render in parts</a></li>
 <li><a href="#the-lattice-node">Repeller point</a></li>
 <li><a href="#placing-objects-exactly">Repositioning</a></li>
+<li><a href="#animation">Restyle with AI</a></li>
 <li><a href="#drawing-on-the-surface">Result</a></li>
 <li><a href="#assets">Rigged assets</a></li>
 <li><a href="#drawing-a-spine-or-a-profile">Right-click</a> <a class="more" href="#right-click">2</a></li>
@@ -5579,6 +5641,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Sheet metal</a></li>
 <li><a href="#the-eggshell-mould">Show</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Show the cage</a></li>
+<li><a href="#skeletons">Silhouette</a></li>
 <li><a href="#stats-and-checks">Simulate</a></li>
 <li><a href="#skeletons">Skeleton icon</a></li>
 <li><a href="#skeletons">Skeletons</a></li>
@@ -5640,6 +5703,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#text-on-a-part">Text on a part</a></li>
 <li><a href="#the-eggshell-mould">Thickness</a></li>
 <li><a href="#mirroring-an-object">Through</a></li>
+<li><a href="#skeletons">Throw</a></li>
 <li><a href="#what-the-app-notices-while-you-draw">Tight bends</a></li>
 <li><a href="#when-a-fillet-will-not-take">Tighter than a bend</a></li>
 <li><a href="#animation">Timeline</a></li>
@@ -5683,6 +5747,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#skeletons">Webcams</a></li>
 <li><a href="#stats-and-checks">Weighs at most</a></li>
 <li><a href="#what-the-selected-object-measures">Weight and material cost</a></li>
+<li><a href="#skeletons">Weight, size, balance</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Weld</a></li>
 <li><a href="#what-a-click-selects">What a click selects</a></li>
 <li><a href="#what-gets-exported">What gets exported</a></li>
