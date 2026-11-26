@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.66 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.68 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.66. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.68. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1535,6 +1535,14 @@ evenly.</p>
 2D or 3D solver, stretchy, and a <strong>pole</strong> (light blue) that says which way the chain bends - the
 pole also stops the chain's base from rolling. A dashed line runs from the handle to the chain's
 root.</p>
+<p><strong>Foot roll (heel lift).</strong> Give the leg an IK handle at the ankle, select the FOOT bone (ankle to the
+ball of the foot) in Build and click the foot button. In Pose its <strong>foot roll</strong> number lifts the heel
+over the ball of the foot (up to 30), then onto the tip of the toe; below 0 it rocks back on the heel,
+toes up. The foot stays planted where its IK target is; the roll is keyed and kept in poses.</p>
+<p><strong>Motion path and onion skins.</strong> Two switches on the Pose bar, once the skeleton has keys: the
+selected bone's path over the clip (a dot a frame, bigger at its keys, white now), and faint copies
+of the skeleton at the frames before (warm) and after (cool) the clock. In Pose a click on a part that
+rides on a bone picks that bone.</p>
 <p><strong>Constraints.</strong> <strong>Point to</strong> (the bone aims at a bone, joint or part; <strong>up</strong> leans its roll toward a
 second one), <strong>copy rotation</strong> and <strong>parent / link</strong>: click the button, then the target in the view.
 <strong>Keep offset</strong> (on at first) means nothing jumps when it is made. A dashed line names each one.</p>
@@ -1572,6 +1580,10 @@ fist flipped.</p>
 <p>The same ball works on parts too: Settings &gt; <strong>Turning ball for the selected part</strong> (off at first). The
 selected part's own axes are the rings, it turns about the selection's middle, and the pad at the
 ball's top left moves it flat to the screen.</p>
+<p><strong>On the joint.</strong> Settings &gt; <strong>Ball on the joint</strong> - or the ball (◎) in the manipulator selector, for
+parts - puts the ball right where the bone turns (on a part: its middle), see-through, in place of the
+rings or the gizmo, the way Akeytsu's spinner works. A drag on it turns; a click on it still picks the
+bone or part under it. The small arrows on the rim say it turns about the line of sight.</p>
 <hr /></section><section class="sec" id="drivers"><h3>Drivers — one thing moves another</h3><p><strong>The driver icon</strong> (beside the skeleton icon) opens a bar at the left of the view and the <strong>driver
 manager</strong> at the right. A driver reads as one sentence: <strong>moves</strong> Block x from 0 to 50, <strong>drives</strong>
 Wheel turn y from 0 to 360 - slide the block 50 mm and the wheel turns once.</p>
@@ -5153,6 +5165,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Flat-belt pulley</a></li>
 <li><a href="#flex-parts">Flex parts</a></li>
 <li><a href="#direct-editing-push-and-pull-the-model-itself">Flush faces together</a></li>
+<li><a href="#skeletons">Foot roll</a></li>
 <li><a href="#when-a-fillet-will-not-take">Forcing it</a></li>
 <li><a href="#the-lattice-node">Form</a></li>
 <li><a href="#animation">Formulas</a></li>
