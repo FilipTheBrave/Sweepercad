@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.77 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.78 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.77. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.78. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1637,6 +1637,13 @@ camera. <strong>Calibrate cameras</strong> takes those videos (one per camera) a
 stands; the result is saved beside the first video (-cameras.json) and can be loaded again. Then
 film the person with the same cameras, unmoved, and pick their videos in the same order: every body
 point is triangulated from all the views. Calibrating needs OpenCV (it comes with mediapipe).</p>
+<p><strong>Your own board.</strong> Any ChArUco board works. <strong>The board…</strong> in the capture dialog sets it: squares across and
+down, the square's and the marker's size, the dictionary (often printed on it, like DICT_6X6_250), and the
+older layout some boards use. <strong>Detect from a picture</strong> reads all of that from a photo of the board, a video
+of it, or its PDF (a PDF that states its sizes fills them in too). A photo has no true size, so measure the
+printed board: across all its squares, divided by how many, is far more precise than one square. Enter
+that as the square; the marker follows. If the width and the height disagree, the print was stretched:
+use the average, or print again at 100 %. Glue it flat - a sagging board costs more than a slightly-off size.</p>
 <p><strong>Moving the whole skeleton (root motion).</strong> Select the bone that starts at the root: the posing ball
 gets a pad (four arrows) that moves the whole skeleton flat to the screen - a step forward, a jump.
 It is keyed like a turn; IK feet stay where their targets are.</p>
