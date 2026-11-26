@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.70 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.71 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.70. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.71. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1502,6 +1502,11 @@ higher row plays over a whole-body walk below. Where no block plays, the ordinar
 <p><strong>Stopping and carrying on.</strong> Every finished picture is kept at once in a folder beside the clip
 (<code>clip_frames</code>). <strong>Stop</strong> keeps what is done; saving the clip again with the same settings carries
 on where it stopped. Different settings (size, smoothness, length) start the folder afresh.</p>
+<p><strong>In the background.</strong> Tick <strong>in the background</strong> when saving the clip and a helper (SweeperCAD
+again, with no window) renders it from the project as it is at that moment, while you keep working.
+The status bar shows how far it is: <strong>Pause</strong> stops the helper and keeps the pictures, <strong>Resume</strong>
+carries on, <strong>Stop</strong> ends it. Edits made after pressing Save are not in this render. Closing
+SweeperCAD stops the helper too; the pictures stay, and saving the clip again carries on.</p>
 <p><strong>Render in parts.</strong> <strong>frames from … to …</strong> renders only part of the clip. Render frames 1-100
 here and 101-200 on another computer with the same project and settings, copy the pictures into one
 <code>clip_frames</code> folder, and save once more: when every picture is there, the clip is put together and
@@ -1559,6 +1564,15 @@ tool). The body's points are found in every frame, smoothed, and each bone is tu
 way the person's limb points - matched by its name (thigh, shin, upper arm, forearm, foot, spine,
 neck... with -L / -R) or else by where it sits; the hips' movement moves the root. Any proportions.
 Video and webcam need the mediapipe package; a landmarks file works without it.</p>
+<p><strong>Calibrated cameras (the board).</strong> Several cameras work as they are; calibrated, they <strong>measure</strong>:
+real depth, real lengths and the person's real path through the room. In the capture dialog,
+<strong>Print the board</strong> saves a ChArUco board (PDF for A4, and a PNG) - print it at 100 %, check one
+square is 30 mm, glue it flat on card. Film it with all the cameras at once: first lying where the
+person will stand (that spot becomes the room's origin), then moved and turned in front of each
+camera. <strong>Calibrate cameras</strong> takes those videos (one per camera) and finds each lens and where it
+stands; the result is saved beside the first video (-cameras.json) and can be loaded again. Then
+film the person with the same cameras, unmoved, and pick their videos in the same order: every body
+point is triangulated from all the views. Calibrating needs OpenCV (it comes with mediapipe).</p>
 <p><strong>Moving the whole skeleton (root motion).</strong> Select the bone that starts at the root: the posing ball
 gets a pad (four arrows) that moves the whole skeleton flat to the screen - a step forward, a jump.
 It is keyed like a turn; IK feet stay where their targets are.</p>
@@ -1585,6 +1599,11 @@ same for parts that are not sweeps: its points go on bones and the part bends wi
 free points <strong>blend</strong> between their neighbours, <strong>handles</strong> turn with their bone, and the profile can
 <strong>twist</strong> with the bones (or <strong>twist from</strong> another bone). The bones list shows what rides on each
 bone, and parts can be dragged from bone to bone there.</p>
+<p><strong>Profile points on bones.</strong> In <strong>Points</strong>, a sweep's profiles show their points too - the start and
+end profiles and every profile in between:
+click one onto the selected bone and the bone pulls the outline there - a cheek, a lip, a fin. Each
+keeps where it stood to its bone at rest and is laid back into the profile's plane (a bone that lifts
+it out of the plane is reported); free profile points stay where they are. Click it again to free it.</p>
 <p><strong>Pose.</strong> Click a bone: rings stand round its base - drag one to turn it about that axis (the others
 dim, the angle shows, its limits are drawn on the ring). The green square at its end stretches it.
 Drag an IK diamond or a pole. With the timeline shown, every change is a key.</p>
@@ -1606,9 +1625,11 @@ alone, so it goes over whatever pose the body is in - a body pose, then a fist, 
 fist flipped.</p>
 <p>The same ball works on parts too: Settings &gt; <strong>Turning ball for the selected part</strong> (off at first). The
 selected part's own axes are the rings, it turns about the selection's middle, and the pad at the
-ball's top left moves it flat to the screen.</p>
-<p><strong>On the joint.</strong> Settings &gt; <strong>Ball on the joint</strong> - or the ball (◎) in the manipulator selector, for
-parts - puts the ball right where the bone turns (on a part: its middle), see-through, in place of the
+ball's top left moves it flat to the screen - also when the ball stands on the part (and on a root
+bone, where it moves the whole skeleton).</p>
+<p><strong>On the joint, or anywhere.</strong> The small switch above the ball takes it off the joint (or the part) -
+put it anywhere with its dot - and puts it back on; it is remembered. Settings &gt; <strong>Ball on the joint</strong>
+- or the ball (◎) in the manipulator selector, for parts - puts the ball right where the bone turns (on a part: its middle), see-through, in place of the
 rings or the gizmo, the way Akeytsu's spinner works. A drag on it turns; a click on it still picks the
 bone or part under it. The small arrows on the rim say it turns about the line of sight.</p>
 <hr /></section><section class="sec" id="drivers"><h3>Drivers — one thing moves another</h3><p><strong>The driver icon</strong> (beside the skeleton icon) opens a bar at the left of the view and the <strong>driver
@@ -3883,7 +3904,8 @@ goes up - nothing you did not mean to share travels along. Anyone can
 report a part; one reported several times is taken down until it is looked at.</p>
 <p><strong>The 3D view.</strong> Parts in the library have a <strong>3D</strong> button: the part in your browser, built by the
 library's robot - drag to turn it, right-drag to move, the wheel or a pinch to zoom, double-click to
-fit. A part saved with its motion plays there too (a play button and a slider). An asset that moves
+fit. A part saved with its motion plays there too (a play button and a slider) - a rigged one posed
+by its skeleton as well. An asset that moves
 can be shared like any other: its keys, clips and blocks go along, checked to be numbers only.</p>
 <p><strong>SweeperCAD itself never goes online.</strong> The library is a web page: your
 browser does the downloading and the uploading, the app only reads and
@@ -3910,6 +3932,10 @@ edit anything inside one and it rebuilds the ordinary way. The starter
 models come with theirs; an asset you save, or add from the online
 library, gets its own a moment later - built in the background, by this
 computer, never taken from someone else's file.</p>
+<p><strong>Rigged assets.</strong> An asset whose parts hang on a skeleton (attached whole, by spine, profile or
+cage points) takes the skeleton along - bones, IK, poses and the skeleton's own keys. Placed again,
+the copy gets a skeleton of its own that moves with it, so a rigged character can live on the
+shelf or in the online library and still be posed.</p>
 <p><strong>Assets that move.</strong> An asset saved from a part that has keys, clips or blocks takes them along;
 placed again, the copy moves the same way (its clips get the asset's name added when the name is
 taken, its blocks go on rows above yours). Motion is numbers only, so it can go to and come from
@@ -5102,6 +5128,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#building-it-from-struts">Building it from struts</a></li>
 </ul>
 <h4 id="idx-C">C</h4><ul>
+<li><a href="#skeletons">Calibrated cameras</a></li>
 <li><a href="#animation">Camera</a> <a class="more" href="#exporting">2</a></li>
 <li><a href="#twist-and-roll">Camera moves glide</a></li>
 <li><a href="#when-something-is-taking-too-long">Cancel</a></li>
@@ -5394,6 +5421,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-eggshell-mould">Pour box for silicone</a></li>
 <li><a href="#coils-springs-threads-shells-and-horns">Preset</a></li>
 <li><a href="#placing-objects-exactly">Profile</a></li>
+<li><a href="#skeletons">Profile points on bones</a></li>
 <li><a href="#drawing">Profile presets</a></li>
 <li><a href="#the-four-graphs">Profiles along the spine</a></li>
 <li><a href="#the-profile-s-radius">Profile&#x27;s radius</a></li>
@@ -5422,6 +5450,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-lattice-node">Repeller point</a></li>
 <li><a href="#placing-objects-exactly">Repositioning</a></li>
 <li><a href="#drawing-on-the-surface">Result</a></li>
+<li><a href="#assets">Rigged assets</a></li>
 <li><a href="#drawing-a-spine-or-a-profile">Right-click</a> <a class="more" href="#right-click">2</a></li>
 <li><a href="#rigid-bodies-physics">Rigid bodies</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Ring cut</a></li>
