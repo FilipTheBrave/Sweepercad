@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.76 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.77 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.76. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.77. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1492,6 +1492,12 @@ the real model at once. Stop any time; the frames built so far stay. Any edit ma
 WebP, numbered pictures, or <strong>the model per frame</strong> as an OBJ sequence for another program. Tick
 <strong>passes</strong> for depth, normal, object, material and motion pictures beside it; <code>..._passes.txt</code> says
 what each holds.</p>
+<p><strong>Render layers.</strong> Tick <strong>layers</strong> among the passes and the parts that stand still are drawn once, over
+the background, as <code>..._plate.png</code> (a new plate only when the camera moves). The parts that move come per
+frame as see-through pictures, <code>..._moving_0001.png ...</code>, cut out where a still part stands in front, and
+as <code>..._moving.mov</code> (ProRes 4444, see-through kept) when ffmpeg is there. Lay the moving pictures over the
+plate in a video editor or compositor; the whole clip is saved as well. A part moves when it is keyed,
+played by a block, rides on a keyed skeleton or sits in a moving group.</p>
 <p><strong>For AI.</strong> Tick <strong>for AI</strong> among the passes to restyle the clip with AI on your own computer: beside
 the clip come its frames and their depth as pictures (near white, far black - the depth comes from the
 real model, not guessed), a ComfyUI workflow, a small script that sends every frame through it with one
@@ -1513,6 +1519,27 @@ another row; drag its right edge to make it play faster or slower. For the selec
 times round, its speed, a fade in and out, its weight, and mute (a double-click mutes too). Rows are
 layered from the bottom up, and a block only moves what its clip moves: a hand-wave clip on a
 higher row plays over a whole-body walk below. Where no block plays, the ordinary keys move things.</p>
+<p><strong>Paths and onion skins.</strong> The timeline's <strong>∿ Path</strong> and <strong>◎ Onion</strong> switches (and the same two on the Pose
+bar, for a skeleton): a keyed part's path through the view - a dot a frame, a bigger dot at each key - and the
+part faintly at the frames before (warm) and after (cool) the clock. With parts selected only theirs show,
+otherwise every keyed part's. <strong>Drag a key's dot</strong> to move that key, in the plane facing you: the arc of a jump
+or a throw is shaped right where you see it. Blocks and layers count in both.</p>
+<p><strong>Audio track.</strong> The timeline's <strong>♪ Audio</strong> button puts a sound under the animation - a voice, a song,
+footsteps (WAV always; MP3, M4A and others with ffmpeg). Its waveform shows under the ruler: drag there and
+you hear the sound at the clock, so you can find the exact moment of a word or a beat; play, and it plays
+along. In the same window: where it <strong>starts</strong> on the clip, its <strong>volume</strong>, <strong>mute</strong>, <strong>Mark the hits</strong> (ticks
+on the waveform where it hits - beats, steps, the start of syllables - to key on), and <strong>Clip as long as the
+sound</strong>. The saved MP4 carries the sound. Ask Build with AI to "bounce on every beat" or "open the jaw with
+the voice": it reads the same hits and loudness.</p>
+<p><strong>Layers.</strong> The rows are layers. Click a row and the layer line below names it, and sets:
+- <strong>over</strong> or <strong>add</strong> - over plays in place of what is under it; add puts its motion on top of it: a
+  breath, a head tilt or a lean over a walk, a correction over a capture.
+- its <strong>weight</strong> (fade the whole layer in or out), <strong>mute</strong>, and <strong>solo</strong> (play only the soloed layers,
+  over your own keys).
+- <strong>key on this layer</strong> - while ticked, the keys you set go onto this layer's own clip, not onto your
+  ordinary keys: pose the correction and it is kept apart, to fade, mute or delete later. On an add
+  layer it keeps the difference from what is under it, so what you see is what you posed.
+Turns on layers blend as turns, the short way round, not angle by angle.</p>
 <p><strong>Stopping and carrying on.</strong> Every finished picture is kept at once in a folder beside the clip
 (<code>clip_frames</code>). <strong>Stop</strong> keeps what is done; saving the clip again with the same settings carries
 on where it stopped. Different settings (size, smoothness, length) start the folder afresh.</p>
@@ -5224,6 +5251,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#asymmetric-scale">Asymmetric scale</a></li>
 <li><a href="#the-lattice-node">Attractor object</a></li>
 <li><a href="#the-lattice-node">Attractor point</a></li>
+<li><a href="#animation">Audio track</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Auto dart</a></li>
 <li><a href="#assemblies-joints-between-parts">Axis</a></li>
 </ul>
@@ -5448,6 +5476,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#exporting">Lattices</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Lay on</a></li>
 <li><a href="#asymmetric-scale">Layer jumps</a></li>
+<li><a href="#animation">Layers</a></li>
 <li><a href="#routes">Leaves</a></li>
 <li><a href="#placing-objects-exactly">Length</a></li>
 <li><a href="#draft-mode-when-the-scene-gets-heavy">Lens</a> <a class="more" href="#exporting">2</a></li>
@@ -5537,6 +5566,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#guides-measuring-to-another-object">Parallel to</a></li>
 <li><a href="#parameters">Parameters</a></li>
 <li><a href="#parts-catalogue">Parts</a></li>
+<li><a href="#animation">Paths and onion skins</a></li>
 <li><a href="#the-lattice-node">Pattern in</a></li>
 <li><a href="#when-something-is-taking-too-long">Pause</a></li>
 <li><a href="#tool-tray">Photo</a></li>
@@ -5587,6 +5617,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Relax everything</a></li>
 <li><a href="#reliefs-a-picture-or-a-height-map-raises-a-face">Reliefs</a></li>
 <li><a href="#animation">Render in parts</a></li>
+<li><a href="#animation">Render layers</a></li>
 <li><a href="#the-lattice-node">Repeller point</a></li>
 <li><a href="#placing-objects-exactly">Repositioning</a></li>
 <li><a href="#animation">Restyle with AI</a></li>
