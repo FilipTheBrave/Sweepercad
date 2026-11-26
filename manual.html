@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.65 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.66 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.65. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.66. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1523,6 +1523,14 @@ its tip (+y at first), the <strong>up</strong> axis leans toward a reference (th
 choose), then the <strong>rest roll</strong>. A small cross at the bone's base shows them. <strong>Limits</strong> per axis -
 red x, green y (the twist), blue z - are typed in the bar or dragged with the grips on the arcs in
 the view; from 0 to 0 locks an axis.</p>
+<figure><a href="manual/bendy_bone.jpg"><img src="manual/bendy_bone.jpg" alt="A bendy forearm: in segments, curving from the upper arm into the hand." loading="lazy"></a><figcaption>A bendy forearm: in segments, curving from the upper arm into the hand.</figcaption></figure>
+<p><strong>Bendy bones.</strong> <strong>Segments</strong> above 1 makes the selected bone bendy: it curves smoothly into the bone
+before it and the bone after it (<strong>ease in</strong> / <strong>ease out</strong> say how strongly; 0 is straight), and the
+turn of its end about its length spreads along it - a forearm twisting with the wrist. Spine and cage
+points on it follow the curve, so a sweep bends round an elbow without a kink. Parts attached to a bendy
+bone ride on the segment they stand along, so a bracelet near the wrist twists with the wrist and one
+near the elbow hardly at all. Stretched (the square at its end, or a stretchy IK), the curve stretches
+evenly.</p>
 <p><strong>IK.</strong> On the selected bone: an IK handle (a magenta diamond) reaching a number of bones back, the
 2D or 3D solver, stretchy, and a <strong>pole</strong> (light blue) that says which way the chain bends - the
 pole also stops the chain's base from rolling. A dashed line runs from the handle to the chain's
@@ -4829,6 +4837,13 @@ an AI on your computer does not. A model the AI app sends to the window
 is offered there (<strong>Add to this scene</strong>, <strong>Open it</strong> or <strong>Not now</strong>);
 untick <strong>Settings &gt; AI &gt; Let AI apps send models to this window</strong> to stop
 that.</p>
+<p><strong>Animating with AI.</strong> Ask for movement as for a part - "a skeleton for this robot and a one-second
+walk cycle", "make him wave, then sit down". When the request is about animation (or the scene has a
+skeleton), the AI is told how to build bones (mirrored -L / -R), how to pose them by pointing them in
+a direction, and how to key poses over the clip, with a walk cycle as an example; it also sees the
+skeleton you already have. Its keys land on the timeline, where you refine them with the rings, the
+posing ball and the pose manager. Good for cycles and clear actions; it is a starting point, not
+finished acting.</p>
 <hr /></section></section>
 <section class="chapter" id="ch9"><h2>9. When something goes wrong</h2><section class="sec" id="what-the-app-notices-while-you-draw"><h3>What the app notices while you draw</h3><p>Let go of the mouse after editing a curve and it is checked — in a few
 milliseconds, before anything is built. If something is worth knowing,
@@ -4985,6 +5000,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-eggshell-mould">Add pour funnel</a></li>
 <li><a href="#lenses-for-glasses-a-study-tool">Add to scene</a></li>
 <li><a href="#the-eggshell-mould">Add vents</a></li>
+<li><a href="#make-it-with-ai">Animating with AI</a></li>
 <li><a href="#animation">Animation</a></li>
 <li><a href="#animation">Animation icon</a></li>
 <li><a href="#apply-a-scale-to-the-drawings">Apply a scale to the drawings</a></li>
@@ -5002,6 +5018,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#drawing-a-spine-or-a-profile">Backspace</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Bend reliefs</a></li>
 <li><a href="#bending">Bending</a></li>
+<li><a href="#skeletons">Bendy bones</a></li>
 <li><a href="#a-stack-of-sweeps-from-cuts">Bent body</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Bevel</a></li>
 <li><a href="#editing-in-the-3d-view">Bezier handles</a></li>
