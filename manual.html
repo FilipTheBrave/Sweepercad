@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.73 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.74 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.73. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.74. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1646,6 +1646,16 @@ alone, drag inside the ball to turn it freely like a trackball, drag the rim to 
 line of sight. Under it: the bone above / below, a step back and on about the last axis used (click
 the number for 5, 15 or 45 degrees), back to rest, and a pin that keeps the ball on this bone while
 you click others. The dot at its top right moves it anywhere. Settings &gt; "Posing ball" hides it.</p>
+<p><strong>Limits on the ball.</strong> A joint with limits shows them on its rings: the part of a ring it may not turn
+into is dimmed and dashed, with a small stop at each end of what it may - red when the bone stands
+against it. While a ring is dragged, only that ring's limits show. Every turn made with the ball stays
+inside them, as by hand.</p>
+<p><strong>Posing with the bones hidden.</strong> A click on a part picks the bone it rides on (attached whole, or most
+of its points). The <strong>hide bones</strong> switch on the Pose bar takes the bones away altogether: nothing to
+click but the parts themselves, the ball turns what you picked, and IK handles stay. It is remembered.</p>
+<p><strong>Points on bones, in Pose.</strong> Spine, profile and cage points you put on bones show in Pose too, where
+they stand as posed - a small dot (a square for cage points) in their bone's colour, bigger for the
+selected bone's. A click on one picks the bone it rides on.</p>
 <p><strong>The pose manager.</strong> The poses button on the Pose bar opens a panel at the right. <strong>Save pose</strong> keeps
 the whole skeleton's pose by name (turns, stretch, IK targets and poles); double-click a pose to
 rename it, ⟳ saves the pose now over it, × deletes it. A click on a pose puts it back - as far as the
@@ -5368,6 +5378,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#parameters">Levels</a></li>
 <li><a href="#lights">Lights</a></li>
 <li><a href="#limits">Limits</a></li>
+<li><a href="#skeletons">Limits on the ball</a></li>
 <li><a href="#exporting">Line art</a></li>
 <li><a href="#arrays-along-a-curve-or-on-a-surface">Line or a circle</a></li>
 <li><a href="#stacked-sheets">Lining the layers up</a></li>
