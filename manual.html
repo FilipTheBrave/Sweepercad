@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.72 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.73 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.72. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.73. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1538,6 +1538,10 @@ evenly.</p>
 2D or 3D solver, stretchy, and a <strong>pole</strong> (light blue) that says which way the chain bends - the
 pole also stops the chain's base from rolling. A dashed line runs from the handle to the chain's
 root.</p>
+<p><strong>IK and FK together.</strong> In Pose, a bone in an IK chain shows <strong>IK</strong> - 1: the chain follows its target, 0:
+its own turns (FK - turn the bones with the rings or the ball and key them), between: a mix of both.
+Keyed with the timeline shown, so a hand can rest on a table (IK) and then swing free (FK) without a
+jump.</p>
 <p><strong>Foot roll (heel lift).</strong> Give the leg an IK handle at the ankle, select the FOOT bone (ankle to the
 ball of the foot) in Build and click the foot button. In Pose its <strong>foot roll</strong> number lifts the heel
 over the ball of the foot (up to 30), then onto the tip of the toe; below 0 it rocks back on the heel,
@@ -1549,6 +1553,12 @@ by frame and writes keys on those bones, so it plays and scrubs at once and can 
 limits hold and they stay above the floor, and out of the <strong>capsules</strong> you give other bones (a radius
 per bone in Build, drawn as a faint outline): a tail swings past the legs, not through them. Bake again after changing the animation - it always starts
 from your own keys; undo takes a bake back.</p>
+<p><strong>Follow-through and your own keys.</strong> A following bone keeps your keys on it (a wag) and lags on top
+of them. Its <strong>follow</strong> number in Pose says how much: 1 all of it, 0 just your keys - keyed with the
+timeline shown, so a tail wags exactly as keyed, then swings on its own, fading between. <strong>Stretch</strong>
+makes it elastic - it stretches and squashes with its swing - and <strong>recovery</strong> says how fast it gets
+its own length back (1 at once, low values keep it stretched a while). A chain of following bones -
+or a bendy bone with segments - swings like a whip.</p>
 <p><strong>Balance.</strong> The balance switch on the Pose bar shows the skeleton's centre of mass (each bone as heavy
 as it is long, or as the parts riding on it), a dashed line down to the floor and the outline of what
 stands on it: green when it is balanced, red when it would fall (and by how far), grey in the air.</p>
@@ -1619,6 +1629,9 @@ same for parts that are not sweeps: its points go on bones and the part bends wi
 free points <strong>blend</strong> between their neighbours, <strong>handles</strong> turn with their bone, and the profile can
 <strong>twist</strong> with the bones (or <strong>twist from</strong> another bone). The bones list shows what rides on each
 bone, and parts can be dragged from bone to bone there.</p>
+<p><strong>One curve's points onto chosen bones.</strong> The curve button on the Bind bar: pick a curve of the selected
+part - its spine, or one of its profiles - and tick the bones its points may go on; each point goes on
+the nearest of them. Then click a dot in <strong>Points</strong> to change any one.</p>
 <p><strong>Profile points on bones.</strong> In <strong>Points</strong>, a sweep's profiles show their points too - the start and
 end profiles and every profile in between:
 click one onto the selected bone and the bone pulls the outline there - a cheek, a lip, a fin. Each
@@ -1678,13 +1691,25 @@ than where the part stands moves it to the nearest end (undo puts it back); a tu
 same turn a whole round on. A slider that may only slide 0–50 mm makes a natural driver.</p>
 <figure><a href="manual/limits.jpg"><img src="manual/limits.jpg" alt="Limits in the transform: move x kept in a range, move z locked - its field greyed and its arrow gone from the handles." loading="lazy"></a><figcaption>Limits in the transform: move x kept in a range, move z locked - its field greyed and its arrow gone from the handles.</figcaption></figure>
 <hr /></section>
-<section class="sec" id="rigid-bodies-physics"><h3>Rigid bodies - physics</h3><p>Node &gt; <strong>Physics</strong> gives the selected parts a role: <strong>dynamic</strong> (gravity and collisions move it), <strong>static</strong>
-(it does not move, things hit it - a table, a wall) or <strong>kinematic</strong> (it moves as you animate it and
-pushes the dynamic ones - a bat, a hand). Its <strong>material</strong> sets its weight (from its own volume) and
-<strong>bounce</strong> how lively it is. <strong>Simulate and bake over the clip</strong> runs the clip and writes a key a frame
-on each dynamic part, so it plays and scrubs at once and can be touched up; simulate again after a
-change (undo takes a bake back). Parts collide as their outer hull (a cup collides as if it were
-closed) and with the floor.</p>
+<section class="sec" id="rigid-bodies-physics"><h3>Rigid bodies - physics</h3><p>Every part's physics lives in its <strong>Properties &gt; physics</strong> (as Cheetah 3D's rigid-body tag): its <strong>role</strong> -
+<strong>dynamic</strong> (gravity and collisions move it), <strong>static</strong> (it does not move, things hit it - a table, a
+wall) or <strong>kinematic</strong> (it moves as you animate it and pushes the dynamic ones - a bat, a hand) - and:</p>
+<ul>
+<li><strong>shape</strong> - what collides: its convex hull (a cup collides as if it were closed), its bounding box, a
+  sphere, or each separate piece of it its own hull;</li>
+<li><strong>material</strong> or <strong>weight</strong> - its mass from its volume and a material, or a weight in grams;</li>
+<li><strong>friction</strong>, <strong>elasticity</strong> (0: a dead, plastic drop - towards 1: it bounces back), <strong>damping</strong> and
+  <strong>turn damping</strong> (how fast its movement and its turning die away), <strong>margin</strong> (extra room for thin parts);</li>
+<li><strong>start push</strong> and <strong>start spin</strong> - a velocity and a spin it starts with;</li>
+<li><strong>wakes</strong> - at once, <strong>when hit</strong> (at least so fast), or <strong>at a time</strong>: until then it hangs still.</li>
+</ul>
+<p><strong>Joints survive.</strong> A part on a hinge, slider or ball joint moves on its joint - a door swings about its
+hinge, a lid falls shut, stopped by the joint's range; a fixed part rides along. The part it hangs on
+comes along too (still, or as you animate it). It is written as keys on the joint's own value (its
+angle or slide), so the joint keeps holding it.</p>
+<p><strong>Physics</strong> on the play bar asks for <strong>gravity</strong> (Earth, Moon, Mars, none), <strong>accuracy</strong> and the floor,
+then runs the clip and writes a key a frame, so it plays and scrubs at once and can be touched up;
+simulate again after a change (undo takes it back). Node &gt; <strong>Physics</strong> sets roles for several parts at once.</p>
 <hr /></section>
 </section>
 <section class="chapter" id="ch4"><h2>4. Building parts</h2><section class="sec" id="placing-objects-exactly"><h3>Placing objects exactly</h3><p>Click <strong>+</strong> and the next click in the 3D view places a new object on
@@ -5268,6 +5293,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-lattice-node">Form</a></li>
 <li><a href="#animation">Formulas</a></li>
 <li><a href="#the-four-graphs">Four graphs</a></li>
+<li><a href="#rigid-bodies-physics">Friction</a></li>
 <li><a href="#smooth-curvature-continuous-fillets">Fullness</a></li>
 </ul>
 <h4 id="idx-G">G</h4><ul>
@@ -5305,6 +5331,7 @@ repeat under still goes through the pieces as before.</p>
 <h4 id="idx-I">I</h4><ul>
 <li><a href="#the-3d-view-s-own-controls">Icon size</a></li>
 <li><a href="#exporting">IGES</a></li>
+<li><a href="#skeletons">IK and FK together</a></li>
 <li><a href="#direct-editing-push-and-pull-the-model-itself">Imported CAD part</a></li>
 <li><a href="#importing-cad-parts-and-meshes">Importing CAD parts and meshes</a></li>
 <li><a href="#mirroring-an-object">Include everything feeding it</a></li>
@@ -5317,6 +5344,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Join two openings</a></li>
 <li><a href="#assemblies-joints-between-parts">Joint values are names</a></li>
 <li><a href="#parts-catalogue">Joints between two boards</a> <a class="more" href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">2</a></li>
+<li><a href="#rigid-bodies-physics">Joints survive</a></li>
 </ul>
 <h4 id="idx-K">K</h4><ul>
 <li><a href="#routes">Keep away</a></li>
@@ -5361,7 +5389,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#make-it-with-ai">Make it with AI</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Make symmetric</a></li>
 <li><a href="#lenses-for-glasses-a-study-tool">Make the frame</a></li>
-<li><a href="#stats-and-checks">Material</a></li>
+<li><a href="#rigid-bodies-physics">Material</a> <a class="more" href="#stats-and-checks">2</a></li>
 <li><a href="#machining-g-code-for-a-cnc">Material and stock</a></li>
 <li><a href="#materials-and-textures">Materials and textures</a></li>
 <li><a href="#routes">Max lean</a></li>
@@ -5422,7 +5450,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-lattice-node">Pattern in</a></li>
 <li><a href="#when-something-is-taking-too-long">Pause</a></li>
 <li><a href="#tool-tray">Photo</a></li>
-<li><a href="#stats-and-checks">Physics</a></li>
+<li><a href="#rigid-bodies-physics">Physics</a> <a class="more" href="#stats-and-checks">2</a></li>
 <li><a href="#parameters">Pick instead of typing</a></li>
 <li><a href="#exporting">Picture of the model</a></li>
 <li><a href="#parts-catalogue">Pipes and fluids</a></li>
@@ -5516,6 +5544,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#made-to-be-driven-by-a-program-not-only-by-a-person">Set</a></li>
 <li><a href="#lights">Shadows and depth</a></li>
 <li><a href="#parts-catalogue">Shafts and bearings</a></li>
+<li><a href="#rigid-bodies-physics">Shape</a></li>
 <li><a href="#assets">Sharing a part</a></li>
 <li><a href="#the-bridge-node">Sharp corners</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Sheet metal</a></li>
@@ -5547,6 +5576,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#a-stack-of-sweeps-from-cuts">Stack of sweeps from cuts</a></li>
 <li><a href="#stacked-sheets">Stacked sheets</a></li>
 <li><a href="#when-a-fillet-will-not-take">Stacking blends</a></li>
+<li><a href="#rigid-bodies-physics">Start push</a></li>
 <li><a href="#assets">Starter shelf</a></li>
 <li><a href="#stats-and-checks">Stats and checks</a></li>
 <li><a href="#routes">Stay above the floor</a></li>
@@ -5614,6 +5644,7 @@ repeat under still goes through the pieces as before.</p>
 </ul>
 <h4 id="idx-W">W</h4><ul>
 <li><a href="#stacked-sheets">Waffle</a></li>
+<li><a href="#rigid-bodies-physics">Wakes</a></li>
 <li><a href="#skeletons">Walk cycle</a></li>
 <li><a href="#the-lattice-node">Walls</a></li>
 <li><a href="#stats-and-checks">Walls and cavities</a></li>
