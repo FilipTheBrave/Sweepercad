@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.74 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.75 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.74. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.75. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1492,6 +1492,11 @@ the real model at once. Stop any time; the frames built so far stay. Any edit ma
 WebP, numbered pictures, or <strong>the model per frame</strong> as an OBJ sequence for another program. Tick
 <strong>passes</strong> for depth, normal, object, material and motion pictures beside it; <code>..._passes.txt</code> says
 what each holds.</p>
+<p><strong>For AI.</strong> Tick <strong>for AI</strong> among the passes to restyle the clip with AI on your own computer: beside
+the clip come its frames and their depth as pictures (near white, far black - the depth comes from the
+real model, not guessed), a ComfyUI workflow, a small script that sends every frame through it with one
+seed, and <code>..._AI.txt</code> saying what to fill in - a checkpoint and a depth ControlNet you have, and your
+prompt. ComfyUI paints over each frame; the depth keeps the shapes and the motion exactly yours.</p>
 <p><strong>Clips and blocks.</strong> <strong>Blocks</strong> on the play bar opens the block editor. <strong>+ clip from keys</strong> keeps
 the keyed motion between two times as a clip, by name - a step, a wave, a blink. <strong>Place at the
 clock</strong> puts the chosen clip on the timeline as a block. Drag a block to move it in time or to
@@ -1675,6 +1680,16 @@ put it anywhere with its dot - and puts it back on; it is remembered. Settings &
 - or the ball (◎) in the manipulator selector, for parts - puts the ball right where the bone turns (on a part: its middle), see-through, in place of the
 rings or the gizmo, the way Akeytsu's spinner works. A drag on it turns; a click on it still picks the
 bone or part under it. The small arrows on the rim say it turns about the line of sight.</p>
+<p><strong>Export the animation.</strong> File &gt; <strong>Export animation</strong> (or the export button's list) writes a skeleton and
+its motion for other programs - every frame a key, IK, foot rolls and blocks included, as the timeline
+plays it:</p>
+<ul>
+<li><strong>FBX</strong> - Maya, MotionBuilder, Unity, Unreal, Cheetah3D, Blender: the joints as a skeleton, and every part attached whole riding on its bone, in its colours.</li>
+<li><strong>GLB</strong> (glTF) - Blender, Unity, Unreal, the web: the same, with a skin so programs make an armature.</li>
+<li><strong>BVH</strong> - the skeleton's motion alone, the way mocap files are: centimetres, Y up.</li>
+</ul>
+<p>Tick <strong>skeleton only</strong> to leave the parts out. Parts bent by points on bones go as they stand (Save clip &gt;
+the model per frame carries their bending). In Blender a BVH or FBX starts at frame 1, a GLB at frame 0.</p>
 <hr /></section><section class="sec" id="drivers"><h3>Drivers — one thing moves another</h3><p><strong>The driver icon</strong> (beside the skeleton icon) opens a bar at the left of the view and the <strong>driver
 manager</strong> at the right. A driver reads as one sentence: <strong>moves</strong> Block x from 0 to 50, <strong>drives</strong>
 Wheel turn y from 0 to 360 - slide the block 50 mm and the wheel turns once.</p>
@@ -5181,6 +5196,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#skeletons">Build</a></li>
 <li><a href="#building-it-from-struts">Build as struts</a></li>
 <li><a href="#building-it-from-struts">Building it from struts</a></li>
+<li><a href="#skeletons">BVH</a></li>
 </ul>
 <h4 id="idx-C">C</h4><ul>
 <li><a href="#skeletons">Calibrated cameras</a></li>
@@ -5277,6 +5293,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-lattice-node">Exact numbers</a></li>
 <li><a href="#make-it-with-ai">Examples from your shelf</a></li>
 <li><a href="#the-four-graphs">Export</a></li>
+<li><a href="#skeletons">Export the animation</a></li>
 <li><a href="#exporting">Exporting</a></li>
 <li><a href="#extracting-a-line-from-a-surface">Extracting a line from a surface</a></li>
 </ul>
@@ -5284,6 +5301,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Fabric / leather</a></li>
 <li><a href="#face-nets-shape-a-face-by-a-net-of-points">Face nets</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Falloff</a></li>
+<li><a href="#skeletons">FBX</a></li>
 <li><a href="#drawing-on-the-surface">Fillet</a></li>
 <li><a href="#a-fillet-that-changes-along-the-seam">Fillet that changes along the seam</a></li>
 <li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Finger  joint</a></li>
@@ -5310,7 +5328,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-3d-view-s-own-controls">Gear holds the Settings</a></li>
 <li><a href="#parts-catalogue">Gears and drives</a></li>
 <li><a href="#how-the-model-is-drawn">Glass</a></li>
-<li><a href="#exporting">GLB</a></li>
+<li><a href="#skeletons">GLB</a> <a class="more" href="#exporting">2</a></li>
 <li><a href="#exporting">Glow</a></li>
 <li><a href="#the-lattice-node">Gradient, to handle</a></li>
 <li><a href="#the-lattice-node">Grading</a></li>
