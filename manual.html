@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.71 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.72 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.71. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.72. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1563,7 +1563,20 @@ the <strong>webcam</strong> (five seconds recorded here) or a <strong>landmarks 
 tool). The body's points are found in every frame, smoothed, and each bone is turned to point the
 way the person's limb points - matched by its name (thigh, shin, upper arm, forearm, foot, spine,
 neck... with -L / -R) or else by where it sits; the hips' movement moves the root. Any proportions.
-Video and webcam need the mediapipe package; a landmarks file works without it.</p>
+Video and webcam need the mediapipe package; a landmarks file and a <strong>BVH file</strong> work without it.</p>
+<p><strong>Webcams.</strong> <strong>Webcam</strong> opens the recorder: every webcam found, live and side by side (the body's
+points drawn on them), a countdown, <strong>Record</strong> and <strong>Stop</strong> (or the longest time), and the cameras
+ticked record the same moments. The takes are kept as videos beside the project. The recorder also
+films the board for <strong>Calibrate cameras</strong>.</p>
+<p><strong>Onto the skeleton.</strong> Before a take goes on, the mapping panel shows every bone with what drives it -
+filled in by the names (ours, Mixamo, FreeMoCap, Rigify, CMU...) and by where bones sit, and changeable
+(or "holds its rest"). A rig that names its sides the other way round is paired by side. Each bone
+turns by how its part of the take turned since the take's <strong>rest</strong> - the frame where the person stands
+in your skeleton's rest pose (a BVH: its own bind pose, or a frame) - so a T-pose take fits an A-pose
+skeleton. Twist comes along: forearms from the hands, the head from the ears, the chest and pelvis from
+the shoulders and hips. <strong>Roll</strong> turns a bone about itself for what is left. <strong>Profiles</strong> keep a mapping
+and its rolls by bone name: match once, use it for every clip from that source. The root follows the
+hips' path, scaled to your skeleton's size.</p>
 <p><strong>Calibrated cameras (the board).</strong> Several cameras work as they are; calibrated, they <strong>measure</strong>:
 real depth, real lengths and the person's real path through the room. In the capture dialog,
 <strong>Print the board</strong> saves a ChArUco board (PDF for A4, and a PNG) - print it at 100 %, check one
@@ -1591,6 +1604,13 @@ second one), <strong>copy rotation</strong> and <strong>parent / link</strong>: 
 other, across x = 0, named -L and -R. <strong>Mirror</strong> copies a chain made before symmetry was on. Two
 switches choose what else is mirrored: limits, roll and axes (on), and the pose (off). <strong>Unlink</strong>
 lets one chain and its twin be edited apart; again, <strong>link</strong> - this side wins.</p>
+<p><strong>Quick auto-rig.</strong> The first button on the Build bar guesses a humanoid skeleton from the model - the
+selected parts, or everything shown - standing upright, facing front, arms away from the body. It
+slices the figure, traces its middle and finds chin, groin, shoulders, elbows, wrists, knees, ankles
+and toes, then builds hips, a three-bone spine, neck, head, collarbones, arms, hands, hip sockets,
+legs, feet and toes, named -L / -R and mirrored (symmetry on). It can attach every part whole to the
+bone nearest it; points (spine, profile, cage) you put on bones yourself in Bind. A first guess: drag
+the joints to fit. Its names map straight onto captures and BVH files.</p>
 <p><strong>Bind.</strong> Click a bone, then <strong>attach</strong> and click the parts that ride on it: each keeps where it
 stands now (its bind position) and goes with the bone as one solid piece. <strong>Detach</strong> and a click
 frees a part. <strong>Points</strong> puts a sweep's spine points on the selected bone, so the sweep bends when
@@ -5382,6 +5402,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#when-a-fillet-will-not-take">Objects that barely touch</a></li>
 <li><a href="#offset-and-mirror-a-drawing-how-to-hollow-something">Offset and mirror a drawing</a></li>
 <li><a href="#assets">Online library</a></li>
+<li><a href="#skeletons">Onto the skeleton</a></li>
 <li><a href="#node-groups">Open</a></li>
 <li><a href="#the-eggshell-mould">Open at the top</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Open face</a></li>
@@ -5430,6 +5451,7 @@ repeat under still goes through the pieces as before.</p>
 </ul>
 <h4 id="idx-Q">Q</h4><ul>
 <li><a href="#a-qr-code">QR code</a></li>
+<li><a href="#skeletons">Quick auto-rig</a></li>
 <li><a href="#a-fillet-that-changes-along-the-seam">Quick shapes</a></li>
 </ul>
 <h4 id="idx-R">R</h4><ul>
@@ -5598,6 +5620,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#routes">Wander</a></li>
 <li><a href="#make-it-with-ai">Want it different?</a></li>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Web</a></li>
+<li><a href="#skeletons">Webcams</a></li>
 <li><a href="#stats-and-checks">Weighs at most</a></li>
 <li><a href="#what-the-selected-object-measures">Weight and material cost</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Weld</a></li>
