@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.80 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.81 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.80. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.81. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1672,6 +1672,15 @@ the joints to fit. Its names map straight onto captures and BVH files.</p>
 <p><strong>Recording keeps the start.</strong> Press Record and everything as it is then is the start. Move the clock on and change something: it gets a key now and a key at the start with what it was, so the motion starts where things stood. Whatever you don't change gets no keys. Posing a bone (or moving an IK handle) for the first time does the same.</p>
 <p><strong>Skeletons out of the way.</strong> Outside the skeleton's Build, Bind and Pose, and when not recording, skeletons are drawn very faint and can't be picked - the model is what you work on.</p>
 <p><strong>The whole skeleton.</strong> The bones panel's skeleton row: <strong>hide</strong> (the bones go; the parts stay), <strong>lock</strong> (shown, but not picked or posed), <strong>delete</strong> (every bone, its IK and its keys at once; the parts on it stay where they stand - one undo brings it all back).</p>
+<p><strong>The skeleton in the node editor.</strong> Each skeleton has a tile under the parts in the node editor: its
+eye (show or hide), lock and delete. Click it to work on that skeleton; drag it to tidy the editor;
+double-click it to move the skeleton in the scene - the parts on it go along. It builds no shape and
+never enters a combine.</p>
+<p><strong>Joints inside the model.</strong> With <strong>inside</strong> on (Build bar), a joint clicked on a part goes to the middle
+of the part there, not onto its surface. The selected joint's x, y, z can be typed; the bones under it
+follow.</p>
+<p><strong>A combine on a bone.</strong> When a combine rides on a bone and so do the parts it is made of, the bone bar
+warns: they would move twice. Bind either the combine or its parts.</p>
 <p><strong>Limits as numbers.</strong> With the limits switch on, a small panel shows the selected bone's limits - x, twist and z, from and to - to type; or drag the grips on the arcs.</p>
 <p><strong>Bind.</strong> Bind (and Build) show the skeleton in its bind pose - at rest - and hold it there: the timeline can't pose it while you bind, and Pose brings your pose back. Click a bone, then <strong>attach</strong> and click the parts that ride on it: each keeps where it
 stands now (its bind position) and goes with the bone as one solid piece. <strong>Detach</strong> and a click
@@ -1745,6 +1754,28 @@ the model per frame carries their bending). In Blender a BVH or FBX starts at fr
 down</strong> a held part at a place. Each one keys the skeleton and leaves you a normal set of keys to change.
 They follow on from where the last one ended, and an action that runs past the end makes the animation
 longer, every key keeping its time. One undo step each.</p>
+<p><strong>Crawl, fall, go limp.</strong> Also in Actions: <strong>crawl</strong> (down on hands and knees, a hand moving with the
+knee on the other side, then up again - or tick it off to stay down), <strong>fall</strong> (a stumble, then the body
+goes limp and falls forward, back, left or right) and <strong>go limp</strong> (from the clock on, the skeleton falls
+as it is, keeping the speed it had). The limp body is a ragdoll: every bone a solid, every joint kept
+inside its limits, landing on the floor and settling. It is baked to a key a frame - scrub it, touch it up.</p>
+<p><strong>Parts in the way.</strong> The skeleton meets the parts around it (those not riding on it). In the physics
+pass a hand or foot that goes into a part stops at its surface, and the body is held back where it would
+walk into a wall. <strong>Climb onto a part</strong> (Actions) walks up to the part ahead - or to the point x, y on its
+top - puts the hands on the edge, pulls up with one knee, brings the other foot and stands on top; up to
+about one and a half times the hips' height, and a low one is a step up. A <strong>fall</strong> or <strong>go limp</strong> lands
+on the parts it hits: a table, a step, a crate (each counts as its outer shape - a hollow box as solid).
+<strong>Push a part</strong> walks up to it, leans in with both hands on its near side and pushes it <strong>forward</strong> mm
+(0: its own depth); the part is keyed sliding with the hands.</p>
+<p><strong>Lip sync.</strong> Load a sound on the timeline, then <strong>lip sync to the sound</strong> in Actions. The sound is read
+a frame at a time into five mouth shapes - <strong>A</strong> open, <strong>E</strong> wide, <strong>O</strong> round, <strong>F</strong> teeth on the lip,
+<strong>M</strong> closed (and silence). Save mouth poses with those names in the pose manager and they are mixed
+frame by frame, easing from shape to shape; or select the jaw bone and it opens by the shape and the
+loudness (<strong>amount</strong>: its widest, in degrees). It follows the sound, not the words: fix a word by hand
+where it must read.</p>
+<p><strong>Shake.</strong> Actions' <strong>shake</strong> trembles the selected bone and the bones under it - or a part, chosen in
+the list - smoothly over what is keyed, faded in and out; on its own layer, it can be faded or muted
+later. <strong>Jiggle</strong> is a follow-through preset for soft things that wobble after a move.</p>
 <p><strong>In-betweens from a rough blocking.</strong> Key only a few poses - the main moments - and let the helpers fill
 the moves between them. The <strong>Animation helpers</strong> button on the Pose bar opens:
 - <strong>style: realistic ↔ cartoony</strong> - one slider that sets all the principles below; change any of them
@@ -1753,7 +1784,9 @@ the moves between them. The <strong>Animation helpers</strong> button on the Pos
   settling back), ease in and out, arcs (the body travels in curves, not straight lines), overlap (the
   end of a limb arrives a moment after its root), squash and stretch, exaggeration, no twins (the two
   sides of the body not moving exactly alike), the arm swing in a walk.
-- <strong>Fill in-betweens</strong> adds the keys; your own keys stay where they are.</p>
+- <strong>Fill in-betweens</strong> adds the keys; your own keys stay where they are.
+- <strong>Only the selected bone and below</strong> fills an arm, say, and leaves the rest as keyed. <strong>Keep planted
+  hands and feet put</strong> holds a hand or foot that stands still between two keys exactly there.</p>
 <p><strong>Weight, size, balance.</strong> In the same window:
 - <strong>size</strong> - how tall the character really is: a mouse 50 mm, a person 1800, a giant 20000. Gravity is
   gravity at every size, so a mouse's jump is quick and a giant's is slow; left at "as drawn" it uses the
@@ -1765,7 +1798,10 @@ the moves between them. The <strong>Animation helpers</strong> button on the Pos
   style says), landings give under the weight, the body keeps its balance over the feet that are down,
   and spins keep their momentum. <strong>Counterbalance</strong>: when one arm or leg goes out, the hips shift, the
   upper body leans the other way and the free arm goes out to compensate.
-- <strong>Both</strong> runs the in-betweens and then the physics pass.</p>
+- <strong>Both</strong> runs the in-betweens and then the physics pass.
+- The physics pass also keeps the body out of the floor and the arms out of the torso.
+- <strong>Feet on the ground</strong> lifts the feet onto the parts under them (a step, a slope) and, while a foot
+  is planted, tilts it to the slope.</p>
 <p><strong>Keep balance while posing.</strong> The balance button on the Pose bar (lit when on, remembered): move a limb
 and the hips, the upper body and the free arm counter at once, as you pose.</p>
 <p><strong>Hands and toes.</strong> <strong>Key the hand</strong> (in the helpers window) keys a hand's fingers at the clock: curl
@@ -5330,6 +5366,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#coils-springs-threads-shells-and-horns">Coils</a></li>
 <li><a href="#how-the-model-is-drawn">Colour</a></li>
 <li><a href="#exporting">Colour in exports</a></li>
+<li><a href="#skeletons">Combine on a bone</a></li>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Commit as sweeps</a></li>
 <li><a href="#cutting-and-joining-sweeps">Connect</a></li>
 <li><a href="#skeletons">Constraints</a></li>
@@ -5337,6 +5374,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#when-a-fillet-will-not-take">Cornered</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Corners</a></li>
 <li><a href="#the-eggshell-mould">Cradle</a></li>
+<li><a href="#skeletons">Crawl, fall, go limp</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Crease</a></li>
 <li><a href="#what-the-app-notices-while-you-draw">Crossings</a></li>
 <li><a href="#node-groups">Ctrl+Shift+G</a></li>
@@ -5473,6 +5511,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Join two openings</a></li>
 <li><a href="#assemblies-joints-between-parts">Joint values are names</a></li>
 <li><a href="#parts-catalogue">Joints between two boards</a> <a class="more" href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">2</a></li>
+<li><a href="#skeletons">Joints inside the model</a></li>
 <li><a href="#rigid-bodies-physics">Joints survive</a></li>
 </ul>
 <h4 id="idx-K">K</h4><ul>
@@ -5505,6 +5544,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#arrays-along-a-curve-or-on-a-surface">Line or a circle</a></li>
 <li><a href="#stacked-sheets">Lining the layers up</a></li>
 <li><a href="#drawing">Lining up</a></li>
+<li><a href="#skeletons">Lip sync</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">List</a></li>
 <li><a href="#routes">Live</a></li>
 <li><a href="#guides-measuring-to-another-object">Live reference that moves</a></li>
@@ -5582,6 +5622,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#guides-measuring-to-another-object">Parallel to</a></li>
 <li><a href="#parameters">Parameters</a></li>
 <li><a href="#parts-catalogue">Parts</a></li>
+<li><a href="#skeletons">Parts in the way</a></li>
 <li><a href="#animation">Paths and onion skins</a></li>
 <li><a href="#the-lattice-node">Pattern in</a></li>
 <li><a href="#when-something-is-taking-too-long">Pause</a></li>
@@ -5683,6 +5724,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#made-to-be-driven-by-a-program-not-only-by-a-person">Set</a></li>
 <li><a href="#lights">Shadows and depth</a></li>
 <li><a href="#parts-catalogue">Shafts and bearings</a></li>
+<li><a href="#skeletons">Shake</a></li>
 <li><a href="#rigid-bodies-physics">Shape</a></li>
 <li><a href="#assets">Sharing a part</a></li>
 <li><a href="#the-bridge-node">Sharp corners</a></li>
