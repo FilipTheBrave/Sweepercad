@@ -1527,10 +1527,27 @@ or a throw is shaped right where you see it. Blocks and layers count in both. A 
 ghosts too - the whole figure. <strong>Right-click ◎ Onion</strong> for its settings: how many ghosts before and after,
 how many frames apart (or at the keys instead), their strength, and whether the figure's parts are shown -
 the nearest ghosts are the strongest.</p>
-<p><strong>Auto-pose.</strong> With <strong>auto-pose</strong> on (Pose bar), drag a hand's IK handle further than the arm reaches and the
-body follows, as a person reaching would: the spine bends toward it, then the hips go toward it and down - a
-lean to a far shelf, a crouch for something on the floor - while the feet stay where they stand. With keep
-balance on, the body also keeps its balance (the hips shift back, the free arm counters).</p>
+<p><strong>Auto-pose.</strong> With <strong>auto-pose</strong> on (Pose bar), drag an IK handle - a hand, a foot - and the whole body
+follows, as a person would: you set only the joints you care about and the rest works itself out. The dragged
+joint goes where you drag it; the spine bends, the hips move (a lean to a far shelf, a crouch for something on
+the floor) and the other limbs give a little, each joint as little as it must from the pose you started from and
+always inside its limits; the other IK handles (the feet) stay where they are and stay flat - in a very deep crouch the heels lift
+onto the balls of the feet, as a body's do, and come down again as you rise. With keep balance on,
+the centre of mass also stays over the feet. You can grab any joint, not only an IK handle: drag the hips down
+for a crouch, the chest for a lean, the head for a look - a ring still turns a joint. Nothing goes through the
+floor or into the parts in the scene (a hand pushed into a table rests flat on its top, a knee stays out of a box), and joints ease off near their limits rather than meeting them hard. A spine, a neck or a tail bends
+as a curve, shared between its joints; drag past what the limits allow and the body stops where it can go.
+Everything auto-pose moves is keyed. With symmetry's mirrored pose on, the other side moves the mirrored way
+at the same time - both arms up, a symmetrical crouch. Shift-click joints to move them as a group (a dashed ring on each): drag one and the others go by as much -
+both hands on a pole, a box carried; a click on nothing lets the group go. Drag a foot onto a step and it stands on top of it;
+onto a ramp and the foot tilts with the slope. Works on any skeleton, not only people.</p>
+<p><strong>Pins.</strong> <strong>Pin</strong> (Pose bar) holds the selected bone's end where it stands, turned as it is - a hand stays
+flat on the table - and a green pin shows it. With
+auto-pose on, pinned joints stay put while you drag something else: pin a hand on a rail and drag the hips, pin
+the head and drag a hand. Drag a pinned joint's own handle and its pin goes along. Click pin again to unpin. With the timeline showing, a pin holds from the time you set it: go to where it
+should let go and click pin again - it now holds for just that stretch (a hand on a rail for part of a shot),
+and is drawn faint outside it. Click pin within the stretch to take it off.
+Pins are saved with the skeleton. In a script: model.reach_with_body(bone, x, y, z, hold=[...]).</p>
 <p><strong>See the physics.</strong> The timeline's <strong>⊕ Mass</strong> shows a keyed skeleton's centre of mass: its path over the clip
 - amber while a foot is on the ground, cyan in the air, where it can only follow a gravity arc - where it is now
 with a line down to the floor (is it over the feet?), and its speed as an arrow and in metres a second.</p>
@@ -1588,7 +1605,14 @@ evenly.</p>
 <p><strong>IK.</strong> On the selected bone: an IK handle (a magenta diamond) reaching a number of bones back, the
 2D or 3D solver, stretchy, and a <strong>pole</strong> (light blue) that says which way the chain bends - the
 pole also stops the chain's base from rolling. A dashed line runs from the handle to the chain's
-root.</p>
+root. On the bar they sit on one row, in their own colours: the IK button (magenta), how many bones
+back, and the pole (blue); under them the solver's switches - 3D, stretchy and preferred bend.</p>
+<p><strong>What the IK owns.</strong> In Pose, the bones inside an IK chain belong to its handle: they have no rings and no
+stretch square - drag the diamond or the pole instead. With <strong>stretchy</strong> on, a target beyond reach lengthens the
+chain's bones together; within reach they keep their length and the chain bends. Lower the chain's <strong>IK</strong> blend to
+turn its bones by hand. The bone carrying the handle (the hand, the foot) turns as usual, and turning a bone above
+the chain - the chest, a clavicle - re-solves it at once, the hand or foot staying on its handle. Handles and poles
+stay put in the world unless you attach them to a bone (Pose bar).</p>
 <p><strong>IK and FK together.</strong> In Pose, a bone in an IK chain shows <strong>IK</strong> - 1: the chain follows its target, 0:
 its own turns (FK - turn the bones with the rings or the ball and key them), between: a mix of both.
 Keyed with the timeline shown, so a hand can rest on a table (IK) and then swing free (FK) without a
@@ -1692,6 +1716,48 @@ follow.</p>
 <p><strong>A combine on a bone.</strong> When a combine rides on a bone and so do the parts it is made of, the bone bar
 warns: they would move twice. Bind either the combine or its parts.</p>
 <p><strong>Limits as numbers.</strong> With the limits switch on, a small panel shows the selected bone's limits - x, twist and z, from and to - to type; or drag the grips on the arcs.</p>
+<p><strong>Fingers and grip.</strong> The quick auto-rig can give each hand a thumb and four fingers (tick <strong>with fingers</strong>),
+sized from the hand. <strong>Grip</strong> on the Pose bar curls the fingers of the selected side toward the palm - 0 open, 1 a
+fist - and keys them with the timeline showing. Picking a part up closes the hand on it as it grabs; putting it
+down opens it as it lets go.</p>
+<p><strong>What a skeleton is.</strong> The Build bar's type says what the skeleton is, and so which tools it is offered:
+<strong>generic</strong> (a machine, a tail, a prop - bones, IK, pins, auto-pose, physics), <strong>legged creature</strong> (adds foot roll,
+balance, walking and the actions) or <strong>humanoid</strong> (adds capture, fingers and grip, standard limits and hands that
+pick things up). Until you choose, it is guessed: humanoid by its bones' names, legged with two IK legs, otherwise
+generic. The auto-rig makes a humanoid.</p>
+<p><strong>From a slide to a walk.</strong> Key only where the body should be: move its root to A, then to B a few seconds
+later (and through C, D... on the way if you like) - it just slides. Then <strong>turn the keyed slide into a walk</strong>
+(Actions): the creature goes that way with your timing - steps on two legs (a run where it is fast), its gait on
+four or eight, a slither for a snake - feet planted under the path, turning with it.</p>
+<p><strong>Rigging an animal.</strong> The Build bar's <strong>four-legged auto-rig</strong> puts dots for an animal's joints on your model -
+head, neck, withers, hips, the tail's tip, and each leg's elbow or stifle, wrist or hock and foot. Drag them into
+place (the other side follows), then <strong>Build skeleton</strong>: spine, neck, head, a tail, four legs with IK, the parts
+attached. Then say which animal it is in the type list.</p>
+<p><strong>Four legs.</strong> A creature with an IK handle on each of four feet (or six) walks on all of them: <strong>walk to a
+point</strong> picks its gait by the speed, as animals do - a walk, a trot, a canter, a gallop - or choose trot, pace,
+canter or gallop. The feet stay planted without sliding, the body bobs with the footfalls, the back flexes in a
+canter or gallop and the head nods in a walk. Say which animal in the Build bar's type list: a dog, a horse (long
+strides, a stiff back, a nodding head), a cat (low and soft) or an elephant (it walks, then ambles - never trots or
+gallops). Six or eight legs walk in alternating groups - a spider; a crab walks sideways. A tail (bones named
+tail...) sways with the gait by itself; <strong>move the tail</strong> (Actions) makes it wag, sway, swish, follow the body's
+turns or balance against them. A snake (set its type) <strong>slithers</strong> to a point: serpentine S-waves with the
+body following the head's track, rectilinear (straight, like a python), concertina (hold, stretch, gather) or
+sidewinding (sideways, in lifted loops). A fish <strong>swims</strong>: a wave from head to tail taking in the whole body (an
+eel), the rear two thirds (a trout), the rear third (a mackerel), only the tail (a tuna) or only the tail fin (a
+boxfish) - or with its fins (bones named fin or pectoral) rowing like a wrasse or waving like a ray. The faster it
+swims, the quicker its tail beats. Wings (bones named wing..., or a bird's arms) <strong>fly</strong>: flapping - spread on
+the downstroke, folded at the wrist on the upstroke - gliding, or hovering on the spot; the bigger the wings, the
+slower the beat. The Actions dialog lists what fits the creature.</p>
+<p><strong>A natural skeleton.</strong> The quick auto-rig builds a body standing at ease, by human proportions: balanced over
+its feet, the spine in a gentle S-curve, knees and elbows a little bent (so an IK leg or arm knows which way to
+bend), feet their real length with the toes to the tip of the foot, and forearms that twist along their length
+when the wrist turns.</p>
+<p><strong>Markers.</strong> The auto-rig reads 14 markers off the model - chin, groin, shoulders, elbows, wrists, knees, ankles,
+toes. If it can't find some, or you choose <strong>Place the markers first</strong>, they show on the model as labelled dots
+(hollow: guessed from a body's proportions). Drag each onto its joint - the other side follows while <strong>mirror</strong> is
+on - then <strong>Build skeleton</strong> (Enter); Esc cancels. Any pose works: T-pose, A-pose, arms down, even sitting (a figure
+that isn't standing keeps its markers exactly as placed).</p>
+<p><strong>Standard humanoid limits.</strong> A skeleton from the auto-rigger starts with a body's limits on every joint: knees and elbows bend one way only, the spine, neck and head turn as far as a body does, shoulders and hips swing wide, and the feet and toes tilt a little. They are found from the bones as they stand, so a T-pose or arms-down rig both work, and the pose you start from always fits. For a humanoid skeleton you built yourself (named as the auto-rigger names its joints - spine, chest, neck, head, upperarm, forearm, hand, thigh, shin, foot), <strong>standard humanoid limits</strong> in the limits panel gives it the same. Every limit stays yours to change; other skeletons keep the limits you set.</p>
 <p><strong>Bind.</strong> Bind (and Build) show the skeleton in its bind pose - at rest - and hold it there: the timeline can't pose it while you bind, and Pose brings your pose back. Click a bone, then <strong>attach</strong> and click the parts that ride on it: each keeps where it
 stands now (its bind position) and goes with the bone as one solid piece. <strong>Detach</strong> and a click
 frees a part. <strong>Points</strong> puts a sweep's spine points on the selected bone, so the sweep bends when
@@ -5482,6 +5548,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#drawing-on-the-surface">Fillet</a></li>
 <li><a href="#a-fillet-that-changes-along-the-seam">Fillet that changes along the seam</a></li>
 <li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Finger  joint</a></li>
+<li><a href="#skeletons">Fingers and grip</a></li>
 <li><a href="#the-first-run-screen">First-run screen</a></li>
 <li><a href="#when-a-fillet-will-not-take">Fit everything</a></li>
 <li><a href="#when-a-fillet-will-not-take">Fit the scale graph</a></li>
@@ -5499,6 +5566,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-lattice-node">Form</a></li>
 <li><a href="#animation">Formulas</a></li>
 <li><a href="#the-four-graphs">Four graphs</a></li>
+<li><a href="#skeletons">Four legs</a></li>
 <li><a href="#rigid-bodies-physics">Friction</a></li>
 <li><a href="#smooth-curvature-continuous-fillets">Fullness</a></li>
 </ul>
@@ -5604,6 +5672,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#make-it-with-ai">Make it with AI</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Make symmetric</a></li>
 <li><a href="#lenses-for-glasses-a-study-tool">Make the frame</a></li>
+<li><a href="#skeletons">Markers</a></li>
 <li><a href="#rigid-bodies-physics">Material</a> <a class="more" href="#stats-and-checks">2</a></li>
 <li><a href="#machining-g-code-for-a-cnc">Material and stock</a></li>
 <li><a href="#materials-and-textures">Materials and textures</a></li>
@@ -5630,6 +5699,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#skeletons">Moving the whole skeleton</a></li>
 </ul>
 <h4 id="idx-N">N</h4><ul>
+<li><a href="#skeletons">Natural skeleton</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Near side only</a></li>
 <li><a href="#offset-and-mirror-a-drawing-how-to-hollow-something">Negative offset</a></li>
 <li><a href="#routes">Never closer</a></li>
@@ -5672,6 +5742,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#rigid-bodies-physics">Physics</a> <a class="more" href="#stats-and-checks">2</a></li>
 <li><a href="#parameters">Pick instead of typing</a></li>
 <li><a href="#exporting">Picture of the model</a></li>
+<li><a href="#animation">Pins</a></li>
 <li><a href="#parts-catalogue">Pipes and fluids</a></li>
 <li><a href="#the-lattice-node">Place</a></li>
 <li><a href="#placing-a-section-as-a-profile">Placing a section as a profile</a></li>
@@ -5723,6 +5794,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#animation">Restyle with AI</a></li>
 <li><a href="#drawing-on-the-surface">Result</a></li>
 <li><a href="#assets">Rigged assets</a></li>
+<li><a href="#skeletons">Rigging an animal</a></li>
 <li><a href="#drawing-a-spine-or-a-profile">Right-click</a> <a class="more" href="#right-click">2</a></li>
 <li><a href="#rigid-bodies-physics">Rigid bodies</a></li>
 <li><a href="#subd-box-modelling-that-stays-exact-cad">Ring cut</a></li>
@@ -5801,6 +5873,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#a-stack-of-sweeps-from-cuts">Stack of sweeps from cuts</a></li>
 <li><a href="#stacked-sheets">Stacked sheets</a></li>
 <li><a href="#when-a-fillet-will-not-take">Stacking blends</a></li>
+<li><a href="#skeletons">Standard humanoid limits</a></li>
 <li><a href="#rigid-bodies-physics">Start push</a></li>
 <li><a href="#assets">Starter shelf</a></li>
 <li><a href="#stats-and-checks">Stats and checks</a></li>
