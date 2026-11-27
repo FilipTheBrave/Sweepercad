@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.82 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.83 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.82. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.83. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1776,6 +1776,11 @@ where it must read.</p>
 <p><strong>Shake.</strong> Actions' <strong>shake</strong> trembles the selected bone and the bones under it - or a part, chosen in
 the list - smoothly over what is keyed, faded in and out; on its own layer, it can be faded or muted
 later. <strong>Jiggle</strong> is a follow-through preset for soft things that wobble after a move.</p>
+<p><strong>Clean up keys.</strong> <strong>✧ clean</strong> on the timeline tidies the selected row, its part's (or bone's) rows, or
+every row: it unrolls turns that flip a full 360, takes out spikes and zigzags between keys a frame apart,
+smooths baked curves (physics, a ragdoll, a capture) over a number of keys, drops keys that change nothing,
+and removes the keys the curve does not need - it stays within the tolerance of every key it had. A turn's
+three angles are cleaned together. One undo puts it all back.</p>
 <p><strong>In-betweens from a rough blocking.</strong> Key only a few poses - the main moments - and let the helpers fill
 the moves between them. The <strong>Animation helpers</strong> button on the Pose bar opens:
 - <strong>style: realistic ↔ cartoony</strong> - one slider that sets all the principles below; change any of them
@@ -5356,6 +5361,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#how-the-model-is-drawn">Chrome</a></li>
 <li><a href="#circular-arcs">Circular arcs</a></li>
 <li><a href="#how-the-model-is-drawn">Clay + edges</a></li>
+<li><a href="#skeletons">Clean up keys</a></li>
 <li><a href="#the-lattice-node">Clear</a></li>
 <li><a href="#drawing-a-spine-or-a-profile">Click</a></li>
 <li><a href="#routes">Click a +</a></li>
