@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.84 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.85 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.84. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.85. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1527,6 +1527,13 @@ or a throw is shaped right where you see it. Blocks and layers count in both. A 
 ghosts too - the whole figure. <strong>Right-click ◎ Onion</strong> for its settings: how many ghosts before and after,
 how many frames apart (or at the keys instead), their strength, and whether the figure's parts are shown -
 the nearest ghosts are the strongest.</p>
+<p><strong>Auto-pose.</strong> With <strong>auto-pose</strong> on (Pose bar), drag a hand's IK handle further than the arm reaches and the
+body follows, as a person reaching would: the spine bends toward it, then the hips go toward it and down - a
+lean to a far shelf, a crouch for something on the floor - while the feet stay where they stand. With keep
+balance on, the body also keeps its balance (the hips shift back, the free arm counters).</p>
+<p><strong>See the physics.</strong> The timeline's <strong>⊕ Mass</strong> shows a keyed skeleton's centre of mass: its path over the clip
+- amber while a foot is on the ground, cyan in the air, where it can only follow a gravity arc - where it is now
+with a line down to the floor (is it over the feet?), and its speed as an arrow and in metres a second.</p>
 <p><strong>Audio track.</strong> The timeline's <strong>♪ Audio</strong> button puts a sound under the animation - a voice, a song,
 footsteps (WAV always; MP3, M4A and others with ffmpeg). Its waveform shows under the ruler: drag there and
 you hear the sound at the clock, so you can find the exact moment of a word or a beat; play, and it plays
@@ -1752,11 +1759,21 @@ plays it:</p>
 <p>Tick <strong>skeleton only</strong> to leave the parts out. Parts bent by points on bones go as they stand (Save clip &gt;
 the model per frame carries their bending). In Blender a BVH or FBX starts at frame 1, a GLB at frame 0.</p>
 <p><strong>Actions.</strong> The actions button on the Pose bar does a whole move from the clock on: <strong>walk to</strong> a point
-(steps, heel to toe, arms swinging) or <strong>run to</strong> it, <strong>turn to</strong>, <strong>spin</strong>, <strong>jump</strong> (crouch, take-off, flight, landing),
-<strong>roll forward</strong>, <strong>pick up</strong> a part (crouch, reach, grip, rise - the part then rides in the hand) and <strong>put
-down</strong> a held part at a place. Each one keys the skeleton and leaves you a normal set of keys to change.
+(steps, heel to toe, arms swinging) or <strong>run to</strong> it, <strong>turn to</strong>, <strong>spin</strong> (winding up with the arms out, pulling them in to turn faster, opening them to stop -
+as a dancer does), <strong>jump</strong> (crouch, take-off, flight, landing),
+<strong>roll forward</strong>, <strong>pick up</strong> a part (crouch, reach, grip, rise - the part then rides in the hand) and **put
+down** a held part at a place. Each one keys the skeleton and leaves you a normal set of keys to change.
 They follow on from where the last one ended, and an action that runs past the end makes the animation
 longer, every key keeping its time. One undo step each.</p>
+<p><strong>Fixed points.</strong> <strong>fix the selected hand or foot</strong> (Actions) holds it where it is in the world for a stretch
+of time while the body moves round it - a hand on a rail, a vault, a handstand, a foot that must not slide. On
+an IK handle its target is held (a planted foot does not roll); otherwise its two bones turn every frame.</p>
+<p><strong>Walk styles and speed.</strong> <strong>walk to a point</strong> has a <strong>style</strong>: walk, run, sneak, tiptoe, skip, stiff, goofy,
+monster, zombie, child, hero, villain, tired, march, ridge - each its own stride, step height, bounce, arm swing, lean,
+crouch, sway and width (a zombie holds its arms out, a skip hops off each foot, a hero walks chest up; <strong>ridge</strong> balances along an
+edge - feet on one line, arms out to the sides, the body tipping and the arms catching it). The speed
+is the distance over the time you give it: the steps lengthen before they quicken, and a walk asked to go faster
+than a walk can becomes a run - both feet off the ground between steps.</p>
 <p><strong>Crawl, fall, go limp.</strong> Also in Actions: <strong>crawl</strong> (down on hands and knees, a hand moving with the
 knee on the other side, then up again - or tick it off to stay down), <strong>fall</strong> (a stumble, then the body
 goes limp and falls forward, back, left or right) and <strong>go limp</strong> (from the clock on, the skeleton falls
@@ -1808,6 +1825,12 @@ the moves between them. The <strong>Animation helpers</strong> button on the Pos
   upper body leans the other way and the free arm goes out to compensate.
 - <strong>Both</strong> runs the in-betweens and then the physics pass.
 - The physics pass also keeps the body out of the floor and the arms out of the torso.
+- <strong>Keep my key poses</strong>: the physics pass leaves every pose you keyed exactly as it is and corrects only the
+  motion between them; <strong>physics strength</strong> sets how much of its corrections it makes.
+- <strong>In the air</strong> (on by default): each flight gets a body in the air - the legs tuck toward the top and reach
+  down just before the landing, the free arms lift out to the sides for balance.
+- <strong>Arms swing with the body</strong> (on by default): the arms hang loose on the moving body - in a spin they lag
+  and fly out (the arm pulls the hand round), in a stop they swing on and settle. An arm on its IK stays as keyed.
 - <strong>Feet on the ground</strong> lifts the feet onto the parts under them (a step, a slope) and, while a foot
   is planted, tilts it to the slope.</p>
 <p><strong>Keep balance while posing.</strong> The balance button on the Pose bar (lit when on, remembered): move a limb
@@ -5317,6 +5340,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#the-lattice-node">Attractor point</a></li>
 <li><a href="#animation">Audio track</a></li>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Auto dart</a></li>
+<li><a href="#animation">Auto-pose</a></li>
 <li><a href="#assemblies-joints-between-parts">Axis</a></li>
 </ul>
 <h4 id="idx-B">B</h4><ul>
@@ -5465,6 +5489,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#when-a-fillet-will-not-take">Fit to mesh</a></li>
 <li><a href="#lenses-for-glasses-a-study-tool">Fit to the face</a></li>
 <li><a href="#stats-and-checks">Fits in</a></li>
+<li><a href="#skeletons">Fixed points</a></li>
 <li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Flat-belt pulley</a></li>
 <li><a href="#flex-parts">Flex parts</a></li>
 <li><a href="#direct-editing-push-and-pull-the-model-itself">Flush faces together</a></li>
@@ -5735,6 +5760,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#unfold-lay-it-out-flat-to-print-and-cut">Seam list</a></li>
 <li><a href="#stats-and-checks">Seams</a></li>
 <li><a href="#the-stick-figure-balls-and-sticks-like-zspheres">Section on screen</a></li>
+<li><a href="#animation">See the physics</a></li>
 <li><a href="#placing-objects-exactly">Segments</a></li>
 <li><a href="#a-fillet-that-changes-along-the-seam">Select a combine</a></li>
 <li><a href="#exporting">Separate bodies</a></li>
@@ -5846,6 +5872,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#stacked-sheets">Waffle</a></li>
 <li><a href="#rigid-bodies-physics">Wakes</a></li>
 <li><a href="#skeletons">Walk cycle</a></li>
+<li><a href="#skeletons">Walk styles and speed</a></li>
 <li><a href="#the-lattice-node">Walls</a></li>
 <li><a href="#stats-and-checks">Walls and cavities</a></li>
 <li><a href="#routes">Wander</a></li>
