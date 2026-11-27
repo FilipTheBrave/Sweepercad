@@ -1519,6 +1519,10 @@ another row; drag its right edge to make it play faster or slower. For the selec
 times round, its speed, a fade in and out, its weight, and mute (a double-click mutes too). Rows are
 layered from the bottom up, and a block only moves what its clip moves: a hand-wave clip on a
 higher row plays over a whole-body walk below. Where no block plays, the ordinary keys move things.</p>
+<p><strong>Loops.</strong> <strong>Loop to end</strong> repeats the selected block from where it starts to the end of the timeline, at its
+speed - a pump, a wing beat, a wag. <strong>Seamless</strong> eases the clip's last quarter into its start, so each time round
+joins without a jump. Then move the whole thing on top - a jellyfish pumping in a loop, keyed travelling through
+the water - with ordinary keys or a block on another row.</p>
 <p><strong>Paths and onion skins.</strong> The timeline's <strong>∿ Path</strong> and <strong>◎ Onion</strong> switches (and the same two on the Pose
 bar, for a skeleton): a keyed part's path through the view - a dot a frame, a bigger dot at each key - and the
 part faintly at the frames before (warm) and after (cool) the clock. With parts selected only theirs show,
@@ -1628,6 +1632,9 @@ by frame and writes keys on those bones, so it plays and scrubs at once and can 
 limits hold and they stay above the floor, and out of the <strong>capsules</strong> you give other bones (a radius
 per bone in Build, drawn as a faint outline): a tail swings past the legs, not through them. Bake again after changing the animation - it always starts
 from your own keys; undo takes a bake back.</p>
+<p><strong>A trail.</strong> Each following bone lags its already lagging parent, so a chain of them passes the motion on -
+secondary, tertiary and on to the tip. Choose a preset <strong>..., down the chain</strong> to give the bone and every bone
+below it follow-through at once, each a little looser than the one before: a whip, a long tail, a tentacle.</p>
 <p><strong>Follow-through and your own keys.</strong> A following bone keeps your keys on it (a wag) and lags on top
 of them. Its <strong>follow</strong> number in Pose says how much: 1 all of it, 0 just your keys - keyed with the
 timeline shown, so a tail wags exactly as keyed, then swings on its own, fading between. <strong>Stretch</strong>
@@ -1730,7 +1737,9 @@ later (and through C, D... on the way if you like) - it just slides. Then <stron
 (Actions): the creature goes that way with your timing - steps on two legs (a run where it is fast), its gait on
 four or eight, a slither for a snake - feet planted under the path, turning with it.</p>
 <p><strong>Rigging an animal.</strong> The Build bar's <strong>four-legged auto-rig</strong> puts dots for an animal's joints on your model -
-head, neck, withers, hips, the tail's tip, and each leg's elbow or stifle, wrist or hock and foot. Drag them into
+head, neck, withers, hips, the tail's tip, and each leg's elbow or stifle, wrist or hock and foot. They are
+fitted to the model's own shape: each leg found as a column under the body, its joints where that column bends,
+the withers and hips inside the torso above the legs. Drag any that are off into
 place (the other side follows), then <strong>Build skeleton</strong>: spine, neck, head, a tail, four legs with IK, the parts
 attached. Then say which animal it is in the type list.</p>
 <p><strong>Four legs.</strong> A creature with an IK handle on each of four feet (or six) walks on all of them: <strong>walk to a
@@ -1748,6 +1757,9 @@ boxfish) - or with its fins (bones named fin or pectoral) rowing like a wrasse o
 swims, the quicker its tail beats. Wings (bones named wing..., or a bird's arms) <strong>fly</strong>: flapping - spread on
 the downstroke, folded at the wrist on the upstroke - gliding, or hovering on the spot; the bigger the wings, the
 slower the beat. The Actions dialog lists what fits the creature.</p>
+<p><strong>Over the scene.</strong> Four or more legs plant on the parts under each foot - a step, a slope, a rock - and the body
+rises with them and pitches, nose up while only the front feet are up. A snake's body lies along whatever it
+crawls over, bending over an edge, not folding. Parts riding on the creature's own bones don't count.</p>
 <p><strong>A natural skeleton.</strong> The quick auto-rig builds a body standing at ease, by human proportions: balanced over
 its feet, the spine in a gentle S-curve, knees and elbows a little bent (so an IK leg or arm knows which way to
 bend), feet their real length with the toes to the tip of the foot, and forearms that twist along their length
@@ -5661,6 +5673,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#flex-parts">Living hinge</a></li>
 <li><a href="#what-gets-exported">Locked</a></li>
 <li><a href="#when-something-will-not-build">Loft mode</a></li>
+<li><a href="#animation">Loops</a></li>
 </ul>
 <h4 id="idx-M">M</h4><ul>
 <li><a href="#machining-g-code-for-a-cnc">Machine</a></li>
@@ -5916,6 +5929,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#machine-parts-nozzles-gears-pulleys-a-snap-fit">Timing pulley</a></li>
 <li><a href="#tool-tray">Tool tray</a></li>
 <li><a href="#lathe">Tools</a></li>
+<li><a href="#skeletons">Trail</a></li>
 <li><a href="#tool-tray">Tray</a></li>
 <li><a href="#keep-only-what-s-inside">Trim blends</a></li>
 <li><a href="#assemblies-joints-between-parts">Try it</a></li>
