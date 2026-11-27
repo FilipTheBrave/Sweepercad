@@ -125,12 +125,12 @@ figcaption { font-size: 13.5px; color: #777; margin-top: 8px; line-height: 1.5; 
 <div class="cover">
   <h1>SweeperCAD</h1>
   <div class="sub">User manual</div>
-  <div class="ver">version 0.10.81 &middot; sweepercad.com</div>
+  <div class="ver">version 0.10.82 &middot; sweepercad.com</div>
 </div>
 <div class="onscreen">
   <h1>User manual</h1>
   <p class="lead">Everything SweeperCAD does, in one page - the same text as the app's own help (the <b>?</b> in the 3D view),
-  with pictures. For version 0.10.81. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
+  with pictures. For version 0.10.82. Prefer paper? <a href="sweepercad-manual.pdf" download>Download the PDF</a>.</p>
   <p class="none" id="none">Nothing in the manual matches that.</p>
 </div>
 <details class="mtoc"></details>
@@ -1865,6 +1865,13 @@ wall) or <strong>kinematic</strong> (it moves as you animate it and pushes the d
 hinge, a lid falls shut, stopped by the joint's range; a fixed part rides along. The part it hangs on
 comes along too (still, or as you animate it). It is written as keys on the joint's own value (its
 angle or slide), so the joint keeps holding it.</p>
+<p><strong>A joint's own physics.</strong> In the joint's settings (and its bar), for a hinge or a slider:
+- <strong>spring</strong> - it is pulled back to its <strong>spring rest</strong>: a door that closes itself, a lid on a spring, a
+  flap that bounces back. The number is how quickly (swings a second); 0 is no spring.
+- <strong>friction</strong> - how stiffly it turns or slides: 0 free, 1 very stiff.
+- <strong>motor</strong> - it turns (or slides) at this speed, degrees or mm a second: a fan, a wheel, a turntable.
+- <strong>keyed until</strong> - its own keys move it up to this moment, then physics takes over and it carries on
+  with the speed it had: a door pushed open by hand and let go, a flap flicked.</p>
 <p><strong>Physics</strong> on the play bar asks for <strong>gravity</strong> (Earth, Moon, Mars, none), <strong>accuracy</strong> and the floor,
 then runs the clip and writes a key a frame, so it plays and scrubs at once and can be touched up;
 simulate again after a change (undo takes it back). Node &gt; <strong>Physics</strong> sets roles for several parts at once.</p>
@@ -5512,6 +5519,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#assemblies-joints-between-parts">Joint values are names</a></li>
 <li><a href="#parts-catalogue">Joints between two boards</a> <a class="more" href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">2</a></li>
 <li><a href="#skeletons">Joints inside the model</a></li>
+<li><a href="#rigid-bodies-physics">Joint&#x27;s own physics</a></li>
 <li><a href="#rigid-bodies-physics">Joints survive</a></li>
 </ul>
 <h4 id="idx-K">K</h4><ul>
