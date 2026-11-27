@@ -1376,9 +1376,18 @@
     "mac-intel": 11788,
     "windows": 11194
    }
+  },
+  {
+   "date": "2026-11-27",
+   "counts": {
+    "linux": 10701,
+    "mac-apple-silicon": 17760,
+    "mac-intel": 11896,
+    "windows": 11305
+   }
   }
  ],
- "updated": "2026-11-26T23:14Z",
+ "updated": "2026-11-27T03:49Z",
  "extra": {
   "github": {
    "stars": 0,
@@ -1400,13 +1409,9 @@
    }
   },
   "changes": {
-   "week": 302,
-   "month": 765,
+   "week": 241,
+   "month": 759,
    "daily": [
-    {
-     "date": "2026-10-28",
-     "count": 11
-    },
     {
      "date": "2026-10-29",
      "count": 10
@@ -1522,15 +1527,19 @@
     {
      "date": "2026-11-26",
      "count": 65
+    },
+    {
+     "date": "2026-11-27",
+     "count": 0
     }
    ]
   },
   "goat": {
-   "updated": "2026-11-26T03:47Z",
+   "updated": "2026-11-27T03:49Z",
    "countries": [
     {
      "name": "Belgium",
-     "count": 756
+     "count": 785
     },
     {
      "name": "Germany",
@@ -1538,7 +1547,7 @@
     },
     {
      "name": "United States",
-     "count": 82
+     "count": 86
     },
     {
      "name": "Austria",
@@ -1573,36 +1582,36 @@
      "count": 7
     },
     {
-     "name": "Egypt",
+     "name": "Brazil",
      "count": 6
     }
    ],
    "browsers": [
     {
      "name": "Safari",
-     "count": 826
+     "count": 845
     },
     {
      "name": "Firefox",
-     "count": 174
+     "count": 188
     },
     {
      "name": "Chrome",
-     "count": 149
+     "count": 153
     }
    ],
    "systems": [
     {
      "name": "iOS",
-     "count": 593
+     "count": 612
     },
     {
      "name": "macOS",
-     "count": 455
+     "count": 465
     },
     {
      "name": "Windows",
-     "count": 44
+     "count": 46
     },
     {
      "name": "Android",
@@ -1610,28 +1619,28 @@
     },
     {
      "name": "Linux",
-     "count": 17
+     "count": 23
     }
    ],
    "screens": [
     {
      "name": "phone",
-     "count": 633
+     "count": 652
     },
     {
      "name": "tablet",
-     "count": 11
+     "count": 13
     },
     {
      "name": "desktop",
-     "count": 411
+     "count": 427
     },
     {
      "name": "large desktop",
      "count": 94
     }
    ],
-   "total": 1149,
+   "total": 1186,
    "daily": [
     {
      "date": "2026-10-13",
@@ -1811,10 +1820,14 @@
     },
     {
      "date": "2026-11-26",
-     "count": 3
+     "count": 35
     },
     {
      "date": "2026-11-27",
+     "count": 5
+    },
+    {
+     "date": "2026-11-28",
      "count": 0
     }
    ],
@@ -2131,6 +2144,11 @@
    },
    {
     "date": "2026-11-24",
+    "count": 0,
+    "uniques": 0
+   },
+   {
+    "date": "2026-11-25",
     "count": 0,
     "uniques": 0
    }
