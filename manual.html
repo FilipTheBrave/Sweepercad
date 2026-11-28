@@ -1786,6 +1786,11 @@ end profiles and every profile in between:
 click one onto the selected bone and the bone pulls the outline there - a cheek, a lip, a fin. Each
 keeps where it stood to its bone at rest and is laid back into the profile's plane (a bone that lifts
 it out of the plane is reported); free profile points stay where they are. Click it again to free it.</p>
+<p><strong>Handles on bones of their own.</strong> In <strong>Points</strong>, the handles of the selected part's curves show as dots too
+(and those of points already on a bone): click a handle onto the selected bone and it keeps where it stands
+to that bone, whatever its point does - so one point can follow three bones: the point on one, its in-handle
+on a second, its out-handle on a third. A lip's corner can stay put while the curve on either side of it
+bulges or pulls. Click the handle again to free it; it goes with its point again. Spines and profiles both.</p>
 <p><strong>Pose.</strong> Click a bone: rings stand round its base - drag one to turn it about that axis (the others
 dim, the angle shows, its limits are drawn on the ring). The green square at its end stretches it.
 Drag an IK diamond or a pole. With the timeline shown, every change is a key.</p>
@@ -1869,8 +1874,36 @@ on the parts it hits: a table, a step, a crate (each counts as its outer shape -
 a frame at a time into five mouth shapes - <strong>A</strong> open, <strong>E</strong> wide, <strong>O</strong> round, <strong>F</strong> teeth on the lip,
 <strong>M</strong> closed (and silence). Save mouth poses with those names in the pose manager and they are mixed
 frame by frame, easing from shape to shape; or select the jaw bone and it opens by the shape and the
-loudness (<strong>amount</strong>: its widest, in degrees). It follows the sound, not the words: fix a word by hand
-where it must read.</p>
+loudness (<strong>amount</strong>: its widest, in degrees). On its own it follows the sound, not the words.</p>
+<p><strong>Lip sync to the line.</strong> Type what is said in <strong>line</strong> and the words are turned into their sounds - <em>bear</em>
+is B, EH, R - and laid over the voice in order, each sound as long as the speaker takes for it. Then each
+mouth shape lands on its own sound: the lips close on every m, b and p, round for oo and w, the teeth on the
+lip for f and v. Mouths lead the sound a little, as real mouths do. English spelling is read by rules and a
+list of common words; an odd word may get a near sound.</p>
+<p><strong>Moods.</strong> An angry mouth isn't a happy one saying the same thing. Choose the <strong>mood</strong> - neutral, happy, sad,
+angry, enraged, scared or surprised - or switch it inside the line: <em>[happy] Hello there, [angry] stop that!</em>.
+The mood changes each shape (enraged opens wide and bares the teeth, sad hardly opens, scared stretches wide)
+and eases from one mood to the next. Save mouth poses for a mood - <strong>A.angry</strong>, <strong>O.sad</strong>, <strong>E.happy</strong> - and
+they are used for it; save a pose named after the mood - <strong>angry</strong>, with the brows and mouth corners - and it
+is laid over the whole stretch in that mood.</p>
+<p><strong>A pose for every sound, in every mood.</strong> The five shapes are only the start. Sculpt a mouth for a finer
+sound - <strong>EE</strong> (see), <strong>OO</strong> (you, w), <strong>L</strong> (the tongue up behind the teeth), <strong>TH</strong> (the tongue between the
+teeth), <strong>R</strong>, <strong>S</strong>, <strong>CH</strong> (sh, ch, j), <strong>D</strong> (t, d, n, k, g) - or for one sound itself (<strong>SH</strong>, <strong>AA</strong>), and in
+a mood (<strong>L.angry</strong>, <strong>OO.scared</strong>). For each moment the most particular pose saved is used: the sound in its
+mood, the sound, its finer group in the mood, the group, then the five. A pose holds every bone you put in
+it - jaw, lips, tongue, cheeks, ears, eyelids - and a pose made for a sound or a mood is shown whole. Where it
+holds a bone the mood's face does too, its own wins. <strong>M.angry</strong> is the mood's closed mouth, between words.</p>
+<p><strong>Poses with parts and shapes.</strong> A pose can hold more than bones. With <strong>with the selected parts</strong> ticked in the
+pose manager, the parts selected in the view are saved in the pose too: where a free part stands, how it is
+turned and scaled, and the shape of its profile, end profile and spine - the outline of a mouth's opening, a
+lip's curve, a cheek. (A part riding on a bone takes its place from the bone, so only its shapes are kept.)
+Putting the pose back puts them back, mixed like the bones; with the timeline shown, they are keyed. Lip sync
+blends them frame by frame with the bones: sculpt the opening's profile for A, for O, for an angry A, and
+the mouth's own outline changes as it talks. Shapes blend point by point, so keep the same number of points
+on a curve in every pose.</p>
+<p><strong>On its own layer.</strong> Tick <strong>on its own layer</strong> and the lip sync goes on a row of its own, played on top of the
+rest of the animation: an ear flop or a head turn keyed by hand still plays under it, the mouth's motion is
+added to it, and the row can be faded, muted or moved like any other.</p>
 <p><strong>Shake.</strong> Actions' <strong>shake</strong> trembles the selected bone and the bones under it - or a part, chosen in
 the list - smoothly over what is keyed, faded in and out; on its own layer, it can be faded or muted
 later. <strong>Jiggle</strong> is a follow-through preset for soft things that wobble after a move.</p>
@@ -5702,6 +5735,7 @@ repeat under still goes through the pieces as before.</p>
 <li><a href="#a-qr-code">Mirrored</a></li>
 <li><a href="#mirroring-an-object">Mirroring an object</a></li>
 <li><a href="#when-a-fillet-will-not-take">Mixed</a></li>
+<li><a href="#skeletons">Moods</a></li>
 <li><a href="#coils-springs-threads-shells-and-horns">Morph</a></li>
 <li><a href="#woodwork-the-cut-list-the-stock-the-cutting-diagrams">Mortise and tenon</a></li>
 <li><a href="#exporting">Motion blur</a></li>
